@@ -4,11 +4,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700;800&display=swap');
 
 :root {
-    --primary-color: #111e2d;   /* כחול נייבי עמוק (רקע הלוגו) */
+    --primary-color: #111e2d;   /* כחול נייבי עמוק */
     --accent-color: #d4af37;    /* זהב מטאלי יוקרתי */
     --accent-hover: #b5952f;    
-    --accent-success: #10b981;  /* ירוק למדדים חיוביים וצמיחה */
-    --accent-error: #ef4444;    /* אדום לממדדים שליליים */
+    --accent-success: #10b981;  /* ירוק חיובי לעליות ומדדים */
+    --accent-error: #ef4444;    /* אדום לירידות */
     --text-main: #1e293b;       
     --text-muted: #64748b;      
     --bg-light: #f8fafc;        
@@ -17,9 +17,7 @@
     --font-stack: 'Assistant', system-ui, -apple-system, sans-serif;
 }
 
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     font-family: var(--font-stack);
@@ -38,7 +36,7 @@ body {
 }
 
 /* ==========================================================================
-   סרגל ניווט עליון והטמעת הלוגו החתוך
+   סרגל ניווט עליון והלוגו
    ========================================================================== */
 .main-header {
     background-color: var(--primary-color);
@@ -56,6 +54,7 @@ body {
     max-width: 1140px;
     margin: 0 auto;
     padding: 12px 24px;
+    position: relative;
 }
 
 .logo-wrapper {
@@ -75,9 +74,7 @@ body {
     transition: transform 0.3s ease;
 }
 
-.site-logo:hover {
-    transform: scale(1.05);
-}
+.site-logo:hover { transform: scale(1.05); }
 
 .logo-text {
     color: var(--accent-color);
@@ -85,6 +82,20 @@ body {
     font-weight: 800;
     letter-spacing: -0.5px;
 }
+
+/* כפתור תפריט המבורגר מוסתר כברירת מחדל במחשב */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--bg-light);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: color 0.2s;
+}
+
+.menu-toggle:hover { color: var(--accent-color); }
 
 .main-nav ul {
     list-style: none;
@@ -102,20 +113,18 @@ body {
     transition: color 0.2s ease;
 }
 
-.main-nav ul li a:hover {
-    color: var(--accent-color);
-}
+.main-nav ul li a:hover { color: var(--accent-color); }
 
 /* ==========================================================================
-   ארכיטקטורת באנר המדדים הנע (Market Ticker)
+   באנר המדדים הנע (Market Ticker)
    ========================================================================== */
 .ticker-container {
     width: 100%;
     overflow: hidden;
-    background-color: #09121c; /* גוון כהה במיוחד המייצר קונטרסט מול הניווט */
+    background-color: #09121c;
     border-bottom: 1px solid rgba(212, 175, 55, 0.2);
     padding: 10px 0;
-    direction: ltr; /* נשמר משמאל לימין כדי שהמספרים והמדדים הגלובליים יזרמו נכון */
+    direction: ltr;
     display: flex;
 }
 
@@ -123,10 +132,9 @@ body {
     display: flex;
     width: max-content;
     white-space: nowrap;
-    animation: ticker-infinite-scroll 35s linear infinite; /* אנימציה רציפה */
+    animation: ticker-infinite-scroll 35s linear infinite;
 }
 
-/* פיצ'ר חוויית משתמש: מעבר עכבר עוצר את הרצועה בעדינות */
 .ticker-wrap:hover {
     animation-play-state: paused;
     cursor: pointer;
@@ -136,7 +144,7 @@ body {
     display: inline-flex;
     align-items: center;
     padding: 0 35px;
-    font-size: 14.5px;
+    font-size: 14px;
     font-weight: 600;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -148,18 +156,13 @@ body {
 }
 
 .ticker-val {
-    font-variant-numeric: tabular-nums; /* שומר על רווח קבוע בין המספרים למניעת רעידות */
+    font-variant-numeric: tabular-nums;
+    color: var(--text-muted);
 }
 
-.ticker-val.positive {
-    color: var(--accent-success);
-}
+.ticker-val.positive { color: var(--accent-success); }
+.ticker-val.negative { color: var(--accent-error); }
 
-.ticker-val.negative {
-    color: var(--accent-error);
-}
-
-/* אלגוריתם התנועה - הזזה מדויקת ב-50% בגלל השכפול האוטומטי */
 @keyframes ticker-infinite-scroll {
     0% { transform: translate3d(0, 0, 0); }
     100% { transform: translate3d(-50%, 0, 0); }
@@ -285,3 +288,55 @@ body {
 .main-footer { background-color: var(--primary-color); color: #94a3b8; padding: 48px 0; text-align: center; font-size: 14.5px; border-top: 1px solid #1e293b; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 .animate-fade-in { animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+/* ==========================================================================
+   חוקי רספונסיביות ותאימות למובייל (Media Queries)
+   ========================================================================== */
+@media (max-width: 900px) {
+    .hero-section h2 { font-size: 40px; }
+    .logo-text { font-size: 18px; }
+}
+
+@media (max-width: 768px) {
+    /* 1. הפעלת תפריט המבורגר רספונסיבי */
+    .menu-toggle { display: block; }
+
+    .main-nav {
+        display: none; /* מוסתר כברירת מחדל במובייל */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--primary-color);
+        border-bottom: 2px solid var(--accent-color);
+        padding: 20px 0;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    .main-nav.active { display: block; } /* מוצג בלחיצה */
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* 2. התאמת אזור ה-Hero למסכים קטנים */
+    .hero-section { padding: 70px 0; }
+    .hero-section h2 { font-size: 32px; }
+    .hero-section p { font-size: 16px; padding: 0 10px; }
+    
+    /* סידור כפתורים אנכית במובייל למניעת צפיפות */
+    .hero-actions { flex-direction: column; gap: 12px; align-items: center; }
+    .btn { width: 100%; max-width: 280px; text-align: center; }
+
+    /* 3. פריסה טורית (עמודה אחת) של כרטיסי השירותים */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .service-card { padding: 24px; }
+    .section-header { margin-bottom: 40px; }
+    .section-header h3 { font-size: 26px; }
+}
