@@ -2,17 +2,17 @@ const fs = require('fs');
 
 async function fetchFinancialMetrics() {
     const symbols = ['^GSPC', '^NDX', '^DJI', '^RUT', 'TA35.TA', 'TA125.TA', 'TA90.TA'];
-    const url = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbols.join(',')}`;
+    const targetUrl = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbols.join(',')}`;
+    
+    // ניתוב הבקשה דרך צומת גישה אנונימי כדי למנוע חסימת IP של חוות השרתים של GitHub
+    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
 
     try {
-        // פנייה ישירה משרת לשרת - ללא חסימות דפדפן
-        const response = await fetch(url, {
-            headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' }
-        });
+        const response = await fetch(proxyUrl);
+        if (!response.ok) throw new Error(`HTTP network anomaly! status: ${response.status}`);
         
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        
-        const data = await response.json();
+        const wrapperData = await response.json();
+        const data = JSON.parse(wrapperData.contents); // פענוח עטיפת הפרוקסי
         const quotes = data.quoteResponse.result;
 
         const processedData = {};
@@ -23,11 +23,11 @@ async function fetchFinancialMetrics() {
             };
         });
 
-        // כתיבת הנתונים המעודכנים לקובץ מקומי באתר
+        // כתיבה פיזית של הקובץ על גבי השרת
         fs.writeFileSync('market_data.json', JSON.stringify(processedData, null, 2));
-        console.log('Market data system updated successfully.');
+        console.log('Market data pipeline executed and filed successfully.');
     } catch (error) {
-        console.error('Critical failure in data pipeline fetch:', error);
+        console.error('Critical failure in core data pipeline fetch:', error);
         process.exit(1);
     }
 }
