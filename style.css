@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700;800&display=swap');
+/* ==========================================================================
+   משתני עיצוב (CSS Variables) - מאפשרים שליטה אחידה בפלטת הצבעים
+   ========================================================================== */
+:root {
+    --primary-color: #0f172a;   /* כחול סלייט כהה מאוד, יוקרתי */
+    --accent-color: #0284c7;    /* כחול בהיר אלגנטי לאלמנטים אינטראקטיביים */
+    --accent-success: #10b981;  /* ירוק ברקת עדין לציון צמיחה ורווחים */
+    --text-main: #1e293b;       /* טקסט כהה, רך יותר משחור מוחלט */
+    --text-muted: #64748b;      /* אפור עדין לטקסט משני */
+    --bg-light: #f8fafc;        /* רקע כללי בהיר ונקי */
+    --bg-white: #ffffff;        /* לבן טהור לכרטיסים ורכיבים */
+    --border-color: #e2e8f0;    /* קווי הפרדה דקים וכמעט בלתי נראים */
+   --font-stack: 'Assistant', system-ui, -apple-system, sans-serif;
+}
+
+/* ==========================================================================
+   הגדרות בסיס ואיפוס (Reset & Base)
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ==========================================================================
+   סרגל ניווט (Header & Navigation)
+   ========================================================================== */
+.main-header {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px); /* אפקט זכוכית מודרני */
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 16px 24px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary-color);
+    letter-spacing: -0.5px;
+}
+
+.logo-accent {
+    color: var(--accent-color);
+    margin-left: 4px;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 32px;
+}
+
+.main-nav ul li a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.2s ease;
+}
+
+.main-nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* ==========================================================================
+   אזור ה-Hero
+   ========================================================================== */
+.hero-section {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    padding: 100px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero-tagline {
+    color: var(--accent-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.hero-section h2 {
+    font-size: 42px;
+    font-weight: 800;
+    margin: 0 0 24px 0;
+    letter-spacing: -1px;
+    line-height: 1.2;
+}
+
+.hero-section p {
+    font-size: 18px;
+    color: #94a3b8;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+
+/* כפתורים בעיצוב ארכיטקטוני חד */
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.btn {
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--bg-white);
+}
+
+.btn-primary:hover {
+    background-color: #0274a8;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #cbd5e1;
+    border: 1px solid #475569;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--bg-white);
+    border-color: #cbd5e1;
+}
+
+/* ==========================================================================
+   אזור שירותים (Services Section)
+   ========================================================================== */
+.services-section {
+    padding: 80px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h3 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin: 0 0 12px 0;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 16px;
+    margin: 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.service-card {
+    background-color: var(--bg-white);
+    padding: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* אפקט קו עיצובי עליון במעבר עכבר */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 3px;
+    background-color: var(--accent-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.04);
+    border-color: #cbd5e1;
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.card-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.service-card h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0 0 12px 0;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin: 0;
+}
+
+/* ==========================================================================
+   אזור מאמרים ובלוג (Blog Section)
+   ========================================================================== */
+.blog-section {
+    padding: 80px 0;
+    background-color: var(--bg-white);
+    border-top: 1px solid var(--border-color);
+}
+
+.blog-grid {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.post-card {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.post-card:last-child {
+    border-bottom: none;
+}
+
+.post-meta {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.post-card h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0 0 12px 0;
+}
+
+.post-card p {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin: 0 0 16px 0;
+}
+
+.read-more {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   תחתית האתר (Footer)
+   ========================================================================== */
+.main-footer {
+    background-color: var(--primary-color);
+    color: #64748b;
+    padding: 40px 0;
+    text-align: center;
+    font-size: 14px;
+    border-top: 1px solid #1e293b;
+}
+
+/* אנימציית פתיחה חלקה */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s ease forwards;
+}
