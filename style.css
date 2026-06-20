@@ -43,12 +43,12 @@ body {
    סרגל ניווט עליון והטמעת הלוגו (Header & Nav)
    ========================================================================== */
 .main-header {
-    background-color: var(--primary-color);
-    border-bottom: 2px solid var(--accent-color); /* פס זהב דק הממסגר את הראש */
+    background-color: var(--primary-color); /* מוודא שהסרגל מקבל את צבע הנייבי העמוק */
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2); /* קו זהב עדין ביותר */
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .header-container {
@@ -57,46 +57,37 @@ body {
     align-items: center;
     max-width: 1140px;
     margin: 0 auto;
-    padding: 10px 24px;
+    padding: 12px 24px;
 }
 
 .logo-wrapper {
     display: flex;
     align-items: center;
+    gap: 12px; /* רווח אלגנטי בין המטבע לטקסט */
     text-decoration: none;
 }
 
-/* התאמה ועיצוב של מטבע הלוגו המוזהב */
+/* הפתרון ההנדסי: חיתוך המטבע מתוך המלבן */
 .site-logo {
-    height: 65px;
-    width: auto;
-    border-radius: 50%; /* הפיכת קובץ הריבוע לעיגול מטבע מושלם */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    height: 45px;       /* גובה עדין וקטן */
+    width: 45px;        /* רוחב זהה ליצירת ריבוע מושלם */
+    object-fit: cover;  /* גוזר את התמונה מבלי לעוות אותה */
+    object-position: center; /* ממקד את החיתוך בדיוק באמצע התמונה */
+    border-radius: 50%; /* חותך את הריבוע לעיגול מטבע מושלם */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease;
 }
 
 .site-logo:hover {
-    transform: scale(1.05); /* מיקרו-אינטראקציה של הגדלה קלה */
+    transform: scale(1.05); 
 }
 
-.main-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 32px;
-}
-
-.main-nav ul li a {
-    color: var(--bg-light);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    transition: color 0.2s ease;
-}
-
-.main-nav ul li a:hover {
-    color: var(--accent-color); /* הפיכת הטקסט לזהב במעבר עכבר */
+/* עיצוב הטקסט שלצד המטבע */
+.logo-text {
+    color: var(--accent-color); /* צבע זהב */
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
 }
 
 /* ==========================================================================
