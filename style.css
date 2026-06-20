@@ -4,10 +4,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700;800&display=swap');
 
 :root {
-    --primary-color: #111e2d;   /* כחול נייבי עמוק */
+    --primary-color: #111e2d;   /* כחול נייבי עמוק (רקע הלוגו) */
     --accent-color: #d4af37;    /* זהב מטאלי יוקרתי */
     --accent-hover: #b5952f;    
-    --accent-success: #10b981;  
+    --accent-success: #10b981;  /* ירוק למדדים חיוביים וצמיחה */
+    --accent-error: #ef4444;    /* אדום לממדדים שליליים */
     --text-main: #1e293b;       
     --text-muted: #64748b;      
     --bg-light: #f8fafc;        
@@ -41,7 +42,7 @@ body {
    ========================================================================== */
 .main-header {
     background-color: var(--primary-color);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2); 
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15); 
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -64,7 +65,6 @@ body {
     text-decoration: none;
 }
 
-/* חיתוך אסתטי של המטבע מתוך הרקע */
 .site-logo {
     height: 45px;
     width: 45px;
@@ -86,7 +86,6 @@ body {
     letter-spacing: -0.5px;
 }
 
-/* כאן היו חסרות ההגדרות של התפריט */
 .main-nav ul {
     list-style: none;
     margin: 0;
@@ -105,6 +104,65 @@ body {
 
 .main-nav ul li a:hover {
     color: var(--accent-color);
+}
+
+/* ==========================================================================
+   ארכיטקטורת באנר המדדים הנע (Market Ticker)
+   ========================================================================== */
+.ticker-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: #09121c; /* גוון כהה במיוחד המייצר קונטרסט מול הניווט */
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 10px 0;
+    direction: ltr; /* נשמר משמאל לימין כדי שהמספרים והמדדים הגלובליים יזרמו נכון */
+    display: flex;
+}
+
+.ticker-wrap {
+    display: flex;
+    width: max-content;
+    white-space: nowrap;
+    animation: ticker-infinite-scroll 35s linear infinite; /* אנימציה רציפה */
+}
+
+/* פיצ'ר חוויית משתמש: מעבר עכבר עוצר את הרצועה בעדינות */
+.ticker-wrap:hover {
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+.ticker-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 35px;
+    font-size: 14.5px;
+    font-weight: 600;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ticker-name {
+    color: #ffffff;
+    margin-right: 8px;
+    font-family: var(--font-stack);
+}
+
+.ticker-val {
+    font-variant-numeric: tabular-nums; /* שומר על רווח קבוע בין המספרים למניעת רעידות */
+}
+
+.ticker-val.positive {
+    color: var(--accent-success);
+}
+
+.ticker-val.negative {
+    color: var(--accent-error);
+}
+
+/* אלגוריתם התנועה - הזזה מדויקת ב-50% בגלל השכפול האוטומטי */
+@keyframes ticker-infinite-scroll {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
 }
 
 /* ==========================================================================
