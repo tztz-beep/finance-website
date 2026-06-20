@@ -1,19 +1,19 @@
 const fs = require('fs');
+// ייבוא המנוע הייעודי
+const yahooFinance = require('yahoo-finance2').default;
 
 async function fetchFinancialMetrics() {
     const symbols = ['^GSPC', '^NDX', '^DJI', '^RUT', 'TA35.TA', 'TA125.TA', 'TA90.TA'];
-    const targetUrl = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbols.join(',')}`;
-    
-    // ניתוב הבקשה דרך צומת גישה אנונימי כדי למנוע חסימת IP של חוות השרתים של GitHub
-    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
 
     try {
-        const response = await fetch(proxyUrl);
-        if (!response.ok) throw new Error(`HTTP network anomaly! status: ${response.status}`);
+        console.log('Initiating intelligent connection via yahoo-finance2 engine...');
         
-        const wrapperData = await response.json();
-        const data = JSON.parse(wrapperData.contents); // פענוח עטיפת הפרוקסי
-        const quotes = data.quoteResponse.result;
+        // משיכת הנתונים - המנוע מנהל את ה-Cookies וה-Crumbs אוטומטית
+        const quotes = await yahooFinance.quote(symbols);
+
+        if (!quotes || quotes.length === 0) {
+            throw new Error('API returned empty dataset.');
+        }
 
         const processedData = {};
         quotes.forEach(quote => {
@@ -23,11 +23,12 @@ async function fetchFinancialMetrics() {
             };
         });
 
-        // כתיבה פיזית של הקובץ על גבי השרת
+        // כתיבת הנתונים לקובץ
         fs.writeFileSync('market_data.json', JSON.stringify(processedData, null, 2));
-        console.log('Market data pipeline executed and filed successfully.');
+        console.log('Success: market_data.json created with live metrics.');
+
     } catch (error) {
-        console.error('Critical failure in core data pipeline fetch:', error);
+        console.error('Critical Error in API Engine:', error.message);
         process.exit(1);
     }
 }
