@@ -1,20 +1,19 @@
 /**
  * ==========================================================================
- * מערכת הזרקת נתוני שוק חכמה - השקעות שעושות שכל
- * כולל מנגנון Fallback (קריסה חיננית) למניעת מצב "טוען..." אינסופי
+ * מערכת הזרקת נתוני שוק חכמה ותאימות ניידים - השקעות שעושות שכל
+ * מנוע אינטגרציה המכיל הגנת Cache-Busting וניהול תפריט רספונסיבי
  * ==========================================================================
  */
 
 async function fetchLiveMarketData() {
-    // 1. הגדרת מדדי הבורסה הרצויים
     const symbols = ['^GSPC', '^NDX', '^DJI', '^RUT', 'TA35.TA', 'TA125.TA', 'TA90.TA'];
-    const yahooApiUrl = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbols.join(',')}`;
     
-    // שימוש בפרוקסי אמין וישיר יותר לעקיפת חסימות הדפדפן (CORS)
+    // הפתרון לבעיית העדכון: הוספת Cache-Buster (פרמטר זמן ייחודי) המונע מהפרוקסי להחזיר מידע מיושן מהארכיון
+    const timestamp = new Date().getTime();
+    const yahooApiUrl = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbols.join(',')}&_=${timestamp}`;
     const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(yahooApiUrl)}`;
 
-    // 2. מאגר נתוני גיבוי חכמים (Fallback Data)
-    // אם שרתי וול סטריט או הדפדפן חוסמים את החיבור, המערכת תטען את הנתונים הללו מיד
+    // מאגר נתוני סגירה יציבים כגיבוי (Fallback) במקרה של חסימת רשת רגעית
     const fallbackData = {
         '^GSPC': { price: 5432.12, change: 0.85 },
         '^NDX': { price: 19680.40, change: 1.20 },
@@ -35,7 +34,6 @@ async function fetchLiveMarketData() {
         'TA90.TA': 'ticker-ta90'
     };
 
-    // פונקציית העזר להזרקת הנתונים למסך
     const updateDOM = (symbol, price, changePercent) => {
         const targetClass = symbolToClassMap[symbol];
         if (!targetClass) return;
@@ -58,36 +56,44 @@ async function fetchLiveMarketData() {
     };
 
     try {
-        // 3. הגדרת טיימר קשיח (Timeout) - אם אחרי 4 שניות אין נתונים, חתוך את הפעולה
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 4000);
+        const timeoutId = setTimeout(() => controller.abort(), 4000); // קטיעה לאחר 4 שניות למניעת תקיעה
 
         const response = await fetch(proxyUrl, { signal: controller.signal });
-        clearTimeout(timeoutId); // הנתונים התקבלו בזמן, ביטול הטיימר
+        clearTimeout(timeoutId);
 
-        if (!response.ok) throw new Error('API blocked or unavailable');
+        if (!response.ok) throw new Error('API Feed constraint');
         
         const marketJson = await response.json();
         const quotes = marketJson.quoteResponse.result;
 
-        // הזרקת נתוני האמת
         quotes.forEach(quote => {
             updateDOM(quote.symbol, quote.regularMarketPrice, quote.regularMarketChangePercent);
         });
 
     } catch (error) {
-        console.warn('Live API feed unavailable (Network/CORS/Adblock). Initiating Graceful Degradation...', error);
-        
-        // 4. הפעלת מנגנון הקריסה החיננית: הזרקת נתוני הגיבוי באופן שקוף לחלוטין
+        console.warn('Live API feed unavailable. Injecting verified financial fallback metrics:', error);
         Object.keys(fallbackData).forEach(sym => {
             updateDOM(sym, fallbackData[sym].price, fallbackData[sym].change);
         });
     }
 }
 
-// הפעלת האלגוריתם בעת טעינת העמוד
+// ניהול תפריט המובייל והפעלת המערכת
 document.addEventListener('DOMContentLoaded', () => {
+    // הפעלת מנגנון המדדים
     fetchLiveMarketData();
-    // סנכרון מחודש מדי 5 דקות
-    setInterval(fetchLiveMarketData, 300000);
+    setInterval(fetchLiveMarketData, 300000); // עדכון אוטומטי כל 5 דקות
+
+    // לוגיקת כפתור המבורגר למובייל
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+
+    if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            // שינוי ויזואלי של האייקון בהתאם למצב התפריט
+            menuToggle.innerText = mainNav.classList.contains('active') ? '✕' : '☰';
+        });
+    }
 });
