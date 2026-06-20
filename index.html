@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>השקעות שעושות שכל | ידע פיננסי בגובה העיניים</title>
-    <link rel="stylesheet" href="style.css?v=4.0">
+    <link rel="stylesheet" href="style.css?v=5.0">
 </head>
 <body>
 
@@ -26,23 +26,43 @@
         </div>
     </header>
 
-    <div class="ticker-container">
-        <div class="ticker-wrap">
-            <div class="ticker-item"><span class="ticker-name">S&P 500</span><span class="ticker-val positive">▲ 5,432.12 (+0.85%)</span></div>
-            <div class="ticker-item"><span class="ticker-name">נאסדק</span><span class="ticker-val positive">▲ 17,680.40 (+1.20%)</span></div>
-            <div class="ticker-item"><span class="ticker-name">דאו ג'ונס</span><span class="ticker-val positive">▲ 39,120.50 (+0.45%)</span></div>
-            <div class="ticker-item"><span class="ticker-name">ת"א 35</span><span class="ticker-val negative">▼ 2,045.30 (-0.32%)</span></div>
-            <div class="ticker-item"><span class="ticker-name">ת"א 125</span><span class="ticker-val negative">▼ 2,120.15 (-0.15%)</span></div>
-            <div class="ticker-item"><span class="ticker-name">ת"א 90</span><span class="ticker-val positive">▲ 2,240.80 (+0.62%)</span></div>
-            <div class="ticker-item"><span class="ticker-name">ראסל 2000</span><span class="ticker-val positive">▲ 2,015.40 (+0.95%)</span></div>
-            
-            <div class="ticker-item"><span class="ticker-name">S&P 500</span><span class="ticker-val positive">▲ 5,432.12 (+0.85%)</span></div>
-            <div class="ticker-item"><span class="ticker-name">נאסדק</span><span class="ticker-val positive">▲ 17,680.40 (+1.20%)</span></div>
-            <div class="ticker-item"><span class="ticker-name">דאו ג'ונס</span><span class="ticker-val positive">▲ 39,120.50 (+0.45%)</span></div>
-            <div class="ticker-item"><span class="ticker-name">ת"א 35</span><span class="ticker-val negative">▼ 2,045.30 (-0.32%)</span></div>
-            <div class="ticker-item"><span class="ticker-name">ת"א 125</span><span class="ticker-val negative">▼ 2,120.15 (-0.15%)</span></div>
-            <div class="ticker-item"><span class="ticker-name">ת"א 90</span><span class="ticker-val positive">▲ 2,240.80 (+0.62%)</span></div>
-            <div class="ticker-item"><span class="ticker-name">ראסל 2000</span><span class="ticker-val positive">▲ 2,015.40 (+0.95%)</span></div>
+    <div class="ticker-container" style="background-color: #09121c; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker.js" async>
+            {
+            "symbols": [
+                {
+                "proName": "FOREXCOM:SPX3500",
+                "title": "S&P 500"
+                },
+                {
+                "proName": "NASDAQ:NDX",
+                "title": "נאסדאק 100"
+                },
+                {
+                "proName": "FOREXCOM:DJI",
+                "title": "דאו ג'ונס"
+                },
+                {
+                "proName": "INDEX:RUT",
+                "title": "ראסל 2000"
+                },
+                {
+                "proName": "TASE:TA35",
+                "title": "ת\"א 35"
+                },
+                {
+                "proName": "TASE:TA125",
+                "title": "ת\"א 125"
+                }
+            ],
+            "isTransparent": true,
+            "showSymbolLogo": true,
+            "colorTheme": "dark",
+            "locale": "he_IL"
+            }
+            </script>
         </div>
     </div>
 
@@ -88,36 +108,4 @@
                     <div class="service-card" id="funds">
                         <div class="card-icon">💼</div>
                         <h4>קופות גמל והשתלמות</h4>
-                        <p>ניהול ובחינה שוטפת של מכשירי החיסכון לטווח הבינוני, איתור כשלי שוק ומעבר למסלולים מניבי תשואה עודפת.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="blog-section" id="blog">
-            <div class="container">
-                <div class="section-header">
-                    <h3>אנליזה, תובנות וסקירות שוק</h3>
-                </div>
-                
-                <div class="blog-grid">
-                    <article class="post-card">
-                        <div class="post-meta">מאקרו וניהול תיקים</div>
-                        <h4>ניהול חשיפה מנייתית בסביבת ריבית משתנה</h4>
-                        <p>כיצד משפיעים השינויים המקרו-כלכליים על מודל פונקציית הייצור והקצאת הנכסים בתיק הלקוח הכללי? ניתוח מגמות ומודלים של סיכון.</p>
-                        <a href="#" class="read-more">לקריאת הסקירה המלאה ←</a>
-                    </article>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="main-footer">
-        <div class="container">
-            <p>&copy; 2026 השקעות שעושות שכל. כל הזכויות שמורות לפיתוח עצמאי מוגן.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+                        <p>ניהול ובחינה שוטפת של מכשירי החיסכון לטווח הבינוני, איתור כשלי שוק ומעבר למסלולים מ
