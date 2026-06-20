@@ -2,20 +2,24 @@ name: Update Market Data Metrics
 
 on:
   schedule:
-    - cron: '*/30 * * * *' # המערכת תתעורר אוטומטית ותעדכן את הנתונים כל 30 דקות
-  workflow_dispatch: # מאפשר לך להפעיל את העדכון ידנית בלחיצת כפתור בכל רגע
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+# שורת המחץ: הענקת הרשאה מפורשת לשרת לכתוב ולשמור את קובץ הנתונים
+permissions:
+  contents: write
 
 jobs:
   update-ticker-data:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # שודרג ל-v4 למניעת אזהרות
 
       - name: Setup Node.js Environment
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4 # שודרג ל-v4
         with:
-          node-version: '18'
+          node-version: '20' # מעבר לגרסת מנוע יציבה ועדכנית
 
       - name: Fetch and Build Live Market JSON
         run: node update-ticker.js
