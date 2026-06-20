@@ -4,21 +4,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700;800&display=swap');
 
 :root {
-    --primary-color: #111e2d;   /* כחול נייבי עמוק (צבע הרקע של הלוגו שלך) */
-    --accent-color: #d4af37;    /* זהב מטאלי יוקרתי מהלוגו */
-    --accent-hover: #b5952f;    /* גוון זהב עמוק למצבי מעבר עכבר */
-    --accent-success: #10b981;  /* ירוק ברקת חיובי לאנליזה ורווחים */
-    --text-main: #1e293b;       /* טקסט ראשי רך וקריא */
-    --text-muted: #64748b;      /* אפור משני לאלמנטים פחות קריטיים */
-    --bg-light: #f8fafc;        /* רקע עדין ומרווח לעמוד */
+    --primary-color: #111e2d;   /* כחול נייבי עמוק */
+    --accent-color: #d4af37;    /* זהב מטאלי יוקרתי */
+    --accent-hover: #b5952f;    
+    --accent-success: #10b981;  
+    --text-main: #1e293b;       
+    --text-muted: #64748b;      
+    --bg-light: #f8fafc;        
     --bg-white: #ffffff;        
     --border-color: #e2e8f0;    
     --font-stack: 'Assistant', system-ui, -apple-system, sans-serif;
 }
 
-/* ==========================================================================
-   הגדרות יסוד ואיפוס (Base Reset)
-   ========================================================================== */
 * {
     box-sizing: border-box;
 }
@@ -40,11 +37,11 @@ body {
 }
 
 /* ==========================================================================
-   סרגל ניווט עליון והטמעת הלוגו (Header & Nav)
+   סרגל ניווט עליון והטמעת הלוגו החתוך
    ========================================================================== */
 .main-header {
-    background-color: var(--primary-color); /* מוודא שהסרגל מקבל את צבע הנייבי העמוק */
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2); /* קו זהב עדין ביותר */
+    background-color: var(--primary-color);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2); 
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -63,39 +60,59 @@ body {
 .logo-wrapper {
     display: flex;
     align-items: center;
-    gap: 12px; /* רווח אלגנטי בין המטבע לטקסט */
+    gap: 12px;
     text-decoration: none;
 }
 
-/* הפתרון ההנדסי: חיתוך המטבע מתוך המלבן */
+/* חיתוך אסתטי של המטבע מתוך הרקע */
 .site-logo {
-    height: 45px;       /* גובה עדין וקטן */
-    width: 45px;        /* רוחב זהה ליצירת ריבוע מושלם */
-    object-fit: cover;  /* גוזר את התמונה מבלי לעוות אותה */
-    object-position: center; /* ממקד את החיתוך בדיוק באמצע התמונה */
-    border-radius: 50%; /* חותך את הריבוע לעיגול מטבע מושלם */
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease;
 }
 
 .site-logo:hover {
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
-/* עיצוב הטקסט שלצד המטבע */
 .logo-text {
-    color: var(--accent-color); /* צבע זהב */
+    color: var(--accent-color);
     font-size: 20px;
     font-weight: 800;
     letter-spacing: -0.5px;
 }
 
+/* כאן היו חסרות ההגדרות של התפריט */
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 32px;
+}
+
+.main-nav ul li a {
+    color: var(--bg-light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.2s ease;
+}
+
+.main-nav ul li a:hover {
+    color: var(--accent-color);
+}
+
 /* ==========================================================================
-   אזור ה-Hero (פתיחת העמוד)
+   אזור ה-Hero
    ========================================================================== */
 .hero-section {
     background-color: var(--primary-color);
-    background-image: radial-gradient(circle at center, #1e3147 0%, #111e2d 100%); /* מדרון צבעים עמוק */
+    background-image: radial-gradient(circle at center, #1e3147 0%, #111e2d 100%);
     color: var(--bg-white);
     padding: 110px 0;
     text-align: center;
@@ -113,7 +130,7 @@ body {
 }
 
 .hero-section h2 {
-    color: var(--accent-color); /* כותרת המותג בזהב בוהק */
+    color: var(--accent-color);
     font-size: 52px;
     font-weight: 800;
     margin: 0 0 24px 0;
@@ -128,7 +145,6 @@ body {
     margin: 0 auto 40px auto;
 }
 
-/* כפתורי הנעה לפעולה חדים ויוקרתיים */
 .hero-actions {
     display: flex;
     justify-content: center;
@@ -149,7 +165,7 @@ body {
 
 .btn-primary {
     background-color: var(--accent-color);
-    color: var(--primary-color); /* ניגודיות מושלמת לקריאות */
+    color: var(--primary-color);
 }
 
 .btn-primary:hover {
@@ -170,156 +186,44 @@ body {
 }
 
 /* ==========================================================================
-   אזור רשת השירותים הפיננסיים (Services Section)
+   אזור רשת השירותים הפיננסיים
    ========================================================================== */
-.services-section {
-    padding: 90px 0;
-}
+.services-section { padding: 90px 0; }
+.section-header { text-align: center; margin-bottom: 64px; }
+.section-header h3 { font-size: 32px; font-weight: 800; color: var(--primary-color); margin: 0 0 12px 0; }
+.section-header p { color: var(--text-muted); font-size: 16px; margin: 0; }
 
-.section-header {
-    text-align: center;
-    margin-bottom: 64px;
-}
-
-.section-header h3 {
-    font-size: 32px;
-    font-weight: 800;
-    color: var(--primary-color);
-    margin: 0 0 12px 0;
-}
-
-.section-header p {
-    color: var(--text-muted);
-    font-size: 16px;
-    margin: 0;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-}
-
+.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
 .service-card {
-    background-color: var(--bg-white);
-    padding: 36px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-    overflow: hidden;
+    background-color: var(--bg-white); padding: 36px; border-radius: 8px;
+    border: 1px solid var(--border-color); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative; overflow: hidden;
 }
-
-/* אפקט פס עיטור מוזהב עליון שמתרחב במעבר עכבר */
 .service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 3px;
-    background-color: var(--accent-color);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
+    content: ''; position: absolute; top: 0; right: 0; left: 0; height: 3px;
+    background-color: var(--accent-color); transform: scaleX(0); transition: transform 0.3s ease;
 }
-
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
-    border-color: #cbd5e1;
-}
-
-.service-card:hover::before {
-    transform: scaleX(1);
-}
-
-.card-icon {
-    font-size: 32px;
-    margin-bottom: 20px;
-}
-
-.service-card h4 {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin: 0 0 14px 0;
-}
-
-.service-card p {
-    color: var(--text-muted);
-    font-size: 15.5px;
-    margin: 0;
-}
+.service-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06); border-color: #cbd5e1; }
+.service-card:hover::before { transform: scaleX(1); }
+.card-icon { font-size: 32px; margin-bottom: 20px; }
+.service-card h4 { font-size: 22px; font-weight: 700; color: var(--primary-color); margin: 0 0 14px 0; }
+.service-card p { color: var(--text-muted); font-size: 15.5px; margin: 0; }
 
 /* ==========================================================================
-   אזור הכתבות והסקירות (Blog Section)
+   אזור הכתבות והסקירות
    ========================================================================== */
-.blog-section {
-    padding: 90px 0;
-    background-color: var(--bg-white);
-    border-top: 1px solid var(--border-color);
-}
-
-.blog-grid {
-    max-width: 850px;
-    margin: 0 auto;
-}
-
-.post-card {
-    padding: 24px 0;
-}
-
-.post-meta {
-    font-size: 13.5px;
-    color: var(--accent-hover); /* הדגשת קטגוריית המאמר בזהב */
-    font-weight: 700;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-}
-
-.post-card h4 {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin: 0 0 14px 0;
-}
-
-.post-card p {
-    color: var(--text-muted);
-    font-size: 16px;
-    margin: 0 0 20px 0;
-}
-
-.read-more {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 15px;
-    transition: color 0.2s;
-}
-
-.read-more:hover {
-    color: var(--accent-color);
-}
+.blog-section { padding: 90px 0; background-color: var(--bg-white); border-top: 1px solid var(--border-color); }
+.blog-grid { max-width: 850px; margin: 0 auto; }
+.post-card { padding: 24px 0; }
+.post-meta { font-size: 13.5px; color: var(--accent-hover); font-weight: 700; margin-bottom: 8px; text-transform: uppercase; }
+.post-card h4 { font-size: 24px; font-weight: 700; color: var(--primary-color); margin: 0 0 14px 0; }
+.post-card p { color: var(--text-muted); font-size: 16px; margin: 0 0 20px 0; }
+.read-more { color: var(--primary-color); text-decoration: none; font-weight: 700; font-size: 15px; transition: color 0.2s; }
+.read-more:hover { color: var(--accent-color); }
 
 /* ==========================================================================
-   תחתית האתר (Footer)
+   תחתית האתר
    ========================================================================== */
-.main-footer {
-    background-color: var(--primary-color);
-    color: #94a3b8;
-    padding: 48px 0;
-    text-align: center;
-    font-size: 14.5px;
-    border-top: 1px solid #1e293b;
-}
-
-/* אנימציה חלקה לטעינת האתר */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fade-in {
-    animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
+.main-footer { background-color: var(--primary-color); color: #94a3b8; padding: 48px 0; text-align: center; font-size: 14.5px; border-top: 1px solid #1e293b; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fade-in { animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
