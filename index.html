@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>השקעות שעושות שכל | ידע פיננסי בגובה העיניים</title>
-    <!-- שבירת זיכרון מטמון מובטחת באמצעות גרסה 6.0 -->
-    <link rel="stylesheet" href="style.css?v=6.0">
+    <link rel="stylesheet" href="style.css?v=7.0">
 </head>
 <body>
 
-    <!-- סרגל ניווט עליון יוקרתי ומקובע -->
     <header class="main-header">
         <div class="header-container">
             <a href="index.html" class="logo-wrapper">
@@ -28,48 +26,27 @@
         </div>
     </header>
 
-    <!-- באנר מדדי שוק חיים - TradingView Ticker Tape (Clean Version) -->
-    <div class="tradingview-widget-container" style="direction: ltr; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-        {
-        "symbols": [
-            {
-            "proName": "FOREXCOM:SPX3500",
-            "title": "S&P 500"
-            },
-            {
-            "proName": "NASDAQ:NDX",
-            "title": "נאסדאק 100"
-            },
-            {
-            "proName": "FOREXCOM:DJI",
-            "title": "דאו ג'ונס"
-            },
-            {
-            "proName": "INDEX:RUT",
-            "title": "ראסל 2000"
-            },
-            {
-            "proName": "TASE:TA35",
-            "title": "ת\"א 35"
-            },
-            {
-            "proName": "TASE:TA125",
-            "title": "ת\"א 125"
-            }
-        ],
-        "showSymbolLogo": true,
-        "isTransparent": false,
-        "displayMode": "adaptive",
-        "colorTheme": "dark",
-        "locale": "he_IL"
-        }
-        </script>
+    <div class="ticker-container">
+        <div class="ticker-wrap">
+            <div class="ticker-item"><span class="ticker-name">S&P 500</span><span class="ticker-val positive">▲ 5,432.12 (+0.85%)</span></div>
+            <div class="ticker-item"><span class="ticker-name">נאסדאק 100</span><span class="ticker-val positive">▲ 19,680.40 (+1.20%)</span></div>
+            <div class="ticker-item"><span class="ticker-name">דאו ג'ונס</span><span class="ticker-val positive">▲ 39,120.50 (+0.45%)</span></div>
+            <div class="ticker-item"><span class="ticker-name">ת"א 35</span><span class="ticker-val negative">▼ 2,045.30 (-0.32%)</span></div>
+            <div class="ticker-item"><span class="ticker-name">ת"א 125</span><span class="ticker-val negative">▼ 2,120.15 (-0.15%)</span></div>
+            <div class="ticker-item"><span class="ticker-name">ת"א 90</span><span class="ticker-val positive">▲ 2,240.80 (+0.62%)</span></div>
+            <div class="ticker-item"><span class="ticker-name">ראסל 2000</span><span class="ticker-val positive">▲ 2,015.40 (+0.95%)</span></div>
+            
+            <div class="ticker-item"><span class="ticker-name">S&P 500</span><span class="ticker-val positive">▲ 5,432.12 (+0.85%)</span></div>
+            <div class="ticker-item"><span class="ticker-name">נאסדאק 100</span><span class="ticker-val positive">▲ 19,680.40 (+1.20%)</span></div>
+            <div class="ticker-item"><span class="ticker-name">דאו ג'ונס</span><span class="ticker-val positive">▲ 39,120.50 (+0.45%)</span></div>
+            <div class="ticker-item"><span class="ticker-name">ת"א 35</span><span class="ticker-val negative">▼ 2,045.30 (-0.32%)</span></div>
+            <div class="ticker-item"><span class="ticker-name">ת"א 125</span><span class="ticker-val negative">▼ 2,120.15 (-0.15%)</span></div>
+            <div class="ticker-item"><span class="ticker-name">ת"א 90</span><span class="ticker-val positive">▲ 2,240.80 (+0.62%)</span></div>
+            <div class="ticker-item"><span class="ticker-name">ראסל 2000</span><span class="ticker-val positive">▲ 2,015.40 (+0.95%)</span></div>
+        </div>
     </div>
 
     <main>
-        <!-- אזור ה-Hero: חזות דרמטית וממוקדת בשפת העיצוב החדשה -->
         <section class="hero-section">
             <div class="container animate-fade-in">
                 <span class="hero-tagline">ידע פיננסי בגובה העיניים</span>
@@ -82,7 +59,6 @@
             </div>
         </section>
 
-        <!-- אזור השירותים: כרטיסים אנליטיים נקיים עם אינטראקציות מעבר עכבר -->
         <section class="services-section" id="services">
             <div class="container">
                 <div class="section-header">
@@ -106,7 +82,7 @@
                     <div class="service-card" id="tax">
                         <div class="card-icon">⚖️</div>
                         <h4>תכנון מס ופרישה</h4>
-                        <p>ניתוח אסטרטגי של הטבות מס, פטורים בחוק, וניצול מכשירים מתקדמים להגדלת התשואה נטו.</p>
+                        <p>ניתוח אסטרטגי של הטבות מס, פפורים בחוק, וניצול מכשירים מתקדמים להגדלת התשואה נטו.</p>
                     </div>
 
                     <div class="service-card" id="funds">
@@ -118,7 +94,6 @@
             </div>
         </section>
 
-        <!-- אזור הכתבות והסקירות הכלכליות -->
         <section class="blog-section" id="blog">
             <div class="container">
                 <div class="section-header">
@@ -137,7 +112,6 @@
         </section>
     </main>
 
-    <!-- תחתית האתר המותאמת לשפת המותג -->
     <footer class="main-footer">
         <div class="container">
             <p>&copy; 2026 השקעות שעושות שכל. כל הזכויות שמורות לפיתוח עצמאי מוגן.</p>
