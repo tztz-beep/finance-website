@@ -5,7 +5,6 @@ on:
     - cron: '*/30 * * * *'
   workflow_dispatch:
 
-# שורת המחץ: הענקת הרשאה מפורשת לשרת לכתוב ולשמור את קובץ הנתונים
 permissions:
   contents: write
 
@@ -14,12 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4 # שודרג ל-v4 למניעת אזהרות
+        uses: actions/checkout@v4
 
       - name: Setup Node.js Environment
-        uses: actions/setup-node@v4 # שודרג ל-v4
+        uses: actions/setup-node@v4
         with:
-          node-version: '20' # מעבר לגרסת מנוע יציבה ועדכנית
+          node-version: '20'
+
+      # שלב חדש: התקנת מנוע הנתונים הייעודי שיודע לעקוף את מנגנון האבטחה של יאהו
+      - name: Install API Engine
+        run: npm install yahoo-finance2
 
       - name: Fetch and Build Live Market JSON
         run: node update-ticker.js
