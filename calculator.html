@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>סימולטור הנדסה פיננסית | מודל צמיחה ועלויות</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700;800&display=swap');
+
+        :root {
+            --primary-color: #0f172a;   /* כחול סלייט כהה */
+            --accent-color: #0284c7;    /* כחול אלגנטי */
+            --accent-success: #10b981;  /* ירוק ברקת לצמיחה */
+            --accent-warning: #f59e0b;  /* ענבר לדמי ניהול */
+            --text-main: #1e293b;       /* טקסט ראשי */
+            --text-muted: #64748b;      /* אפור משני */
+            --bg-light: #f8fafc;        /* רקע בהיר */
+            --bg-white: #ffffff;
+            --border-color: #e2e8f0;
+            --font-stack: 'Assistant', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+        }
+
+        .main-header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 24px;
+        }
+        .header-container {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .logo-accent {
+            color: var(--accent-color);
+            margin-left: 4px;
+        }
+        .back-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .calc-wrapper {
+            max-width: 850px;
+            margin: 60px auto;
+            padding: 0 24px;
+        }
+
+        .calc-card {
+            background-color: var(--bg-white);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.03);
+        }
+
+        .calc-header {
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+            padding: 32px;
+            text-align: center;
+        }
+
+        .calc-header h2 {
+            margin: 0 0 8px 0;
+            font-size: 26px;
+            font-weight: 800;
+        }
+
+        .calc-header p {
+            margin: 0;
+            color: #94a3b8;
+            font-size: 15px;
+        }
+
+        .calc-body {
+            padding: 40px;
+        }
+
+        /* גריד שדות קלט מורחב - 3 שורות של 2 טורים */
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 16px;
+            font-family: var(--font-stack);
+            color: var(--primary-color);
+            background-color: var(--bg-light);
+            box-sizing: border-box;
+            transition: all 0.2s ease;
+        }
+
+        .input-wrapper input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background-color: var(--bg-white);
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+        }
+
+        .btn-calc {
+            width: 100%;
+            background-color: var(--accent-color);
+            color: var(--bg-white);
+            border: none;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-calc:hover {
+            background-color: #0274a8;
+        }
+
+        .results-box {
+            margin-top: 40px;
+            padding: 32px;
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            border-right: 4px solid var(--accent-success);
+            display: none;
+        }
+
+        .results-box h3 {
+            margin: 0 0 24px 0;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 15px;
+        }
+
+        .result-row:last-of-type {
+            border-bottom: none;
+            padding-top: 16px;
+            margin-top: 8px;
+        }
+
+        .result-label {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .result-value {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .result-value.warning {
+            color: var(--accent-warning);
+        }
+
+        .result-value.success {
+            color: var(--accent-success);
+        }
+
+        .result-value.total {
+            font-size: 22px;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo"><span class="logo-accent">■</span> האסטרטגיה הפיננסית</a>
+            <a href="index.html" class="back-link">← חזרה לדף הבית</a>
+        </div>
+    </header>
+
+    <div class="calc-wrapper">
+        <div class="calc-card">
+            <div class="calc-header">
+                <h2>סימולטור הנדסת הון, תשואות ועלויות מובנות</h2>
+                <p>ניתוח אקטיבי של צמיחת הנכסים בניקוי השפעת רכיבי דמי הניהול</p>
+            </div>
+            
+            <div class="calc-body">
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="principal">סכום השקעה ראשוני (₪)</label>
+                        <div class="input-wrapper"><input type="number" id="principal" value="100000"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="monthly">הפקדה חודשית שוטפת (₪)</label>
+                        <div class="input-wrapper"><input type="number" id="monthly" value="2500"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="rate">תשואה שנתית צפויה (% ברוטו)</label>
+                        <div class="input-wrapper"><input type="number" id="rate" value="7.5" step="0.1"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="years">תקופת החיסכון (בשנים)</label>
+                        <div class="input-wrapper"><input type="number" id="years" value="20"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="feeDeposit">דמי ניהול מהפקדה (%)</label>
+                        <div class="input-wrapper"><input type="number" id="feeDeposit" value="1.5" step="0.05"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="feeAccum">דמי ניהול מצבירה שנתית (%)</label>
+                        <div class="input-wrapper"><input type="number" id="feeAccum" value="0.25" step="0.01"></div>
+                    </div>
+                </div>
+
+                <button class="btn-calc" onclick="runAdvancedSimulation()">בצע הרצת מודל ועמלות</button>
+
+                <div class="results-box" id="simulationResults">
+                    <h3>פלט אנליזה פיננסית נטו:</h3>
+                    
+                    <div class="result-row">
+                        <span class="result-label">סך הכל הון עצמי שהופקד (ברוטו):</span>
+                        <span class="result-value" id="outTotalDeposited">₪0</span>
+                    </div>
+
+                    <div class="result-row">
+                        <span class="result-label">סך דמי ניהול מצטברים ששולמו (מהפקדה + צבירה):</span>
+                        <span class="result-value warning" id="outTotalFees">₪0</span>
+                    </div>
+                    
+                    <div class="result-row">
+                        <span class="result-label">תשואה נצברת נקייה (נטו לאחר עלויות):</span>
+                        <span class="result-value success" id="outNetInterest">₪0</span>
+                    </div>
+                    
+                    <div class="result-row">
+                        <span class="result-label">שווי תיק חזוי בסוף התקופה (נטו):</span>
+                        <span class="result-value total" id="outFinalBalance">₪0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function runAdvancedSimulation() {
+            // קליטת הנתונים
+            const P = parseFloat(document.getElementById('principal').value) || 0;
+            const PMT = parseFloat(document.getElementById('monthly').value) || 0;
+            const annualRate = parseFloat(document.getElementById('rate').value) || 0;
+            const t = parseInt(document.getElementById('years').value) || 0;
+            const feeDepositPct = parseFloat(document.getElementById('feeDeposit').value) || 0;
+            const feeAccumPct = parseFloat(document.getElementById('feeAccum').value) || 0;
+
+            // משתני עזר להרצה חודשית
+            const totalMonths = t * 12;
+            const monthlyRate = (annualRate / 100) / 12;
+            const monthlyAccumFeeRate = (feeAccumPct / 100) / 12;
+
+            let currentBalance = P;
+            let totalDeposited = P;
+            let totalFeesPaid = 0;
+
+            // ריצה חודשית סימולטיבית מדויקת
+            for (let m = 1; m <= totalMonths; m++) {
+                // 1. טיפול בהפקדה שוטפת ודמי ניהול מהפקדה
+                let depositFee = PMT * (feeDepositPct / 100);
+                let netDeposit = PMT - depositFee;
+                
+                currentBalance += netDeposit;
+                totalFeesPaid += depositFee;
+                totalDeposited += PMT;
+
+                // 2. צמיחת תשואה חודשית
+                let monthlyReturn = currentBalance * monthlyRate;
+                currentBalance += monthlyReturn;
+
+                // 3. ניכוי דמי ניהול מצבירה (מחושב חודשית מהנכסים)
+                let accumFee = currentBalance * monthlyAccumFeeRate;
+                currentBalance -= accumFee;
+                totalFeesPaid += accumFee;
+            }
+
+            // חישוב התשואה הנקייה שנוצרה בתיק
+            const netInterestEarned = currentBalance - (totalDeposited - (PMT * totalMonths * (feeDepositPct / 100)) - (P * 0)); 
+            const dynamicInterest = currentBalance - totalDeposited + totalFeesPaid; // רווח ברוטו
+            const netProfit = currentBalance - totalDeposited; // רווח בשורה התחתונה
+
+            // הזרקת התוצאות לממשק במטבע מקומי
+            document.getElementById('outTotalDeposited').innerText = '₪' + Math.round(totalDeposited).toLocaleString('he-IL');
+            document.getElementById('outTotalFees').innerText = '₪' + Math.round(totalFeesPaid).toLocaleString('he-IL');
+            document.getElementById('outNetInterest').innerText = '₪' + Math.round(netProfit).toLocaleString('he-IL');
+            document.getElementById('outFinalBalance').innerText = '₪' + Math.round(currentBalance).toLocaleString('he-IL');
+
+            document.getElementById('simulationResults').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
