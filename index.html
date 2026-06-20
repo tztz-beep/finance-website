@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>השקעות שעושות שכל | ידע פיננסי בגובה העיניים</title>
-    <link rel="stylesheet" href="style.css?v=5.0">
+    <!-- שבירת זיכרון מטמון מובטחת באמצעות גרסה 6.0 -->
+    <link rel="stylesheet" href="style.css?v=6.0">
 </head>
 <body>
 
+    <!-- סרגל ניווט עליון יוקרתי ומקובע -->
     <header class="main-header">
         <div class="header-container">
             <a href="index.html" class="logo-wrapper">
@@ -26,47 +28,48 @@
         </div>
     </header>
 
-    <div class="ticker-container" style="background-color: #09121c; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-        <div class="tradingview-widget-container">
-            <div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker.js" async>
+    <!-- באנר מדדי שוק חיים - TradingView Ticker Tape (Clean Version) -->
+    <div class="tradingview-widget-container" style="direction: ltr; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+        "symbols": [
             {
-            "symbols": [
-                {
-                "proName": "FOREXCOM:SPX3500",
-                "title": "S&P 500"
-                },
-                {
-                "proName": "NASDAQ:NDX",
-                "title": "נאסדאק 100"
-                },
-                {
-                "proName": "FOREXCOM:DJI",
-                "title": "דאו ג'ונס"
-                },
-                {
-                "proName": "INDEX:RUT",
-                "title": "ראסל 2000"
-                },
-                {
-                "proName": "TASE:TA35",
-                "title": "ת\"א 35"
-                },
-                {
-                "proName": "TASE:TA125",
-                "title": "ת\"א 125"
-                }
-            ],
-            "isTransparent": true,
-            "showSymbolLogo": true,
-            "colorTheme": "dark",
-            "locale": "he_IL"
+            "proName": "FOREXCOM:SPX3500",
+            "title": "S&P 500"
+            },
+            {
+            "proName": "NASDAQ:NDX",
+            "title": "נאסדאק 100"
+            },
+            {
+            "proName": "FOREXCOM:DJI",
+            "title": "דאו ג'ונס"
+            },
+            {
+            "proName": "INDEX:RUT",
+            "title": "ראסל 2000"
+            },
+            {
+            "proName": "TASE:TA35",
+            "title": "ת\"א 35"
+            },
+            {
+            "proName": "TASE:TA125",
+            "title": "ת\"א 125"
             }
-            </script>
-        </div>
+        ],
+        "showSymbolLogo": true,
+        "isTransparent": false,
+        "displayMode": "adaptive",
+        "colorTheme": "dark",
+        "locale": "he_IL"
+        }
+        </script>
     </div>
 
     <main>
+        <!-- אזור ה-Hero: חזות דרמטית וממוקדת בשפת העיצוב החדשה -->
         <section class="hero-section">
             <div class="container animate-fade-in">
                 <span class="hero-tagline">ידע פיננסי בגובה העיניים</span>
@@ -79,6 +82,7 @@
             </div>
         </section>
 
+        <!-- אזור השירותים: כרטיסים אנליטיים נקיים עם אינטראקציות מעבר עכבר -->
         <section class="services-section" id="services">
             <div class="container">
                 <div class="section-header">
@@ -108,4 +112,38 @@
                     <div class="service-card" id="funds">
                         <div class="card-icon">💼</div>
                         <h4>קופות גמל והשתלמות</h4>
-                        <p>ניהול ובחינה שוטפת של מכשירי החיסכון לטווח הבינוני, איתור כשלי שוק ומעבר למסלולים מ
+                        <p>ניהול ובחינה שוטפת של מכשירי החיסכון לטווח הבינוני, איתור כשלי שוק ומעבר למסלולים מניבי תשואה עודפת.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- אזור הכתבות והסקירות הכלכליות -->
+        <section class="blog-section" id="blog">
+            <div class="container">
+                <div class="section-header">
+                    <h3>אנליזה, תובנות וסקירות שוק</h3>
+                </div>
+                
+                <div class="blog-grid">
+                    <article class="post-card">
+                        <div class="post-meta">מאקרו וניהול תיקים</div>
+                        <h4>ניהול חשיפה מנייתית בסביבת ריבית משתנה</h4>
+                        <p>כיצד משפיעים השינויים המקרו-כלכליים על מודל פונקציית הייצור והקצאת הנכסים בתיק הלקוח הכללי? ניתוח מגמות ומודלים של סיכון.</p>
+                        <a href="#" class="read-more">לקריאת הסקירה המלאה ←</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- תחתית האתר המותאמת לשפת המותג -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 השקעות שעושות שכל. כל הזכויות שמורות לפיתוח עצמאי מוגן.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
