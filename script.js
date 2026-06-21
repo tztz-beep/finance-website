@@ -17,7 +17,6 @@ async function loadMarketTickerData() {
     };
 
     try {
-        // משיכת קובץ הנתונים המקומי והטרי שנבנה על ידי השרת
         const response = await fetch('./market_data.json?cachebust=' + new Date().getTime());
         if (!response.ok) throw new Error('Local data frame pending generation');
         
@@ -50,12 +49,10 @@ async function loadMarketTickerData() {
     }
 }
 
-// אתחול וניהול אירועים באתר
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. טעינת נתוני המדדים המקומיים
     loadMarketTickerData();
+    setInterval(loadMarketTickerData, 300000);
 
-    // 2. לוגיקת תפריט המבורגר רספונסיבי למובייל
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav');
 
