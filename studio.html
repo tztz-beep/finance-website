@@ -3,30 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מערכת ניהול תוכן | השקעות שעושות שכל</title>
+    <title>פאנל ניהול | השקעות שעושות שכל</title>
     <style>
-        html, body, #sanity {
+        html, body, #sanity-app {
             width: 100%;
             height: 100%;
             margin: 0;
             padding: 0;
             overflow: hidden;
+            background-color: #f4f6f8;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        /* חיווי טעינה לפני שהמערכת עולה */
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #1e293b;
+            font-weight: 600;
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
+    
+    <div id="loading">טוען את סביבת העבודה המאובטחת...</div>
+    <div id="sanity-app"></div>
 
-    <div id="sanity"></div>
+    <script type="module">
+        // ייבוא ישיר מהשרתים המקומפלים של esm.sh שמונעים שגיאות React
+        import { defineConfig, renderStudio } from 'https://esm.sh/@sanity/studio@3';
 
-    <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@sanity/studio@3/dist/index.umd.js"></script>
+        // העלמת טקסט הטעינה כשהמערכת מתחילה לעלות
+        document.getElementById('loading').style.display = 'none';
 
-    <script>
-        // חילוץ פונקציות המבנה של המערכת
-        const { defineConfig, renderStudio, createSchema } = window.SanityStudio;
-
-        // הגדרת הארכיטקטורה והשדות של המאמרים שלך (The Schema)
         const postSchema = {
             name: 'post',
             title: 'סקירות ומאמרים',
@@ -36,7 +47,7 @@
                     name: 'title',
                     title: 'כותרת הסקירה',
                     type: 'string',
-                    validation: Rule => Rule.required()
+                    validation: (Rule) => Rule.required()
                 },
                 {
                     name: 'slug',
@@ -46,7 +57,7 @@
                         source: 'title',
                         maxLength: 96,
                     },
-                    validation: Rule => Rule.required()
+                    validation: (Rule) => Rule.required()
                 },
                 {
                     name: 'category',
@@ -60,37 +71,37 @@
                             { title: '💼 קופות גמל והשתלמות', value: 'funds' }
                         ],
                     },
-                    validation: Rule => Rule.required()
+                    validation: (Rule) => Rule.required()
                 },
                 {
                     name: 'excerpt',
                     title: 'תקציר לכרטיסייה (יופיע בדף הבית)',
                     type: 'text',
                     rows: 3,
-                    validation: Rule => Rule.max(200)
+                    validation: (Rule) => Rule.max(200)
                 },
                 {
                     name: 'body',
                     title: 'גוף הכתבה המלא',
                     type: 'array',
-                    of: [{ type: 'block' }] // הגדרת עורך טקסט עשיר (Rich Text)
+                    of: [{ type: 'block' }]
                 }
             ]
         };
 
-        // הפעלת קונפיגורציית הסטודיו המותאמת אישית לפרויקט שלך
         const config = defineConfig({
-            projectId: 'nk1s624p', // חיבור למזהה הייחודי שלך
+            projectId: 'nk1s624p', 
             dataset: 'production',
-            title: 'השקעות שעושות שכל - פאנל ניהול',
-            basePath: '/finance-website/studio.html', // נתיב הרצה תואם ל-GitHub Pages
+            title: 'השקעות שעושות שכל - מערכת ניהול',
+            // הנתיב המדויק שבו הסטודיו רץ ב-GitHub Pages
+            basePath: '/finance-website/studio.html', 
             schema: {
                 types: [postSchema]
             }
         });
 
-        // רינדור והזרקה של ממשק המשתמש למסך
-        renderStudio(document.getElementById('sanity'), config);
+        // רינדור הסטודיו לתוך האלמנט במסך
+        renderStudio(document.getElementById('sanity-app'), config);
     </script>
 </body>
 </html>
