@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>סקירה פיננסית | השקעות שעושות שכל</title>
+    <link rel="stylesheet" href="style.css?v=16.0">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        .article-wrapper {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 24px;
+            min-height: 60vh;
+        }
+        .article-card {
+            background-color: var(--bg-white);
+            padding: 48px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(17,30,45,0.05);
+        }
+        .article-title {
+            color: var(--primary-color);
+            font-size: 34px;
+            font-weight: 800;
+            margin: 0 0 16px 0;
+            line-height: 1.2;
+        }
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 36px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 16px;
+            font-weight: 600;
+        }
+        
+        /* עיצוב גוף המאמר לחוויית קריאה חלקה */
+        .article-body {
+            font-size: 17.5px;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+        .article-body h1, .article-body h2, .article-body h3 {
+            color: var(--primary-color);
+            margin-top: 36px;
+            font-weight: 800;
+        }
+        .article-body a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .article-body a:hover {
+            text-decoration: underline;
+        }
+        .article-body img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 24px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .article-body ul, .article-body ol {
+            margin-right: 20px;
+            margin-bottom: 24px;
+        }
+        .article-body li {
+            margin-bottom: 8px;
+        }
+        .article-body blockquote {
+            border-right: 4px solid var(--accent-color);
+            margin: 24px 0;
+            padding: 12px 24px 12px 0;
+            background-color: var(--bg-light);
+            font-style: italic;
+            color: var(--primary-color);
+        }
+        
+        .back-nav {
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+        .back-nav a {
+            color: var(--text-muted);
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .back-nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            .article-card { padding: 24px; }
+            .article-title { font-size: 26px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo-wrapper">
+                <img src="logo.jpg" alt="השקעות שעושות שכל" class="site-logo">
+                <span class="logo-text">השקעות שעושות שכל</span>
+            </a>
+            <a href="index.html" style="color: var(--bg-light); text-decoration: none; font-weight: 600; font-size: 15px;">← חזרה לדף הבית</a>
+        </div>
+    </header>
+
+    <div class="article-wrapper">
+        <div class="back-nav">
+            <a href="index.html">← חזרה לכל הסקירות</a>
+        </div>
+        
+        <div class="article-card" id="reader-container">
+            <div style="text-align:center; padding: 60px; color: var(--text-muted); font-size: 18px; font-weight: 600;">
+                <span style="display:inline-block; animation: pulse 1.5s infinite;">שואב נתונים...</span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 השקעות שעושות שכל. כל הזכויות שמורות לפיתוח עצמאי מוגן.</p>
+        </div>
+    </footer>
+
+    <script>
+        // אנימציית טעינה פשוטה
+        const style = document.createElement('style');
+        style.innerHTML = `@keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }`;
+        document.head.appendChild(style);
+
+        async function loadFullArticle() {
+            // משיכת המזהה (ID) משורת הכתובת של הדפדפן
+            const params = new URLSearchParams(window.location.search);
+            const issueId = params.get('id');
+            
+            const container = document.getElementById('reader-container');
+
+            if (!issueId) {
+                container.innerHTML = '<h3 style="color:var(--accent-error);">שגיאה הנדסית: לא סופק מזהה מאמר בתקינות.</h3>';
+                return;
+            }
+
+            const githubUsername = 'tztz-beep'; 
+            const repoName = 'finance-website';
+            const apiUrl = `https://api.github.com/repos/${githubUsername}/${repoName}/issues/${issueId}`;
+
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) throw new Error('Network failure in fetching full document');
+                
+                const article = await response.json();
+                
+                // המרת תאריך לפורמט ישראלי תקני
+                const dateObj = new Date(article.created_at);
+                const formattedDate = dateObj.toLocaleDateString('he-IL', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
+                // שימוש במנוע marked להמרת התוכן לעיצוב פרימיום
+                const htmlContent = marked.parse(article.body || 'אין תוכן במאמר זה.');
+
+                // הזרקת המאמר לתבנית
+                container.innerHTML = `
+                    <h1 class="article-title">${article.title}</h1>
+                    <div class="article-meta">תאריך פרסום: ${formattedDate}</div>
+                    <div class="article-body">${htmlContent}</div>
+                `;
+                
+                // עדכון דינמי של שם החלונית בדפדפן
+                document.title = `${article.title} | השקעות שעושות שכל`;
+
+            } catch (error) {
+                container.innerHTML = '<h3 style="color:var(--accent-error);">תקלת רשת. לא ניתן למשוך את הסקירה כרגע, נסה שוב מאוחר יותר.</h3>';
+            }
+        }
+
+        // טעינת המאמר מיד כשהעמוד עולה
+        document.addEventListener('DOMContentLoaded', loadFullArticle);
+    </script>
+</body>
+</html>
