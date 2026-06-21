@@ -20,10 +20,6 @@ jobs:
         with:
           node-version: '20'
 
-      # שלב חדש: התקנת מנוע הנתונים הייעודי שיודע לעקוף את מנגנון האבטחה של יאהו
-      - name: Install API Engine
-        run: npm install yahoo-finance2
-
       - name: Fetch and Build Live Market JSON
         run: node update-ticker.js
 
