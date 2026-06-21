@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>מרכז מחשבונים פיננסיים | השקעות שעושות שכל</title>
-    <link rel="stylesheet" href="style.css?v=13.0">
+    <link rel="stylesheet" href="style.css?v=14.0">
     <style>
         .calc-wrapper { max-width: 950px; margin: 40px auto; padding: 0 24px; }
         .calc-card { background-color: var(--bg-white); border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(17,30,45,0.08); overflow: hidden; }
@@ -75,24 +75,25 @@
                             </select>
                         </div>
                     </div>
+                    
                     <div class="input-group">
-                        <label for="kids0">תינוקות בשנת הלידה (גיל 0)</label>
+                        <label for="kids0" id="lbl-kids0">נולדו בשנת המס</label>
                         <div class="input-wrapper"><input type="number" id="kids0" value="0" min="0"></div>
                     </div>
                     <div class="input-group">
-                        <label for="kids1to2">פעוטות בגילאי 1 עד 2</label>
+                        <label for="kids1to2" id="lbl-kids1to2">ימלאו להם 1 או 2 בשנת המס</label>
                         <div class="input-wrapper"><input type="number" id="kids1to2" value="0" min="0"></div>
                     </div>
                     <div class="input-group">
-                        <label for="kids3">ילדים בני 3</label>
+                        <label for="kids3" id="lbl-kids3">ימלאו להם 3 בשנת המס</label>
                         <div class="input-wrapper"><input type="number" id="kids3" value="0" min="0"></div>
                     </div>
                     <div class="input-group">
-                        <label for="kids4to5">ילדים בגילאי 4 עד 5</label>
+                        <label for="kids4to5" id="lbl-kids4to5">ימלאו להם 4 או 5 בשנת המס</label>
                         <div class="input-wrapper"><input type="number" id="kids4to5" value="0" min="0"></div>
                     </div>
                     <div class="input-group">
-                        <label for="kids6to17">ילדים בגילאי 6 עד 17</label>
+                        <label for="kids6to17" id="lbl-kids6to17">ימלאו להם 6 עד 17 בשנת המס</label>
                         <div class="input-wrapper"><input type="number" id="kids6to17" value="0" min="0"></div>
                     </div>
                 </div>
@@ -191,7 +192,6 @@
             }
         }
 
-        // מסד נתונים מורחב: יישובים מוטבים בישראל, אחוזי הנחה ותקרות הכנסה שנתית מעודכנות
         const eligibleCities = {
             "שדרות": { rate: 0.20, ceiling: 241080 },
             "קרית שמונה": { rate: 0.20, ceiling: 241080 },
@@ -224,8 +224,8 @@
             "חריש": { rate: 0.07, ceiling: 132000 }
         };
 
-        // הזרקה אוטומטית של רשימת היישובים לטופס
         document.addEventListener("DOMContentLoaded", () => {
+            // 1. הזרקה אוטומטית של רשימת היישובים
             const dataList = document.getElementById("city-list");
             if (dataList) {
                 dataList.innerHTML = ''; 
@@ -235,6 +235,14 @@
                     dataList.appendChild(option);
                 });
             }
+
+            // 2. מנוע עדכון אוטומטי של שנת המס הנוכחית על פי השנה הקלנדרית במחשב/נייד
+            const currentYear = new Date().getFullYear();
+            document.getElementById('lbl-kids0').innerText = `נולדו בשנת המס ${currentYear} (גיל 0):`;
+            document.getElementById('lbl-kids1to2').innerText = `ימלאו להם 1 או 2 בשנת המס ${currentYear}:`;
+            document.getElementById('lbl-kids3').innerText = `ימלאו להם 3 בשנת המס ${currentYear}:`;
+            document.getElementById('lbl-kids4to5').innerText = `ימלאו להם 4 או 5 בשנת המס ${currentYear}:`;
+            document.getElementById('lbl-kids6to17').innerText = `ימלאו להם 6 עד 17 בשנת המס ${currentYear}:`;
         });
 
         function calculateIsraeliTax() {
