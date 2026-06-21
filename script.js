@@ -1,9 +1,13 @@
 /**
  * ==========================================================================
- * הליבה האפליקטיבית - השקעות שעושות שכל (גרסה 16.0)
- * מנוע CMS פנימי עם הפניה לעמוד קריאה מקומי
+ * הליבה האפליקטיבית - השקעות שעושות שכל (גרסה 19.0)
+ * אינטגרציה מלאה מול Structured Headless CMS (Sanity.io)
  * ==========================================================================
  */
+
+const SANITY_PROJECT_ID = 'nk1s624p'; 
+const SANITY_DATASET = 'production';
+const SANITY_VERSION = 'v2021-10-21';
 
 // 1. מנוע המדדים המקומי 
 async function loadMarketTickerData() {
@@ -50,29 +54,29 @@ async function loadMarketTickerData() {
     }
 }
 
-// 2. מנוע התוכן הדינמי (Headless CMS)
-async function fetchAndRouteContent() {
-    const githubUsername = 'tztz-beep'; 
-    const repoName = 'finance-website';
-    
-    const apiUrl = `https://api.github.com/repos/${githubUsername}/${repoName}/issues?state=open`;
+// 2. מנוע התוכן המקצועי מבוסס Sanity API
+async function fetchAndRouteSanityContent() {
+    // שאילתת GROQ המושכת את כל המאמרים מסוג post
+    const groqQuery = '*[_type == "post"] | order(_createdAt desc)';
+    const apiUrl = `https://${SANITY_PROJECT_ID}.api.sanity.io/${SANITY_VERSION}/data/query/${SANITY_DATASET}?query=${encodeURIComponent(groqQuery)}`;
 
     try {
         const response = await fetch(apiUrl);
-        if (!response.ok) throw new Error('CMS fetching failed. Check if repo is public.');
+        if (!response.ok) throw new Error('Sanity CDN connection failed');
         
-        const issues = await response.json();
-        const articles = issues.filter(issue => !issue.pull_request);
+        const jsonResult = await response.json();
+        const articles = jsonResult.result;
+
+        if (!articles || articles.length === 0) return;
 
         articles.forEach(article => {
             const title = article.title;
-            const snippet = (article.body && article.body.length > 120) 
-                            ? article.body.substring(0, 120) + '...' 
-                            : (article.body || 'לחץ לקריאת הסקירה המלאה');
+            const snippet = article.excerpt || 'לחץ לקריאת הסקירה הפיננסית המלאה...';
+            // חילוץ הקטגוריה אם קיימת
+            const category = article.category ? article.category.toLowerCase() : '';
             
-            // השינוי הקריטי: הפניה פנימית לאתר שלנו עם מספר המאמר
-            const link = `article.html?id=${article.number}`; 
-            const labels = article.labels.map(label => label.name.toLowerCase());
+            // ניתוב לעמוד הקריאה הפנימי באמצעות ה-Slug הייחודי
+            const link = article.slug ? `article.html?slug=${article.slug.current}` : '#';
 
             const articleCard = `
                 <div class="injected-article">
@@ -82,35 +86,34 @@ async function fetchAndRouteContent() {
                 </div>
             `;
 
-            if (labels.includes('investments')) {
+            if (category === 'investments') {
                 const target = document.getElementById('investments-content-area');
                 if (target) target.innerHTML += articleCard;
             } 
-            else if (labels.includes('tax')) {
+            else if (category === 'tax') {
                 const target = document.getElementById('tax-content-area');
                 if (target) target.innerHTML += articleCard;
             }
-            else if (labels.includes('pension')) {
+            else if (category === 'pension') {
                 const target = document.getElementById('pension-content-area');
                 if (target) target.innerHTML += articleCard;
             }
-            else if (labels.includes('funds')) {
+            else if (category === 'funds') {
                 const target = document.getElementById('funds-content-area');
                 if (target) target.innerHTML += articleCard;
             }
         });
 
     } catch (error) {
-        console.warn('CMS Engine:', error.message);
+        console.warn('Sanity CMS Engine:', error.message);
     }
 }
 
-// 3. אתחול
 document.addEventListener('DOMContentLoaded', () => {
     loadMarketTickerData();
     setInterval(loadMarketTickerData, 300000);
     
-    fetchAndRouteContent();
+    fetchAndRouteSanityContent();
 
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav');
