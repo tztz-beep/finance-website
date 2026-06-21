@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>סקירה פיננסית | השקעות שעושות שכל</title>
-    <link rel="stylesheet" href="style.css?v=16.0">
+    <link rel="stylesheet" href="style.css?v=17.0">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         .article-wrapper {
@@ -19,6 +19,9 @@
             border-radius: 12px;
             border: 1px solid var(--border-color);
             box-shadow: 0 10px 30px rgba(17,30,45,0.05);
+            /* חסימת גלישה ברמת הכרטיסייה */
+            overflow: hidden;
+            max-width: 100%;
         }
         .article-title {
             color: var(--primary-color);
@@ -26,6 +29,7 @@
             font-weight: 800;
             margin: 0 0 16px 0;
             line-height: 1.2;
+            word-wrap: break-word;
         }
         .article-meta {
             color: var(--text-muted);
@@ -36,27 +40,38 @@
             font-weight: 600;
         }
         
-        /* עיצוב גוף המאמר לחוויית קריאה חלקה */
+        /* עיצוב גוף המאמר לחוויית קריאה חלקה עם שריון גבולות */
         .article-body {
             font-size: 17.5px;
             line-height: 1.8;
             color: var(--text-main);
+            /* פקודות ההגנה המכריחות את הטקסט להישבר ולא לפרוץ החוצה */
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
+        }
+        .article-body p {
+            margin-bottom: 1.5em;
+            max-width: 100%;
         }
         .article-body h1, .article-body h2, .article-body h3 {
             color: var(--primary-color);
             margin-top: 36px;
             font-weight: 800;
+            word-wrap: break-word;
         }
         .article-body a {
             color: var(--accent-color);
             text-decoration: none;
             font-weight: 700;
+            word-break: break-all; /* קישורים ארוכים במיוחד יישברו כדי לא לפרוץ */
         }
         .article-body a:hover {
             text-decoration: underline;
         }
         .article-body img {
             max-width: 100%;
+            height: auto;
             border-radius: 8px;
             margin: 24px 0;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -77,6 +92,19 @@
             color: var(--primary-color);
         }
         
+        /* הטיפול הספציפי בבלוקים שנוצרו בטעות מרווחים (Markdown Pre/Code) */
+        .article-body pre, .article-body code {
+            font-family: inherit; /* שמירה על פונט האתר ולא פונט מחשב */
+            background-color: transparent;
+            font-size: inherit;
+            color: inherit;
+            white-space: pre-wrap; /* הפקודה שגורמת לבלוק הקוד לרדת שורה חזרה */
+            word-wrap: break-word;
+            max-width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
         .back-nav {
             margin-bottom: 24px;
             display: inline-block;
@@ -128,13 +156,11 @@
     </footer>
 
     <script>
-        // אנימציית טעינה פשוטה
         const style = document.createElement('style');
         style.innerHTML = `@keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }`;
         document.head.appendChild(style);
 
         async function loadFullArticle() {
-            // משיכת המזהה (ID) משורת הכתובת של הדפדפן
             const params = new URLSearchParams(window.location.search);
             const issueId = params.get('id');
             
@@ -155,21 +181,17 @@
                 
                 const article = await response.json();
                 
-                // המרת תאריך לפורמט ישראלי תקני
                 const dateObj = new Date(article.created_at);
                 const formattedDate = dateObj.toLocaleDateString('he-IL', { day: '2-digit', month: '2-digit', year: 'numeric' });
 
-                // שימוש במנוע marked להמרת התוכן לעיצוב פרימיום
                 const htmlContent = marked.parse(article.body || 'אין תוכן במאמר זה.');
 
-                // הזרקת המאמר לתבנית
                 container.innerHTML = `
                     <h1 class="article-title">${article.title}</h1>
                     <div class="article-meta">תאריך פרסום: ${formattedDate}</div>
                     <div class="article-body">${htmlContent}</div>
                 `;
                 
-                // עדכון דינמי של שם החלונית בדפדפן
                 document.title = `${article.title} | השקעות שעושות שכל`;
 
             } catch (error) {
@@ -177,7 +199,6 @@
             }
         }
 
-        // טעינת המאמר מיד כשהעמוד עולה
         document.addEventListener('DOMContentLoaded', loadFullArticle);
     </script>
 </body>
