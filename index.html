@@ -4,7 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>השקעות שעושות שכל | ידע פיננסי בגובה העיניים</title>
-    <link rel="stylesheet" href="style.css?v=10.0">
+    <link rel="stylesheet" href="style.css?v=15.0">
+    <style>
+        /* עיצוב ייעודי למאמרים המוזרקים אוטומטית מ-GitHub */
+        .dynamic-content-area {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .injected-article {
+            padding-top: 16px;
+            border-top: 1px dashed var(--border-color);
+            text-align: right;
+        }
+        .injected-article h5 {
+            color: var(--primary-color);
+            font-size: 16px;
+            font-weight: 800;
+            margin: 0 0 6px 0;
+            line-height: 1.3;
+        }
+        .injected-article p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin: 0 0 10px 0;
+            line-height: 1.5;
+        }
+        .injected-article a {
+            color: var(--accent-color);
+            font-weight: 700;
+            font-size: 13.5px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .injected-article a:hover {
+            color: var(--accent-hover);
+        }
+    </style>
 </head>
 <body>
 
@@ -66,26 +103,34 @@
                     <h3>תחומי הליבה הפיננסיים</h3>
                     <p>פתרונות מובנים ומותאמים אישית להגנה על ההון וצמיחתו.</p>
                 </div>
+                
                 <div class="services-grid">
                     <div class="service-card" id="investments">
                         <div class="card-icon">📊</div>
                         <h4>ייעוץ וניהול השקעות</h4>
-                        <p>בניית הקצאת נכסים (Asset Allocation) המותאמת לפרופיל הסיכון, תוך שילוב מתודולוגיות של ניתוח פונדמנטלי בשווקים הגלובליים.</p>
+                        <p>בניית הקצאת נכסים המותאמת לפרופיל הסיכון, תוך שילוב מתודולוגיות של ניתוח פונדמנטלי וטכני.</p>
+                        <div id="investments-content-area" class="dynamic-content-area"></div>
                     </div>
+
                     <div class="service-card" id="pension">
                         <div class="card-icon">🛡️</div>
                         <h4>ייעוץ וליווי פנסיוני</h4>
                         <p>בחינה מעמיקה של מבנה החיסכון ארוך הטווח, אופטימיזציה של עלויות, והתאמת מסלולים מניבים.</p>
+                        <div id="pension-content-area" class="dynamic-content-area"></div>
                     </div>
+
                     <div class="service-card" id="tax">
                         <div class="card-icon">⚖️</div>
                         <h4>תכנון מס ופרישה</h4>
                         <p>ניתוח אסטרטגי של הטבות מס, פטורים בחוק, וניצול מכשירים מתקדמים להגדלת התשואה נטו.</p>
+                        <div id="tax-content-area" class="dynamic-content-area"></div>
                     </div>
+
                     <div class="service-card" id="funds">
                         <div class="card-icon">💼</div>
                         <h4>קופות גמל והשתלמות</h4>
-                        <p>ניהול ובחינה שוטפת של מכשירי החיסכון לטווח הבינוני ואיתור כשלי שוק ומסלולים מניבי תשואה.</p>
+                        <p>ניהול ובחינה שוטפת של מכשירי החיסכון לטווח הבינוני ואיתור מסלולים מניבי תשואה.</p>
+                        <div id="funds-content-area" class="dynamic-content-area"></div>
                     </div>
                 </div>
             </div>
@@ -98,6 +143,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=10.0"></script>
+    <script src="script.js?v=15.0"></script>
 </body>
 </html>
