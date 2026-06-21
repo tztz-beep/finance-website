@@ -1,11 +1,11 @@
 /**
  * ==========================================================================
- * הליבה האפליקטיבית - השקעות שעושות שכל
- * כולל: הזרקת מדדים חיים ומנוע CMS מבוסס תשתית GitHub
+ * הליבה האפליקטיבית - השקעות שעושות שכל (גרסה 16.0)
+ * מנוע CMS פנימי עם הפניה לעמוד קריאה מקומי
  * ==========================================================================
  */
 
-// 1. מנוע המדדים המקומי (מתוך market_data.json)
+// 1. מנוע המדדים המקומי 
 async function loadMarketTickerData() {
     const symbolToClassMap = {
         '^GSPC': 'ticker-sp500',
@@ -55,7 +55,6 @@ async function fetchAndRouteContent() {
     const githubUsername = 'tztz-beep'; 
     const repoName = 'finance-website';
     
-    // קריאה ישירה לממשק התקלות/מאמרים של גיטהאב (ללא צורך בהרשאות)
     const apiUrl = `https://api.github.com/repos/${githubUsername}/${repoName}/issues?state=open`;
 
     try {
@@ -67,24 +66,22 @@ async function fetchAndRouteContent() {
 
         articles.forEach(article => {
             const title = article.title;
-            // משיכת 120 התווים הראשונים ויצירת תקציר אלגנטי
             const snippet = (article.body && article.body.length > 120) 
                             ? article.body.substring(0, 120) + '...' 
                             : (article.body || 'לחץ לקריאת הסקירה המלאה');
             
-            const link = article.html_url; 
+            // השינוי הקריטי: הפניה פנימית לאתר שלנו עם מספר המאמר
+            const link = `article.html?id=${article.number}`; 
             const labels = article.labels.map(label => label.name.toLowerCase());
 
-            // תבנית העיצוב (Template) לכל מאמר שיוזרק
             const articleCard = `
                 <div class="injected-article">
                     <h5>${title}</h5>
                     <p>${snippet}</p>
-                    <a href="${link}" target="_blank" rel="noopener noreferrer">לקריאת הסקירה ←</a>
+                    <a href="${link}">לקריאת הסקירה ←</a>
                 </div>
             `;
 
-            // נתב התוכן (Router) - מחפש תוויות תואמות ומזריק לקוביות
             if (labels.includes('investments')) {
                 const target = document.getElementById('investments-content-area');
                 if (target) target.innerHTML += articleCard;
@@ -108,16 +105,13 @@ async function fetchAndRouteContent() {
     }
 }
 
-// 3. אתחול מערכות הפלטפורמה בעת טעינת העמוד
+// 3. אתחול
 document.addEventListener('DOMContentLoaded', () => {
-    // אתחול מדדים
     loadMarketTickerData();
     setInterval(loadMarketTickerData, 300000);
     
-    // אתחול מערכת התוכן
     fetchAndRouteContent();
 
-    // אתחול תפריט מובייל
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav');
     if (menuToggle && mainNav) {
