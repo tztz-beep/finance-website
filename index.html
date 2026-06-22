@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>השקעות שעושות שכל | ידע פיננסי בגובה העיניים</title>
-    <link rel="stylesheet" href="style.css?v=15.0">
+    <link rel="stylesheet" href="style.css?v=16.0">
     <style>
-        /* עיצוב ייעודי למאמרים המוזרקים אוטומטית מ-GitHub */
+        /* עיצוב ייעודי למאמרים המוזרקים אוטומטית מ-Sanity */
         .dynamic-content-area {
             margin-top: 24px;
             display: flex;
@@ -41,6 +41,140 @@
         .injected-article a:hover {
             color: var(--accent-hover);
         }
+
+        /* ארכיטקטורת מערכת הלשוניות והמחשבונים החדשה */
+        .calculators-section {
+            padding: 60px 0;
+            background-color: #f8f9fa;
+            border-top: 1px solid var(--border-color);
+        }
+        .tabs-container {
+            max-width: 1140px;
+            margin: 0 auto;
+            background: var(--bg-white, #ffffff);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(17,30,45,0.03);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        .tabs-nav {
+            display: flex;
+            background: #ffffff;
+            border-bottom: 2px solid var(--border-color);
+        }
+        .tab-btn {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        .tab-btn.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            background: rgba(17, 30, 45, 0.02);
+        }
+        .tab-panel {
+            display: none;
+            padding: 40px;
+        }
+        .tab-panel.active {
+            display: block;
+        }
+        .calculator-container-layout {
+            display: flex;
+            gap: 40px;
+        }
+        .calculator-box {
+            flex: 1.2;
+            background: #ffffff;
+            padding: 28px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        .calculator-review {
+            flex: 1;
+            background: #fdfdfd;
+            padding: 28px;
+            border-radius: 8px;
+            border-right: 4px solid var(--primary-color);
+            line-height: 1.7;
+        }
+        .calculator-review h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 14px;
+            font-size: 19px;
+            font-weight: 800;
+        }
+        .calculator-review p {
+            font-size: 14.5px;
+            color: var(--text-main, #2c3e50);
+            margin-bottom: 12px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--primary-color);
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+        .calc-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 700;
+            width: 100%;
+            font-family: inherit;
+            font-size: 15px;
+            transition: background 0.2s;
+        }
+        .calc-btn:hover {
+            background: var(--accent-color);
+        }
+        .calc-result {
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: 6px;
+            background: rgba(39, 174, 96, 0.04);
+            border: 1px solid rgba(39, 174, 96, 0.1);
+            font-size: 14.5px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container-layout {
+                flex-direction: column;
+                gap: 24px;
+            }
+            .tabs-nav {
+                flex-direction: column;
+            }
+            .tab-panel {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -54,7 +188,7 @@
             <button class="menu-toggle" aria-label="פתח תפריט">☰</button>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="calculator.html">📊 מחשבונים וסימולטורים</a></li>
+                    <li><a href="#calculators">📊 מחשבונים וסימולטורים</a></li>
                     <li><a href="#investments">ייעוץ השקעות</a></li>
                     <li><a href="#pension">ייעוץ פנסיוני</a></li>
                     <li><a href="#tax">תכנון מס</a></li>
@@ -91,7 +225,7 @@
                 <h2>השקעות שעושות שכל</h2>
                 <p>אופטימיזציה של ההון שלך באמצעות ניהול סיכונים מתקדם, התאמת חשיפה מנייתית מדויקת, ותכנון מיסוי אקטיבי לטווח הארוך.</p>
                 <div class="hero-actions">
-                    <a href="calculator.html" class="btn btn-primary">למרכז המחשבונים הפיננסיים</a>
+                    <a href="#calculators" class="btn btn-primary">למרכז המחשבונים הפיננסיים</a>
                     <button class="btn btn-secondary">תיאום פגישת אנליזה</button>
                 </div>
             </div>
@@ -122,7 +256,7 @@
                     <div class="service-card" id="tax">
                         <div class="card-icon">⚖️</div>
                         <h4>תכנון מס ופרישה</h4>
-                        <p>ניתוח אסטרטגי של הטבות מס, פטורים בחוק, וניצול מכשירים מתקדמים להגדלת התשואה נטו.</p>
+                        <p>ניתוח אסטרטגי של הטבות מס, פפורים בחוק, וניצול מכשירים מתקדמים להגדלת התשואה נטו.</p>
                         <div id="tax-content-area" class="dynamic-content-area"></div>
                     </div>
 
@@ -135,6 +269,86 @@
                 </div>
             </div>
         </section>
+
+        <section class="calculators-section" id="calculators">
+            <div class="container">
+                <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+                    <h3 style="font-size: 28px; font-weight: 800; color: var(--primary-color);">סימולטורים ומודלים אינטראקטיביים</h3>
+                    <p style="color: var(--text-muted);">כלים מתקדמים לניתוח חופש כלכלי ואופטימיזציית הקצאת נכסים בזמן אמת.</p>
+                </div>
+
+                <div class="tabs-container">
+                    <div class="tabs-nav">
+                        <button class="tab-btn active" onclick="switchTab(event, 'tab-fire')">🎯 מודל חופש כלכלי (FIRE)</button>
+                        <button class="tab-btn" onclick="switchTab(event, 'tab-rebalance')">⚖️ אופטימיזציה ואיזון נכסים (Rebalancing)</button>
+                    </div>
+
+                    <div id="tab-fire" class="tab-panel active">
+                        <div class="calculator-container-layout">
+                            <div class="calculator-box">
+                                <h3 style="color: var(--primary-color); margin-top: 0; margin-bottom: 20px; font-size: 20px;">מחשבון יעד חופש כלכלי</h3>
+                                <div class="form-group">
+                                    <label>הוצאה חודשית רצויה בפרישה (₪):</label>
+                                    <input type="number" id="fire-expenses" value="12000">
+                                </div>
+                                <div class="form-group">
+                                    <label>הון נוכחי קיים בתיק (₪):</label>
+                                    <input type="number" id="fire-current" value="200000">
+                                </div>
+                                <div class="form-group">
+                                    <label>חיסכון חודשי שוטף (₪):</label>
+                                    <input type="number" id="fire-savings" value="4000">
+                                </div>
+                                <div class="form-group">
+                                    <label>תשואה שנתית ריאלית צפויה (נטו אינפלציה %):</label>
+                                    <input type="number" id="fire-return" value="5">
+                                </div>
+                                <button class="calc-btn" onclick="executeFireAnalysis()">חשב מועד יעד לפי מודל SWR</button>
+                                <div id="fire-result-box" class="calc-result" style="display: none;"></div>
+                            </div>
+                            <div class="calculator-review">
+                                <h4>סקירה: מדד ה-Safe Withdrawal Rate</h4>
+                                <p>מהו ההון הנדרש כדי לחיות מנכסים בלבד? המודל מבוסס על מחקר אקדמי הבוחן את שיעור המשיכה הבטוח (SWR). על פי כלל ה-4%, מכפלת ההוצאה השנתית של משק הבית ב-25 מגדירה את "מספר החופש הכלכלי" שלכם.</p>
+                                <p>ניתוח פונדמנטלי של ביצועי שוק המניות לאורך מאה שנה מראה כי תיק השקעות המנוהל בצורה נכונה ומאוזנת מסוגל לייצר זרם הכנסה קבוע המכסה את עצמו, תוך שמירה על ערך הכסף הריאלי אל מול תנודות השוק והאינפלציה.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tab-rebalance" class="tab-panel">
+                        <div class="calculator-container-layout">
+                            <div class="calculator-box">
+                                <h3 style="color: var(--primary-color); margin-top: 0; margin-bottom: 8px; font-size: 20px;">מחשבון איזון נכסים אסטרטגי</h3>
+                                <p style="font-size:13px; margin-bottom:20px; color:var(--text-muted);">הזן את השווי הנוכחי של האפיקים בתיק ואת אחוז היעד שנקבע באסטרטגיה:</p>
+                                
+                                <div style="display:flex; gap:12px; margin-bottom: 12px; align-items:center;">
+                                    <span style="width:85px; font-weight:700; font-size: 14px;">מניות:</span>
+                                    <input type="number" id="reb-curr-1" value="65000" placeholder="שווי נוכחי" style="flex:1; padding:8px; border:1px solid var(--border-color); border-radius:6px; font-family:inherit;">
+                                    <input type="number" id="reb-tar-1" value="60" placeholder="יעד %" style="width:80px; padding:8px; border:1px solid var(--border-color); border-radius:6px; font-family:inherit;">
+                                </div>
+                                <div style="display:flex; gap:12px; margin-bottom: 12px; align-items:center;">
+                                    <span style="width:85px; font-weight:700; font-size: 14px;">אג"ח:</span>
+                                    <input type="number" id="reb-curr-2" value="25000" placeholder="שווי נוכחי" style="flex:1; padding:8px; border:1px solid var(--border-color); border-radius:6px; font-family:inherit;">
+                                    <input type="number" id="reb-tar-2" value="30" placeholder="יעד %" style="width:80px; padding:8px; border:1px solid var(--border-color); border-radius:6px; font-family:inherit;">
+                                </div>
+                                <div style="display:flex; gap:12px; margin-bottom: 24px; align-items:center;">
+                                    <span style="width:85px; font-weight:700; font-size: 14px;">נזיל/מזומן:</span>
+                                    <input type="number" id="reb-curr-3" value="10000" placeholder="שווי נוכחי" style="flex:1; padding:8px; border:1px solid var(--border-color); border-radius:6px; font-family:inherit;">
+                                    <input type="number" id="reb-tar-3" value="10" placeholder="יעד %" style="width:80px; padding:8px; border:1px solid var(--border-color); border-radius:6px; font-family:inherit;">
+                                </div>
+                                
+                                <button class="calc-btn" onclick="executeRebalanceAnalysis()">בצע אנליזת איזון</button>
+                                <div id="reb-result-box" class="calc-result" style="display: none;"></div>
+                            </div>
+                            <div class="calculator-review">
+                                <h4>סקירה: ניהול סיכונים באמצעות Rebalancing</h4>
+                                <p>איזון תקופתי של תיק ההשקעות הוא הלב הפועם של ניהול הסיכונים. לאורך זמן, בעקבות תנודות השווקים, נכסים מסוימים עולים בערכם (למשל רכיב מנייתי שעולה בזמן גאות) ומגדילים את חשיפת התיק לרמת סיכון גבוהה מכפי שהוגדר במקור.</p>
+                                <p>פעולת האיזון מאלצת את המשקיע לפעול בצורה רציונלית נטולת אמוציות: למכור חלק מהנכסים שעלו (מימוש רווחים ביוקר) ולקנות נכסים שנמצאים בחשיפת חסר (קנייה בזול), ובכך לשמור על עמידות ותשואה מותאמת סיכון ארוכת טווח.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="main-footer">
@@ -143,6 +357,95 @@
         </div>
     </footer>
 
-   <script src="script.js?v=16.0"></script>
+    <script src="script.js?v=16.0"></script>
+    
+    <script>
+        // מנגנון ניווט ויזואלי בין לשוניות
+        function switchTab(event, tabId) {
+            const panels = document.querySelectorAll('.tab-panel');
+            const buttons = document.querySelectorAll('.tab-btn');
+            
+            panels.forEach(panel => panel.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // לוגיקה מתמטית: מודל חופש כלכלי
+        function executeFireAnalysis() {
+            const monthlyExpenses = parseFloat(document.getElementById('fire-expenses').value) || 0;
+            let currentWealth = parseFloat(document.getElementById('fire-current').value) || 0;
+            const monthlySavings = parseFloat(document.getElementById('fire-savings').value) || 0;
+            const rAnnual = (parseFloat(document.getElementById('fire-return').value) || 0) / 100;
+            
+            const targetWealth = (monthlyExpenses * 12) * 25; 
+            const rMonthly = rAnnual / 12;
+            
+            let months = 0;
+            const maxMonths = 600; 
+            
+            while (currentWealth < targetWealth && months < maxMonths) {
+                currentWealth = (currentWealth + monthlySavings) * (1 + rMonthly);
+                months++;
+            }
+            
+            const years = Math.floor(months / 12);
+            const remainingMonths = months % 12;
+            
+            const resultBox = document.getElementById('fire-result-box');
+            resultBox.style.display = 'block';
+            
+            if (months >= maxMonths) {
+                resultBox.innerHTML = `<span style="color: var(--accent-color); font-weight: 700;">הון היעד הנדרש: ₪${Math.round(targetWealth).toLocaleString('he-IL')}</span><br>בקצב החיסכון הנוכחי, הגעה ליעד תיקח מעל 50 שנה. מומלץ לבצע אופטימיזציה של מבנה החיסכון או להגדיל את רכיב ההפקדות.`;
+            } else {
+                resultBox.innerHTML = `
+                    <strong style="color: var(--primary-color); font-size: 15px;">הון היעד האסטרטגי: ₪${Math.round(targetWealth).toLocaleString('he-IL')}</strong><br>
+                    זמן הגעה משוער: <strong style="color: #27ae60; font-size: 17px;">${years} שנים ו-${remainingMonths} חודשים</strong>.<br>
+                    <span style="font-size: 11px; color: var(--text-muted);">*המודל מניח תשואה ריאלית קבועה בשוק ההון נטו מאינפלציה.</span>
+                `;
+            }
+        }
+
+        // לוגיקה מתמטית: איזון נכסים דינמי
+        function executeRebalanceAnalysis() {
+            const curr1 = parseFloat(document.getElementById('reb-curr-1').value) || 0;
+            const tar1 = parseFloat(document.getElementById('reb-tar-1').value) || 0;
+            const curr2 = parseFloat(document.getElementById('reb-curr-2').value) || 0;
+            const tar2 = parseFloat(document.getElementById('reb-tar-2').value) || 0;
+            const curr3 = parseFloat(document.getElementById('reb-curr-3').value) || 0;
+            const tar3 = parseFloat(document.getElementById('reb-tar-3').value) || 0;
+            
+            const resultBox = document.getElementById('reb-result-box');
+            resultBox.style.display = 'block';
+
+            if ((tar1 + tar2 + tar3) !== 100) {
+                resultBox.innerHTML = '<span style="color: var(--accent-color); font-weight:700;">שגיאה באנליזה: סך אחוזי היעד של האפיקים חייב להיות שווה בדיוק ל-100%.</span>';
+                return;
+            }
+            
+            const totalPortfolio = curr1 + curr2 + curr3;
+            const ideal1 = totalPortfolio * (tar1 / 100);
+            const ideal2 = totalPortfolio * (tar2 / 100);
+            const ideal3 = totalPortfolio * (tar3 / 100);
+            
+            const diff1 = ideal1 - curr1;
+            const diff2 = ideal2 - curr2;
+            const diff3 = ideal3 - curr3;
+            
+            const formatAction = (diff) => {
+                if (diff > 0) return `<span style="color:#27ae60; font-weight:700;">לקנות</span> ₪${Math.round(diff).toLocaleString('he-IL')}`;
+                if (diff < 0) return `<span style="color:#c0392b; font-weight:700;">למכור</span> ₪${Math.round(Math.abs(diff)).toLocaleString('he-IL')}`;
+                return 'מאוזן במדויק';
+            };
+            
+            resultBox.innerHTML = `
+                <strong>שווי תיק נכסים כולל: ₪${Math.round(totalPortfolio).toLocaleString('he-IL')}</strong><br><br>
+                • <strong>מניות:</strong> שווי יעד אופטימלי ₪${Math.round(ideal1).toLocaleString('he-IL')}. פעולה: ${formatAction(diff1)}<br>
+                • <strong>אג"ח:</strong> שווי יעד אופטימלי ₪${Math.round(ideal2).toLocaleString('he-IL')}. פעולה: ${formatAction(diff2)}<br>
+                • <strong>נזיל/מזומן:</strong> שווי יעד אופטימלי ₪${Math.round(ideal3).toLocaleString('he-IL')}. פעולה: ${formatAction(diff3)}
+            `;
+        }
+    </script>
 </body>
 </html>
