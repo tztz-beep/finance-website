@@ -3,362 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מרכז מחשבונים פיננסיים | השקעות שעושות שכל</title>
-    <link rel="stylesheet" href="style.css?v=14.0">
+    <title>מרכז סימולטורים פיננסיים | השקעות שעושות שכל</title>
+    <link rel="stylesheet" href="style.css?v=16.0">
     <style>
-        .calc-wrapper { max-width: 950px; margin: 40px auto; padding: 0 24px; }
-        .calc-card { background-color: var(--bg-white); border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(17,30,45,0.08); overflow: hidden; }
+        body { background-color: #f8f9fa; }
+        .page-header { background: var(--primary-color); color: white; padding: 40px 0; text-align: center; margin-bottom: 40px; }
+        .page-header h1 { margin: 0 0 10px 0; font-size: 32px; font-weight: 800; }
+        .page-header p { margin: 0; font-size: 18px; opacity: 0.9; }
         
-        .calc-tabs { display: flex; background-color: var(--primary-color); border-bottom: 2px solid var(--accent-color); }
-        .tab-btn { flex: 1; padding: 18px; background: none; border: none; color: #94a3b8; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.2s; font-family: var(--font-stack); text-align: center; }
-        .tab-btn:hover { color: var(--accent-color); background-color: rgba(255,255,255,0.03); }
-        .tab-btn.active { color: var(--primary-color); background-color: var(--accent-color); }
-
-        .calc-body { padding: 40px; display: none; }
-        .calc-body.active { display: block; }
+        .tabs-container { max-width: 1100px; margin: 0 auto 60px auto; background: var(--bg-white, #ffffff); border-radius: 12px; box-shadow: 0 10px 30px rgba(17,30,45,0.05); overflow: hidden; border: 1px solid var(--border-color); }
+        .tabs-nav { display: flex; background: #ffffff; border-bottom: 2px solid var(--border-color); flex-wrap: wrap; }
+        .tab-btn { flex: 1; padding: 18px; text-align: center; background: none; border: none; font-size: 15.5px; font-weight: 700; color: var(--text-muted); cursor: pointer; transition: all 0.2s ease; font-family: inherit; min-width: 200px; }
+        .tab-btn.active { color: var(--primary-color); border-bottom: 3px solid var(--primary-color); background: rgba(17, 30, 45, 0.02); }
+        .tab-panel { display: none; padding: 40px; }
+        .tab-panel.active { display: block; }
         
-        .input-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 24px; }
-        @media (max-width: 768px) { .input-grid { grid-template-columns: 1fr; gap: 16px; } }
+        .calculator-container-layout { display: flex; gap: 40px; }
+        .calculator-box { flex: 1.2; background: #ffffff; padding: 28px; border-radius: 8px; border: 1px solid var(--border-color); }
+        .calculator-review { flex: 1; background: #fdfdfd; padding: 28px; border-radius: 8px; border-right: 4px solid var(--primary-color); line-height: 1.7; }
+        .calculator-review h4 { color: var(--primary-color); margin-top: 0; margin-bottom: 14px; font-size: 19px; font-weight: 800; }
+        .calculator-review p { font-size: 14.5px; color: var(--text-main, #2c3e50); margin-bottom: 12px; }
         
-        .input-group { display: flex; flex-direction: column; }
-        label { font-size: 14.5px; font-weight: 700; color: var(--text-main); margin-bottom: 8px; }
-        .input-wrapper input, .input-wrapper select { width: 100%; padding: 12px 14px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 15px; font-family: var(--font-stack); background-color: var(--bg-light); color: var(--primary-color); }
-        .input-wrapper input:focus, .input-wrapper select:focus { outline: none; border-color: var(--accent-color); background-color: var(--bg-white); box-shadow: 0 0 0 3px rgba(212,175,55,0.15); }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; margin-bottom: 6px; font-weight: 700; font-size: 14px; color: var(--primary-color); }
+        .form-group input { width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit; font-size: 15px; box-sizing: border-box; }
+        .calc-btn { background: var(--primary-color); color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-weight: 700; width: 100%; font-family: inherit; font-size: 15px; transition: background 0.2s; margin-top: 10px; }
+        .calc-btn:hover { background: var(--accent-color); }
+        .calc-result { margin-top: 20px; padding: 16px; border-radius: 6px; background: rgba(39, 174, 96, 0.04); border: 1px solid rgba(39, 174, 96, 0.1); font-size: 14.5px; line-height: 1.6; display: none; }
 
-        .advanced-toggle { background-color: #f1f5f9; padding: 12px 16px; border-radius: 6px; font-weight: 700; color: var(--primary-color); cursor: pointer; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--border-color); transition: all 0.2s; }
-        .advanced-toggle:hover { background-color: #e2e8f0; }
-        .advanced-content { display: none; padding: 24px; border: 1px solid var(--border-color); border-radius: 6px; margin-bottom: 24px; background-color: #fbfbfb; }
-
-        .btn-calc { width: 100%; background-color: var(--primary-color); color: var(--accent-color); border: 1px solid var(--accent-color); padding: 16px; font-size: 17px; font-weight: 800; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
-        .btn-calc:hover { background-color: var(--accent-color); color: var(--primary-color); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(212,175,55,0.2); }
-
-        .results-box { margin-top: 32px; padding: 28px; background-color: var(--bg-light); border-radius: 8px; border-right: 4px solid var(--accent-color); display: none; }
-        .results-box h3 { margin: 0 0 20px 0; font-size: 19px; font-weight: 800; color: var(--primary-color); }
-        .result-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border-color); font-size: 15.5px; }
-        .result-row:last-of-type { border-bottom: none; font-size: 22px; font-weight: 800; padding-top: 14px; margin-top: 8px; }
-        .warning { color: var(--accent-error); font-weight: 700; }
-        .success { color: var(--accent-success); font-weight: 700; }
-        .benefit { color: #3b82f6; font-weight: 700; }
+        @media (max-width: 768px) { .calculator-container-layout { flex-direction: column; gap: 24px; } }
     </style>
 </head>
 <body>
 
-    <header class="main-header">
+    <header class="main-header" style="background: white; border-bottom: 1px solid var(--border-color);">
         <div class="header-container">
             <a href="index.html" class="logo-wrapper">
                 <img src="logo.jpg" alt="השקעות שעושות שכל" class="site-logo">
                 <span class="logo-text">השקעות שעושות שכל</span>
             </a>
-            <a href="index.html" style="color: var(--bg-light); text-decoration: none; font-weight: 600; font-size: 15px;">← חזרה לדף הבית</a>
+            <a href="index.html" style="font-weight: 600; text-decoration: none; color: var(--text-muted);">← חזרה לעמוד הבית</a>
         </div>
     </header>
 
-    <div class="calc-wrapper">
-        <div class="calc-card">
-            <div class="calc-tabs">
-                <button class="tab-btn active" onclick="switchTab('tax-calc', this)">⚖️ מחשבון מס הכנסה ונטו</button>
-                <button class="tab-btn" onclick="switchTab('interest-calc', this)">📈 סימולטור ריבית דריבית</button>
-            </div>
+    <div class="page-header">
+        <h1>מרכז המחשבונים והסימולציות</h1>
+        <p>כלים מתקדמים לניתוח פיננסי, תכנון מס ואופטימיזציית נכסים</p>
+    </div>
 
-            <div id="tax-calc" class="calc-body active">
-                <div class="input-grid">
-                    <div class="input-group">
-                        <label for="annualGross">שכר ברוטו שנתי חזוי (₪)</label>
-                        <div class="input-wrapper"><input type="number" id="annualGross" value="240000"></div>
-                    </div>
-                    <div class="input-group">
-                        <label for="gender">מגדר (קובע תעריף נקו"ז בסיס)</label>
-                        <div class="input-wrapper">
-                            <select id="gender">
-                                <option value="male">גבר (2.25 נקו"ז בסיס)</option>
-                                <option value="female">אישה (2.75 נקו"ז בסיס)</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="kids0" id="lbl-kids0">נולדו בשנת המס</label>
-                        <div class="input-wrapper"><input type="number" id="kids0" value="0" min="0"></div>
-                    </div>
-                    <div class="input-group">
-                        <label for="kids1to2" id="lbl-kids1to2">ימלאו להם 1 או 2 בשנת המס</label>
-                        <div class="input-wrapper"><input type="number" id="kids1to2" value="0" min="0"></div>
-                    </div>
-                    <div class="input-group">
-                        <label for="kids3" id="lbl-kids3">ימלאו להם 3 בשנת המס</label>
-                        <div class="input-wrapper"><input type="number" id="kids3" value="0" min="0"></div>
-                    </div>
-                    <div class="input-group">
-                        <label for="kids4to5" id="lbl-kids4to5">ימלאו להם 4 או 5 בשנת המס</label>
-                        <div class="input-wrapper"><input type="number" id="kids4to5" value="0" min="0"></div>
-                    </div>
-                    <div class="input-group">
-                        <label for="kids6to17" id="lbl-kids6to17">ימלאו להם 6 עד 17 בשנת המס</label>
-                        <div class="input-wrapper"><input type="number" id="kids6to17" value="0" min="0"></div>
-                    </div>
+    <div class="tabs-container">
+        <div class="tabs-nav">
+            <button class="tab-btn active" onclick="switchTab(event, 'tab-compound')">📈 ריבית דריבית</button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-tax')">⚖️ מס רווח הון</button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-fire')">🎯 מודל חופש כלכלי</button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-rebalance')">🛡️ איזון נכסים</button>
+        </div>
+
+        <!-- לשונית 1: ריבית דריבית -->
+        <div id="tab-compound" class="tab-panel active">
+            <div class="calculator-container-layout">
+                <div class="calculator-box">
+                    <h3 style="color: var(--primary-color); margin-top: 0;">מחשבון ריבית דריבית</h3>
+                    <div class="form-group"><label>סכום השקעה ראשוני (₪):</label><input type="number" id="comp-principal" value="50000"></div>
+                    <div class="form-group"><label>הפקדה חודשית קבועה (₪):</label><input type="number" id="comp-monthly" value="2000"></div>
+                    <div class="form-group"><label>תשואה שנתית ממוצעת (%):</label><input type="number" id="comp-rate" value="7"></div>
+                    <div class="form-group"><label>תקופת חיסכון (שנים):</label><input type="number" id="comp-years" value="20"></div>
+                    <button class="calc-btn" onclick="calculateCompound()">חשב הון עתידי</button>
+                    <div id="comp-result" class="calc-result"></div>
                 </div>
-
-                <div class="advanced-toggle" onclick="toggleAccordion()">
-                    <span>🛠️ הגדרות מתקדמות (מגורים, צבא, אקדמיה)</span>
-                    <span id="accordion-arrow">▼</span>
-                </div>
-                
-                <div class="advanced-content" id="advanced-panel">
-                    
-                    <div class="input-group" style="margin-bottom: 20px;">
-                        <label for="residence">מקום מגורים (לבחינת הטבת מס יישוב מוטב)</label>
-                        <div class="input-wrapper">
-                            <input type="text" id="residence" list="city-list" placeholder="התחל להקליד מתוך עשרות היישובים הנתמכים..." autocomplete="off">
-                            <datalist id="city-list">
-                                </datalist>
-                        </div>
-                        <small style="color: var(--text-muted); font-size: 13px; margin-top: 6px;">המערכת תסרוק אוטומטית את תקרת ההטבה ואת אחוז הזיכוי בהתאם לתקנות החוק.</small>
-                    </div>
-
-                    <div class="input-grid">
-                        <div class="input-group">
-                            <label for="armyService">שירות צבאי / לאומי</label>
-                            <div class="input-wrapper">
-                                <select id="armyService">
-                                    <option value="none">לא רלוונטי / עבר הזמן</option>
-                                    <option value="combat">לוחם / תומך לחימה (2 נקו"ז)</option>
-                                    <option value="regular">שירות רגיל (1 נקו"ז)</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <label for="degree">תואר אקדמי (בחלון הזמן המזכה)</label>
-                            <div class="input-wrapper">
-                                <select id="degree">
-                                    <option value="none">ללא / מחוץ לחלון הזמן</option>
-                                    <option value="ba">תואר ראשון (1 נקו"ז)</option>
-                                    <option value="ma">תואר שני / דוקטורט (0.5 נקו"ז)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="btn-calc" onclick="calculateIsraeliTax()">בצע אנליזה וחשב נטו</button>
-
-                <div class="results-box" id="taxResults">
-                    <h3>פלט סימולציית שכר נטו:</h3>
-                    <div class="result-row"><span>שכר ברוטו חודשי ממוצע:</span><span id="lblMonthlyGross">₪0</span></div>
-                    <div class="result-row"><span>סך נקודות זיכוי חודשיות:</span><span id="lblTotalPoints">0</span></div>
-                    <div class="result-row" id="rowCityDiscount" style="display:none;"><span>הטבת מס יישוב מוטב:</span><span class="benefit" id="lblCityDiscount">₪0</span></div>
-                    <div class="result-row"><span>ניכוי מס הכנסה (חודשי):</span><span class="warning" id="lblIncomeTax">₪0</span></div>
-                    <div class="result-row"><span>ניכוי ביטוח לאומי ומס בריאות:</span><span class="warning" id="lblNationalInsurance">₪0</span></div>
-                    <div class="result-row"><span>שכר נטו חודשי חזוי:</span><span class="success" id="lblMonthlyNet">₪0</span></div>
-                    <div class="result-row"><span>סך הכל נטו שנתי מתוכנן:</span><span id="lblAnnualNet">₪0</span></div>
+                <div class="calculator-review">
+                    <h4>הפלא השמיני של תבל</h4>
+                    <p>ריבית דריבית היא המנוע העוצמתי ביותר לצבירת הון ארוכת טווח. אפקט זה נוצר כאשר הרווחים שהשקעה מייצרת מושקעים מחדש ומתחילים לייצר רווחים משל עצמם.</p>
+                    <p>ככל שתקופת ההשקעה ארוכה יותר, כך הצמיחה הופכת מאקספוננציאלית לדרמטית יותר. הפקדות חודשיות עקביות, גם אם אינן גבוהות, מייצרות "מסה קריטית" של הון לאחר עשור או שניים, מה שמנטרל את התלות בהשקעה חד-פעמית גדולה.</p>
                 </div>
             </div>
+        </div>
 
-            <div id="interest-calc" class="calc-body">
-                <div class="input-grid">
-                    <div class="input-group"><label>סכום השקעה ראשוני (₪)</label><div class="input-wrapper"><input type="number" id="principal" value="100000"></div></div>
-                    <div class="input-group"><label>הפקדה חודשית שוטפת (₪)</label><div class="input-wrapper"><input type="number" id="monthly" value="2500"></div></div>
-                    <div class="input-group"><label>תשואה שנתית צפויה (% ברוטו)</label><div class="input-wrapper"><input type="number" id="rate" value="7.5" step="0.1"></div></div>
-                    <div class="input-group"><label>תקופת החיסכון (בשנים)</label><div class="input-wrapper"><input type="number" id="years" value="20"></div></div>
+        <!-- לשונית 2: מס רווח הון -->
+        <div id="tab-tax" class="tab-panel">
+            <div class="calculator-container-layout">
+                <div class="calculator-box">
+                    <h3 style="color: var(--primary-color); margin-top: 0;">מחשבון מס רווח הון (25%)</h3>
+                    <div class="form-group"><label>סכום קרן (עלות ההשקעה ₪):</label><input type="number" id="tax-invested" value="100000"></div>
+                    <div class="form-group"><label>שווי נוכחי של ההשקעה (₪):</label><input type="number" id="tax-value" value="150000"></div>
+                    <button class="calc-btn" onclick="calculateTax()">חשב חבות מס ותמורה נטו</button>
+                    <div id="tax-result" class="calc-result"></div>
                 </div>
-                <button class="btn-calc" onclick="runInterestSimulation()">בצע הרצת מודל הון</button>
+                <div class="calculator-review">
+                    <h4>תכנון מס פרואקטיבי</h4>
+                    <p>מס רווח הון בישראל עומד לרוב על 25% מהרווח הריאלי (או הנומינלי בנכסים מסוימים). הבנת חבות המס היא קריטית בקבלת החלטות על "מימוש" השקעות.</p>
+                    <p>משקיע מתוחכם אינו בוחן את תשואת התיק שלו ברוטו, אלא מנהל את סיכוני המס שלו בעזרת דחיית מס, קיזוז הפסדים, ומעבר למכשירים פטורים (כמו קרנות השתלמות וקופות גמל להשקעה) כדי למקסם את התשואה נטו בכיס.</p>
+                </div>
+            </div>
+        </div>
 
-                <div class="results-box" id="interestResults">
-                    <h3>פלט צמיחת נכסים:</h3>
-                    <div class="result-row"><span>סך הכל הון שהופקד:</span><span id="outTotalDeposited">₪0</span></div>
-                    <div class="result-row"><span>תשואה נצברת ברוטו:</span><span class="success" id="outNetInterest">₪0</span></div>
-                    <div class="result-row"><span>שווי תיק חזוי בסוף התקופה:</span><span id="outFinalBalance">₪0</span></div>
+        <!-- לשונית 3: מודל FIRE -->
+        <div id="tab-fire" class="tab-panel">
+            <div class="calculator-container-layout">
+                <div class="calculator-box">
+                    <h3 style="color: var(--primary-color); margin-top: 0;">מחשבון חופש כלכלי</h3>
+                    <div class="form-group"><label>הוצאה חודשית רצויה בפרישה (₪):</label><input type="number" id="fire-expenses" value="12000"></div>
+                    <div class="form-group"><label>הון נוכחי קיים בתיק (₪):</label><input type="number" id="fire-current" value="200000"></div>
+                    <div class="form-group"><label>חיסכון חודשי שוטף (₪):</label><input type="number" id="fire-savings" value="4000"></div>
+                    <div class="form-group"><label>תשואה שנתית ריאלית צפויה (%):</label><input type="number" id="fire-return" value="5"></div>
+                    <button class="calc-btn" onclick="executeFireAnalysis()">חשב מועד יעד לפי מודל SWR</button>
+                    <div id="fire-result-box" class="calc-result"></div>
+                </div>
+                <div class="calculator-review">
+                    <h4>מודל ה-Safe Withdrawal Rate</h4>
+                    <p>מהו ההון הנדרש כדי לחיות מנכסים בלבד? המודל מבוסס על מחקר אקדמי הבוחן את שיעור המשיכה הבטוח (SWR). על פי "כלל ה-4%", מכפלת ההוצאה השנתית ב-25 מגדירה את מספר החופש הכלכלי שלכם.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- לשונית 4: רבלנסינג -->
+        <div id="tab-rebalance" class="tab-panel">
+            <div class="calculator-container-layout">
+                <div class="calculator-box">
+                    <h3 style="color: var(--primary-color); margin-top: 0;">מחשבון איזון נכסים אסטרטגי</h3>
+                    <div style="display:flex; gap:12px; margin-bottom: 12px; align-items:center;">
+                        <span style="width:85px; font-weight:700;">מניות:</span>
+                        <input type="number" id="reb-curr-1" value="65000" placeholder="נוכחי" style="flex:1; padding:8px; border:1px solid var(--border-color); border-radius:6px;">
+                        <input type="number" id="reb-tar-1" value="60" placeholder="יעד %" style="width:80px; padding:8px; border:1px solid var(--border-color); border-radius:6px;">
+                    </div>
+                    <div style="display:flex; gap:12px; margin-bottom: 12px; align-items:center;">
+                        <span style="width:85px; font-weight:700;">אג"ח:</span>
+                        <input type="number" id="reb-curr-2" value="25000" placeholder="נוכחי" style="flex:1; padding:8px; border:1px solid var(--border-color); border-radius:6px;">
+                        <input type="number" id="reb-tar-2" value="30" placeholder="יעד %" style="width:80px; padding:8px; border:1px solid var(--border-color); border-radius:6px;">
+                    </div>
+                    <div style="display:flex; gap:12px; margin-bottom: 24px; align-items:center;">
+                        <span style="width:85px; font-weight:700;">מזומן:</span>
+                        <input type="number" id="reb-curr-3" value="10000" placeholder="נוכחי" style="flex:1; padding:8px; border:1px solid var(--border-color); border-radius:6px;">
+                        <input type="number" id="reb-tar-3" value="10" placeholder="יעד %" style="width:80px; padding:8px; border:1px solid var(--border-color); border-radius:6px;">
+                    </div>
+                    <button class="calc-btn" onclick="executeRebalanceAnalysis()">בצע אנליזת איזון</button>
+                    <div id="reb-result-box" class="calc-result"></div>
+                </div>
+                <div class="calculator-review">
+                    <h4>ניהול סיכונים באמצעות Rebalancing</h4>
+                    <p>פעולת האיזון מאלצת את המשקיע לפעול בצורה רציונלית נטולת אמוציות: למכור חלק מהנכסים שעלו (מימוש רווחים ביוקר) ולקנות נכסים שנמצאים בחשיפת חסר (קנייה בזול), ובכך לשמור על עמידות ותשואה מותאמת סיכון.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        function switchTab(tabId, btn) {
-            document.querySelectorAll('.calc-body').forEach(c => c.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        // ניווט בין הלשוניות
+        function switchTab(event, tabId) {
+            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
-            btn.classList.add('active');
+            event.currentTarget.classList.add('active');
         }
 
-        function toggleAccordion() {
-            const panel = document.getElementById('advanced-panel');
-            const arrow = document.getElementById('accordion-arrow');
-            if (panel.style.display === 'block') {
-                panel.style.display = 'none';
-                arrow.innerText = '▼';
-            } else {
-                panel.style.display = 'block';
-                arrow.innerText = '▲';
-            }
-        }
-
-        const eligibleCities = {
-            "שדרות": { rate: 0.20, ceiling: 241080 },
-            "קרית שמונה": { rate: 0.20, ceiling: 241080 },
-            "מטולה": { rate: 0.20, ceiling: 241080 },
-            "שלומי": { rate: 0.20, ceiling: 241080 },
-            "בארי": { rate: 0.20, ceiling: 241080 },
-            "כפר עזה": { rate: 0.20, ceiling: 241080 },
-            "נחל עוז": { rate: 0.20, ceiling: 241080 },
-            "מצפה רמון": { rate: 0.20, ceiling: 241080 },
-            "אופקים": { rate: 0.18, ceiling: 235200 },
-            "נתיבות": { rate: 0.16, ceiling: 202800 },
-            "דימונה": { rate: 0.16, ceiling: 202800 },
-            "ירוחם": { rate: 0.16, ceiling: 202800 },
-            "ערד": { rate: 0.16, ceiling: 202800 },
-            "בית שאן": { rate: 0.16, ceiling: 202800 },
-            "נהריה": { rate: 0.11, ceiling: 162000 },
-            "עכו": { rate: 0.11, ceiling: 162000 },
-            "צפת": { rate: 0.11, ceiling: 162000 },
-            "מעלות תרשיחא": { rate: 0.11, ceiling: 162000 },
-            "כרמיאל": { rate: 0.11, ceiling: 162000 },
-            "חצור הגלילית": { rate: 0.11, ceiling: 162000 },
-            "טבריה": { rate: 0.11, ceiling: 162000 },
-            "אשקלון": { rate: 0.10, ceiling: 162000 },
-            "אילת": { rate: 0.10, ceiling: 162000 },
-            "קרית גת": { rate: 0.07, ceiling: 132000 },
-            "קרית מלאכי": { rate: 0.07, ceiling: 132000 },
-            "עפולה": { rate: 0.07, ceiling: 132000 },
-            "מגדל העמק": { rate: 0.07, ceiling: 132000 },
-            "נוף הגליל": { rate: 0.07, ceiling: 132000 },
-            "חריש": { rate: 0.07, ceiling: 132000 }
-        };
-
-        document.addEventListener("DOMContentLoaded", () => {
-            // 1. הזרקה אוטומטית של רשימת היישובים
-            const dataList = document.getElementById("city-list");
-            if (dataList) {
-                dataList.innerHTML = ''; 
-                Object.keys(eligibleCities).sort().forEach(city => {
-                    let option = document.createElement("option");
-                    option.value = city;
-                    dataList.appendChild(option);
-                });
-            }
-
-            // 2. מנוע עדכון אוטומטי של שנת המס הנוכחית על פי השנה הקלנדרית במחשב/נייד
-            const currentYear = new Date().getFullYear();
-            document.getElementById('lbl-kids0').innerText = `נולדו בשנת המס ${currentYear} (גיל 0):`;
-            document.getElementById('lbl-kids1to2').innerText = `ימלאו להם 1 או 2 בשנת המס ${currentYear}:`;
-            document.getElementById('lbl-kids3').innerText = `ימלאו להם 3 בשנת המס ${currentYear}:`;
-            document.getElementById('lbl-kids4to5').innerText = `ימלאו להם 4 או 5 בשנת המס ${currentYear}:`;
-            document.getElementById('lbl-kids6to17').innerText = `ימלאו להם 6 עד 17 בשנת המס ${currentYear}:`;
-        });
-
-        function calculateIsraeliTax() {
-            const annualGross = parseFloat(document.getElementById('annualGross').value) || 0;
-            const monthlyGross = annualGross / 12;
-            const gender = document.getElementById('gender').value;
-            
-            const kids0 = parseInt(document.getElementById('kids0').value) || 0;
-            const kids1to2 = parseInt(document.getElementById('kids1to2').value) || 0;
-            const kids3 = parseInt(document.getElementById('kids3').value) || 0;
-            const kids4to5 = parseInt(document.getElementById('kids4to5').value) || 0;
-            const kids6to17 = parseInt(document.getElementById('kids6to17').value) || 0;
-            
-            const army = document.getElementById('armyService').value;
-            const degree = document.getElementById('degree').value;
-            const residence = document.getElementById('residence').value.trim();
-
-            let points = (gender === 'female') ? 2.75 : 2.25;
-            
-            if (gender === 'female') {
-                points += (kids0 * 1.5) + (kids1to2 * 4.5) + (kids3 * 3.5) + (kids4to5 * 2.5) + (kids6to17 * 2.0);
-            } else {
-                points += (kids0 * 2.5) + (kids1to2 * 4.5) + (kids3 * 3.5) + (kids4to5 * 2.5) + (kids6to17 * 1.0);
-            }
-
-            if (army === 'combat') points += 2;
-            else if (army === 'regular') points += 1;
-            
-            if (degree === 'ba') points += 1;
-            else if (degree === 'ma') points += 0.5;
-
-            const creditValueMonthly = points * 242;
-
-            let tax = 0;
-            const brackets = [
-                { limit: 7010, rate: 0.10 },
-                { limit: 10060, rate: 0.14 },
-                { limit: 14580, rate: 0.20 },
-                { limit: 20260, rate: 0.31 },
-                { limit: 42110, rate: 0.35 },
-                { limit: 54300, rate: 0.47 },
-                { limit: Infinity, rate: 0.50 }
-            ];
-
-            let prevLimit = 0;
-            for (let b of brackets) {
-                if (monthlyGross > b.limit) {
-                    tax += (b.limit - prevLimit) * b.rate;
-                    prevLimit = b.limit;
-                } else {
-                    tax += (monthlyGross - prevLimit) * b.rate;
-                    break;
+        // חישוב ריבית דריבית
+        function calculateCompound() {
+            const principal = parseFloat(document.getElementById('comp-principal').value) || 0;
+            const monthly = parseFloat(document.getElementById('comp-monthly').value) || 0;
+            const rate = parseFloat(document.getElementById('comp-rate').value) || 0;
+            const years = parseFloat(document.getElementById('comp-years').value) || 0;
+            let total = principal;
+            const rMonthly = (rate / 100) / 12;
+            for (let y = 1; y <= years; y++) {
+                for (let m = 1; m <= 12; m++) {
+                    total = (total + monthly) * (1 + rMonthly);
                 }
             }
-
-            let cityDiscountMonthly = 0;
-            if (eligibleCities[residence]) {
-                const cityData = eligibleCities[residence];
-                const eligibleAnnualIncome = Math.min(annualGross, cityData.ceiling);
-                const cityDiscountYearly = eligibleAnnualIncome * cityData.rate;
-                cityDiscountMonthly = cityDiscountYearly / 12;
-            }
-
-            tax = Math.max(0, tax - creditValueMonthly);
-            tax = Math.max(0, tax - cityDiscountMonthly);
-
-            let nationalInsurance = 0;
-            const btlReducedCeiling = 7522;
-            if (monthlyGross <= btlReducedCeiling) {
-                nationalInsurance = monthlyGross * 0.035;
-            } else {
-                nationalInsurance = (btlReducedCeiling * 0.035) + ((monthlyGross - btlReducedCeiling) * 0.12);
-            }
-
-            const monthlyNet = monthlyGross - tax - nationalInsurance;
-
-            document.getElementById('lblMonthlyGross').innerText = '₪' + Math.round(monthlyGross).toLocaleString('he-IL');
-            document.getElementById('lblTotalPoints').innerText = points;
-            
-            const cityRow = document.getElementById('rowCityDiscount');
-            if (cityDiscountMonthly > 0) {
-                document.getElementById('lblCityDiscount').innerText = '₪' + Math.round(cityDiscountMonthly).toLocaleString('he-IL');
-                cityRow.style.display = 'flex';
-            } else {
-                cityRow.style.display = 'none';
-            }
-
-            document.getElementById('lblIncomeTax').innerText = '₪' + Math.round(tax).toLocaleString('he-IL');
-            document.getElementById('lblNationalInsurance').innerText = '₪' + Math.round(nationalInsurance).toLocaleString('he-IL');
-            document.getElementById('lblMonthlyNet').innerText = '₪' + Math.round(monthlyNet).toLocaleString('he-IL');
-            document.getElementById('lblAnnualNet').innerText = '₪' + Math.round(monthlyNet * 12).toLocaleString('he-IL');
-            
-            document.getElementById('taxResults').style.display = 'block';
+            const box = document.getElementById('comp-result');
+            box.style.display = 'block';
+            box.innerHTML = `<strong style="font-size:18px; color:var(--primary-color);">הון עתידי משוער: ₪${Math.round(total).toLocaleString('he-IL')}</strong><br><span style="font-size:12px; color:var(--text-muted);">סך ההפקדות שלך: ₪${(principal + (monthly * 12 * years)).toLocaleString('he-IL')}</span>`;
         }
 
-        function runInterestSimulation() {
-            const P = parseFloat(document.getElementById('principal').value) || 0;
-            const PMT = parseFloat(document.getElementById('monthly').value) || 0;
-            const annualRate = parseFloat(document.getElementById('rate').value) || 0;
-            const t = parseInt(document.getElementById('years').value) || 0;
+        // חישוב מס רווח הון
+        function calculateTax() {
+            const inv = parseFloat(document.getElementById('tax-invested').value) || 0;
+            const val = parseFloat(document.getElementById('tax-value').value) || 0;
+            const profit = val - inv;
+            let tax = 0;
+            if (profit > 0) { tax = profit * 0.25; }
+            const net = val - tax;
+            const box = document.getElementById('tax-result');
+            box.style.display = 'block';
+            box.innerHTML = `
+                רווח מחושב ברוטו: <strong style="color:#27ae60;">₪${Math.round(profit).toLocaleString('he-IL')}</strong><br>
+                חבות מס משוערת (25%): <strong style="color:#c0392b;">₪${Math.round(tax).toLocaleString('he-IL')}</strong><br>
+                <div style="margin-top:10px; padding-top:10px; border-top:1px solid #ddd;"><strong>שווי נטו לאחר ניכוי מס: ₪${Math.round(net).toLocaleString('he-IL')}</strong></div>
+            `;
+        }
 
-            const totalMonths = t * 12;
-            const monthlyRate = (annualRate / 100) / 12;
-            let currentBalance = P;
-            let totalDeposited = P;
+        // חישוב מודל FIRE
+        function executeFireAnalysis() {
+            const expenses = parseFloat(document.getElementById('fire-expenses').value) || 0;
+            let current = parseFloat(document.getElementById('fire-current').value) || 0;
+            const savings = parseFloat(document.getElementById('fire-savings').value) || 0;
+            const rAnnual = (parseFloat(document.getElementById('fire-return').value) || 0) / 100;
+            const target = (expenses * 12) * 25; 
+            const rMonthly = rAnnual / 12;
+            let months = 0;
+            while (current < target && months < 600) { current = (current + savings) * (1 + rMonthly); months++; }
+            const y = Math.floor(months / 12), m = months % 12;
+            const box = document.getElementById('fire-result-box');
+            box.style.display = 'block';
+            box.innerHTML = months >= 600 ? `<strong style="color:var(--accent-color);">הון יעד: ₪${Math.round(target).toLocaleString('he-IL')}</strong><br>הגעה ליעד תיקח מעל 50 שנה.` : `<strong>הון היעד האסטרטגי: ₪${Math.round(target).toLocaleString('he-IL')}</strong><br>זמן הגעה משוער: <strong style="color:#27ae60;">${y} שנים ו-${m} חודשים</strong>.`;
+        }
 
-            for (let m = 1; m <= totalMonths; m++) {
-                currentBalance += PMT;
-                totalDeposited += PMT;
-                currentBalance += (currentBalance * monthlyRate);
-            }
-
-            document.getElementById('outTotalDeposited').innerText = '₪' + Math.round(totalDeposited).toLocaleString('he-IL');
-            document.getElementById('outNetInterest').innerText = '₪' + Math.round(currentBalance - totalDeposited).toLocaleString('he-IL');
-            document.getElementById('outFinalBalance').innerText = '₪' + Math.round(currentBalance).toLocaleString('he-IL');
-            document.getElementById('interestResults').style.display = 'block';
+        // חישוב רבלנסינג
+        function executeRebalanceAnalysis() {
+            const c1 = parseFloat(document.getElementById('reb-curr-1').value) || 0, t1 = parseFloat(document.getElementById('reb-tar-1').value) || 0;
+            const c2 = parseFloat(document.getElementById('reb-curr-2').value) || 0, t2 = parseFloat(document.getElementById('reb-tar-2').value) || 0;
+            const c3 = parseFloat(document.getElementById('reb-curr-3').value) || 0, t3 = parseFloat(document.getElementById('reb-tar-3').value) || 0;
+            const box = document.getElementById('reb-result-box');
+            box.style.display = 'block';
+            if ((t1 + t2 + t3) !== 100) { box.innerHTML = '<span style="color:red; font-weight:bold;">שגיאה: סך האחוזים חייב להיות 100%.</span>'; return; }
+            const total = c1 + c2 + c3;
+            const fAct = (diff) => diff > 0 ? `<span style="color:#27ae60;">לקנות</span> ₪${Math.round(diff).toLocaleString('he-IL')}` : (diff < 0 ? `<span style="color:#c0392b;">למכור</span> ₪${Math.round(Math.abs(diff)).toLocaleString('he-IL')}` : 'מאוזן');
+            box.innerHTML = `<strong>שווי התיק: ₪${Math.round(total).toLocaleString('he-IL')}</strong><br><br>
+                • <strong>מניות:</strong> פעולה: ${fAct((total * (t1/100)) - c1)}<br>
+                • <strong>אג"ח:</strong> פעולה: ${fAct((total * (t2/100)) - c2)}<br>
+                • <strong>מזומן:</strong> פעולה: ${fAct((total * (t3/100)) - c3)}`;
         }
     </script>
 </body>
