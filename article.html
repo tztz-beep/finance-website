@@ -73,8 +73,8 @@
             const SANITY_DATASET = 'production';
             const SANITY_VERSION = 'v2021-10-21';
             
-            // שאילתה למשיכת המאמר הספציפי לפי ה-Slug
-            const groqQuery = `*[_type == "post" && slug.current == "${slug}"][0]`;
+            // שאילתה מעודכנת למשיכת המאמר מסוג 'column' על בסיס ה-Slug הייחודי
+            const groqQuery = `*[_type == "column" && slug.current == "${slug}"][0]`;
             const apiUrl = `https://${SANITY_PROJECT_ID}.api.sanity.io/${SANITY_VERSION}/data/query/${SANITY_DATASET}?query=${encodeURIComponent(groqQuery)}`;
 
             try {
@@ -89,10 +89,11 @@
                     return;
                 }
                 
-                const dateObj = new Date(article._createdAt);
+                // אופטימיזציה דינמית של תצוגת התאריך
+                const dateObj = new Date(article.publishedAt || article._createdAt);
                 const formattedDate = dateObj.toLocaleDateString('he-IL', { day: '2-digit', month: '2-digit', year: 'numeric' });
 
-                // המרת גוף המאמר למבנה HTML תקני באמצעות הספריה של סניטי
+                // המרת ה-Portable Text מ-Sanity ל-HTML תקני עבור הדפדפן
                 const htmlContent = article.body ? window.PortableText.toHTML(article.body) : 'אין תוכן במאמר זה.';
 
                 container.innerHTML = `
