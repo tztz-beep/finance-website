@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>סקירה פיננסית | השקעות שעושות שכל</title>
-    <link rel="stylesheet" href="style.css?v=19.0">
-    <script src="https://cdn.jsdelivr.net/npm/@portabletext/to-html@2.0.0/dist/index.umd.js"></script>
+    <link rel="stylesheet" href="style.css?v=20.0">
     <style>
         .article-wrapper { max-width: 800px; margin: 60px auto; padding: 0 24px; min-height: 60vh; }
         .article-card { background-color: var(--bg-white); padding: 48px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(17,30,45,0.05); overflow: hidden; max-width: 100%; }
@@ -53,7 +52,9 @@
         </div>
     </div>
 
-    <script>
+    <script type="module">
+        import { toHTML } from 'https://esm.sh/@portabletext/to-html@2.0.0';
+
         const style = document.createElement('style');
         style.innerHTML = `@keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }`;
         document.head.appendChild(style);
@@ -73,7 +74,6 @@
             const SANITY_DATASET = 'production';
             const SANITY_VERSION = 'v2021-10-21';
             
-            // שאילתה מעודכנת למשיכת המאמר מסוג 'column' על בסיס ה-Slug הייחודי
             const groqQuery = `*[_type == "column" && slug.current == "${slug}"][0]`;
             const apiUrl = `https://${SANITY_PROJECT_ID}.api.sanity.io/${SANITY_VERSION}/data/query/${SANITY_DATASET}?query=${encodeURIComponent(groqQuery)}`;
 
@@ -89,12 +89,11 @@
                     return;
                 }
                 
-                // אופטימיזציה דינמית של תצוגת התאריך
                 const dateObj = new Date(article.publishedAt || article._createdAt);
                 const formattedDate = dateObj.toLocaleDateString('he-IL', { day: '2-digit', month: '2-digit', year: 'numeric' });
 
-                // המרת ה-Portable Text מ-Sanity ל-HTML תקני עבור הדפדפן
-                const htmlContent = article.body ? window.PortableText.toHTML(article.body) : 'אין תוכן במאמר זה.';
+                // שימוש אלגנטי וישיר בפונקציה מהמודול המיובא
+                const htmlContent = article.body ? toHTML(article.body) : 'אין תוכן במאמר זה.';
 
                 container.innerHTML = `
                     <h1 class="article-title">${article.title}</h1>
@@ -105,7 +104,9 @@
                 document.title = `${article.title} | השקעות שעושות שכל`;
 
             } catch (error) {
-                container.innerHTML = '<h3 style="color:var(--accent-error);">תקלת תקשורת מול שרתי התוכן.</h3>';
+                // הדפסת השגיאה האמיתית לקונסול כדי שנדע תמיד מה קרה
+                console.error("שגיאה במערכת:", error);
+                container.innerHTML = '<h3 style="color:var(--accent-error);">תקלה בטעינת התוכן. בדוק את החיבור או נסה לרענן.</h3>';
             }
         }
 
