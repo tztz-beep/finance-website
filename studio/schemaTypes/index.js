@@ -1,1 +1,3 @@
-export const schemaTypes = []
+import column from './column'
+
+export const schemaTypes = [column]
