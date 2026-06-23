@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>השקעות שעושות שכל | ידע פיננסי בגובה העיניים</title>
-    <link rel="stylesheet" href="style.css?v=17.0">">
+    <title>השקעות שעושות שכל | ניתוח, תכנון ואופטימיזציה פיננסית</title>
+    <link rel="stylesheet" href="style.css?v=17.0">
 </head>
 <body>
 
@@ -14,169 +14,53 @@
                 <img src="logo.jpg" alt="השקעות שעושות שכל" class="site-logo">
                 <span class="logo-text">השקעות שעושות שכל</span>
             </a>
-            <button class="menu-toggle" aria-label="פתח תפריט">☰</button>
             <nav class="main-nav">
-                <ul>
-                    <li><a href="calculator.html">📊 מחשבונים וסימולטורים</a></li>
-                    <li><a href="investments.html">ייעוץ השקעות</a></li>
-                    <li><a href="pension.html">ייעוץ פנסיוני</a></li>
-                    <li><a href="tax.html">תכנון מס</a></li>
-                    <li><a href="funds.html">קופות גמל והשתלמות</a></li>
-                </ul>
+                <a href="index.html" class="nav-link active">עמוד הבית</a>
+                <a href="calculator.html" class="nav-link">מחשבונים וסימולציות</a>
             </nav>
         </div>
     </header>
 
-    <div class="ticker-container">
-        <div class="ticker-wrap">
-            <div class="ticker-item"><span class="ticker-name">S&P 500</span><span class="ticker-val ticker-sp500">טוען...</span></div>
-            <div class="ticker-item"><span class="ticker-name">נאסדאק 100</span><span class="ticker-val ticker-nasdaq">טוען...</span></div>
-            <div class="ticker-item"><span class="ticker-name">דאו ג'ונס</span><span class="ticker-val ticker-dow">טוען...</span></div>
-            <div class="ticker-item"><span class="ticker-name">ראסל 2000</span><span class="ticker-val ticker-russell">טוען...</span></div>
-            <div class="ticker-item"><span class="ticker-name">ת"א 35</span><span class="ticker-val ticker-ta35">טוען...</span></div>
-            <div class="ticker-item"><span class="ticker-name">ת"א 125</span><span class="ticker-val ticker-ta125">טוען...</span></div>
-            <div class="ticker-item"><span class="ticker-name">ת"א 90</span><span class="ticker-val ticker-ta90">טוען...</span></div>
-            
-            <div class="ticker-item"><span class="ticker-name">S&P 500</span><span class="ticker-val ticker-sp500">טוען...</span></div>
-            <div class="ticker-item"><span class="ticker-name">נאסדאק 100</span><span class="ticker-val ticker-nasdaq">טוען...</span></div>
-            <div class="ticker-item"><span class="ticker-name">דאו ג'ונס</span><span class="ticker-val ticker-dow">טוען...</span></div>
-            <div class="ticker-item"><span class="ticker-name">ראסל 2000</span><span class="ticker-val ticker-russell">טוען...</span></div>
-            <div class="ticker-item"><span class="ticker-name">ת"א 35</span><span class="ticker-val ticker-ta35">טוען...</span></div>
-            <div class="ticker-item"><span class="ticker-name">ת"א 125</span><span class="ticker-val ticker-ta125">טוען...</span></div>
-            <div class="ticker-item"><span class="ticker-name">ת"א 90</span><span class="ticker-val ticker-ta90">טוען...</span></div>
-        </div>
-    </div>
-<!-- תחילת באנר לידים -->
-       <div class="floating-lead-widget" id="leadWidget">
-        <div class="widget-header" onclick="toggleLeadWidget()">
-            <span>💬 יצירת קשר לניתוח תיק</span>
-            <span id="widget-toggle-icon">▼</span>
-        </div>
-        
-        <div class="widget-body" id="widgetBody">
-            <form action="https://formsubmit.co/tzharel123@gmail.com" method="POST" class="compact-form">
-                <input type="hidden" name="_subject" value="ליד חדש מהאתר (וידג'ט צף)!">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
-                
-                <input type="text" name="שם_מלא" placeholder="שם מלא" required>
-                <input type="tel" name="טלפון" placeholder="טלפון נייד" required>
-                <input type="email" name="אימייל" placeholder="דוא״ל" required>
-                <select name="תחום_התעניינות" required>
-                    <option value="" disabled selected>בחירת תחום ייעוץ...</option>
-                    <option value="ייעוץ וניהול השקעות">ייעוץ וניהול השקעות</option>
-                    <option value="ייעוץ וליווי פנסיוני">ייעוץ וליווי פנסיוני</option>
-                    <option value="תכנון מס ופרישה">תכנון מס ופרישה</option>
-                    <option value="קופות גמל והשתלמות">קופות גמל והשתלמות</option>
-                </select>
-                <button type="submit" class="btn-submit-compact" id="submitBtn">שלח פרטים ←</button>
-            </form>
-            
-            <div id="successMessage" class="ajax-success">
-                הפרטים נקלטו בהצלחה במערכת!<br>מומחה פיננסי ייצור עמך קשר בקרוב.
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // פונקציית קיפול ופתיחה של הוידג'ט
-        function toggleLeadWidget() {
-            const body = document.getElementById('widgetBody');
-            const icon = document.getElementById('widget-toggle-icon');
-            if (body.style.display === 'none') {
-                body.style.display = 'block';
-                icon.innerText = '▼';
-            } else {
-                body.style.display = 'none';
-                icon.innerText = '▲';
-            }
-        }
-
-        // שידור אסינכרוני של הטופס ללא רענון עמוד
-        document.getElementById('ajaxLeadForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // עוצר את התנהגות הדיפולט של הדפדפן (מעבר עמוד)
-            
-            const btn = document.getElementById('submitBtn');
-            btn.innerText = 'משדר נתונים...';
-            btn.style.opacity = '0.7';
-            btn.disabled = true;
-
-            const formData = new FormData(this);
-
-            // שים לב לתוספת /ajax/ בכתובת ה-URL - זה מה שמפעיל את התקשורת השקטה
-            fetch('https://formsubmit.co/ajax/tzharel123@gmail.com', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    this.style.display = 'none'; // מעלים את הטופס
-                    document.getElementById('successMessage').style.display = 'block'; // מציג הודעת הצלחה
-                } else {
-                    alert('אירעה שגיאה בשרת. אנא נסה שוב.');
-                    btn.innerText = 'שלח פרטים ←';
-                    btn.style.opacity = '1';
-                    btn.disabled = false;
-                }
-            })
-            .catch(error => {
-                alert('שגיאת תקשורת. בדוק את החיבור לאינטרנט.');
-                btn.innerText = 'שלח פרטים ←';
-                btn.style.opacity = '1';
-                btn.disabled = false;
-            });
-        });
-    </script>
-        <!-- סוף באנר לידים -->
     <main>
         <section class="hero-section">
-            <div class="container animate-fade-in">
-                <span class="hero-tagline">ידע פיננסי בגובה העיניים</span>
-                <h2>השקעות שעושות שכל</h2>
-                <p>אופטימיזציה של ההון שלך באמצעות ניהול סיכונים מתקדם, התאמת חשיפה מנייתית מדויקת, ותכנון מיסוי אקטיבי לטווח הארוך.</p>
+            <div class="container hero-container">
+                <h1>תכנון אסטרטגי להון המשפחתי שלך</h1>
+                <p>שילוב של ניתוח אנליטי מעמיק, אופטימיזציית מס וניהול סיכונים מתקדמים לצורך הגדלת התזרים הפנוי ובניית עושר ארוך טווח.</p>
                 <div class="hero-actions">
-                    <a href="calculator.html" class="btn btn-primary">למרכז המחשבונים הפיננסיים</a>
-                    <button class="btn btn-secondary">תיאום פגישת אנליזה</button>
+                    <a href="calculator.html" class="btn-primary">אל מרכז המחשבונים ←</a>
                 </div>
             </div>
         </section>
 
-        <section class="services-section" id="services">
+        <section class="services-section">
             <div class="container">
-                <div class="section-header">
-                    <h3>תחומי הליבה הפיננסיים</h3>
-                    <p>פתרונות מובנים ומותאמים אישית להגנה על ההון וצמיחתו.</p>
-                </div>
-                
+                <h2 class="section-title">תחומי התמחות ואסטרטגיה</h2>
                 <div class="services-grid">
-                    <a href="investments.html" class="service-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.2s;">
-                        <div class="card-icon">📊</div>
-                        <h4>ייעוץ וניהול השקעות</h4>
-                        <p>בניית הקצאת נכסים המותאמת לפרופיל הסיכון, תוך שילוב מתודולוגיות של ניתוח פונדמנטלי וטכני.</p>
-                        <span style="color: var(--primary-color); font-weight: 700; font-size: 14px; margin-top: 15px; display: inline-block;">היכנס לעמוד התחום והסקירות ←</span>
-                    </a>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">📈</div>
+                        <h3>ייעוץ וניהול השקעות</h3>
+                        <p>בניית תיקי השקעות מותאמי סיכון, אופטימיזציה של נכסים, פיזור גלובלי ובחינת חשיפה מנייתית על בסיס מודלים מדעיים.</p>
+                    </div>
 
-                    <a href="pension.html" class="service-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.2s;">
-                        <div class="card-icon">🛡️</div>
-                        <h4>ייעוץ וליווי פנסיוני</h4>
-                        <p>בחינה מעמיקה של מבנה החיסכון ארוך הטווח, אופטימיזציה של עלויות, והתאמת מסלולים מניבים.</p>
-                        <span style="color: var(--primary-color); font-weight: 700; font-size: 14px; margin-top: 15px; display: inline-block;">היכנס לעמוד התחום והסקירות ←</span>
-                    </a>
+                    <div class="service-card">
+                        <div class="service-icon">⚖️</div>
+                        <h3>תכנון מס ופרישה</h3>
+                        <p>ניצול מקסימלי של נקודות זיכוי, הטבות גיאוגרפיות, קיזוזי מס מורכבים ותכנון מבני של תזרים המזומנים הפנוי.</p>
+                    </div>
 
-                    <a href="tax.html" class="service-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.2s;">
-                        <div class="card-icon">⚖️</div>
-                        <h4>תכנון מס ופרישה</h4>
-                        <p>ניתוח אסטרטגי של הטבות מס, פטורים בחוק, וניצול מכשירים מתקדמים להגדלת התשואה נטו.</p>
-                        <span style="color: var(--primary-color); font-weight: 700; font-size: 14px; margin-top: 15px; display: inline-block;">היכנס לעמוד התחום והסקירות ←</span>
-                    </a>
+                    <div class="service-card">
+                        <div class="service-icon">🛡️</div>
+                        <h3>ייעוץ וליווי פנסיוני</h3>
+                        <p>בחינת המכשירים ארוכי הטווח, אופטימיזציה של דמי ניהול ומסלולי השקעה, והתאמת ההגנות הביטוחיות לצרכי המשפחה.</p>
+                    </div>
 
-                    <a href="funds.html" class="service-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.2s;">
-                        <div class="card-icon">💼</div>
-                        <h4>קופות גמל והשתלמות</h4>
-                        <p>ניהול ובחינה שוטפת של מכשירי החיסכון לטווח הבינוני ואיתור מסלולים מניבי תשואה.</p>
-                        <span style="color: var(--primary-color); font-weight: 700; font-size: 14px; margin-top: 15px; display: inline-block;">היכנס לעמוד התחום והסקירות ←</span>
-                    </a>
+                    <div class="service-card">
+                        <div class="service-icon">🎯</div>
+                        <h3>קופות גמל והשתלמות</h3>
+                        <p>איתור והשוואה של קופות גמל להשקעה, קרנות השתלמות ופוליסות חיסכון מובילות להשגת תשואה מיטבית נטו.</p>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -184,10 +68,100 @@
 
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; 2026 השקעות שעושות שכל. כל הזכויות שמורות לפיתוח עצמאי מוגן.</p>
+            <p>&copy; 2026 השקעות שעושות שכל. כל הזכויות שמורות.</p>
+            <small>המידע המוצג באתר הינו אינפורמטיבי בלבד ואין לראות בו תחליף לייעוץ פיננסי או פנסיוני המותאם אישית לנתוני הלקוח.</small>
         </div>
     </footer>
 
-    <script src="script.js?v=16.0"></script>
+    <div class="floating-lead-widget" id="leadWidget">
+        <div class="widget-header" onclick="toggleLeadWidget()">
+            <span>💼 אנליזה מקצועית לתיק נכסים</span>
+            <span id="widget-toggle-icon">▼</span>
+        </div>
+        
+        <div class="widget-body" id="widgetBody">
+            <form id="ajaxLeadForm" class="compact-form">
+                <input type="hidden" name="_subject" value="אנליזה חדשה: ליד איכותי מהאתר">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                
+                <div class="input-field-wrapper">
+                    <input type="text" name="שם_מלא" placeholder="שם מלא" required>
+                </div>
+                <div class="input-field-wrapper">
+                    <input type="tel" name="טלפון" placeholder="טלפון נייד" required>
+                </div>
+                <div class="input-field-wrapper">
+                    <input type="email" name="אימייל" placeholder="כתובת דוא״ל" required>
+                </div>
+                <div class="input-field-wrapper">
+                    <select name="תחום_התעניינות" required>
+                        <option value="" disabled selected>בחירת תחום מבוקש...</option>
+                        <option value="ייעוץ וניהול השקעות">ייעוץ וניהול השקעות</option>
+                        <option value="ייעוץ וליווי פנסיוני">ייעוץ וליווי פנסיוני</option>
+                        <option value="תכנון מס ופרישה">תכנון מס ופרישה</option>
+                        <option value="קופות גמל והשתלמות">קופות גמל והשתלמות</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit-compact" id="submitBtn">
+                    <span>שלח פרטים לאנליזה</span>
+                    <span>←</span>
+                </button>
+            </form>
+            
+            <div id="successMessage" class="ajax-success">
+                <div class="success-icon">✓</div>
+                <h4>הבקשה התקבלה בהצלחה</h4>
+                <p>נתוני התיק הועברו למחלקה הפיננסית.<br>ניצור עמך קשר תוך יום עסקים אחד.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleLeadWidget() {
+            const body = document.getElementById('widgetBody');
+            const icon = document.getElementById('widget-toggle-icon');
+            if (body.style.display === 'none') {
+                body.style.display = 'block';
+                icon.style.transform = 'rotate(0deg)';
+                icon.innerText = '▼';
+            } else {
+                body.style.display = 'none';
+                icon.style.transform = 'rotate(180deg)';
+                icon.innerText = '▲';
+            }
+        }
+
+        document.getElementById('ajaxLeadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span>מנתב נתונים...</span>';
+            btn.disabled = true;
+
+            const formData = new FormData(this);
+
+            fetch('https://formsubmit.co/ajax/tzharel123@gmail.com', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    this.style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                } else {
+                    alert('תקלת שרת זמנית. אנא נסה שוב.');
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }
+            })
+            .catch(error => {
+                alert('שגיאת תקשורת במערכת.');
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            });
+        });
+    </script>
 </body>
 </html>

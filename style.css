@@ -1,32 +1,28 @@
 /* ==========================================================================
-   משתני עיצוב - פלטת "השקעות שעושות שכל" (Navy & Gold Premium)
+   הגדרות בסיס ומשתני עיצוב גלובליים
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700;800&display=swap');
-
 :root {
-    --primary-color: #111e2d;   /* כחול נייבי עמוק */
-    --accent-color: #d4af37;    /* זהב מטאלי יוקרתי */
-    --accent-hover: #b5952f;    
-    --accent-success: #10b981;  /* ירוק חיובי לעליות ומדדים */
-    --accent-error: #ef4444;    /* אדום לירידות */
-    --text-main: #1e293b;       
-    --text-muted: #64748b;      
-    --bg-light: #f8fafc;        
-    --bg-white: #ffffff;        
-    --border-color: #e2e8f0;    
-    --font-stack: 'Assistant', system-ui, -apple-system, sans-serif;
+    --primary-color: #111e2d;    /* כחול עמוק סמכותי */
+    --accent-color: #d4af37;     /* זהב פרימיום */
+    --text-main: #2c3e50;        /* טקסט ראשי קריא */
+    --text-muted: #64748b;       /* טקסט משני מוחלש */
+    --border-color: #e2e8f0;     /* גבולות עדינים */
+    --bg-light: #f8fafc;         /* רקע בהיר מודרני */
+    --bg-white: #ffffff;         /* לבן נקי */
+    --font-stack: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 body {
     font-family: var(--font-stack);
     background-color: var(--bg-light);
     color: var(--text-main);
-    margin: 0;
-    padding: 0;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
 }
 
 .container {
@@ -36,25 +32,23 @@ body {
 }
 
 /* ==========================================================================
-   סרגל ניווט עליון והלוגו
+   סרגל ניווט (Header)
    ========================================================================== */
 .main-header {
-    background-color: var(--primary-color);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.15); 
+    background-color: var(--bg-white);
+    border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .header-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 16px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 12px 24px;
-    position: relative;
 }
 
 .logo-wrapper {
@@ -65,490 +59,296 @@ body {
 }
 
 .site-logo {
-    height: 45px;
-    width: 45px;
-    object-fit: cover;
-    object-position: center;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease;
+    object-fit: cover;
+    border: 1px solid var(--accent-color);
 }
-
-.site-logo:hover { transform: scale(1.05); }
 
 .logo-text {
-    color: var(--accent-color);
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 800;
-    letter-spacing: -0.5px;
+    color: var(--primary-color);
 }
 
-/* כפתור תפריט המבורגר מוסתר כברירת מחדל במחשב */
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--bg-light);
-    font-size: 24px;
-    cursor: pointer;
-    padding: 4px 8px;
+.main-nav {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 15px;
     transition: color 0.2s;
 }
 
-.menu-toggle:hover { color: var(--accent-color); }
-
-.main-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 32px;
-}
-
-.main-nav ul li a {
-    color: var(--bg-light);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    transition: color 0.2s ease;
-}
-
-.main-nav ul li a:hover { color: var(--accent-color); }
-
-/* ==========================================================================
-   באנר המדדים הנע (Market Ticker)
-   ========================================================================== */
-.ticker-container {
-    width: 100%;
-    overflow: hidden;
-    background-color: #09121c;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-    padding: 10px 0;
-    direction: ltr;
-    display: flex;
-}
-
-.ticker-wrap {
-    display: flex;
-    width: max-content;
-    white-space: nowrap;
-    animation: ticker-infinite-scroll 35s linear infinite;
-}
-
-.ticker-wrap:hover {
-    animation-play-state: paused;
-    cursor: pointer;
-}
-
-.ticker-item {
-    display: inline-flex;
-    align-items: center;
-    padding: 0 35px;
-    font-size: 14px;
-    font-weight: 600;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.ticker-name {
-    color: #ffffff;
-    margin-right: 8px;
-    font-family: var(--font-stack);
-}
-
-.ticker-val {
-    font-variant-numeric: tabular-nums;
-    color: var(--text-muted);
-}
-
-.ticker-val.positive { color: var(--accent-success); }
-.ticker-val.negative { color: var(--accent-error); }
-
-@keyframes ticker-infinite-scroll {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(-50%, 0, 0); }
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color);
 }
 
 /* ==========================================================================
-   אזור ה-Hero
+   אזור הירו (Hero Section)
    ========================================================================== */
 .hero-section {
+    background-linear: linear-gradient(135deg, #111e2d 0%, #1e3146 100%);
     background-color: var(--primary-color);
-    background-image: radial-gradient(circle at center, #1e3147 0%, #111e2d 100%);
     color: var(--bg-white);
-    padding: 110px 0;
+    padding: 90px 0;
     text-align: center;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    border-bottom: 4px solid var(--accent-color);
 }
 
-.hero-tagline {
-    color: var(--bg-light);
-    font-weight: 400;
-    letter-spacing: 1px;
-    font-size: 18px;
-    display: block;
-    margin-bottom: 16px;
-    opacity: 0.9;
-}
-
-.hero-section h2 {
-    color: var(--accent-color);
-    font-size: 52px;
+.hero-container h1 {
+    font-size: 42px;
     font-weight: 800;
-    margin: 0 0 24px 0;
-    letter-spacing: -1px;
-    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
 }
 
-.hero-section p {
-    font-size: 18px;
-    color: #cbd5e1;
-    max-width: 720px;
-    margin: 0 auto 40px auto;
-}
-
-.hero-actions {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-}
-
-.btn {
-    padding: 12px 32px;
-    font-size: 16px;
-    font-weight: 700;
-    border-radius: 6px;
-    cursor: pointer;
-    border: none;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    display: inline-block;
+.hero-container p {
+    font-size: 19px;
+    max-width: 750px;
+    margin: 0 auto 35px auto;
+    opacity: 0.9;
+    line-height: 1.7;
 }
 
 .btn-primary {
+    display: inline-block;
     background-color: var(--accent-color);
     color: var(--primary-color);
+    text-decoration: none;
+    padding: 14px 28px;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: all 0.2s ease;
 }
 
 .btn-primary:hover {
-    background-color: var(--accent-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: var(--accent-color);
-    border: 2px solid var(--accent-color);
-}
-
-.btn-secondary:hover {
-    background-color: rgba(212, 175, 55, 0.08);
-    transform: translateY(-2px);
+    background-color: #e5c158;
+    transform: translateY(-1px);
 }
 
 /* ==========================================================================
-   אזור רשת השירותים הפיננסיים
+   גריד קטגוריות ושירותים
    ========================================================================== */
-.services-section { padding: 90px 0; }
-.section-header { text-align: center; margin-bottom: 64px; }
-.section-header h3 { font-size: 32px; font-weight: 800; color: var(--primary-color); margin: 0 0 12px 0; }
-.section-header p { color: var(--text-muted); font-size: 16px; margin: 0; }
+.services-section {
+    padding: 80px 0;
+}
 
-.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 45px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+@media (max-width: 768px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .hero-container h1 { font-size: 32px; }
+}
+
 .service-card {
-    background-color: var(--bg-white); padding: 36px; border-radius: 8px;
-    border: 1px solid var(--border-color); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative; overflow: hidden;
-}
-.service-card::before {
-    content: ''; position: absolute; top: 0; right: 0; left: 0; height: 3px;
-    background-color: var(--accent-color); transform: scaleX(0); transition: transform 0.3s ease;
-}
-.service-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06); border-color: #cbd5e1; }
-.service-card:hover::before { transform: scaleX(1); }
-.card-icon { font-size: 32px; margin-bottom: 20px; }
-.service-card h4 { font-size: 22px; font-weight: 700; color: var(--primary-color); margin: 0 0 14px 0; }
-.service-card p { color: var(--text-muted); font-size: 15.5px; margin: 0; }
-
-/* ==========================================================================
-   אזור הכתבות והסקירות
-   ========================================================================== */
-.blog-section { padding: 90px 0; background-color: var(--bg-white); border-top: 1px solid var(--border-color); }
-.blog-grid { max-width: 850px; margin: 0 auto; }
-.post-card { padding: 24px 0; }
-.post-meta { font-size: 13.5px; color: var(--accent-hover); font-weight: 700; margin-bottom: 8px; text-transform: uppercase; }
-.post-card h4 { font-size: 24px; font-weight: 700; color: var(--primary-color); margin: 0 0 14px 0; }
-.post-card p { color: var(--text-muted); font-size: 16px; margin: 0 0 20px 0; }
-.read-more { color: var(--primary-color); text-decoration: none; font-weight: 700; font-size: 15px; transition: color 0.2s; }
-.read-more:hover { color: var(--accent-color); }
-
-/* ==========================================================================
-   תחתית האתר
-   ========================================================================== */
-.main-footer { background-color: var(--primary-color); color: #94a3b8; padding: 48px 0; text-align: center; font-size: 14.5px; border-top: 1px solid #1e293b; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-.animate-fade-in { animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-
-/* ==========================================================================
-   חוקי רספונסיביות ותאימות למובייל (Media Queries)
-   ========================================================================== */
-@media (max-width: 900px) {
-    .hero-section h2 { font-size: 40px; }
-    .logo-text { font-size: 18px; }
-}
-
-@media (max-width: 768px) {
-    /* 1. הפעלת תפריט המבורגר רספונסיבי */
-    .menu-toggle { display: block; }
-
-    .main-nav {
-        display: none; /* מוסתר כברירת מחדל במובייל */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: var(--primary-color);
-        border-bottom: 2px solid var(--accent-color);
-        padding: 20px 0;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    }
-
-    .main-nav.active { display: block; } /* מוצג בלחיצה */
-
-    .main-nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    /* 2. התאמת אזור ה-Hero למסכים קטנים */
-    .hero-section { padding: 70px 0; }
-    .hero-section h2 { font-size: 32px; }
-    .hero-section p { font-size: 16px; padding: 0 10px; }
-    
-    /* סידור כפתורים אנכית במובייל למניעת צפיפות */
-    .hero-actions { flex-direction: column; gap: 12px; align-items: center; }
-    .btn { width: 100%; max-width: 280px; text-align: center; }
-
-    /* 3. פריסה טורית (עמודה אחת) של כרטיסי השירותים */
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .service-card { padding: 24px; }
-    .section-header { margin-bottom: 40px; }
-    .section-header h3 { font-size: 26px; }
-}
-/* ==========================================================================
-   טופס לידים חכם - באנר תחתון
-   ========================================================================== */
-.lead-banner {
-    background-color: var(--primary-color);
-    padding: 60px 0;
-    color: white;
-    margin-top: 60px;
-    border-top: 4px solid var(--accent-color);
-}
-
-.lead-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.lead-text {
-    flex: 1;
-    min-width: 300px;
-}
-
-.lead-text h3 {
-    margin-top: 0;
-    font-size: 32px;
-    font-weight: 800;
-    margin-bottom: 15px;
-    color: var(--accent-color);
-}
-
-.lead-text p {
-    font-size: 17px;
-    line-height: 1.6;
-    opacity: 0.9;
-    margin: 0;
-}
-
-.lead-form-wrapper {
-    flex: 1.2;
-    min-width: 320px;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-}
-
-.lead-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.form-row {
-    display: flex;
-    gap: 16px;
-}
-
-.lead-form input, .lead-form select {
-    flex: 1;
-    padding: 14px 16px;
+    background-color: var(--bg-white);
     border: 1px solid var(--border-color);
-    border-radius: 6px;
-    font-family: inherit;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(17,30,45,0.06);
+}
+
+.service-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.service-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: var(--text-main);
     font-size: 15px;
-    outline: none;
-    transition: all 0.2s;
-    background: var(--bg-light);
-    color: var(--primary-color);
-}
-
-.lead-form input:focus, .lead-form select:focus {
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(212,175,55,0.15);
-    background: white;
-}
-
-.btn-submit {
-    background: var(--accent-color);
-    color: var(--primary-color);
-    border: none;
-    width: 100%;
-    padding: 16px;
-    font-size: 17px;
-    font-weight: 800;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-top: 8px;
-    font-family: inherit;
-}
-
-.btn-submit:hover {
-    background: #e5c158;
-    transform: translateY(-2px);
-}
-
-@media (max-width: 768px) {
-    .form-row { flex-direction: column; gap: 16px; }
-    .lead-text h3 { font-size: 26px; }
-}
-/* ==========================================================================
-   טופס לידים חכם - באנר תחתון (גרסת פרימיום)
-   ========================================================================== */
-.lead-banner {
-    background-color: var(--primary-color, #111e2d);
-    padding: 70px 0;
-    color: #ffffff;
-    margin-top: 60px;
-    border-top: 4px solid var(--accent-color, #d4af37);
-}
-
-.lead-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 50px;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-    flex-wrap: wrap;
-}
-
-.lead-text {
-    flex: 1;
-    min-width: 320px;
-}
-
-.lead-text h3 {
-    margin-top: 0;
-    font-size: 34px;
-    font-weight: 800;
-    margin-bottom: 18px;
-    color: var(--accent-color, #d4af37);
-    line-height: 1.2;
-}
-
-.lead-text p {
-    font-size: 18px;
     line-height: 1.6;
-    opacity: 0.95;
-    margin: 0;
 }
 
-.lead-form-wrapper {
-    flex: 1.2;
-    min-width: 340px;
-    background: #ffffff;
-    padding: 35px;
+/* ==========================================================================
+   פוטר (Footer)
+   ========================================================================== */
+.main-footer {
+    background-color: #0b141f;
+    color: #94a3b8;
+    padding: 40px 0;
+    text-align: center;
+    font-size: 14px;
+    border-top: 1px solid #1e293b;
+}
+
+.main-footer small {
+    display: block;
+    margin-top: 12px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.6;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   וידג'ט לידים צף קומפקטי (Premium AJAX Floating Widget)
+   ========================================================================== */
+.floating-lead-widget {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 310px;
+    background: var(--bg-white);
     border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.15);
+    z-index: 99999;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.lead-form {
+.widget-header {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    padding: 16px 20px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--accent-color);
+    user-select: none;
+}
+
+#widget-toggle-icon {
+    font-size: 12px;
+    color: var(--accent-color);
+    transition: transform 0.2s ease;
+}
+
+.widget-body {
+    padding: 22px;
+    background: var(--bg-white);
+}
+
+.compact-form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
 }
 
-.form-row {
-    display: flex;
-    gap: 16px;
-}
-
-.lead-form input, .lead-form select {
-    flex: 1;
+.input-field-wrapper {
+    position: relative;
     width: 100%;
-    padding: 15px;
+}
+
+.compact-form input, .compact-form select {
+    width: 100%;
+    padding: 12px 14px;
     border: 1px solid #cbd5e1;
     border-radius: 8px;
+    font-size: 14px;
     font-family: inherit;
-    font-size: 15.5px;
-    outline: none;
-    transition: all 0.2s;
-    background: #f8fafc;
-    color: #0f172a;
     box-sizing: border-box;
+    background: var(--bg-light);
+    color: var(--primary-color);
+    transition: all 0.2s ease;
 }
 
-.lead-form input:focus, .lead-form select:focus {
-    border-color: var(--accent-color, #d4af37);
-    box-shadow: 0 0 0 3px rgba(212,175,55,0.2);
-    background: #ffffff;
+.compact-form input:focus, .compact-form select:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    background: var(--bg-white);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
 }
 
-.lead-form .btn-submit {
-    background: var(--accent-color, #d4af37);
-    color: var(--primary-color, #111e2d);
-    border: none;
-    width: 100%;
-    padding: 18px;
-    font-size: 18px;
-    font-weight: 800;
+.compact-form select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23111e2d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+    background-repeat: no-repeat;
+    background-position: left 12px center;
+    background-size: 16px;
+    padding-left: 35px;
+}
+
+.btn-submit-compact {
+    background: var(--primary-color);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 14px;
+    font-weight: 700;
+    font-size: 15px;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 10px;
+    transition: all 0.2s ease;
+    margin-top: 6px;
     font-family: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
 }
 
-.lead-form .btn-submit:hover {
-    background: #e5c158;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 15px rgba(212,175,55,0.3);
+.btn-submit-compact:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
 }
 
-@media (max-width: 768px) {
-    .form-row { flex-direction: column; gap: 16px; }
-    .lead-text h3 { font-size: 28px; }
-    .lead-banner { padding: 50px 0; }
+.btn-submit-compact:disabled {
+    background: #cbd5e1;
+    color: #94a3b8;
+    border-color: #cbd5e1;
+    cursor: not-allowed;
+}
+
+.ajax-success {
+    display: none;
+    color: #1e1b4b;
+    text-align: center;
+    padding: 10px 5px;
+}
+
+.ajax-success .success-icon {
+    font-size: 36px;
+    color: #27ae60;
+    margin-bottom: 12px;
+}
+
+.ajax-success h4 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.ajax-success p {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.5;
 }
