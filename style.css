@@ -1,5 +1,5 @@
 /* ==========================================================================
-   הגדרות בסיס ומשתני עיצוב גלובליים
+   1. הגדרות בסיס ומשתני עיצוב גלובליים (Premium Palette)
    ========================================================================== */
 :root {
     --primary-color: #111e2d;    /* כחול עמוק סמכותי */
@@ -32,7 +32,7 @@ body {
 }
 
 /* ==========================================================================
-   סרגל ניווט (Header)
+   2. סרגל ניווט עליון (Header)
    ========================================================================== */
 .main-header {
     background-color: var(--bg-white);
@@ -90,11 +90,10 @@ body {
 }
 
 /* ==========================================================================
-   אזור הירו (Hero Section)
+   3. אזור הירו (Hero Section) - עמוד הבית
    ========================================================================== */
 .hero-section {
-    background-linear: linear-gradient(135deg, #111e2d 0%, #1e3146 100%);
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, #111e2d 0%, #1e3146 100%);
     color: var(--bg-white);
     padding: 90px 0;
     text-align: center;
@@ -133,7 +132,7 @@ body {
 }
 
 /* ==========================================================================
-   גריד קטגוריות ושירותים
+   4. גריד שירותים וקטגוריות (עמוד הבית - שני טורים)
    ========================================================================== */
 .services-section {
     padding: 80px 0;
@@ -151,11 +150,6 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-}
-
-@media (max-width: 768px) {
-    .services-grid { grid-template-columns: 1fr; }
-    .hero-container h1 { font-size: 32px; }
 }
 
 .service-card {
@@ -191,29 +185,239 @@ body {
 }
 
 /* ==========================================================================
-   פוטר (Footer)
+   5. ארכיטקטורת עמוד המחשבונים (Tabs, Columns & Grids)
    ========================================================================== */
-.main-footer {
-    background-color: #0b141f;
-    color: #94a3b8;
+.page-header {
+    background: var(--primary-color);
+    color: white;
     padding: 40px 0;
     text-align: center;
-    font-size: 14px;
-    border-top: 1px solid #1e293b;
+    margin-bottom: 40px;
 }
 
-.main-footer small {
-    display: block;
-    margin-top: 12px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0.6;
-    line-height: 1.5;
+.page-header h1 {
+    margin: 0 0 10px 0;
+    font-size: 32px;
+    font-weight: 800;
 }
+
+.page-header p {
+    margin: 0;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.tabs-container {
+    max-width: 1100px;
+    margin: 0 auto 60px auto;
+    background: var(--bg-white);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(17,30,45,0.05);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.tabs-nav {
+    display: flex;
+    background: #ffffff;
+    border-bottom: 2px solid var(--border-color);
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 18px;
+    text-align: center;
+    background: none;
+    border: none;
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    min-width: 200px;
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+    background: rgba(17, 30, 45, 0.02);
+}
+
+.tab-panel {
+    display: none;
+    padding: 40px;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* פריסת שני הטורים הגדולה: שמאל (סקירה) וימין (מחשבון) */
+.calculator-container-layout {
+    display: flex;
+    gap: 40px;
+}
+
+.calculator-box {
+    flex: 1.2;
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.calculator-review {
+    flex: 1;
+    background: #fdfdfd;
+    padding: 28px;
+    border-radius: 8px;
+    border-right: 4px solid var(--primary-color);
+    line-height: 1.7;
+}
+
+.calculator-review h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 14px;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.calculator-review p {
+    font-size: 14.5px;
+    color: var(--text-main);
+    margin-bottom: 12px;
+}
+
+/* גריד שני הטורים הפנימי של השדות (Inputs) */
+.input-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.input-wrapper input, .input-wrapper select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: inherit;
+    box-sizing: border-box;
+    background: var(--bg-light);
+    color: var(--primary-color);
+}
+
+.input-wrapper input:focus, .input-wrapper select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: var(--bg-white);
+    box-shadow: 0 0 0 3px rgba(212,175,55,0.15);
+}
+
+/* רכיב אקורדיון מתקפל (הגדרות מתקדמות) */
+.advanced-toggle {
+    background-color: #f1f5f9;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-weight: 700;
+    color: var(--primary-color);
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s;
+}
+
+.advanced-toggle:hover {
+    background-color: #e2e8f0;
+}
+
+.advanced-content {
+    display: none;
+    padding: 24px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 24px;
+    background-color: #fbfbfb;
+}
+
+/* כפתורי חישוב וקופסאות פלט */
+.btn-calc {
+    width: 100%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 10px;
+    font-family: inherit;
+}
+
+.btn-calc:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.results-box {
+    margin-top: 32px;
+    padding: 24px;
+    background-color: rgba(39, 174, 96, 0.04);
+    border-radius: 8px;
+    border: 1px solid rgba(39, 174, 96, 0.1);
+    display: none;
+}
+
+.results-box h3 {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 15px;
+}
+
+.result-row:last-of-type {
+    border-bottom: none;
+    font-size: 20px;
+    font-weight: 800;
+    padding-top: 14px;
+    margin-top: 8px;
+}
+
+.warning { color: #c0392b; font-weight: 700; }
+.success { color: #27ae60; font-weight: 700; }
+.benefit { color: #3b82f6; font-weight: 700; }
 
 /* ==========================================================================
-   וידג'ט לידים צף קומפקטי (Premium AJAX Floating Widget)
+   6. וידג'ט לידים צף קומפקטי (Premium AJAX Floating Widget)
    ========================================================================== */
 .floating-lead-widget {
     position: fixed;
@@ -351,4 +555,48 @@ body {
     font-size: 13.5px;
     color: var(--text-muted);
     line-height: 1.5;
+}
+
+/* ==========================================================================
+   7. פוטר האתר (Footer)
+   ========================================================================== */
+.main-footer {
+    background-color: #0b141f;
+    color: #94a3b8;
+    padding: 40px 0;
+    text-align: center;
+    font-size: 14px;
+    border-top: 1px solid #1e293b;
+}
+
+.main-footer small {
+    display: block;
+    margin-top: 12px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.6;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   8. רספונסיביות מלאה למובייל (Responsive Layout)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .services-grid, .calculator-container-layout, .input-grid {
+        grid-template-columns: 1fr !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+    .hero-container h1 {
+        font-size: 32px;
+    }
+    .tab-panel {
+        padding: 20px;
+    }
+    .floating-lead-widget {
+        width: calc(100% - 40px);
+        left: 20px;
+        bottom: 20px;
+    }
 }
