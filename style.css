@@ -1,602 +1,108 @@
 /* ==========================================================================
-   1. הגדרות בסיס ומשתני עיצוב גלובליים (Premium Palette)
+   1. משתני עיצוב גלובליים (Premium Palette)
    ========================================================================== */
 :root {
     --primary-color: #111e2d;    /* כחול עמוק סמכותי */
     --accent-color: #d4af37;     /* זהב פרימיום */
-    --text-main: #2c3e50;        /* טקסט ראשי קריא */
-    --text-muted: #64748b;       /* טקסט משני מוחלש */
-    --border-color: #e2e8f0;     /* גבולות עדינים */
-    --bg-light: #f8fafc;         /* רקע בהיר מודרני */
-    --bg-white: #ffffff;         /* לבן נקי */
+    --text-main: #2c3e50;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --bg-light: #f8fafc;
+    --bg-white: #ffffff;
     --font-stack: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-stack); background-color: var(--bg-light); color: var(--text-main); line-height: 1.6; direction: rtl; }
+.container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 
-body {
-    font-family: var(--font-stack);
-    background-color: var(--bg-light);
-    color: var(--text-main);
-    line-height: 1.6;
-}
+/* ==========================================================================
+   2. סרגל ניווט (Header) - מותאם למבנה ההיסטורי שלך (UL/LI)
+   ========================================================================== */
+.main-header { background-color: var(--bg-white); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; }
+.header-container { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; max-width: 1140px; margin: 0 auto; }
+.logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.site-logo { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-color); }
+.logo-text { font-size: 19px; font-weight: 800; color: var(--primary-color); }
 
-.container {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 24px;
+.main-nav ul { list-style: none; display: flex; gap: 24px; margin: 0; padding: 0; align-items: center; }
+.main-nav a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 15px; transition: color 0.2s; }
+.main-nav a:hover, .main-nav a.active { color: var(--primary-color); }
+.menu-toggle { display: none; background: none; border: none; font-size: 24px; color: var(--primary-color); cursor: pointer; }
+
+/* ==========================================================================
+   3. טיקר בורסה חי (Ticker)
+   ========================================================================== */
+.ticker-container { background-color: #0b141f; color: #ffffff; padding: 10px 0; overflow: hidden; white-space: nowrap; border-bottom: 1px solid #1e293b; direction: ltr; }
+.ticker-wrap { display: inline-block; animation: ticker 40s linear infinite; padding-left: 100%; }
+.ticker-item { display: inline-block; margin-right: 40px; font-size: 14px; font-weight: 600; direction: rtl; }
+.ticker-name { color: #94a3b8; margin-left: 8px; }
+.ticker-val { color: var(--accent-color); }
+
+@keyframes ticker {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
 }
 
 /* ==========================================================================
-   2. סרגל ניווט עליון (Header)
+   4. אזור הירו (Hero Section)
    ========================================================================== */
-.main-header {
-    background-color: var(--bg-white);
-    border-bottom: 1px solid var(--border-color);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+.hero-section { background: linear-gradient(135deg, #111e2d 0%, #1e3146 100%); color: var(--bg-white); padding: 90px 0; text-align: center; border-bottom: 4px solid var(--accent-color); }
+.hero-tagline { display: block; color: var(--accent-color); font-weight: 700; margin-bottom: 12px; font-size: 16px; letter-spacing: 0.5px; }
+.hero-section h2 { font-size: 42px; font-weight: 800; margin-bottom: 20px; letter-spacing: -0.5px; margin-top: 0; }
+.hero-section p { font-size: 19px; max-width: 750px; margin: 0 auto 35px auto; opacity: 0.9; line-height: 1.7; }
 
-.header-container {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 16px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-}
-
-.site-logo {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid var(--accent-color);
-}
-
-.logo-text {
-    font-size: 19px;
-    font-weight: 800;
-    color: var(--primary-color);
-}
-
-.main-nav {
-    display: flex;
-    gap: 24px;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: var(--text-muted);
-    font-weight: 600;
-    font-size: 15px;
-    transition: color 0.2s;
-}
-
-.nav-link:hover, .nav-link.active {
-    color: var(--primary-color);
-}
+.hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn { display: inline-block; padding: 14px 28px; font-weight: 700; border-radius: 6px; transition: all 0.2s ease; text-decoration: none; font-family: inherit; font-size: 16px; cursor: pointer; }
+.btn-primary { background-color: var(--accent-color); color: var(--primary-color); border: 2px solid var(--accent-color); }
+.btn-primary:hover { background-color: #e5c158; border-color: #e5c158; transform: translateY(-1px); }
+.btn-secondary { background-color: transparent; color: var(--bg-white); border: 2px solid rgba(255,255,255,0.3); }
+.btn-secondary:hover { border-color: var(--bg-white); background-color: rgba(255,255,255,0.1); transform: translateY(-1px); }
 
 /* ==========================================================================
-   3. אזור הירו (Hero Section) - עמוד הבית
+   5. גריד שירותים (Services Cards)
    ========================================================================== */
-.hero-section {
-    background: linear-gradient(135deg, #111e2d 0%, #1e3146 100%);
-    color: var(--bg-white);
-    padding: 90px 0;
-    text-align: center;
-    border-bottom: 4px solid var(--accent-color);
-}
+.services-section { padding: 80px 0; }
+.section-header { text-align: center; margin-bottom: 50px; }
+.section-header h3 { font-size: 32px; font-weight: 800; color: var(--primary-color); margin-bottom: 10px; margin-top: 0; }
+.section-header p { font-size: 18px; color: var(--text-muted); }
 
-.hero-container h1 {
-    font-size: 42px;
-    font-weight: 800;
-    margin-bottom: 20px;
-    letter-spacing: -0.5px;
-}
-
-.hero-container p {
-    font-size: 19px;
-    max-width: 750px;
-    margin: 0 auto 35px auto;
-    opacity: 0.9;
-    line-height: 1.7;
-}
-
-.btn-primary {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    text-decoration: none;
-    padding: 14px 28px;
-    font-weight: 700;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-}
-
-.btn-primary:hover {
-    background-color: #e5c158;
-    transform: translateY(-1px);
-}
+.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+.service-card { background-color: var(--bg-white); border: 1px solid var(--border-color); border-radius: 10px; padding: 35px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition: transform 0.2s, box-shadow 0.2s; }
+.service-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(17,30,45,0.06); }
+.card-icon { font-size: 36px; margin-bottom: 20px; }
+.service-card h4 { font-size: 22px; font-weight: 800; color: var(--primary-color); margin-bottom: 12px; margin-top: 0; }
+.service-card p { color: var(--text-main); font-size: 15px; line-height: 1.6; margin: 0; }
 
 /* ==========================================================================
-   4. גריד שירותים וקטגוריות (עמוד הבית - שני טורים)
+   6. סימולטורים ומחשבונים (מתממשק בדיוק לקוד המחשבון שבנינו)
    ========================================================================== */
-.services-section {
-    padding: 80px 0;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 28px;
-    font-weight: 800;
-    color: var(--primary-color);
-    margin-bottom: 45px;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-}
-
-.service-card {
-    background-color: var(--bg-white);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.service-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(17,30,45,0.06);
-}
-
-.service-icon {
-    font-size: 32px;
-    margin-bottom: 16px;
-}
-
-.service-card h3 {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 12px;
-}
-
-.service-card p {
-    color: var(--text-main);
-    font-size: 15px;
-    line-height: 1.6;
-}
-
-/* ==========================================================================
-   5. ארכיטקטורת עמוד המחשבונים (Tabs, Columns & Grids)
-   ========================================================================== */
-.page-header {
-    background: var(--primary-color);
-    color: white;
-    padding: 40px 0;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.page-header h1 {
-    margin: 0 0 10px 0;
-    font-size: 32px;
-    font-weight: 800;
-}
-
-.page-header p {
-    margin: 0;
-    font-size: 18px;
-    opacity: 0.9;
-}
-
-.tabs-container {
-    max-width: 1100px;
-    margin: 0 auto 60px auto;
-    background: var(--bg-white);
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(17,30,45,0.05);
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-}
-
-.tabs-nav {
-    display: flex;
-    background: #ffffff;
-    border-bottom: 2px solid var(--border-color);
-    flex-wrap: wrap;
-}
-
-.tab-btn {
-    flex: 1;
-    padding: 18px;
-    text-align: center;
-    background: none;
-    border: none;
-    font-size: 15.5px;
-    font-weight: 700;
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-family: inherit;
-    min-width: 200px;
-}
-
-.tab-btn.active {
-    color: var(--primary-color);
-    border-bottom: 3px solid var(--primary-color);
-    background: rgba(17, 30, 45, 0.02);
-}
-
-.tab-panel {
-    display: none;
-    padding: 40px;
-}
-
-.tab-panel.active {
-    display: block;
-}
-
-/* פריסת שני הטורים הגדולה: שמאל (סקירה) וימין (מחשבון) */
-.calculator-container-layout {
-    display: flex;
-    gap: 40px;
-}
-
-.calculator-box {
-    flex: 1.2;
-    background: #ffffff;
-    padding: 28px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-}
-
-.calculator-review {
-    flex: 1;
-    background: #fdfdfd;
-    padding: 28px;
-    border-radius: 8px;
-    border-right: 4px solid var(--primary-color);
-    line-height: 1.7;
-}
-
-.calculator-review h4 {
-    color: var(--primary-color);
-    margin-top: 0;
-    margin-bottom: 14px;
-    font-size: 19px;
-    font-weight: 800;
-}
-
-.calculator-review p {
-    font-size: 14.5px;
-    color: var(--text-main);
-    margin-bottom: 12px;
-}
-
-/* גריד שני הטורים הפנימי של השדות (Inputs) */
-.input-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-bottom: 24px;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    font-size: 14.5px;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 8px;
-}
-
-.input-wrapper input, .input-wrapper select {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    font-size: 15px;
-    font-family: inherit;
-    box-sizing: border-box;
-    background: var(--bg-light);
-    color: var(--primary-color);
-}
-
-.input-wrapper input:focus, .input-wrapper select:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    background-color: var(--bg-white);
-    box-shadow: 0 0 0 3px rgba(212,175,55,0.15);
-}
-
-/* רכיב אקורדיון מתקפל (הגדרות מתקדמות) */
-.advanced-toggle {
-    background-color: #f1f5f9;
-    padding: 12px 16px;
-    border-radius: 6px;
-    font-weight: 700;
-    color: var(--primary-color);
-    cursor: pointer;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid var(--border-color);
-    transition: all 0.2s;
-}
-
-.advanced-toggle:hover {
-    background-color: #e2e8f0;
-}
-
-.advanced-content {
-    display: none;
-    padding: 24px;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    margin-bottom: 24px;
-    background-color: #fbfbfb;
-}
-
-/* כפתורי חישוב וקופסאות פלט */
-.btn-calc {
-    width: 100%;
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 16px;
-    font-size: 16px;
-    font-weight: 700;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-top: 10px;
-    font-family: inherit;
-}
-
-.btn-calc:hover {
-    background: var(--accent-color);
-    color: var(--primary-color);
-}
-
-.results-box {
-    margin-top: 32px;
-    padding: 24px;
-    background-color: rgba(39, 174, 96, 0.04);
-    border-radius: 8px;
-    border: 1px solid rgba(39, 174, 96, 0.1);
-    display: none;
-}
-
-.results-box h3 {
-    margin: 0 0 20px 0;
-    font-size: 18px;
-    font-weight: 800;
-    color: var(--primary-color);
-}
-
-.result-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border-color);
-    font-size: 15px;
-}
-
-.result-row:last-of-type {
-    border-bottom: none;
-    font-size: 20px;
-    font-weight: 800;
-    padding-top: 14px;
-    margin-top: 8px;
-}
-
+.calculator-container-layout { display: flex; gap: 40px; }
+.calculator-box { flex: 1.2; background: #ffffff; padding: 28px; border-radius: 8px; border: 1px solid var(--border-color); }
+.calculator-review { flex: 1; background: #fdfdfd; padding: 28px; border-radius: 8px; border-right: 4px solid var(--primary-color); line-height: 1.7; }
+.input-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 24px; }
+.input-group { display: flex; flex-direction: column; }
+.input-group label { font-size: 14.5px; font-weight: 700; color: var(--primary-color); margin-bottom: 8px; }
+.input-wrapper input, .input-wrapper select { width: 100%; padding: 12px 14px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 15px; font-family: inherit; background: var(--bg-light); color: var(--primary-color); }
+.input-wrapper input:focus, .input-wrapper select:focus { outline: none; border-color: var(--accent-color); background-color: var(--bg-white); box-shadow: 0 0 0 3px rgba(212,175,55,0.15); }
+.btn-calc { width: 100%; background: var(--primary-color); color: white; border: none; padding: 16px; font-size: 16px; font-weight: 700; border-radius: 6px; cursor: pointer; transition: all 0.2s; margin-top: 10px; font-family: inherit; }
+.btn-calc:hover { background: var(--accent-color); color: var(--primary-color); }
+.results-box { margin-top: 32px; padding: 24px; background-color: rgba(39, 174, 96, 0.04); border-radius: 8px; border: 1px solid rgba(39, 174, 96, 0.1); display: none; }
+.results-box h3 { margin: 0 0 20px 0; font-size: 18px; font-weight: 800; color: var(--primary-color); }
+.result-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border-color); font-size: 15px; }
+.result-row:last-of-type { border-bottom: none; font-size: 20px; font-weight: 800; padding-top: 14px; margin-top: 8px; }
 .warning { color: #c0392b; font-weight: 700; }
 .success { color: #27ae60; font-weight: 700; }
-.benefit { color: #3b82f6; font-weight: 700; }
+
+.advanced-toggle { background-color: #f1f5f9; padding: 12px 16px; border-radius: 6px; font-weight: 700; color: var(--primary-color); cursor: pointer; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--border-color); }
+.advanced-content { display: none; padding: 24px; border: 1px solid var(--border-color); border-radius: 6px; margin-bottom: 24px; background-color: #fbfbfb; }
 
 /* ==========================================================================
-   6. וידג'ט לידים צף קומפקטי (Premium AJAX Floating Widget)
-   ========================================================================== */
-.floating-lead-widget {
-    position: fixed;
-    bottom: 25px;
-    left: 25px;
-    width: 310px;
-    background: var(--bg-white);
-    border-radius: 12px;
-    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.15);
-    z-index: 99999;
-    border: 1px solid var(--border-color);
-    overflow: hidden;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.widget-header {
-    background-color: var(--primary-color);
-    color: var(--bg-white);
-    padding: 16px 20px;
-    font-weight: 700;
-    font-size: 15px;
-    letter-spacing: 0.3px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 3px solid var(--accent-color);
-    user-select: none;
-}
-
-#widget-toggle-icon {
-    font-size: 12px;
-    color: var(--accent-color);
-    transition: transform 0.2s ease;
-}
-
-.widget-body {
-    padding: 22px;
-    background: var(--bg-white);
-}
-
-.compact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-.input-field-wrapper {
-    position: relative;
-    width: 100%;
-}
-
-.compact-form input, .compact-form select {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    font-size: 14px;
-    font-family: inherit;
-    box-sizing: border-box;
-    background: var(--bg-light);
-    color: var(--primary-color);
-    transition: all 0.2s ease;
-}
-
-.compact-form input:focus, .compact-form select:focus {
-    border-color: var(--accent-color);
-    outline: none;
-    background: var(--bg-white);
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
-}
-
-.compact-form select {
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23111e2d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
-    background-repeat: no-repeat;
-    background-position: left 12px center;
-    background-size: 16px;
-    padding-left: 35px;
-}
-
-.btn-submit-compact {
-    background: var(--primary-color);
-    color: var(--accent-color);
-    border: 1px solid var(--accent-color);
-    padding: 14px;
-    font-weight: 700;
-    font-size: 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    margin-top: 6px;
-    font-family: inherit;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-}
-
-.btn-submit-compact:hover {
-    background: var(--accent-color);
-    color: var(--primary-color);
-    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
-}
-
-.btn-submit-compact:disabled {
-    background: #cbd5e1;
-    color: #94a3b8;
-    border-color: #cbd5e1;
-    cursor: not-allowed;
-}
-
-.ajax-success {
-    display: none;
-    color: #1e1b4b;
-    text-align: center;
-    padding: 10px 5px;
-}
-
-.ajax-success .success-icon {
-    font-size: 36px;
-    color: #27ae60;
-    margin-bottom: 12px;
-}
-
-.ajax-success h4 {
-    margin: 0 0 8px 0;
-    font-size: 16px;
-    font-weight: 800;
-}
-
-.ajax-success p {
-    margin: 0;
-    font-size: 13.5px;
-    color: var(--text-muted);
-    line-height: 1.5;
-}
-
-/* ==========================================================================
-   7. פוטר האתר (Footer)
-   ========================================================================== */
-.main-footer {
-    background-color: #0b141f;
-    color: #94a3b8;
-    padding: 40px 0;
-    text-align: center;
-    font-size: 14px;
-    border-top: 1px solid #1e293b;
-}
-
-.main-footer small {
-    display: block;
-    margin-top: 12px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0.6;
-    line-height: 1.5;
-}
-
-/* ==========================================================================
-   8. רספונסיביות מלאה למובייל (Responsive Layout)
+   7. רספונסיביות מלאה למובייל
    ========================================================================== */
 @media (max-width: 768px) {
-    .services-grid, .calculator-container-layout, .input-grid {
-        grid-template-columns: 1fr !important;
-        flex-direction: column !important;
-        gap: 20px !important;
-    }
-    .hero-container h1 {
-        font-size: 32px;
-    }
-    .tab-panel {
-        padding: 20px;
-    }
-    .floating-lead-widget {
-        width: calc(100% - 40px);
-        left: 20px;
-        bottom: 20px;
-    }
+    .services-grid, .calculator-container-layout, .input-grid { grid-template-columns: 1fr; flex-direction: column; }
+    .hero-section h2 { font-size: 32px; }
+    .main-nav ul { display: none; }
+    .menu-toggle { display: block; }
 }
