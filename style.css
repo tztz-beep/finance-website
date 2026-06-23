@@ -442,3 +442,113 @@ body {
     .form-row { flex-direction: column; gap: 16px; }
     .lead-text h3 { font-size: 26px; }
 }
+/* ==========================================================================
+   טופס לידים חכם - באנר תחתון (גרסת פרימיום)
+   ========================================================================== */
+.lead-banner {
+    background-color: var(--primary-color, #111e2d);
+    padding: 70px 0;
+    color: #ffffff;
+    margin-top: 60px;
+    border-top: 4px solid var(--accent-color, #d4af37);
+}
+
+.lead-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.lead-text {
+    flex: 1;
+    min-width: 320px;
+}
+
+.lead-text h3 {
+    margin-top: 0;
+    font-size: 34px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    color: var(--accent-color, #d4af37);
+    line-height: 1.2;
+}
+
+.lead-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.95;
+    margin: 0;
+}
+
+.lead-form-wrapper {
+    flex: 1.2;
+    min-width: 340px;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.lead-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.lead-form input, .lead-form select {
+    flex: 1;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15.5px;
+    outline: none;
+    transition: all 0.2s;
+    background: #f8fafc;
+    color: #0f172a;
+    box-sizing: border-box;
+}
+
+.lead-form input:focus, .lead-form select:focus {
+    border-color: var(--accent-color, #d4af37);
+    box-shadow: 0 0 0 3px rgba(212,175,55,0.2);
+    background: #ffffff;
+}
+
+.lead-form .btn-submit {
+    background: var(--accent-color, #d4af37);
+    color: var(--primary-color, #111e2d);
+    border: none;
+    width: 100%;
+    padding: 18px;
+    font-size: 18px;
+    font-weight: 800;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    font-family: inherit;
+}
+
+.lead-form .btn-submit:hover {
+    background: #e5c158;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(212,175,55,0.3);
+}
+
+@media (max-width: 768px) {
+    .form-row { flex-direction: column; gap: 16px; }
+    .lead-text h3 { font-size: 28px; }
+    .lead-banner { padding: 50px 0; }
+}
