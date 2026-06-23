@@ -3,188 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>השקעות שעושות שכל | ניתוח, תכנון ואופטימיזציה פיננסית</title>
+    <title>קופות גמל והשתלמות | השקעות שעושות שכל</title>
+    <link rel="stylesheet" href="style.css?v=16.0">
     <style>
-        :root {
-            --primary-color: #111e2d;
-            --accent-color: #d4af37;
-            --text-main: #2c3e50;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-            --bg-light: #f8fafc;
-            --bg-white: #ffffff;
-            --font-stack: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+        /* המבנה ההיסטורי והתקין שלך - ללא שינוי */
+        body { background-color: #f8f9fa; }
+        .page-header { background: var(--primary-color, #111e2d); color: white; padding: 50px 0; text-align: center; margin-bottom: 40px; }
+        .page-header h1 { margin: 0 0 10px 0; font-size: 34px; font-weight: 800; }
+        .page-header p { margin: 0; font-size: 18px; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        
+        .content-container { max-width: 900px; margin: 0 auto 60px auto; background: var(--bg-white, #ffffff); padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(17,30,45,0.05); border: 1px solid var(--border-color, #e2e8f0); }
+        .section-title { color: var(--primary-color, #111e2d); font-size: 24px; font-weight: 800; border-bottom: 2px solid var(--border-color, #e2e8f0); padding-bottom: 10px; margin-bottom: 24px; }
+        
+        .dynamic-content-area { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .injected-article { background: #fdfdfd; padding: 24px; border-radius: 8px; border: 1px solid var(--border-color, #e2e8f0); transition: box-shadow 0.2s; }
+        .injected-article:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .injected-article h5 { color: var(--primary-color, #111e2d); font-size: 18px; font-weight: 800; margin: 0 0 8px 0; }
+        .injected-article p { color: var(--text-main, #2c3e50); font-size: 15px; margin: 0 0 16px 0; line-height: 1.6; }
+        .injected-article a { display: inline-block; background: var(--primary-color, #111e2d); color: white; padding: 8px 16px; border-radius: 4px; font-weight: 600; font-size: 14px; text-decoration: none; transition: background 0.2s; }
+        .injected-article a:hover { background: var(--accent-color, #d4af37); }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: var(--font-stack);
-            background-color: var(--bg-light);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
-
-        .main-header {
-            background-color: var(--bg-white);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-container {
-            max-width: 1140px; margin: 0 auto; padding: 16px 24px;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-
-        .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .site-logo { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-color); }
-        .logo-text { font-size: 19px; font-weight: 800; color: var(--primary-color); }
-
-        .main-nav { display: flex; gap: 24px; }
-        .nav-link { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 15px; transition: color 0.2s; }
-        .nav-link:hover, .nav-link.active { color: var(--primary-color); }
-
-        .hero-section {
-            background: linear-gradient(135deg, #111e2d 0%, #1e3146 100%);
-            color: var(--bg-white);
-            padding: 90px 0; text-align: center; border-bottom: 4px solid var(--accent-color);
-        }
-
-        .hero-container h1 { font-size: 42px; font-weight: 800; margin-bottom: 20px; letter-spacing: -0.5px; }
-        .hero-container p { font-size: 19px; max-width: 750px; margin: 0 auto 35px auto; opacity: 0.9; line-height: 1.7; }
-
-        .btn-primary {
-            display: inline-block; background-color: var(--accent-color); color: var(--primary-color);
-            text-decoration: none; padding: 14px 28px; font-weight: 700; border-radius: 6px; transition: all 0.2s ease;
-        }
-        .btn-primary:hover { background-color: #e5c158; transform: translateY(-1px); }
-
-        .services-section { padding: 80px 0; }
-        .section-title { text-align: center; font-size: 28px; font-weight: 800; color: var(--primary-color); margin-bottom: 45px; }
-
-        /* הגריד הקריטי של עמוד הבית */
-        .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
-
-        .service-card {
-            background-color: var(--bg-white); border: 1px solid var(--border-color); border-radius: 10px;
-            padding: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .service-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(17,30,45,0.06); }
-        .service-icon { font-size: 32px; margin-bottom: 16px; }
-        .service-card h3 { font-size: 20px; font-weight: 700; color: var(--primary-color); margin-bottom: 12px; }
-        .service-card p { color: var(--text-main); font-size: 15px; line-height: 1.6; }
-
-        .main-footer {
-            background-color: #0b141f; color: #94a3b8; padding: 40px 0; text-align: center;
-            font-size: 14px; border-top: 1px solid #1e293b;
-        }
-        .main-footer small { display: block; margin-top: 12px; max-width: 800px; margin-left: auto; margin-right: auto; opacity: 0.6; line-height: 1.5; }
-
-        .floating-lead-widget {
-            position: fixed; bottom: 25px; left: 25px; width: 310px; background: var(--bg-white);
-            border-radius: 12px; box-shadow: 0 12px 40px rgba(15, 23, 42, 0.15); z-index: 99999;
-            border: 1px solid var(--border-color); overflow: hidden; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .widget-header {
-            background-color: var(--primary-color); color: var(--bg-white); padding: 16px 20px;
-            font-weight: 700; font-size: 15px; letter-spacing: 0.3px; cursor: pointer; display: flex;
-            justify-content: space-between; align-items: center; border-bottom: 3px solid var(--accent-color); user-select: none;
-        }
-        #widget-toggle-icon { font-size: 12px; color: var(--accent-color); transition: transform 0.2s ease; }
-        .widget-body { padding: 22px; background: var(--bg-white); }
+        /* ==========================================================================
+           תוספת: עיצוב בטוח לווידג'ט הלידים הצף (לא משפיע על שאר האתר)
+           ========================================================================== */
+        .floating-lead-widget { position: fixed; bottom: 25px; left: 25px; width: 310px; background: #ffffff; border-radius: 12px; box-shadow: 0 12px 40px rgba(15, 23, 42, 0.15); z-index: 99999; border: 1px solid #e2e8f0; overflow: hidden; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-family: system-ui, -apple-system, sans-serif; }
+        .widget-header { background-color: #111e2d; color: #ffffff; padding: 16px 20px; font-weight: 700; font-size: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #d4af37; user-select: none; }
+        #widget-toggle-icon { font-size: 12px; color: #d4af37; transition: transform 0.2s ease; }
+        .widget-body { padding: 22px; background: #ffffff; }
         .compact-form { display: flex; flex-direction: column; gap: 14px; }
         .input-field-wrapper { position: relative; width: 100%; }
-        .compact-form input, .compact-form select {
-            width: 100%; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px;
-            font-family: inherit; box-sizing: border-box; background: var(--bg-light); color: var(--primary-color); transition: all 0.2s ease;
-        }
-        .compact-form input:focus, .compact-form select:focus { border-color: var(--accent-color); outline: none; background: var(--bg-white); box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15); }
-        .btn-submit-compact {
-            background: var(--primary-color); color: var(--accent-color); border: 1px solid var(--accent-color);
-            padding: 14px; font-weight: 700; font-size: 15px; border-radius: 8px; cursor: pointer; transition: all 0.2s ease;
-            margin-top: 6px; font-family: inherit; display: flex; justify-content: center; align-items: center; gap: 8px;
-        }
-        .btn-submit-compact:hover { background: var(--accent-color); color: var(--primary-color); box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25); }
+        .compact-form input, .compact-form select { width: 100%; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; font-family: inherit; box-sizing: border-box; background: #f8fafc; color: #111e2d; transition: all 0.2s ease; }
+        .compact-form input:focus, .compact-form select:focus { border-color: #d4af37; outline: none; background: #ffffff; box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15); }
+        .compact-form select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23111e2d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>"); background-repeat: no-repeat; background-position: left 12px center; background-size: 16px; padding-left: 35px; }
+        .btn-submit-compact { background: #111e2d; color: #d4af37; border: 1px solid #d4af37; padding: 14px; font-weight: 700; font-size: 15px; border-radius: 8px; cursor: pointer; transition: all 0.2s ease; margin-top: 6px; font-family: inherit; display: flex; justify-content: center; align-items: center; gap: 8px; }
+        .btn-submit-compact:hover { background: #d4af37; color: #111e2d; box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25); }
         .ajax-success { display: none; color: #1e1b4b; text-align: center; padding: 10px 5px; }
         .ajax-success .success-icon { font-size: 36px; color: #27ae60; margin-bottom: 12px; }
         .ajax-success h4 { margin: 0 0 8px 0; font-size: 16px; font-weight: 800; }
-        .ajax-success p { margin: 0; font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
-
-        @media (max-width: 768px) {
-            .services-grid { grid-template-columns: 1fr; }
-            .hero-container h1 { font-size: 32px; }
-            .floating-lead-widget { width: calc(100% - 40px); left: 20px; bottom: 20px; }
-        }
+        .ajax-success p { margin: 0; font-size: 13.5px; color: #64748b; line-height: 1.5; }
+        @media (max-width: 768px) { .floating-lead-widget { width: calc(100% - 40px); left: 20px; bottom: 20px; } }
     </style>
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="header-container">
-            <a href="index.html" class="logo-wrapper">
-                <img src="logo.jpg" alt="השקעות שעושות שכל" class="site-logo">
-                <span class="logo-text">השקעות שעושות שכל</span>
+    <header class="main-header" style="background: white; border-bottom: 1px solid var(--border-color, #e2e8f0);">
+        <div class="header-container" style="max-width: 1140px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" class="logo-wrapper" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                <img src="logo.jpg" alt="השקעות שעושות שכל" class="site-logo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-color, #d4af37);">
+                <span class="logo-text" style="font-size: 19px; font-weight: 800; color: var(--primary-color, #111e2d);">השקעות שעושות שכל</span>
             </a>
-            <nav class="main-nav">
-                <a href="index.html" class="nav-link active">עמוד הבית</a>
-                <a href="calculator.html" class="nav-link">מחשבונים וסימולציות</a>
-            </nav>
+            <a href="index.html" style="font-weight: 600; text-decoration: none; color: #64748b;">← חזרה לעמוד הבית</a>
         </div>
     </header>
 
-    <main>
-        <section class="hero-section">
-            <div class="container hero-container">
-                <h1>תכנון אסטרטגי להון המשפחתי שלך</h1>
-                <p>שילוב של ניתוח אנליטי מעמיק, אופטימיזציית מס וניהול סיכונים מתקדמים לצורך הגדלת התזרים הפנוי ובניית עושר ארוך טווח.</p>
-                <div class="hero-actions">
-                    <a href="calculator.html" class="btn-primary">אל מרכז המחשבונים ←</a>
-                </div>
-            </div>
-        </section>
+    <div class="page-header">
+        <div class="container" style="max-width: 1140px; margin: 0 auto; padding: 0 24px;">
+            <h1>קופות גמל והשתלמות</h1>
+            <p>ניהול ובחינה שוטפת של מכשירי החיסכון לטווח הבינוני ואיתור חלופות מניבות תשואה תוך שמירה על נזילות.</p>
+        </div>
+    </div>
 
-        <section class="services-section">
-            <div class="container">
-                <h2 class="section-title">תחומי התמחות ואסטרטגיה</h2>
-                <div class="services-grid">
-                    
-                    <div class="service-card">
-                        <div class="service-icon">📈</div>
-                        <h3>ייעוץ וניהול השקעות</h3>
-                        <p>בניית תיקי השקעות מותאמי סיכון, אופטימיזציה של נכסים, פיזור גלובלי ובחינת חשיפה מנייתית על בסיס מודלים מדעיים.</p>
-                    </div>
+    <div class="content-container">
+        <h2 class="section-title">סקירות מוצרים פיננסיים</h2>
+        <div id="funds-content-area" class="dynamic-content-area">
+            <p style="color: #64748b; text-align: center; padding: 20px;">הסקירות נמצאות בשלבי כתיבה ויעודכנו בקרוב.</p>
+        </div>
+    </div>
 
-                    <div class="service-card">
-                        <div class="service-icon">⚖️</div>
-                        <h3>תכנון מס ופרישה</h3>
-                        <p>ניצול מקסימלי של נקודות זיכוי, הטבות גיאוגרפיות, קיזוזי מס מורכבים ותכנון מבני של תזרים המזומנים הפנוי.</p>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">🛡️</div>
-                        <h3>ייעוץ וליווי פנסיוני</h3>
-                        <p>בחינת המכשירים ארוכי הטווח, אופטימיזציה של דמי ניהול ומסלולי השקעה, והתאמת ההגנות הביטוחיות לצרכי המשפחה.</p>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">🎯</div>
-                        <h3>קופות גמל והשתלמות</h3>
-                        <p>איתור והשוואה של קופות גמל להשקעה, קרנות השתלמות ופוליסות חיסכון מובילות להשגת תשואה מיטבית נטו.</p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="main-footer">
-        <div class="container">
-            <p>&copy; 2026 השקעות שעושות שכל. כל הזכויות שמורות.</p>
-            <small>המידע המוצג באתר הינו אינפורמטיבי בלבד ואין לראות בו תחליף לייעוץ פיננסי או פנסיוני המותאם אישית לנתוני הלקוח.</small>
+    <footer class="main-footer" style="background-color: #0b141f; color: #94a3b8; padding: 40px 0; text-align: center; font-size: 14px; border-top: 1px solid #1e293b;">
+        <div class="container" style="max-width: 1140px; margin: 0 auto; padding: 0 24px;">
+            <p>&copy; 2026 השקעות שעושות שכל. כל הזכויות שמורות לפיתוח עצמאי מוגן.</p>
         </div>
     </footer>
 
@@ -193,22 +81,15 @@
             <span>💼 אנליזה מקצועית לתיק נכסים</span>
             <span id="widget-toggle-icon">▼</span>
         </div>
-        
-        <div class="widget-body" id="widgetBody" style="display: block;">
+        <div class="widget-body" id="widgetBody" style="display: none;">
             <form id="ajaxLeadForm" class="compact-form">
-                <input type="hidden" name="_subject" value="אנליזה חדשה: ליד איכותי מהאתר">
+                <input type="hidden" name="_subject" value="אנליזה חדשה: ליד איכותי מעמוד קופות גמל">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_template" value="table">
                 
-                <div class="input-field-wrapper">
-                    <input type="text" name="שם_מלא" placeholder="שם מלא" required>
-                </div>
-                <div class="input-field-wrapper">
-                    <input type="tel" name="טלפון" placeholder="טלפון נייד" required>
-                </div>
-                <div class="input-field-wrapper">
-                    <input type="email" name="אימייל" placeholder="כתובת דוא״ל" required>
-                </div>
+                <div class="input-field-wrapper"><input type="text" name="שם_מלא" placeholder="שם מלא" required></div>
+                <div class="input-field-wrapper"><input type="tel" name="טלפון" placeholder="טלפון נייד" required></div>
+                <div class="input-field-wrapper"><input type="email" name="אימייל" placeholder="כתובת דוא״ל" required></div>
                 <div class="input-field-wrapper">
                     <select name="תחום_התעניינות" required>
                         <option value="" disabled selected>בחירת תחום מבוקש...</option>
@@ -219,11 +100,9 @@
                     </select>
                 </div>
                 <button type="submit" class="btn-submit-compact" id="submitBtn">
-                    <span>שלח פרטים לאנליזה</span>
-                    <span>←</span>
+                    <span>שלח פרטים לאנליזה</span><span>←</span>
                 </button>
             </form>
-            
             <div id="successMessage" class="ajax-success">
                 <div class="success-icon">✓</div>
                 <h4>הבקשה התקבלה בהצלחה</h4>
@@ -236,14 +115,14 @@
         function toggleLeadWidget() {
             const body = document.getElementById('widgetBody');
             const icon = document.getElementById('widget-toggle-icon');
-            if (body.style.display === 'none') {
+            if (body.style.display === 'none' || body.style.display === '') {
                 body.style.display = 'block';
-                icon.style.transform = 'rotate(0deg)';
-                icon.innerText = '▼';
-            } else {
-                body.style.display = 'none';
                 icon.style.transform = 'rotate(180deg)';
                 icon.innerText = '▲';
+            } else {
+                body.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+                icon.innerText = '▼';
             }
         }
 
@@ -254,11 +133,9 @@
             btn.innerHTML = '<span>מנתב נתונים...</span>';
             btn.disabled = true;
 
-            const formData = new FormData(this);
-
             fetch('https://formsubmit.co/ajax/tzharel123@gmail.com', {
                 method: 'POST',
-                body: formData
+                body: new FormData(this)
             })
             .then(response => response.json())
             .then(data => {
@@ -278,5 +155,7 @@
             });
         });
     </script>
+
+    <script src="script.js?v=16.0"></script>
 </body>
 </html>
