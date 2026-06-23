@@ -4,7 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>השקעות שעושות שכל | ניתוח, תכנון ואופטימיזציה פיננסית</title>
-    <link rel="stylesheet" href="style.css?v=17.0">
+    <style>
+        :root {
+            --primary-color: #111e2d;
+            --accent-color: #d4af37;
+            --text-main: #2c3e50;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --font-stack: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+        .main-header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1140px; margin: 0 auto; padding: 16px 24px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .site-logo { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-color); }
+        .logo-text { font-size: 19px; font-weight: 800; color: var(--primary-color); }
+
+        .main-nav { display: flex; gap: 24px; }
+        .nav-link { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 15px; transition: color 0.2s; }
+        .nav-link:hover, .nav-link.active { color: var(--primary-color); }
+
+        .hero-section {
+            background: linear-gradient(135deg, #111e2d 0%, #1e3146 100%);
+            color: var(--bg-white);
+            padding: 90px 0; text-align: center; border-bottom: 4px solid var(--accent-color);
+        }
+
+        .hero-container h1 { font-size: 42px; font-weight: 800; margin-bottom: 20px; letter-spacing: -0.5px; }
+        .hero-container p { font-size: 19px; max-width: 750px; margin: 0 auto 35px auto; opacity: 0.9; line-height: 1.7; }
+
+        .btn-primary {
+            display: inline-block; background-color: var(--accent-color); color: var(--primary-color);
+            text-decoration: none; padding: 14px 28px; font-weight: 700; border-radius: 6px; transition: all 0.2s ease;
+        }
+        .btn-primary:hover { background-color: #e5c158; transform: translateY(-1px); }
+
+        .services-section { padding: 80px 0; }
+        .section-title { text-align: center; font-size: 28px; font-weight: 800; color: var(--primary-color); margin-bottom: 45px; }
+
+        /* הגריד הקריטי של עמוד הבית */
+        .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+
+        .service-card {
+            background-color: var(--bg-white); border: 1px solid var(--border-color); border-radius: 10px;
+            padding: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .service-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(17,30,45,0.06); }
+        .service-icon { font-size: 32px; margin-bottom: 16px; }
+        .service-card h3 { font-size: 20px; font-weight: 700; color: var(--primary-color); margin-bottom: 12px; }
+        .service-card p { color: var(--text-main); font-size: 15px; line-height: 1.6; }
+
+        .main-footer {
+            background-color: #0b141f; color: #94a3b8; padding: 40px 0; text-align: center;
+            font-size: 14px; border-top: 1px solid #1e293b;
+        }
+        .main-footer small { display: block; margin-top: 12px; max-width: 800px; margin-left: auto; margin-right: auto; opacity: 0.6; line-height: 1.5; }
+
+        .floating-lead-widget {
+            position: fixed; bottom: 25px; left: 25px; width: 310px; background: var(--bg-white);
+            border-radius: 12px; box-shadow: 0 12px 40px rgba(15, 23, 42, 0.15); z-index: 99999;
+            border: 1px solid var(--border-color); overflow: hidden; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .widget-header {
+            background-color: var(--primary-color); color: var(--bg-white); padding: 16px 20px;
+            font-weight: 700; font-size: 15px; letter-spacing: 0.3px; cursor: pointer; display: flex;
+            justify-content: space-between; align-items: center; border-bottom: 3px solid var(--accent-color); user-select: none;
+        }
+        #widget-toggle-icon { font-size: 12px; color: var(--accent-color); transition: transform 0.2s ease; }
+        .widget-body { padding: 22px; background: var(--bg-white); }
+        .compact-form { display: flex; flex-direction: column; gap: 14px; }
+        .input-field-wrapper { position: relative; width: 100%; }
+        .compact-form input, .compact-form select {
+            width: 100%; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px;
+            font-family: inherit; box-sizing: border-box; background: var(--bg-light); color: var(--primary-color); transition: all 0.2s ease;
+        }
+        .compact-form input:focus, .compact-form select:focus { border-color: var(--accent-color); outline: none; background: var(--bg-white); box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15); }
+        .btn-submit-compact {
+            background: var(--primary-color); color: var(--accent-color); border: 1px solid var(--accent-color);
+            padding: 14px; font-weight: 700; font-size: 15px; border-radius: 8px; cursor: pointer; transition: all 0.2s ease;
+            margin-top: 6px; font-family: inherit; display: flex; justify-content: center; align-items: center; gap: 8px;
+        }
+        .btn-submit-compact:hover { background: var(--accent-color); color: var(--primary-color); box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25); }
+        .ajax-success { display: none; color: #1e1b4b; text-align: center; padding: 10px 5px; }
+        .ajax-success .success-icon { font-size: 36px; color: #27ae60; margin-bottom: 12px; }
+        .ajax-success h4 { margin: 0 0 8px 0; font-size: 16px; font-weight: 800; }
+        .ajax-success p { margin: 0; font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
+
+        @media (max-width: 768px) {
+            .services-grid { grid-template-columns: 1fr; }
+            .hero-container h1 { font-size: 32px; }
+            .floating-lead-widget { width: calc(100% - 40px); left: 20px; bottom: 20px; }
+        }
+    </style>
 </head>
 <body>
 
@@ -79,7 +194,7 @@
             <span id="widget-toggle-icon">▼</span>
         </div>
         
-        <div class="widget-body" id="widgetBody">
+        <div class="widget-body" id="widgetBody" style="display: block;">
             <form id="ajaxLeadForm" class="compact-form">
                 <input type="hidden" name="_subject" value="אנליזה חדשה: ליד איכותי מהאתר">
                 <input type="hidden" name="_captcha" value="false">
