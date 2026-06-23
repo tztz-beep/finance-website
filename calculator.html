@@ -54,12 +54,11 @@
     <div class="tabs-container">
         <div class="tabs-nav">
             <button class="tab-btn active" onclick="switchTab(event, 'tab-compound')">📈 ריבית דריבית</button>
-            <button class="tab-btn" onclick="switchTab(event, 'tab-tax')">⚖️ מס רווח הון</button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-tax')">⚖️ מס הכנסה</button>
             <button class="tab-btn" onclick="switchTab(event, 'tab-fire')">🎯 מודל חופש כלכלי</button>
             <button class="tab-btn" onclick="switchTab(event, 'tab-rebalance')">🛡️ איזון נכסים</button>
         </div>
 
-        <!-- לשונית 1: ריבית דריבית -->
         <div id="tab-compound" class="tab-panel active">
             <div class="calculator-container-layout">
                 <div class="calculator-box">
@@ -79,25 +78,23 @@
             </div>
         </div>
 
-        <!-- לשונית 2: מס רווח הון -->
         <div id="tab-tax" class="tab-panel">
             <div class="calculator-container-layout">
                 <div class="calculator-box">
-                    <h3 style="color: var(--primary-color); margin-top: 0;">מחשבון מס רווח הון (25%)</h3>
-                    <div class="form-group"><label>סכום קרן (עלות ההשקעה ₪):</label><input type="number" id="tax-invested" value="100000"></div>
-                    <div class="form-group"><label>שווי נוכחי של ההשקעה (₪):</label><input type="number" id="tax-value" value="150000"></div>
-                    <button class="calc-btn" onclick="calculateTax()">חשב חבות מס ותמורה נטו</button>
+                    <h3 style="color: var(--primary-color); margin-top: 0;">מחשבון מס הכנסה מדורג</h3>
+                    <div class="form-group"><label>שכר חודשי ברוטו (₪):</label><input type="number" id="tax-gross" value="15000"></div>
+                    <div class="form-group"><label>נקודות זיכוי (גבר = 2.25, אישה = 2.75):</label><input type="number" id="tax-credits" value="2.25" step="0.25"></div>
+                    <button class="calc-btn" onclick="calculateIncomeTax()">חשב חבות מס ושכר נטו</button>
                     <div id="tax-result" class="calc-result"></div>
                 </div>
                 <div class="calculator-review">
-                    <h4>תכנון מס פרואקטיבי</h4>
-                    <p>מס רווח הון בישראל עומד לרוב על 25% מהרווח הריאלי (או הנומינלי בנכסים מסוימים). הבנת חבות המס היא קריטית בקבלת החלטות על "מימוש" השקעות.</p>
-                    <p>משקיע מתוחכם אינו בוחן את תשואת התיק שלו ברוטו, אלא מנהל את סיכוני המס שלו בעזרת דחיית מס, קיזוז הפסדים, ומעבר למכשירים פטורים (כמו קרנות השתלמות וקופות גמל להשקעה) כדי למקסם את התשואה נטו בכיס.</p>
+                    <h4>המודל הפרוגרסיבי בישראל</h4>
+                    <p>מערכת המס בישראל בנויה בצורה מדורגת (פרוגרסיבית). המשמעות היא שלא כל השכר שלך ממוסה באותו שיעור. רק ה"שכבה" (המדרגה) העליונה של השכר סופגת את אחוז המס הגבוה.</p>
+                    <p>כלי הקיזוז העוצמתי ביותר של האזרח הוא מערכת נקודות הזיכוי. כל נקודת זיכוי מפחיתה סכום כסף משמעותי ישירות מחבות המס הסופית. הבנת התחשיב הזה מאפשרת לייצר אופטימיזציה ולתכנן טוב יותר את ההכנסה הפנויה ואת אפיקי החיסכון.</p>
                 </div>
             </div>
         </div>
 
-        <!-- לשונית 3: מודל FIRE -->
         <div id="tab-fire" class="tab-panel">
             <div class="calculator-container-layout">
                 <div class="calculator-box">
@@ -116,7 +113,6 @@
             </div>
         </div>
 
-        <!-- לשונית 4: רבלנסינג -->
         <div id="tab-rebalance" class="tab-panel">
             <div class="calculator-container-layout">
                 <div class="calculator-box">
@@ -148,7 +144,7 @@
     </div>
 
     <script>
-        // ניווט בין הלשוניות
+        // מנגנון הניווט בין הלשוניות
         function switchTab(event, tabId) {
             document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -174,20 +170,56 @@
             box.innerHTML = `<strong style="font-size:18px; color:var(--primary-color);">הון עתידי משוער: ₪${Math.round(total).toLocaleString('he-IL')}</strong><br><span style="font-size:12px; color:var(--text-muted);">סך ההפקדות שלך: ₪${(principal + (monthly * 12 * years)).toLocaleString('he-IL')}</span>`;
         }
 
-        // חישוב מס רווח הון
-        function calculateTax() {
-            const inv = parseFloat(document.getElementById('tax-invested').value) || 0;
-            const val = parseFloat(document.getElementById('tax-value').value) || 0;
-            const profit = val - inv;
-            let tax = 0;
-            if (profit > 0) { tax = profit * 0.25; }
-            const net = val - tax;
+        // המנוע החדש: חישוב מס הכנסה (מדרגות ונקודות זיכוי)
+        function calculateIncomeTax() {
+            const gross = parseFloat(document.getElementById('tax-gross').value) || 0;
+            const creditPoints = parseFloat(document.getElementById('tax-credits').value) || 0;
+
+            // מדרגות מס חודשיות מעודכנות (ייצוגי)
+            const brackets = [
+                { limit: 7010, rate: 0.10 },
+                { limit: 10060, rate: 0.14 },
+                { limit: 16150, rate: 0.20 },
+                { limit: 22440, rate: 0.31 },
+                { limit: 46690, rate: 0.35 },
+                { limit: 60030, rate: 0.47 },
+                { limit: Infinity, rate: 0.50 }
+            ];
+
+            let totalTax = 0;
+            let previousLimit = 0;
+
+            // ריצת לולאה על מדרגות המס
+            for (let i = 0; i < brackets.length; i++) {
+                if (gross > previousLimit) {
+                    let taxableInBracket = Math.min(gross, brackets[i].limit) - previousLimit;
+                    totalTax += taxableInBracket * brackets[i].rate;
+                    previousLimit = brackets[i].limit;
+                } else {
+                    break;
+                }
+            }
+
+            // חישוב שווי נקודות זיכוי (מעודכן ל-242 ש"ח לנקודה בחודש)
+            const creditValue = creditPoints * 242;
+            let finalTax = totalTax - creditValue;
+            
+            // מס לא יכול להיות שלילי
+            if (finalTax < 0) finalTax = 0; 
+            const netIncome = gross - finalTax;
+
             const box = document.getElementById('tax-result');
             box.style.display = 'block';
             box.innerHTML = `
-                רווח מחושב ברוטו: <strong style="color:#27ae60;">₪${Math.round(profit).toLocaleString('he-IL')}</strong><br>
-                חבות מס משוערת (25%): <strong style="color:#c0392b;">₪${Math.round(tax).toLocaleString('he-IL')}</strong><br>
-                <div style="margin-top:10px; padding-top:10px; border-top:1px solid #ddd;"><strong>שווי נטו לאחר ניכוי מס: ₪${Math.round(net).toLocaleString('he-IL')}</strong></div>
+                מס ברוטו מחושב (לפני זיכויים): <strong>₪${Math.round(totalTax).toLocaleString('he-IL')}</strong><br>
+                שווי נקודות זיכוי להפחתה: <strong style="color:#27ae60;">-₪${Math.round(creditValue).toLocaleString('he-IL')}</strong><br>
+                <div style="margin-top:10px; padding-top:10px; border-top:1px dashed #ccc;">
+                    <strong>סה"כ מס הכנסה לתשלום: <span style="color:#c0392b;">₪${Math.round(finalTax).toLocaleString('he-IL')}</span></strong><br>
+                    <strong style="font-size: 16px; color: var(--primary-color);">שכר נטו (אחרי מס הכנסה בלבד): ₪${Math.round(netIncome).toLocaleString('he-IL')}</strong>
+                </div>
+                <div style="margin-top:8px; font-size:11px; color:var(--text-muted); line-height: 1.4;">
+                    *התחשיב מבוסס על מדרגות מס הכנסה. לחישוב נטו סופי בלוש יש לקזז גם דמי ביטוח לאומי, ביטוח בריאות והפרשות סוציאליות.
+                </div>
             `;
         }
 
