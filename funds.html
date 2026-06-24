@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מרכז תשואות מוסדיות וביצועים | השקעות שעושות שכל</title>
-    <link rel="stylesheet" href="style.css?v=18.0">
+    <title>מרכז תשואות מוסדיות | השקעות שעושות שכל</title>
+    <link rel="stylesheet" href="style.css?v=19.0">
     
     <style>
         body { background-color: #f4f6f9; }
@@ -12,150 +12,148 @@
         .page-header h1 { margin: 0 0 10px 0; font-size: 36px; font-weight: 800; }
         .page-header p { margin: 0; font-size: 18px; opacity: 0.9; max-width: 700px; margin: 0 auto; }
         
-        .dashboard-container { max-width: 1140px; margin: 0 auto 60px auto; padding: 0 24px; }
+        .dashboard-container { max-width: 1200px; margin: 0 auto 60px auto; padding: 0 24px; }
         
-        .track-tabs-nav { display: flex; gap: 12px; margin-bottom: 25px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; flex-wrap: wrap; }
-        .track-tab-btn { background: #ffffff; border: 1px solid #cbd5e1; padding: 14px 24px; font-size: 15px; font-weight: 700; color: #111e2d; border-radius: 8px; cursor: pointer; transition: all 0.2s ease; }
-        .track-tab-btn:hover { background: #f8fafc; border-color: #d4af37; }
-        .track-tab-btn.active { background: #111e2d; color: #d4af37; border-color: #111e2d; box-shadow: 0 4px 12px rgba(17,30,45,0.15); }
+        /* עיצוב לשוניות המוצרים */
+        .product-tabs-nav { display: flex; justify-content: center; gap: 16px; margin-bottom: 40px; border-bottom: 2px solid #e2e8f0; padding-bottom: 16px; flex-wrap: wrap; }
+        .product-tab-btn { background: #ffffff; border: 2px solid #cbd5e1; padding: 16px 32px; font-size: 18px; font-weight: 800; color: #111e2d; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .product-tab-btn:hover { background: #f8fafc; border-color: #d4af37; transform: translateY(-2px); }
+        .product-tab-btn.active { background: #111e2d; color: #d4af37; border-color: #111e2d; box-shadow: 0 8px 16px rgba(17,30,45,0.2); transform: translateY(-2px); }
         
-        .track-panel { display: none; }
-        .track-panel.active { display: block; }
+        .product-panel { display: none; animation: fadeIn 0.4s ease; }
+        .product-panel.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
-        .track-meta-box { background: #ffffff; padding: 24px; border-radius: 8px; border-right: 4px solid #d4af37; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .track-meta-box h3 { margin: 0 0 8px 0; font-size: 20px; font-weight: 800; color: #111e2d; }
-        .track-meta-box p { margin: 0; color: #64748b; font-size: 15px; }
+        /* עיצוב אזור המסלול (הטבלאות) */
+        .track-section { background: #ffffff; border-radius: 12px; padding: 30px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(17,30,45,0.04); border: 1px solid #e2e8f0; border-right: 5px solid #d4af37; }
+        .track-title { color: #111e2d; font-size: 22px; font-weight: 800; margin: 0 0 20px 0; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
         
-        .product-section { background: #ffffff; border-radius: 10px; padding: 28px; margin-bottom: 35px; box-shadow: 0 10px 25px rgba(17,30,45,0.03); border: 1px solid #e2e8f0; }
-        .product-title { color: #111e2d; font-size: 20px; font-weight: 800; margin: 0 0 18px 0; display: flex; align-items: center; gap: 10px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 12px; }
-        .product-title span.badge { background: #f1f5f9; color: #64748b; font-size: 12px; padding: 4px 10px; border-radius: 12px; font-weight: 600; }
-        
-        .table-wrapper { overflow-x: auto; border-radius: 6px; border: 1px solid #e2e8f0; }
+        .table-wrapper { overflow-x: auto; border-radius: 8px; border: 1px solid #e2e8f0; }
         .dashboard-table { width: 100%; border-collapse: collapse; text-align: center; background: #ffffff; }
-        .dashboard-table th { background-color: #111e2d; color: #ffffff; padding: 14px; font-weight: 700; font-size: 14px; }
-        .dashboard-table td { padding: 14px; border-bottom: 1px solid #e2e8f0; font-size: 14.5px; color: #2c3e50; }
+        .dashboard-table th { background-color: #111e2d; color: #ffffff; padding: 16px; font-weight: 700; font-size: 15px; border-left: 1px solid rgba(255,255,255,0.05); }
+        .dashboard-table td { padding: 16px; border-bottom: 1px solid #e2e8f0; font-size: 15px; color: #2c3e50; border-left: 1px solid #e2e8f0; }
         .dashboard-table tr:last-child td { border-bottom: none; }
         .dashboard-table tbody tr { cursor: pointer; transition: background-color 0.15s; }
         .dashboard-table tbody tr:hover { background-color: #f8fafc; }
         
-        .col-company { font-weight: 800; color: #111e2d; width: 15%; text-align: right !important; padding-right: 20px !important; }
-        .col-name { text-align: right !important; color: #64748b; width: 35%; font-size: 14px; }
+        /* הדגשת החברה ועיצוב תאים */
+        .col-company { font-weight: 800; color: #111e2d; width: 15%; text-align: right !important; padding-right: 24px !important; }
+        .col-name { text-align: right !important; color: #64748b; width: 30%; font-size: 14px; }
         
-        .yield-up { color: #27ae60; font-weight: 700; direction: ltr; display: inline-block; }
-        .yield-down { color: #c0392b; font-weight: 700; direction: ltr; display: inline-block; }
+        /* הדגשה אוטומטית של הראל כשחקן מפתח בטבלה */
+        .harel-row td { background-color: #fdfbf5; border-bottom: 1px solid #f0e6cc; }
+        .harel-row .col-company { color: #b8860b; }
         
-        .loading-state { text-align: center; padding: 60px; background: #ffffff; border-radius: 12px; color: #64748b; font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .yield-up { color: #27ae60; font-weight: 800; direction: ltr; display: inline-block; }
+        .yield-down { color: #c0392b; font-weight: 800; direction: ltr; display: inline-block; }
+        
+        .loading-state { text-align: center; padding: 80px; background: #ffffff; border-radius: 12px; color: #64748b; font-size: 18px; font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; }
     </style>
 </head>
 <body>
 
     <header class="main-header" style="background: white; border-bottom: 1px solid #e2e8f0;">
-        <div class="header-container" style="max-width: 1140px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center;">
+        <div class="header-container" style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center;">
             <a href="index.html" class="logo-wrapper" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-                <img src="logo.jpg" alt="השקעות שעושות שכל" class="site-logo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid #d4af37;">
-                <span class="logo-text" style="font-size: 19px; font-weight: 800; color: #111e2d;">השקעות שעושות שכל</span>
+                <img src="logo.jpg" alt="השקעות שעושות שכל" class="site-logo" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid #d4af37;">
+                <span class="logo-text" style="font-size: 22px; font-weight: 800; color: #111e2d;">השקעות שעושות שכל</span>
             </a>
-            <a href="index.html" style="font-weight: 600; text-decoration: none; color: #64748b; font-size: 14px;">← חזרה לעמוד הבית</a>
+            <a href="index.html" style="font-weight: 700; text-decoration: none; color: #64748b; font-size: 15px; padding: 8px 16px; background: #f1f5f9; border-radius: 8px;">← חזרה ללובי</a>
         </div>
     </header>
 
     <div class="page-header">
         <div class="container">
-            <h1>מערכת השוואת תשואות מוסדיות</h1>
-            <p>אנליזה רוחבית של ביצועי השוק בזמן אמת. המידע מסווג לפי פילוסופיית השקעה ומסלולי ליבה מנוטרים.</p>
+            <h1>פלטפורמת השוואת מוצרים פנסיוניים</h1>
+            <p>אנליזת פרימיום רוחבית של כלל הגופים המוסדיים בישראל, מסווגת לפי מכשירי השקעה ומסלולי ליבה.</p>
         </div>
     </div>
 
     <main class="dashboard-container">
-        <div class="track-tabs-nav" id="tabsNavigation"></div>
-        <div id="dashboardPanels">
-            <div class="loading-state">מעבד נתונים ממאגרי משרד האוצר...</div>
+        <div class="product-tabs-nav" id="productTabsNavigation"></div>
+        
+        <div id="productPanels">
+            <div class="loading-state">מעבד אינטליגנציה עסקית ממאגרי משרד האוצר...</div>
         </div>
     </main>
 
     <footer class="main-footer" style="padding: 40px 0; text-align: center; color: #64748b; font-size: 14px; background: #0b141f; border-top: 1px solid #1e293b; margin-top: 50px;">
         <div class="container">
-            <p style="color: #94a3b8; margin-bottom: 8px;">&copy; 2026 השקעות שעושות שכל. כל הזכויות שמורות למערכת הניתוח המוגנת.</p>
-            <small style="opacity: 0.7;">מקור הנתונים: רשות שוק ההון, ביטוח וחיסכון (מערכות גמל-נט). הנתונים מחושבים כריבית מצטברת ואינם מהווים ייעוץ אלטרנטיבי.</small>
+            <p style="color: #94a3b8; margin-bottom: 8px;">&copy; 2026 השקעות שעושות שכל. מערכת ניהול השקעות פרטית.</p>
+            <small style="opacity: 0.7;">הנתונים מוצגים באדיבות מערכות גמל-נט ופנסיה-נט. מחושבים כריבית דריבית מצטברת.</small>
         </div>
     </footer>
 
     <script>
-        async function initDashboard() {
+        async function initPremiumDashboard() {
             try {
                 const response = await fetch('funds_data.json');
-                if (!response.ok) throw new Error('Framework data absent');
-                const data = await response.json();
+                if (!response.ok) throw new Error('Data pipeline missing');
+                const productsData = await response.json();
                 
-                const nav = document.getElementById('tabsNavigation');
-                const panelsContainer = document.getElementById('dashboardPanels');
+                const nav = document.getElementById('productTabsNavigation');
+                const panelsContainer = document.getElementById('productPanels');
                 
                 nav.innerHTML = '';
                 panelsContainer.innerHTML = '';
                 
                 let isFirst = true;
                 
-                for (const [trackKey, trackData] of Object.entries(data.tracks)) {
-                    
-                    // 1. יצירת כפתור הטאב
+                // לולאה על המוצרים (הלשוניות למעלה)
+                productsData.forEach(product => {
                     const btn = document.createElement('button');
-                    btn.className = `track-tab-btn ${isFirst ? 'active' : ''}`;
-                    btn.innerText = trackData.title;
-                    btn.onclick = (e) => switchTrackTab(e, trackKey);
+                    btn.className = `product-tab-btn ${isFirst ? 'active' : ''}`;
+                    btn.innerText = product.title;
+                    btn.onclick = (e) => switchProductTab(e, product.id);
                     nav.appendChild(btn);
                     
-                    // 2. יצירת פאנל התוכן של המסלול (השגיאה שהייתה כאן תוקנה)
                     const panel = document.createElement('div');
-                    panel.id = `panel-${trackKey}`;
-                    panel.className = `track-panel ${isFirst ? 'active' : ''}`;
+                    panel.id = `panel-${product.id}`;
+                    panel.className = `product-panel ${isFirst ? 'active' : ''}`;
                     
-                    let panelHtml = `
-                        <div class="track-meta-box">
-                            <h3>${trackData.title}</h3>
-                            <p>${trackData.description}</p>
-                        </div>
-                    `;
+                    let panelHtml = '';
                     
-                    for (const [productName, funds] of Object.entries(trackData.products)) {
-                        if (funds.length === 0) continue;
-                        
+                    // לולאה על המסלולים (הטבלאות למטה)
+                    product.tracks.forEach(track => {
                         panelHtml += `
-                            <div class="product-section">
-                                <h4 class="product-title">
-                                    <span>מוצר: קרנות ${productName}</span>
-                                    <span class="badge">השוואה רוחבית</span>
+                            <div class="track-section">
+                                <h4 class="track-title">
+                                    ${track.title}
                                 </h4>
                                 <div class="table-wrapper">
                                     <table class="dashboard-table">
                                         <thead>
                                             <tr>
-                                                <th style="text-align: right; padding-right:20px;">גוף מנהל</th>
-                                                <th style="text-align: right;">שם מסלול רשמי</th>
+                                                <th style="text-align: right; padding-right:24px;">גוף מנהל</th>
+                                                <th style="text-align: right;">שם הקופה/המסלול</th>
                                                 <th>מתחילת שנה (YTD)</th>
                                                 <th>12 חודשים</th>
                                                 <th>3 שנים מצטבר</th>
                                                 <th>5 שנים מצטבר</th>
-                                                <th>עדכון</th>
+                                                <th>עדכון נתונים</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                         `;
                         
-                        funds.forEach(fund => {
+                        track.funds.forEach(fund => {
                             const formatVal = (v) => {
                                 const n = parseFloat(v);
                                 return `<span class="${n >= 0 ? 'yield-up' : 'yield-down'}">${n > 0 ? '+' : ''}${v}%</span>`;
                             };
                             
+                            // מחלקה מיוחדת להדגשת חברת הראל בטבלה
+                            const rowClass = fund.company === 'הראל' ? 'harel-row' : '';
+                            
                             panelHtml += `
-                                <tr onclick="triggerAnalyticAlert('${fund.name}', '${fund.company}')">
+                                <tr class="${rowClass}">
                                     <td class="col-company">${fund.company}</td>
                                     <td class="col-name">${fund.name}</td>
                                     <td>${formatVal(fund.YTD)}</td>
                                     <td>${formatVal(fund.Year1)}</td>
                                     <td>${formatVal(fund.Year3)}</td>
                                     <td>${formatVal(fund.Year5)}</td>
-                                    <td style="color:#64748b; font-size:12.5px;">${fund.last_updated}</td>
+                                    <td style="color:#64748b; font-size:13px;">${fund.last_updated}</td>
                                 </tr>
                             `;
                         });
@@ -166,36 +164,31 @@
                                 </div>
                             </div>
                         `;
-                    }
+                    });
                     
                     panel.innerHTML = panelHtml;
                     panelsContainer.appendChild(panel);
-                    
                     isFirst = false;
-                }
+                });
                 
             } catch (err) {
                 console.error(err);
-                document.getElementById('dashboardPanels').innerHTML = `
+                document.getElementById('productPanels').innerHTML = `
                     <div class="loading-state" style="color:#c0392b;">
-                        שגיאה בטעינת מסד הנתונים הפיננסי. אנא ודא כי צינור האוטומציה ב-Actions הופעל בהצלחה.
+                        המערכת מסנכרנת נתונים כעת. אנא הפעל את צינור האוטומציה ב-GitHub Actions ורענן את הדף.
                     </div>`;
             }
         }
         
-        function switchTrackTab(e, trackKey) {
-            document.querySelectorAll('.track-tab-btn').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.track-panel').forEach(p => p.classList.remove('active'));
+        function switchProductTab(e, productId) {
+            document.querySelectorAll('.product-tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.product-panel').forEach(p => p.classList.remove('active'));
             
             e.currentTarget.classList.add('active');
-            document.getElementById(`panel-${trackKey}`).classList.add('active');
+            document.getElementById(`panel-${productId}`).classList.add('active');
         }
         
-        function triggerAnalyticAlert(name, company) {
-            alert(`ניתוח מגמות - ${company}\n\nהמסלול: ${name}\n\nנתוני נכסי קצה, סטיית תקן ומדד שארפ מפורט זמינים כעת בתיאום פגישת אנליזה אישית.`);
-        }
-        
-        document.addEventListener('DOMContentLoaded', initDashboard);
+        document.addEventListener('DOMContentLoaded', initPremiumDashboard);
     </script>
 </body>
 </html>
