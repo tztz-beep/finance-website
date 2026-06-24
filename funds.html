@@ -84,11 +84,17 @@
         </div>
     </footer>
 
-    <script>
+   <script>
         async function initPremiumDashboard() {
             try {
-                const response = await fetch('funds_data.json');
-                if (!response.ok) throw new Error('Data pipeline missing');
+                // מנגנון פרימיום לעקיפת זיכרון מטמון - מבטיח משיכה של נתונים טריים בלבד
+                const cacheBuster = new Date().getTime();
+                const response = await fetch(`funds_data.json?t=${cacheBuster}`, { cache: "no-store" });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status} - קובץ הנתונים אינו זמין בשרת`);
+                }
+                
                 const productsData = await response.json();
                 
                 const nav = document.getElementById('productTabsNavigation');
@@ -99,7 +105,6 @@
                 
                 let isFirst = true;
                 
-                // לולאה על המוצרים (הלשוניות למעלה)
                 productsData.forEach(product => {
                     const btn = document.createElement('button');
                     btn.className = `product-tab-btn ${isFirst ? 'active' : ''}`;
@@ -113,13 +118,10 @@
                     
                     let panelHtml = '';
                     
-                    // לולאה על המסלולים (הטבלאות למטה)
                     product.tracks.forEach(track => {
                         panelHtml += `
                             <div class="track-section">
-                                <h4 class="track-title">
-                                    ${track.title}
-                                </h4>
+                                <h4 class="track-title">${track.title}</h4>
                                 <div class="table-wrapper">
                                     <table class="dashboard-table">
                                         <thead>
@@ -142,7 +144,6 @@
                                 return `<span class="${n >= 0 ? 'yield-up' : 'yield-down'}">${n > 0 ? '+' : ''}${v}%</span>`;
                             };
                             
-                            // מחלקה מיוחדת להדגשת חברת הראל בטבלה
                             const rowClass = fund.company === 'הראל' ? 'harel-row' : '';
                             
                             panelHtml += `
@@ -172,10 +173,16 @@
                 });
                 
             } catch (err) {
-                console.error(err);
+                console.error('Core Analytics Error:', err);
                 document.getElementById('productPanels').innerHTML = `
-                    <div class="loading-state" style="color:#c0392b;">
-                        המערכת מסנכרנת נתונים כעת. אנא הפעל את צינור האוטומציה ב-GitHub Actions ורענן את הדף.
+                    <div class="loading-state" style="color:#c0392b; border: 2px solid #fca5a5; background: #fff5f5;">
+                        <h3 style="margin-top:0; color:#991b1b;">אתגר בתקשורת הנתונים</h3>
+                        <p style="margin-bottom:10px;">המנוע האנליטי לא מצליח לאתר את קובץ התוצאות מהרובוט.</p>
+                        <code style="background:#fee2e2; padding:6px 12px; border-radius:6px; color:#7f1d1d; font-weight:bold; font-family:monospace;">הודעת מערכת: ${err.message}</code>
+                        <p style="margin-top:20px; font-size:15px; color:#475569;">
+                            <strong>האם הקובץ קיים?</strong> היכנס ל-GitHub ודא שקובץ <code>funds_data.json</code> אכן נוצר שם.<br>
+                            אם הוא לא שם - יש להיכנס להגדרות ה-Repository -> Actions -> General -> ולוודא שההרשאות מוגדרות על <b>Read and write permissions</b>.
+                        </p>
                     </div>`;
             }
         }
