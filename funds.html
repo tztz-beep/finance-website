@@ -3,29 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>קופות גמל והשתלמות | השקעות שעושות שכל</title>
+    <title>מרכז תשואות מוסדיות וביצועים | השקעות שעושות שכל</title>
     <link rel="stylesheet" href="style.css?v=17.0">
     
     <style>
-        body { background-color: #f8f9fa; }
-        .page-header { background: var(--primary-color, #111e2d); color: white; padding: 50px 0; text-align: center; margin-bottom: 40px; }
-        .page-header h1 { margin: 0 0 10px 0; font-size: 34px; font-weight: 800; }
-        .page-header p { margin: 0; font-size: 18px; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        body { background-color: #f4f6f9; }
+        .page-header { background: #111e2d; color: white; padding: 50px 0; text-align: center; margin-bottom: 30px; border-bottom: 4px solid #d4af37; }
+        .page-header h1 { margin: 0 0 10px 0; font-size: 36px; font-weight: 800; }
+        .page-header p { margin: 0; font-size: 18px; opacity: 0.9; max-width: 700px; margin: 0 auto; }
         
-        .content-container { max-width: 900px; margin: 0 auto 60px auto; background: var(--bg-white, #ffffff); padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(17,30,45,0.05); border: 1px solid var(--border-color, #e2e8f0); }
-        .section-title { color: var(--primary-color, #111e2d); font-size: 24px; font-weight: 800; border-bottom: 2px solid var(--border-color, #e2e8f0); padding-bottom: 10px; margin-bottom: 24px; }
+        .dashboard-container { max-width: 1140px; margin: 0 auto 60px auto; padding: 0 24px; }
         
-        /* עיצוב ייעודי ומלוטש לטבלת התשואות האנליטית */
-        .funds-table-container { overflow-x: auto; margin-top: 25px; margin-bottom: 35px; box-shadow: 0 4px 6px rgba(0,0,0,0.03); border-radius: 8px; border: 1px solid var(--border-color, #e2e8f0); }
-        .financial-table { width: 100%; border-collapse: collapse; background: #ffffff; text-align: center; }
-        .financial-table th { background-color: var(--primary-color, #111e2d); color: #ffffff; padding: 16px; font-weight: 700; font-size: 15px; border-left: 1px solid rgba(255,255,255,0.1); }
-        .financial-table td { padding: 16px; border-bottom: 1px solid var(--border-color, #e2e8f0); font-size: 15px; color: var(--text-main, #2c3e50); border-left: 1px solid var(--border-color, #e2e8f0); }
-        .financial-table tr:hover { background-color: #f8fafc; }
-        .fund-name-col { text-align: right !important; font-weight: 700; color: var(--primary-color, #111e2d) !important; padding-right: 20px !important; }
-        .yield-positive { color: #27ae60; font-weight: 700; direction: ltr; display: inline-block; }
-        .yield-negative { color: #c0392b; font-weight: 700; direction: ltr; display: inline-block; }
-
-        .dynamic-content-area { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        /* מערכת הטאבים של מסלולי ההשקעה */
+        .track-tabs-nav { display: flex; gap: 12px; margin-bottom: 25px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; flex-wrap: wrap; }
+        .track-tab-btn { background: #ffffff; border: 1px solid #cbd5e1; padding: 14px 24px; font-size: 15px; font-weight: 700; color: #111e2d; border-radius: 8px; cursor: pointer; transition: all 0.2s ease; }
+        .track-tab-btn:hover { background: #f8fafc; border-color: #d4af37; }
+        .track-tab-btn.active { background: #111e2d; color: #d4af37; border-color: #111e2d; box-shadow: 0 4px 12px rgba(17,30,45,0.15); }
+        
+        /* אזורי התוכן של הטאבים */
+        .track-panel { display: none; }
+        .track-panel.active { display: block; }
+        
+        .track-meta-box { background: #ffffff; padding: 24px; border-radius: 8px; border-right: 4px solid #d4af37; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .track-meta-box h3 { margin: 0 0 8px 0; font-size: 20px; font-weight: 800; color: #111e2d; }
+        .track-meta-box p { margin: 0; color: #64748b; font-size: 15px; }
+        
+        /* עיצוב כרטיסיות וטבלאות המוצרים */
+        .product-section { background: #ffffff; border-radius: 10px; padding: 28px; margin-bottom: 35px; box-shadow: 0 10px 25px rgba(17,30,45,0.03); border: 1px solid #e2e8f0; }
+        .product-title { color: #111e2d; font-size: 20px; font-weight: 800; margin: 0 0 18px 0; display: flex; align-items: center; gap: 10px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 12px; }
+        .product-title span.badge { background: #f1f5f9; color: #64748b; font-size: 12px; padding: 4px 10px; border-radius: 12px; font-weight: 600; }
+        
+        .table-wrapper { overflow-x: auto; border-radius: 6px; border: 1px solid #e2e8f0; }
+        .dashboard-table { width: 100%; border-collapse: collapse; text-align: center; background: #ffffff; }
+        .dashboard-table th { background-color: #111e2d; color: #ffffff; padding: 14px; font-weight: 700; font-size: 14px; }
+        .dashboard-table td { padding: 14px; border-bottom: 1px solid #e2e8f0; font-size: 14.5px; color: #2c3e50; }
+        .dashboard-table tr:last-child td { border-bottom: none; }
+        .dashboard-table tbody tr { cursor: pointer; transition: background-color 0.15s; }
+        .dashboard-table tbody tr:hover { background-color: #f8fafc; }
+        
+        .col-company { font-weight: 800; color: #111e2d; width: 15%; text-align: right !important; padding-right: 20px !important; }
+        .col-name { text-align: right !important; color: #64748b; width: 35%; font-size: 14px; }
+        
+        .yield-up { color: #27ae60; font-weight: 700; direction: ltr; display: inline-block; }
+        .yield-down { color: #c0392b; font-weight: 700; direction: ltr; display: inline-block; }
+        
+        .loading-state { text-align: center; padding: 60px; background: #ffffff; border-radius: 12px; color: #64748b; font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
     </style>
 </head>
 <body>
@@ -33,7 +55,7 @@
     <header class="main-header" style="background: white; border-bottom: 1px solid #e2e8f0;">
         <div class="header-container" style="max-width: 1140px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center;">
             <a href="index.html" class="logo-wrapper" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-                <img src="logo.jpg" alt="השקעות שעושות שכל" class="site-logo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                <img src="logo.jpg" alt="השקעות שעושות שכל" class="site-logo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid #d4af37;">
                 <span class="logo-text" style="font-size: 19px; font-weight: 800; color: #111e2d;">השקעות שעושות שכל</span>
             </a>
             <a href="index.html" style="font-weight: 600; text-decoration: none; color: #64748b; font-size: 14px;">← חזרה לעמוד הבית</a>
@@ -42,81 +64,149 @@
 
     <div class="page-header">
         <div class="container">
-            <h1>קופות גמל והשתלמות</h1>
-            <p>ניהול ובחינה שוטפת של מכשירי החיסכון לטווח הבינוני ואיתור חלופות מניבות תשואה תוך שמירה על נזילות ואופטימיזציה של מיסוי.</p>
+            <h1>מערכת השוואת תשואות מוסדיות</h1>
+            <p>אנליזה רוחבית של ביצועי השוק בזמן אמת. המידע מסווג לפי פילוסופיית השקעה ומסלולי לידה מנוטרים.</p>
         </div>
     </div>
 
-    <div class="content-container">
-        <h2 class="section-title">טבלת תשואות וביצועים בזמן אמת</h2>
-        
-        <div class="funds-table-container">
-            <table class="financial-table" id="yieldsTable">
-                <thead>
-                    <tr>
-                        <th style="text-align: right; padding-right: 20px;">מסלול השקעה</th>
-                        <th>מתחילת שנה (YTD)</th>
-                        <th>12 חודשים</th>
-                        <th>3 שנים מצטבר</th>
-                        <th>5 שנים מצטבר</th>
-                        <th>עדכון אחרון</th>
-                    </tr>
-                </thead>
-                <tbody id="yieldsBody">
-                    <tr><td colspan="6" style="padding: 30px; color: #64748b;">טוען נתונים אנליטיים בזמן אמת...</td></tr>
-                </tbody>
-            </table>
-        </div>
+    <main class="dashboard-container">
+        <div class="track-tabs-nav" id="tabsNavigation">
+            </div>
 
-        <h2 class="section-title" style="margin-top: 40px;">סקירות מוצרים פיננסיים</h2>
-        <div id="funds-content-area" class="dynamic-content-area">
-            <p style="color: #64748b; text-align: center; padding: 10px; margin: 0;">הסקירות נמצאות בשלבי כתיבה אנליטית ויעודכנו בקרוב משלטת הניהול.</p>
+        <div id="dashboardPanels">
+            <div class="loading-state">Meticulously aggregating institutional intelligence data...</div>
         </div>
-    </div>
+    </main>
 
-    <footer class="main-footer" style="padding: 30px 0; text-align: center; color: #64748b; font-size: 14px;">
+    <footer class="main-footer" style="padding: 40px 0; text-align: center; color: #64748b; font-size: 14px; background: #0b141f; border-top: 1px solid #1e293b; margin-top: 50px;">
         <div class="container">
-            <p>&copy; 2026 השקעות שעושות שכל. כל הזכויות שמורות לפיתוח עצמאי מוגן.</p>
+            <p style="color: #94a3b8; margin-bottom: 8px;">&copy; 2026 השקעות שעושות שכל. כל הזכויות שמורות למערכת הניתוח המוגנת.</p>
+            <small style="opacity: 0.7;">מקור הנתונים: רשות שוק ההון, ביטוח וחיסכון (מערכות גמל-נט). הנתונים מחושבים כריבית מצטברת ואינם מהווים ייעוץ אלטרנטיבי.</small>
         </div>
     </footer>
 
     <script>
-        async function loadFundsData() {
+        async function initDashboard() {
             try {
-                // המערכת ניגשת לקובץ הנתונים הסטטי שחושב מראש בענן
+                // משיכת מבנה הנתונים המלא
                 const response = await fetch('funds_data.json');
-                if (!response.ok) throw new Error('Data file not found');
+                if (!response.ok) throw new Error('Framework data absent');
                 const data = await response.json();
                 
-                const tbody = document.getElementById('yieldsBody');
-                tbody.innerHTML = ''; 
+                const nav = document.getElementById('tabsNavigation');
+                const panelsContainer = document.getElementById('dashboardPanels');
                 
-                data.forEach(fund => {
-                    const formatYield = (val) => {
-                        const num = parseFloat(val);
-                        const cssClass = num >= 0 ? 'yield-positive' : 'yield-negative';
-                        const sign = num > 0 ? '+' : '';
-                        return `<span class="${cssClass}">${sign}${val}%</span>`;
-                    };
-
-                    const row = `<tr>
-                        <td class="fund-name-col">${fund.name}</td>
-                        <td>${formatYield(fund.YTD)}</td>
-                        <td>${formatYield(fund.Year1)}</td>
-                        <td>${formatYield(fund.Year3)}</td>
-                        <td>${formatYield(fund.Year5)}</td>
-                        <td style="color: #64748b; font-size: 13px;">${fund.last_updated}</td>
-                    </tr>`;
-                    tbody.innerHTML += row;
-                });
-            } catch (error) {
-                console.error('Error fetching institutional data:', error);
-                document.getElementById('yieldsBody').innerHTML = 
-                    '<tr><td colspan="6" style="color: #c0392b; padding: 25px; font-weight: 600;">הנתונים נמצאים כעת בסנכרון תקופתי מול מערכות משרד האוצר. אנא חזרו מאוחר יותר.</td></tr>';
+                nav.innerHTML = '';
+                panelsContainer.innerHTML = '';
+                
+                let isFirst = true;
+                
+                // לולאה רצה על כל מסלול השקעה במבנה
+                for (const [trackKey, trackData] of Object.entries(data.tracks)) {
+                    
+                    // 1. יצירת כפתור הטאב
+                    const btn = document.createElement('button');
+                    btn.className = `track-tab-btn ${isFirst ? 'active' : ''}`;
+                    btn.innerText = trackData.title;
+                    btn.onclick = (e) => switchTrackTab(e, trackKey);
+                    nav.appendChild(btn);
+                    
+                    # 2. יצירת פאנל התוכן של המסלול
+                    const panel = document.createElement('div');
+                    panel.id = `panel-${trackKey}`;
+                    panel.className = `track-panel ${isFirst ? 'active' : ''}`;
+                    
+                    // הזרקת תיבת התיאור של המסלול
+                    let panelHtml = `
+                        <div class="track-meta-box">
+                            <h3>${trackData.title}</h3>
+                            <p>${trackData.description}</p>
+                        </div>
+                    `;
+                    
+                    // 3. יצירת טבלה נפרדת לכל סוג מוצר בתוך המסלול
+                    for (const [productName, funds] of Object.entries(trackData.products)) {
+                        if (funds.length === 0) continue;
+                        
+                        panelHtml += `
+                            <div class="product-section">
+                                <h4 class="product-title">
+                                    <span>מוצר: קרנות ${productName}</span>
+                                    <span class="badge">השוואה רוחבית</span>
+                                </h4>
+                                <div class="table-wrapper">
+                                    <table class="dashboard-table">
+                                        <thead>
+                                            <tr>
+                                                <th style="text-align: right; padding-right:20px;">גוף מנהל</th>
+                                                <th style="text-align: right;">שם מסלול רשמי</th>
+                                                <th>מתחילת שנה (YTD)</th>
+                                                <th>12 חודשים</th>
+                                                <th>3 שנים מצטבר</th>
+                                                <th>5 שנים מצטבר</th>
+                                                <th>עדכון</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                        `;
+                        
+                        funds.forEach(fund => {
+                            const formatVal = (v) => {
+                                const n = parseFloat(v);
+                                return `<span class="${n >= 0 ? 'yield-up' : 'yield-down'}">${n > 0 ? '+' : ''}${v}%</span>`;
+                            };
+                            
+                            panelHtml += `
+                                <tr onclick="triggerAnalyticAlert('${fund.name}', '${fund.company}')">
+                                    <td class="col-company">${fund.company}</td>
+                                    <td class="col-name">${fund.name}</td>
+                                    <td>${formatVal(fund.YTD)}</td>
+                                    <td>${formatVal(fund.Year1)}</td>
+                                    <td>${formatVal(fund.Year3)}</td>
+                                    <td>${formatVal(fund.Year5)}</td>
+                                    <td style="color:#64748b; font-size:12.5px;">${fund.last_updated}</td>
+                                </tr>
+                            `;
+                        });
+                        
+                        panelHtml += `
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        `;
+                    }
+                    
+                    panel.innerHTML = panelHtml;
+                    panelsContainer.appendChild(panel);
+                    
+                    isFirst = false;
+                }
+                
+            } catch (err) {
+                console.error(err);
+                document.getElementById('dashboardPanels').innerHTML = `
+                    <div class="loading-state" style="color:#c0392b;">
+                        שגיאה בטעינת מסד הנתונים הפיננסי. אנא ודא כי צינור האוטומציה ב-Actions הופעל בהצלחה.
+                    </div>`;
             }
         }
         
-        document.addEventListener('DOMContentLoaded', loadFundsData);
+        // לוגיקת החלפת לשוניות (Tabs)
+        function switchTrackTab(e, trackKey) {
+            document.querySelectorAll('.track-tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.track-panel').forEach(p => p.classList.remove('active'));
+            
+            e.currentTarget.classList.add('active');
+            document.getElementById(`panel-${trackKey}`).classList.add('active');
+        }
+        
+        // אפקט לחיצה אינטראקטיבי על שורה
+        function triggerAnalyticAlert(name, company) {
+            alert(`ניתוח מגמות - ${company}\n\nהמסלול: ${name}\n\nנתוני נכסי קצה, סטיית תקן ומדד שארפ מפורט זמינים כעת בתיאום פגישת אנליזה אישית.`);
+        }
+        
+        document.addEventListener('DOMContentLoaded', initDashboard);
     </script>
 </body>
 </html>
