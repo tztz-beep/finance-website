@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>מרכז תשואות מוסדיות וביצועים | השקעות שעושות שכל</title>
-    <link rel="stylesheet" href="style.css?v=17.0">
+    <link rel="stylesheet" href="style.css?v=18.0">
     
     <style>
         body { background-color: #f4f6f9; }
@@ -14,13 +14,11 @@
         
         .dashboard-container { max-width: 1140px; margin: 0 auto 60px auto; padding: 0 24px; }
         
-        /* מערכת הטאבים של מסלולי ההשקעה */
         .track-tabs-nav { display: flex; gap: 12px; margin-bottom: 25px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; flex-wrap: wrap; }
         .track-tab-btn { background: #ffffff; border: 1px solid #cbd5e1; padding: 14px 24px; font-size: 15px; font-weight: 700; color: #111e2d; border-radius: 8px; cursor: pointer; transition: all 0.2s ease; }
         .track-tab-btn:hover { background: #f8fafc; border-color: #d4af37; }
         .track-tab-btn.active { background: #111e2d; color: #d4af37; border-color: #111e2d; box-shadow: 0 4px 12px rgba(17,30,45,0.15); }
         
-        /* אזורי התוכן של הטאבים */
         .track-panel { display: none; }
         .track-panel.active { display: block; }
         
@@ -28,7 +26,6 @@
         .track-meta-box h3 { margin: 0 0 8px 0; font-size: 20px; font-weight: 800; color: #111e2d; }
         .track-meta-box p { margin: 0; color: #64748b; font-size: 15px; }
         
-        /* עיצוב כרטיסיות וטבלאות המוצרים */
         .product-section { background: #ffffff; border-radius: 10px; padding: 28px; margin-bottom: 35px; box-shadow: 0 10px 25px rgba(17,30,45,0.03); border: 1px solid #e2e8f0; }
         .product-title { color: #111e2d; font-size: 20px; font-weight: 800; margin: 0 0 18px 0; display: flex; align-items: center; gap: 10px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 12px; }
         .product-title span.badge { background: #f1f5f9; color: #64748b; font-size: 12px; padding: 4px 10px; border-radius: 12px; font-weight: 600; }
@@ -65,16 +62,14 @@
     <div class="page-header">
         <div class="container">
             <h1>מערכת השוואת תשואות מוסדיות</h1>
-            <p>אנליזה רוחבית של ביצועי השוק בזמן אמת. המידע מסווג לפי פילוסופיית השקעה ומסלולי לידה מנוטרים.</p>
+            <p>אנליזה רוחבית של ביצועי השוק בזמן אמת. המידע מסווג לפי פילוסופיית השקעה ומסלולי ליבה מנוטרים.</p>
         </div>
     </div>
 
     <main class="dashboard-container">
-        <div class="track-tabs-nav" id="tabsNavigation">
-            </div>
-
+        <div class="track-tabs-nav" id="tabsNavigation"></div>
         <div id="dashboardPanels">
-            <div class="loading-state">Meticulously aggregating institutional intelligence data...</div>
+            <div class="loading-state">מעבד נתונים ממאגרי משרד האוצר...</div>
         </div>
     </main>
 
@@ -88,7 +83,6 @@
     <script>
         async function initDashboard() {
             try {
-                // משיכת מבנה הנתונים המלא
                 const response = await fetch('funds_data.json');
                 if (!response.ok) throw new Error('Framework data absent');
                 const data = await response.json();
@@ -101,7 +95,6 @@
                 
                 let isFirst = true;
                 
-                // לולאה רצה על כל מסלול השקעה במבנה
                 for (const [trackKey, trackData] of Object.entries(data.tracks)) {
                     
                     // 1. יצירת כפתור הטאב
@@ -111,12 +104,11 @@
                     btn.onclick = (e) => switchTrackTab(e, trackKey);
                     nav.appendChild(btn);
                     
-                    # 2. יצירת פאנל התוכן של המסלול
+                    // 2. יצירת פאנל התוכן של המסלול (השגיאה שהייתה כאן תוקנה)
                     const panel = document.createElement('div');
                     panel.id = `panel-${trackKey}`;
                     panel.className = `track-panel ${isFirst ? 'active' : ''}`;
                     
-                    // הזרקת תיבת התיאור של המסלול
                     let panelHtml = `
                         <div class="track-meta-box">
                             <h3>${trackData.title}</h3>
@@ -124,7 +116,6 @@
                         </div>
                     `;
                     
-                    // 3. יצירת טבלה נפרדת לכל סוג מוצר בתוך המסלול
                     for (const [productName, funds] of Object.entries(trackData.products)) {
                         if (funds.length === 0) continue;
                         
@@ -192,7 +183,6 @@
             }
         }
         
-        // לוגיקת החלפת לשוניות (Tabs)
         function switchTrackTab(e, trackKey) {
             document.querySelectorAll('.track-tab-btn').forEach(b => b.classList.remove('active'));
             document.querySelectorAll('.track-panel').forEach(p => p.classList.remove('active'));
@@ -201,7 +191,6 @@
             document.getElementById(`panel-${trackKey}`).classList.add('active');
         }
         
-        // אפקט לחיצה אינטראקטיבי על שורה
         function triggerAnalyticAlert(name, company) {
             alert(`ניתוח מגמות - ${company}\n\nהמסלול: ${name}\n\nנתוני נכסי קצה, סטיית תקן ומדד שארפ מפורט זמינים כעת בתיאום פגישת אנליזה אישית.`);
         }
