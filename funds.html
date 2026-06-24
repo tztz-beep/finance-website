@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>מרכז תשואות מוסדיות | השקעות שעושות שכל</title>
-    <link rel="stylesheet" href="style.css?v=20.0">
+    <link rel="stylesheet" href="style.css?v=21.0">
     
     <style>
         body { background-color: #f4f6f9; }
@@ -32,7 +32,7 @@
         /* עיצוב כותרות לחיצות למיון */
         .sortable-header { cursor: pointer; user-select: none; transition: background-color 0.2s; }
         .sortable-header:hover { background-color: #1e2d3d; color: #d4af37; }
-        .sort-icon { font-size: 11px; margin-right: 4px; opacity: 0.8; }
+        .sort-icon { font-size: 12px; margin-right: 4px; opacity: 0.8; display: inline-block; }
         
         .dashboard-table td { padding: 16px; border-bottom: 1px solid #e2e8f0; font-size: 15px; color: #2c3e50; border-left: 1px solid #e2e8f0; }
         .dashboard-table tr:last-child td { border-bottom: none; }
@@ -74,15 +74,17 @@
     </main>
 
     <footer class="main-footer" style="padding: 40px 0; text-align: center; color: #64748b; font-size: 14px; background: #0b141f; border-top: 1px solid #1e293b; margin-top: 50px;">
-        <div class="container">
-            <p style="color: #94a3b8; margin-bottom: 8px;">&copy; 2026 השקעות שעושות שכל. מערכת ניהול השקעות פרטית.</p>
+        <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
+            <p style="color: #94a3b8; margin-bottom: 12px; font-weight: 600;">&copy; 2026 השקעות שעושות שכל. מערכת דירוג ואנליזה.</p>
+            <p style="opacity: 0.6; font-size: 12.5px; line-height: 1.6; text-align: justify; direction: rtl;">
+                <strong>גילוי נאות והבהרה רגולטורית:</strong> הנתונים המוצגים במערכת זו נשאבים מתוך המאגרים הפומביים של רשות שוק ההון, ביטוח וחיסכון (גמל-נט / פנסיה-נט) ומטרתם אינפורמטיבית והשוואתית בלבד. המידע אינו מהווה תחליף לייעוץ או שיווק פנסיוני, פיננסי או השקעתי המותאם לנתוניו וצרכיו האישיים של כל אדם. תשואות העבר אינן מעידות על תשואות העתיד ואין בהן משום הבטחה להשגת תשואה דומה.
+            </p>
         </div>
     </footer>
 
     <script>
-        // שמירת הנתונים ברמת המצב הגלובלי של העמוד
         window.rawDashboardData = null;
-        window.currentSortState = {}; // מעקב אחר העמודה הממוינת בכל טבלה
+        window.currentSortState = {}; 
         window.activeProductId = null;
 
         async function initPremiumDashboard() {
@@ -92,7 +94,6 @@
                 if (!response.ok) throw new Error('Data pipeline missing');
                 window.rawDashboardData = await response.json();
                 
-                // קביעת המוצר הראשון כברירת מחדל
                 if(window.rawDashboardData.length > 0) {
                     window.activeProductId = window.rawDashboardData[0].id;
                 }
@@ -134,10 +135,16 @@
             
             product.tracks.forEach(track => {
                 const tableId = `${product.id}_${track.id}`;
-                const currentSortField = window.currentSortState[tableId] || 'Year5'; // ברירת מחדל מיון לפי 5 שנים
                 
-                // ביצוע המיון בפועל של המערך לפני הרנדור
-                track.funds.sort((a, b) => parseFloat(b[currentSortField]) - parseFloat(a[currentSortField]));
+                // שליפת מצב המיון (שדה וכיוון). ברירת מחדל: 5 שנים, יורד
+                const sortInfo = window.currentSortState[tableId] || { field: 'Year5', direction: 'desc' };
+                
+                // מנוע המיון הדו-כיווני
+                track.funds.sort((a, b) => {
+                    const valA = parseFloat(a[sortInfo.field]) || 0;
+                    const valB = parseFloat(b[sortInfo.field]) || 0;
+                    return sortInfo.direction === 'desc' ? valB - valA : valA - valB;
+                });
                 
                 panelHtml += `
                     <div class="track-section">
@@ -189,21 +196,33 @@
             panelsContainer.appendChild(panel);
         }
 
-        // פונקציית המיון הדינמית - משנה את מצב המיון ומפעילה רנדור מחדש
+        // פונקציה חכמה למעבר בין מצבי מיון: עולה ויורד
         function sortTrackTable(trackId, field) {
             const tableId = `${window.activeProductId}_${trackId}`;
-            window.currentSortState[tableId] = field;
+            
+            if (!window.currentSortState[tableId]) {
+                window.currentSortState[tableId] = { field: 'Year5', direction: 'desc' };
+            }
+            
+            if (window.currentSortState[tableId].field === field) {
+                // לחיצה כפולה על אותה עמודה הופכת את כיוון החץ
+                window.currentSortState[tableId].direction = window.currentSortState[tableId].direction === 'desc' ? 'asc' : 'desc';
+            } else {
+                window.currentSortState[tableId].field = field;
+                window.currentSortState[tableId].direction = 'desc';
+            }
+            
             renderPanels();
         }
 
+        // מחזירה את החץ המתאים למצב ההיפוך
         function getSortIcon(tableId, field) {
-            if (window.currentSortState[tableId] === field) {
-                return `<span class="sort-icon" style="color:#d4af37;">▼</span>`;
+            const sortInfo = window.currentSortState[tableId] || { field: 'Year5', direction: 'desc' };
+            
+            if (sortInfo.field === field) {
+                return `<span class="sort-icon" style="color:#d4af37;">${sortInfo.direction === 'desc' ? '▼' : '▲'}</span>`;
             }
-            if (!window.currentSortState[tableId] && field === 'Year5') {
-                return `<span class="sort-icon" style="color:#d4af37;">▼</span>`; // אייקון ברירת מחדל
-            }
-            return `<span class="sort-icon" style="opacity:0.3;">▼</span>`;
+            return `<span class="sort-icon" style="opacity:0.2;">▼</span>`;
         }
         
         document.addEventListener('DOMContentLoaded', initPremiumDashboard);

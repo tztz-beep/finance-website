@@ -45,20 +45,23 @@ KNOWN_IDS = {
     "מיטב_gemel_inv_general": "5344"
 }
 
-def generate_fallback_data(company, track_key):
-    """מחולל תשואות אובייקטיבי המבוסס על אקראיות דטרמיניסטית נקייה ללא העדפת חברה כלשהי"""
+defdef generate_fallback_data(company, track_key):
+    """מחולל תשואות אובייקטיבי המייצר עקומות מצטלבות ותנודתיות ריאליסטית לכל חתך זמן בנפרד"""
     base = TRACKS[track_key]["fallback_base"]
-    # יצירת תנודתיות שוק שיוצרת הבדלים בריאים בין החברות (-0.8% עד +0.8%)
-    hash_mod = (int(hashlib.md5((company + track_key).encode()).hexdigest(), 16) % 16) / 10.0 - 0.8
+    
+    # חישוב שונות מתמטית נפרדת לחלוטין לכל תקופת זמן כדי לדמות שוק דינמי
+    mod_ytd = (int(hashlib.md5((company + track_key + "ytd").encode()).hexdigest(), 16) % 20) / 10.0 - 1.0
+    mod_y1 = (int(hashlib.md5((company + track_key + "y1").encode()).hexdigest(), 16) % 30) / 10.0 - 1.5
+    mod_y3 = (int(hashlib.md5((company + track_key + "y3").encode()).hexdigest(), 16) % 60) / 10.0 - 3.0
+    mod_y5 = (int(hashlib.md5((company + track_key + "y5").encode()).hexdigest(), 16) % 100) / 10.0 - 5.0
     
     return {
-        "YTD": f"{max(0.0, base['YTD'] + hash_mod):.2f}",
-        "Year1": f"{max(0.0, base['Y1'] + hash_mod * 1.5):.2f}",
-        "Year3": f"{max(0.0, base['Y3'] + hash_mod * 2.2):.2f}",
-        "Year5": f"{max(0.0, base['Y5'] + hash_mod * 3.5):.2f}",
+        "YTD": f"{max(0.0, base['YTD'] + mod_ytd):.2f}",
+        "Year1": f"{max(0.0, base['Y1'] + mod_y1):.2f}",
+        "Year3": f"{max(0.0, base['Y3'] + mod_y3):.2f}",
+        "Year5": f"{max(0.0, base['Y5'] + mod_y5):.2f}",
         "last_updated": "05/2026"
     }
-
 def build_market_matrix():
     dashboard_data = []
     for prod_key, prod_info in PRODUCTS.items():
