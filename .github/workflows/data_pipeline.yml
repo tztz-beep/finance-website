@@ -1,0 +1,34 @@
+name: Financial Data Update Pipeline
+
+on:
+  schedule:
+    - cron: '0 4 16 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-yields:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Data Libraries
+        run: pip install pandas requests
+
+      - name: Run Analytical Engine
+        run: python update_funds.py
+
+      - name: Commit and Push Updated JSON
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add funds_data.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update: Financial funds performance data" && git push)
