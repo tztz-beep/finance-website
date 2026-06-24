@@ -1,126 +1,970 @@
-{
-    "tracks": {
-        "equity": {
-            "title": "מסלולים מנייתיים טהורים",
-            "description": "חשיפה מנייתית גבוהה (80%-100%) המתאימה לטווח ארוך ולרמות סיכון מוגברות.",
-            "products": {
-                "שתלמות": [
+[
+    {
+        "id": "gemel_inv",
+        "title": "קופת גמל להשקעה",
+        "tracks": [
+            {
+                "title": "מסלול עוקב S&P 500",
+                "funds": [
                     {
+                        "id": "mock_הראל_gemel_inv_sp500",
                         "company": "הראל",
-                        "name": "הראל השתלמות מנייתי",
-                        "YTD": "6.85",
-                        "Year1": "12.40",
-                        "Year3": "26.80",
-                        "Year5": "48.90",
+                        "name": "הראל מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "11.90",
+                        "Year1": "24.50",
+                        "Year3": "48.70",
+                        "Year5": "90.00",
                         "last_updated": "05/2026"
                     },
                     {
+                        "id": "mock_אלטשולר שחם_gemel_inv_sp500",
                         "company": "אלטשולר שחם",
-                        "name": "אלטשולר שחם השתלמות מנייתי",
-                        "YTD": "7.83",
-                        "Year1": "25.29",
-                        "Year3": "73.25",
-                        "Year5": "121.95",
+                        "name": "אלטשולר שחם מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.80",
+                        "Year1": "22.30",
+                        "Year3": "45.40",
+                        "Year5": "84.50",
                         "last_updated": "05/2026"
                     },
                     {
+                        "id": "mock_ילין לפידות_gemel_inv_sp500",
                         "company": "ילין לפידות",
-                        "name": "ילין לפידות השתלמות מניות",
-                        "YTD": "0.00",
-                        "Year1": "0.00",
-                        "Year3": "0.00",
-                        "Year5": "0.00",
-                        "last_updated": "05/2026"
-                    }
-                ],
-                "גמל להשקעה": [
-                    {
-                        "company": "הראל",
-                        "name": "הראל גמל להשקעה מנייתי",
-                        "YTD": "6.70",
-                        "Year1": "12.10",
-                        "Year3": "25.90",
-                        "Year5": "47.50",
+                        "name": "ילין לפידות מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "11.00",
+                        "Year1": "22.70",
+                        "Year3": "46.00",
+                        "Year5": "85.50",
                         "last_updated": "05/2026"
                     },
                     {
-                        "company": "אלטשולר שחם",
-                        "name": "אלטשולר שחם גמל להשקעה מנייתי",
-                        "YTD": "5.85",
-                        "Year1": "10.50",
-                        "Year3": "20.90",
-                        "Year5": "41.80",
-                        "last_updated": "05/2026"
-                    },
-                    {
+                        "id": "mock_הפניקס_gemel_inv_sp500",
                         "company": "הפניקס",
-                        "name": "הפניקס גמל להשקעה מנייתי",
-                        "YTD": "6.30",
-                        "Year1": "11.40",
-                        "Year3": "24.10",
-                        "Year5": "45.00",
-                        "last_updated": "05/2026"
-                    }
-                ],
-                "פנסיה": [
-                    {
-                        "company": "הראל",
-                        "name": "הראל פנסיה מנייתי",
-                        "YTD": "7.10",
-                        "Year1": "13.20",
-                        "Year3": "28.40",
-                        "Year5": "51.20",
+                        "name": "הפניקס מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "11.30",
+                        "Year1": "23.30",
+                        "Year3": "46.90",
+                        "Year5": "87.00",
                         "last_updated": "05/2026"
                     },
                     {
+                        "id": "mock_מיטב_gemel_inv_sp500",
+                        "company": "מיטב",
+                        "name": "מיטב מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.60",
+                        "Year1": "21.90",
+                        "Year3": "44.80",
+                        "Year5": "83.50",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_כלל_gemel_inv_sp500",
+                        "company": "כלל",
+                        "name": "כלל מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "11.10",
+                        "Year1": "22.90",
+                        "Year3": "46.30",
+                        "Year5": "86.00",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מגדל_gemel_inv_sp500",
+                        "company": "מגדל",
+                        "name": "מגדל מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.40",
+                        "Year1": "21.50",
+                        "Year3": "44.20",
+                        "Year5": "82.50",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מנורה מבטחים_gemel_inv_sp500",
                         "company": "מנורה מבטחים",
-                        "name": "מנורה פנסיה מנייתי חם",
-                        "YTD": "6.90",
-                        "Year1": "12.90",
-                        "Year3": "27.10",
-                        "Year5": "49.80",
-                        "last_updated": "05/2026"
-                    }
-                ],
-                "פוליסת חיסכון": [
-                    {
-                        "company": "הראל",
-                        "name": "הראל מסלול מניות מובחר",
-                        "YTD": "6.40",
-                        "Year1": "11.90",
-                        "Year3": "25.20",
-                        "Year5": "46.30",
+                        "name": "מנורה מבטחים מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "11.00",
+                        "Year1": "22.70",
+                        "Year3": "46.00",
+                        "Year5": "85.50",
                         "last_updated": "05/2026"
                     },
                     {
+                        "id": "mock_אנליסט_gemel_inv_sp500",
+                        "company": "אנליסט",
+                        "name": "אנליסט מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.50",
+                        "Year1": "21.70",
+                        "Year3": "44.50",
+                        "Year5": "83.00",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מור_gemel_inv_sp500",
+                        "company": "מור",
+                        "name": "מור מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.90",
+                        "Year1": "22.50",
+                        "Year3": "45.70",
+                        "Year5": "85.00",
+                        "last_updated": "05/2026"
+                    }
+                ]
+            },
+            {
+                "title": "מסלול מנייתי טהור",
+                "funds": [
+                    {
+                        "id": "mock_הראל_gemel_inv_equity",
+                        "company": "הראל",
+                        "name": "הראל גמל מנייתי",
+                        "track_type": "equity",
+                        "YTD": "8.70",
+                        "Year1": "17.80",
+                        "Year3": "32.90",
+                        "Year5": "63.60",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אלטשולר שחם_gemel_inv_equity",
+                        "company": "אלטשולר שחם",
+                        "name": "אלטשולר שחם גמל מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.60",
+                        "Year1": "15.60",
+                        "Year3": "29.60",
+                        "Year5": "58.10",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_ילין לפידות_gemel_inv_equity",
+                        "company": "ילין לפידות",
+                        "name": "ילין לפידות גמל מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.80",
+                        "Year1": "16.00",
+                        "Year3": "30.20",
+                        "Year5": "59.10",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_הפניקס_gemel_inv_equity",
                         "company": "הפניקס",
-                        "name": "הפניקס מסלול מנייתי",
-                        "YTD": "6.55",
-                        "Year1": "12.20",
-                        "Year3": "25.80",
-                        "Year5": "47.10",
+                        "name": "הפניקס גמל מנייתי",
+                        "track_type": "equity",
+                        "YTD": "8.10",
+                        "Year1": "16.60",
+                        "Year3": "31.10",
+                        "Year5": "60.60",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מיטב_gemel_inv_equity",
+                        "company": "מיטב",
+                        "name": "מיטב גמל מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.40",
+                        "Year1": "15.20",
+                        "Year3": "29.00",
+                        "Year5": "57.10",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_כלל_gemel_inv_equity",
+                        "company": "כלל",
+                        "name": "כלל גמל מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.90",
+                        "Year1": "16.20",
+                        "Year3": "30.50",
+                        "Year5": "59.60",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מגדל_gemel_inv_equity",
+                        "company": "מגדל",
+                        "name": "מגדל גמל מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.20",
+                        "Year1": "14.80",
+                        "Year3": "28.40",
+                        "Year5": "56.10",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מנורה מבטחים_gemel_inv_equity",
+                        "company": "מנורה מבטחים",
+                        "name": "מנורה מבטחים גמל מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.80",
+                        "Year1": "16.00",
+                        "Year3": "30.20",
+                        "Year5": "59.10",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אנליסט_gemel_inv_equity",
+                        "company": "אנליסט",
+                        "name": "אנליסט גמל מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.30",
+                        "Year1": "15.00",
+                        "Year3": "28.70",
+                        "Year5": "56.60",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מור_gemel_inv_equity",
+                        "company": "מור",
+                        "name": "מור גמל מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.70",
+                        "Year1": "15.80",
+                        "Year3": "29.90",
+                        "Year5": "58.60",
+                        "last_updated": "05/2026"
+                    }
+                ]
+            },
+            {
+                "title": "מסלול כללי / תלוי גיל",
+                "funds": [
+                    {
+                        "id": "mock_הראל_gemel_inv_general",
+                        "company": "הראל",
+                        "name": "הראל גמל כללי",
+                        "track_type": "general",
+                        "YTD": "5.60",
+                        "Year1": "11.50",
+                        "Year3": "21.70",
+                        "Year5": "39.90",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אלטשולר שחם_gemel_inv_general",
+                        "company": "אלטשולר שחם",
+                        "name": "אלטשולר שחם גמל כללי",
+                        "track_type": "general",
+                        "YTD": "4.50",
+                        "Year1": "9.30",
+                        "Year3": "18.40",
+                        "Year5": "34.40",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_ילין לפידות_gemel_inv_general",
+                        "company": "ילין לפידות",
+                        "name": "ילין לפידות גמל כללי",
+                        "track_type": "general",
+                        "YTD": "4.70",
+                        "Year1": "9.70",
+                        "Year3": "19.00",
+                        "Year5": "35.40",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_הפניקס_gemel_inv_general",
+                        "company": "הפניקס",
+                        "name": "הפניקס גמל כללי",
+                        "track_type": "general",
+                        "YTD": "5.00",
+                        "Year1": "10.30",
+                        "Year3": "19.90",
+                        "Year5": "36.90",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מיטב_gemel_inv_general",
+                        "company": "מיטב",
+                        "name": "מיטב גמל כללי",
+                        "track_type": "general",
+                        "YTD": "4.30",
+                        "Year1": "8.90",
+                        "Year3": "17.80",
+                        "Year5": "33.40",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_כלל_gemel_inv_general",
+                        "company": "כלל",
+                        "name": "כלל גמל כללי",
+                        "track_type": "general",
+                        "YTD": "4.80",
+                        "Year1": "9.90",
+                        "Year3": "19.30",
+                        "Year5": "35.90",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מגדל_gemel_inv_general",
+                        "company": "מגדל",
+                        "name": "מגדל גמל כללי",
+                        "track_type": "general",
+                        "YTD": "4.10",
+                        "Year1": "8.50",
+                        "Year3": "17.20",
+                        "Year5": "32.40",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מנורה מבטחים_gemel_inv_general",
+                        "company": "מנורה מבטחים",
+                        "name": "מנורה מבטחים גמל כללי",
+                        "track_type": "general",
+                        "YTD": "4.70",
+                        "Year1": "9.70",
+                        "Year3": "19.00",
+                        "Year5": "35.40",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אנליסט_gemel_inv_general",
+                        "company": "אנליסט",
+                        "name": "אנליסט גמל כללי",
+                        "track_type": "general",
+                        "YTD": "4.20",
+                        "Year1": "8.70",
+                        "Year3": "17.50",
+                        "Year5": "32.90",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מור_gemel_inv_general",
+                        "company": "מור",
+                        "name": "מור גמל כללי",
+                        "track_type": "general",
+                        "YTD": "4.60",
+                        "Year1": "9.50",
+                        "Year3": "18.70",
+                        "Year5": "34.90",
+                        "last_updated": "05/2026"
+                    }
+                ]
+            },
+            {
+                "title": "מסלול אג\"ח / שקלי",
+                "funds": [
+                    {
+                        "id": "mock_הראל_gemel_inv_solid",
+                        "company": "הראל",
+                        "name": "הראל גמל אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "3.30",
+                        "Year1": "6.90",
+                        "Year3": "12.60",
+                        "Year5": "21.70",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אלטשולר שחם_gemel_inv_solid",
+                        "company": "אלטשולר שחם",
+                        "name": "אלטשולר שחם גמל אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.20",
+                        "Year1": "4.70",
+                        "Year3": "9.30",
+                        "Year5": "16.20",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_ילין לפידות_gemel_inv_solid",
+                        "company": "ילין לפידות",
+                        "name": "ילין לפידות גמל אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.40",
+                        "Year1": "5.10",
+                        "Year3": "9.90",
+                        "Year5": "17.20",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_הפניקס_gemel_inv_solid",
+                        "company": "הפניקס",
+                        "name": "הפניקס גמל אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.70",
+                        "Year1": "5.70",
+                        "Year3": "10.80",
+                        "Year5": "18.70",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מיטב_gemel_inv_solid",
+                        "company": "מיטב",
+                        "name": "מיטב גמל אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.00",
+                        "Year1": "4.30",
+                        "Year3": "8.70",
+                        "Year5": "15.20",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_כלל_gemel_inv_solid",
+                        "company": "כלל",
+                        "name": "כלל גמל אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.50",
+                        "Year1": "5.30",
+                        "Year3": "10.20",
+                        "Year5": "17.70",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מגדל_gemel_inv_solid",
+                        "company": "מגדל",
+                        "name": "מגדל גמל אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "1.80",
+                        "Year1": "3.90",
+                        "Year3": "8.10",
+                        "Year5": "14.20",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מנורה מבטחים_gemel_inv_solid",
+                        "company": "מנורה מבטחים",
+                        "name": "מנורה מבטחים גמל אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.40",
+                        "Year1": "5.10",
+                        "Year3": "9.90",
+                        "Year5": "17.20",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אנליסט_gemel_inv_solid",
+                        "company": "אנליסט",
+                        "name": "אנליסט גמל אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "1.90",
+                        "Year1": "4.10",
+                        "Year3": "8.40",
+                        "Year5": "14.70",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מור_gemel_inv_solid",
+                        "company": "מור",
+                        "name": "מור גמל אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.30",
+                        "Year1": "4.90",
+                        "Year3": "9.60",
+                        "Year5": "16.70",
                         "last_updated": "05/2026"
                     }
                 ]
             }
-        },
-        "s_p_500": {
-            "title": "מחקי מדד S&P 500",
-            "description": "אסטרטגיה פסיבית העוקבת במדויק אחר 500 החברות הגדולות בארה\"ב.",
-            "products": {
-                "שתלמות": [
+        ]
+    },
+    {
+        "id": "pension",
+        "title": "קרן פנסיה מקיפה",
+        "tracks": [
+            {
+                "title": "מסלול עוקב S&P 500",
+                "funds": [
                     {
+                        "id": "mock_הראל_pension_sp500",
                         "company": "הראל",
-                        "name": "הראל השתלמות מחקה S&P 500",
-                        "YTD": "0.00",
-                        "Year1": "1.04",
-                        "Year3": "1.04",
-                        "Year5": "1.04",
-                        "last_updated": "09/2009"
+                        "name": "הראל מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "11.90",
+                        "Year1": "24.50",
+                        "Year3": "48.70",
+                        "Year5": "90.00",
+                        "last_updated": "05/2026"
                     },
                     {
+                        "id": "mock_אלטשולר שחם_pension_sp500",
+                        "company": "אלטשולר שחם",
+                        "name": "אלטשולר שחם מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.80",
+                        "Year1": "22.30",
+                        "Year3": "45.40",
+                        "Year5": "84.50",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_ילין לפידות_pension_sp500",
                         "company": "ילין לפידות",
-                        "name": "ילין לפידות השתלמות S&P 500",
+                        "name": "ילין לפידות מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "11.00",
+                        "Year1": "22.70",
+                        "Year3": "46.00",
+                        "Year5": "85.50",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_הפניקס_pension_sp500",
+                        "company": "הפניקס",
+                        "name": "הפניקס מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "11.30",
+                        "Year1": "23.30",
+                        "Year3": "46.90",
+                        "Year5": "87.00",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מיטב_pension_sp500",
+                        "company": "מיטב",
+                        "name": "מיטב מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.60",
+                        "Year1": "21.90",
+                        "Year3": "44.80",
+                        "Year5": "83.50",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_כלל_pension_sp500",
+                        "company": "כלל",
+                        "name": "כלל מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "11.10",
+                        "Year1": "22.90",
+                        "Year3": "46.30",
+                        "Year5": "86.00",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מגדל_pension_sp500",
+                        "company": "מגדל",
+                        "name": "מגדל מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.40",
+                        "Year1": "21.50",
+                        "Year3": "44.20",
+                        "Year5": "82.50",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מנורה מבטחים_pension_sp500",
+                        "company": "מנורה מבטחים",
+                        "name": "מנורה מבטחים מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "11.00",
+                        "Year1": "22.70",
+                        "Year3": "46.00",
+                        "Year5": "85.50",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אנליסט_pension_sp500",
+                        "company": "אנליסט",
+                        "name": "אנליסט מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.50",
+                        "Year1": "21.70",
+                        "Year3": "44.50",
+                        "Year5": "83.00",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מור_pension_sp500",
+                        "company": "מור",
+                        "name": "מור מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.90",
+                        "Year1": "22.50",
+                        "Year3": "45.70",
+                        "Year5": "85.00",
+                        "last_updated": "05/2026"
+                    }
+                ]
+            },
+            {
+                "title": "מסלול מנייתי טהור",
+                "funds": [
+                    {
+                        "id": "mock_הראל_pension_equity",
+                        "company": "הראל",
+                        "name": "הראל פנסיה מנייתי",
+                        "track_type": "equity",
+                        "YTD": "8.70",
+                        "Year1": "17.80",
+                        "Year3": "32.90",
+                        "Year5": "63.60",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אלטשולר שחם_pension_equity",
+                        "company": "אלטשולר שחם",
+                        "name": "אלטשולר שחם פנסיה מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.60",
+                        "Year1": "15.60",
+                        "Year3": "29.60",
+                        "Year5": "58.10",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_ילין לפידות_pension_equity",
+                        "company": "ילין לפידות",
+                        "name": "ילין לפידות פנסיה מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.80",
+                        "Year1": "16.00",
+                        "Year3": "30.20",
+                        "Year5": "59.10",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_הפניקס_pension_equity",
+                        "company": "הפניקס",
+                        "name": "הפניקס פנסיה מנייתי",
+                        "track_type": "equity",
+                        "YTD": "8.10",
+                        "Year1": "16.60",
+                        "Year3": "31.10",
+                        "Year5": "60.60",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מיטב_pension_equity",
+                        "company": "מיטב",
+                        "name": "מיטב פנסיה מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.40",
+                        "Year1": "15.20",
+                        "Year3": "29.00",
+                        "Year5": "57.10",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_כלל_pension_equity",
+                        "company": "כלל",
+                        "name": "כלל פנסיה מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.90",
+                        "Year1": "16.20",
+                        "Year3": "30.50",
+                        "Year5": "59.60",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מגדל_pension_equity",
+                        "company": "מגדל",
+                        "name": "מגדל פנסיה מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.20",
+                        "Year1": "14.80",
+                        "Year3": "28.40",
+                        "Year5": "56.10",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מנורה מבטחים_pension_equity",
+                        "company": "מנורה מבטחים",
+                        "name": "מנורה מבטחים פנסיה מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.80",
+                        "Year1": "16.00",
+                        "Year3": "30.20",
+                        "Year5": "59.10",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אנליסט_pension_equity",
+                        "company": "אנליסט",
+                        "name": "אנליסט פנסיה מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.30",
+                        "Year1": "15.00",
+                        "Year3": "28.70",
+                        "Year5": "56.60",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מור_pension_equity",
+                        "company": "מור",
+                        "name": "מור פנסיה מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.70",
+                        "Year1": "15.80",
+                        "Year3": "29.90",
+                        "Year5": "58.60",
+                        "last_updated": "05/2026"
+                    }
+                ]
+            },
+            {
+                "title": "מסלול כללי / תלוי גיל",
+                "funds": [
+                    {
+                        "id": "mock_הראל_pension_general",
+                        "company": "הראל",
+                        "name": "הראל פנסיה כללי",
+                        "track_type": "general",
+                        "YTD": "5.60",
+                        "Year1": "11.50",
+                        "Year3": "21.70",
+                        "Year5": "39.90",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אלטשולר שחם_pension_general",
+                        "company": "אלטשולר שחם",
+                        "name": "אלטשולר שחם פנסיה כללי",
+                        "track_type": "general",
+                        "YTD": "4.50",
+                        "Year1": "9.30",
+                        "Year3": "18.40",
+                        "Year5": "34.40",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_ילין לפידות_pension_general",
+                        "company": "ילין לפידות",
+                        "name": "ילין לפידות פנסיה כללי",
+                        "track_type": "general",
+                        "YTD": "4.70",
+                        "Year1": "9.70",
+                        "Year3": "19.00",
+                        "Year5": "35.40",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_הפניקס_pension_general",
+                        "company": "הפניקס",
+                        "name": "הפניקס פנסיה כללי",
+                        "track_type": "general",
+                        "YTD": "5.00",
+                        "Year1": "10.30",
+                        "Year3": "19.90",
+                        "Year5": "36.90",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מיטב_pension_general",
+                        "company": "מיטב",
+                        "name": "מיטב פנסיה כללי",
+                        "track_type": "general",
+                        "YTD": "4.30",
+                        "Year1": "8.90",
+                        "Year3": "17.80",
+                        "Year5": "33.40",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_כלל_pension_general",
+                        "company": "כלל",
+                        "name": "כלל פנסיה כללי",
+                        "track_type": "general",
+                        "YTD": "4.80",
+                        "Year1": "9.90",
+                        "Year3": "19.30",
+                        "Year5": "35.90",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מגדל_pension_general",
+                        "company": "מגדל",
+                        "name": "מגדל פנסיה כללי",
+                        "track_type": "general",
+                        "YTD": "4.10",
+                        "Year1": "8.50",
+                        "Year3": "17.20",
+                        "Year5": "32.40",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מנורה מבטחים_pension_general",
+                        "company": "מנורה מבטחים",
+                        "name": "מנורה מבטחים פנסיה כללי",
+                        "track_type": "general",
+                        "YTD": "4.70",
+                        "Year1": "9.70",
+                        "Year3": "19.00",
+                        "Year5": "35.40",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אנליסט_pension_general",
+                        "company": "אנליסט",
+                        "name": "אנליסט פנסיה כללי",
+                        "track_type": "general",
+                        "YTD": "4.20",
+                        "Year1": "8.70",
+                        "Year3": "17.50",
+                        "Year5": "32.90",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מור_pension_general",
+                        "company": "מור",
+                        "name": "מור פנסיה כללי",
+                        "track_type": "general",
+                        "YTD": "4.60",
+                        "Year1": "9.50",
+                        "Year3": "18.70",
+                        "Year5": "34.90",
+                        "last_updated": "05/2026"
+                    }
+                ]
+            },
+            {
+                "title": "מסלול אג\"ח / שקלי",
+                "funds": [
+                    {
+                        "id": "mock_הראל_pension_solid",
+                        "company": "הראל",
+                        "name": "הראל פנסיה אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "3.30",
+                        "Year1": "6.90",
+                        "Year3": "12.60",
+                        "Year5": "21.70",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אלטשולר שחם_pension_solid",
+                        "company": "אלטשולר שחם",
+                        "name": "אלטשולר שחם פנסיה אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.20",
+                        "Year1": "4.70",
+                        "Year3": "9.30",
+                        "Year5": "16.20",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_ילין לפידות_pension_solid",
+                        "company": "ילין לפידות",
+                        "name": "ילין לפידות פנסיה אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.40",
+                        "Year1": "5.10",
+                        "Year3": "9.90",
+                        "Year5": "17.20",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_הפניקס_pension_solid",
+                        "company": "הפניקס",
+                        "name": "הפניקס פנסיה אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.70",
+                        "Year1": "5.70",
+                        "Year3": "10.80",
+                        "Year5": "18.70",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מיטב_pension_solid",
+                        "company": "מיטב",
+                        "name": "מיטב פנסיה אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.00",
+                        "Year1": "4.30",
+                        "Year3": "8.70",
+                        "Year5": "15.20",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_כלל_pension_solid",
+                        "company": "כלל",
+                        "name": "כלל פנסיה אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.50",
+                        "Year1": "5.30",
+                        "Year3": "10.20",
+                        "Year5": "17.70",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מגדל_pension_solid",
+                        "company": "מגדל",
+                        "name": "מגדל פנסיה אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "1.80",
+                        "Year1": "3.90",
+                        "Year3": "8.10",
+                        "Year5": "14.20",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מנורה מבטחים_pension_solid",
+                        "company": "מנורה מבטחים",
+                        "name": "מנורה מבטחים פנסיה אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.40",
+                        "Year1": "5.10",
+                        "Year3": "9.90",
+                        "Year5": "17.20",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אנליסט_pension_solid",
+                        "company": "אנליסט",
+                        "name": "אנליסט פנסיה אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "1.90",
+                        "Year1": "4.10",
+                        "Year3": "8.40",
+                        "Year5": "14.70",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מור_pension_solid",
+                        "company": "מור",
+                        "name": "מור פנסיה אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.30",
+                        "Year1": "4.90",
+                        "Year3": "9.60",
+                        "Year5": "16.70",
+                        "last_updated": "05/2026"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "hishtalmut",
+        "title": "קרן השתלמות",
+        "tracks": [
+            {
+                "title": "מסלול עוקב S&P 500",
+                "funds": [
+                    {
+                        "id": "mock_הראל_hishtalmut_sp500",
+                        "company": "הראל",
+                        "name": "הראל מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "11.90",
+                        "Year1": "24.50",
+                        "Year3": "48.70",
+                        "Year5": "90.00",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אלטשולר שחם_hishtalmut_sp500",
+                        "company": "אלטשולר שחם",
+                        "name": "אלטשולר שחם מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.80",
+                        "Year1": "22.30",
+                        "Year3": "45.40",
+                        "Year5": "84.50",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "1430",
+                        "company": "ילין לפידות",
+                        "name": "ילין לפידות מחקה מדד S&P 500",
+                        "track_type": "sp500",
                         "YTD": "1.67",
                         "Year1": "4.28",
                         "Year3": "13.69",
@@ -128,239 +972,895 @@
                         "last_updated": "05/2026"
                     },
                     {
-                        "company": "מיטב",
-                        "name": "מיטב השתלמות מחקה S&P 500",
-                        "YTD": "9.40",
-                        "Year1": "16.70",
-                        "Year3": "34.30",
-                        "Year5": "71.90",
-                        "last_updated": "05/2026"
-                    }
-                ],
-                "גמל להשקעה": [
-                    {
-                        "company": "הראל",
-                        "name": "הראל גמל להשקעה S&P 500",
-                        "YTD": "3.53",
-                        "Year1": "10.99",
-                        "Year3": "29.96",
-                        "Year5": "30.44",
-                        "last_updated": "05/2026"
-                    },
-                    {
-                        "company": "אלטשולר שחם",
-                        "name": "אלטשולר שחם גמל להשקעה S&P 500",
-                        "YTD": "0.00",
-                        "Year1": "1.81",
-                        "Year3": "-0.06",
-                        "Year5": "-0.06",
-                        "last_updated": "01/2017"
-                    }
-                ],
-                "פנסיה": [
-                    {
-                        "company": "הראל",
-                        "name": "הראל פנסיה מחקה S&P 500",
-                        "YTD": "9.60",
-                        "Year1": "17.20",
-                        "Year3": "35.80",
-                        "Year5": "74.50",
-                        "last_updated": "05/2026"
-                    },
-                    {
+                        "id": "mock_הפניקס_hishtalmut_sp500",
                         "company": "הפניקס",
-                        "name": "הפניקס פנסיה עוקב S&P 500",
-                        "YTD": "9.50",
-                        "Year1": "17.00",
-                        "Year3": "35.10",
-                        "Year5": "73.20",
-                        "last_updated": "05/2026"
-                    }
-                ],
-                "פוליסת חיסכון": [
-                    {
-                        "company": "הראל",
-                        "name": "הראל פוליסת חיסכון S&P 500",
-                        "YTD": "9.15",
-                        "Year1": "16.20",
-                        "Year3": "33.20",
-                        "Year5": "69.10",
+                        "name": "הפניקס מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "11.30",
+                        "Year1": "23.30",
+                        "Year3": "46.90",
+                        "Year5": "87.00",
                         "last_updated": "05/2026"
                     },
                     {
+                        "id": "mock_מיטב_hishtalmut_sp500",
+                        "company": "מיטב",
+                        "name": "מיטב מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.60",
+                        "Year1": "21.90",
+                        "Year3": "44.80",
+                        "Year5": "83.50",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_כלל_hishtalmut_sp500",
                         "company": "כלל",
-                        "name": "כלל טופ פיננס מחקה S&P 500",
-                        "YTD": "9.10",
-                        "Year1": "16.00",
-                        "Year3": "33.00",
-                        "Year5": "68.70",
+                        "name": "כלל מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "11.10",
+                        "Year1": "22.90",
+                        "Year3": "46.30",
+                        "Year5": "86.00",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מגדל_hishtalmut_sp500",
+                        "company": "מגדל",
+                        "name": "מגדל מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.40",
+                        "Year1": "21.50",
+                        "Year3": "44.20",
+                        "Year5": "82.50",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מנורה מבטחים_hishtalmut_sp500",
+                        "company": "מנורה מבטחים",
+                        "name": "מנורה מבטחים מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "11.00",
+                        "Year1": "22.70",
+                        "Year3": "46.00",
+                        "Year5": "85.50",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אנליסט_hishtalmut_sp500",
+                        "company": "אנליסט",
+                        "name": "אנליסט מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.50",
+                        "Year1": "21.70",
+                        "Year3": "44.50",
+                        "Year5": "83.00",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מור_hishtalmut_sp500",
+                        "company": "מור",
+                        "name": "מור מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.90",
+                        "Year1": "22.50",
+                        "Year3": "45.70",
+                        "Year5": "85.00",
                         "last_updated": "05/2026"
                     }
                 ]
-            }
-        },
-        "general": {
-            "title": "מסלולים כלליים ומסלולי תלוי גיל",
-            "description": "איזון דינמי בין רכיבי מניות, אג\"ח ונכסים אלטרנטיביים (מתאים לרוב סוגי החיסכון).",
-            "products": {
-                "שתלמות": [
+            },
+            {
+                "title": "מסלול מנייתי טהור",
+                "funds": [
                     {
+                        "id": "5122",
+                        "company": "הראל",
+                        "name": "הראל השתלמות מנייתי",
+                        "track_type": "equity",
+                        "YTD": "8.70",
+                        "Year1": "17.80",
+                        "Year3": "32.90",
+                        "Year5": "63.60",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "1375",
+                        "company": "אלטשולר שחם",
+                        "name": "אלטשולר שחם השתלמות מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.83",
+                        "Year1": "25.29",
+                        "Year3": "73.25",
+                        "Year5": "121.95",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_ילין לפידות_hishtalmut_equity",
+                        "company": "ילין לפידות",
+                        "name": "ילין לפידות השתלמות מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.80",
+                        "Year1": "16.00",
+                        "Year3": "30.20",
+                        "Year5": "59.10",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_הפניקס_hishtalmut_equity",
+                        "company": "הפניקס",
+                        "name": "הפניקס השתלמות מנייתי",
+                        "track_type": "equity",
+                        "YTD": "8.10",
+                        "Year1": "16.60",
+                        "Year3": "31.10",
+                        "Year5": "60.60",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מיטב_hishtalmut_equity",
+                        "company": "מיטב",
+                        "name": "מיטב השתלמות מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.40",
+                        "Year1": "15.20",
+                        "Year3": "29.00",
+                        "Year5": "57.10",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_כלל_hishtalmut_equity",
+                        "company": "כלל",
+                        "name": "כלל השתלמות מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.90",
+                        "Year1": "16.20",
+                        "Year3": "30.50",
+                        "Year5": "59.60",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מגדל_hishtalmut_equity",
+                        "company": "מגדל",
+                        "name": "מגדל השתלמות מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.20",
+                        "Year1": "14.80",
+                        "Year3": "28.40",
+                        "Year5": "56.10",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מנורה מבטחים_hishtalmut_equity",
+                        "company": "מנורה מבטחים",
+                        "name": "מנורה מבטחים השתלמות מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.80",
+                        "Year1": "16.00",
+                        "Year3": "30.20",
+                        "Year5": "59.10",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אנליסט_hishtalmut_equity",
+                        "company": "אנליסט",
+                        "name": "אנליסט השתלמות מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.30",
+                        "Year1": "15.00",
+                        "Year3": "28.70",
+                        "Year5": "56.60",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מור_hishtalmut_equity",
+                        "company": "מור",
+                        "name": "מור השתלמות מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.70",
+                        "Year1": "15.80",
+                        "Year3": "29.90",
+                        "Year5": "58.60",
+                        "last_updated": "05/2026"
+                    }
+                ]
+            },
+            {
+                "title": "מסלול כללי / תלוי גיל",
+                "funds": [
+                    {
+                        "id": "mock_הראל_hishtalmut_general",
                         "company": "הראל",
                         "name": "הראל השתלמות כללי",
-                        "YTD": "0.00",
-                        "Year1": "6.69",
-                        "Year3": "25.71",
-                        "Year5": "45.05",
-                        "last_updated": "07/2020"
+                        "track_type": "general",
+                        "YTD": "5.60",
+                        "Year1": "11.50",
+                        "Year3": "21.70",
+                        "Year5": "39.90",
+                        "last_updated": "05/2026"
                     },
                     {
+                        "id": "mock_אלטשולר שחם_hishtalmut_general",
                         "company": "אלטשולר שחם",
                         "name": "אלטשולר שחם השתלמות כללי",
-                        "YTD": "0.00",
-                        "Year1": "6.85",
-                        "Year3": "24.99",
-                        "Year5": "30.47",
-                        "last_updated": "04/2023"
+                        "track_type": "general",
+                        "YTD": "4.50",
+                        "Year1": "9.30",
+                        "Year3": "18.40",
+                        "Year5": "34.40",
+                        "last_updated": "05/2026"
                     },
                     {
+                        "id": "mock_ילין לפידות_hishtalmut_general",
                         "company": "ילין לפידות",
                         "name": "ילין לפידות השתלמות כללי",
-                        "YTD": "4.10",
-                        "Year1": "8.20",
-                        "Year3": "16.90",
-                        "Year5": "30.50",
-                        "last_updated": "05/2026"
-                    }
-                ],
-                "גמל להשקעה": [
-                    {
-                        "company": "הראל",
-                        "name": "הראל גמל להשקעה כללי",
-                        "YTD": "4.05",
-                        "Year1": "8.15",
-                        "Year3": "16.80",
-                        "Year5": "30.10",
+                        "track_type": "general",
+                        "YTD": "4.70",
+                        "Year1": "9.70",
+                        "Year3": "19.00",
+                        "Year5": "35.40",
                         "last_updated": "05/2026"
                     },
                     {
+                        "id": "mock_הפניקס_hishtalmut_general",
+                        "company": "הפניקס",
+                        "name": "הפניקס השתלמות כללי",
+                        "track_type": "general",
+                        "YTD": "5.00",
+                        "Year1": "10.30",
+                        "Year3": "19.90",
+                        "Year5": "36.90",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מיטב_hishtalmut_general",
                         "company": "מיטב",
-                        "name": "מיטב גמל להשקעה כללי",
-                        "YTD": "3.85",
-                        "Year1": "7.90",
-                        "Year3": "15.80",
-                        "Year5": "29.20",
-                        "last_updated": "05/2026"
-                    }
-                ],
-                "פנסיה": [
-                    {
-                        "company": "הראל",
-                        "name": "הראל פנסיה מקיפה לבני 50 ומטה",
-                        "YTD": "0.00",
-                        "Year1": "0.80",
-                        "Year3": "0.80",
-                        "Year5": "0.80",
-                        "last_updated": "10/2017"
-                    },
-                    {
-                        "company": "מגדל",
-                        "name": "מגדל מקפת לבני 50 ומטה",
-                        "YTD": "4.25",
-                        "Year1": "8.60",
-                        "Year3": "17.90",
-                        "Year5": "32.10",
-                        "last_updated": "05/2026"
-                    }
-                ],
-                "פוליסת חיסכון": [
-                    {
-                        "company": "הראל",
-                        "name": "הראל פוליסת חיסכון מסלול כללי",
-                        "YTD": "3.95",
-                        "Year1": "8.00",
-                        "Year3": "16.10",
-                        "Year5": "29.50",
+                        "name": "מיטב השתלמות כללי",
+                        "track_type": "general",
+                        "YTD": "4.30",
+                        "Year1": "8.90",
+                        "Year3": "17.80",
+                        "Year5": "33.40",
                         "last_updated": "05/2026"
                     },
                     {
+                        "id": "mock_כלל_hishtalmut_general",
+                        "company": "כלל",
+                        "name": "כלל השתלמות כללי",
+                        "track_type": "general",
+                        "YTD": "4.80",
+                        "Year1": "9.90",
+                        "Year3": "19.30",
+                        "Year5": "35.90",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מגדל_hishtalmut_general",
                         "company": "מגדל",
-                        "name": "מגדל מגוון השקעות כללי",
-                        "YTD": "4.00",
-                        "Year1": "8.10",
-                        "Year3": "16.40",
-                        "Year5": "29.90",
+                        "name": "מגדל השתלמות כללי",
+                        "track_type": "general",
+                        "YTD": "4.10",
+                        "Year1": "8.50",
+                        "Year3": "17.20",
+                        "Year5": "32.40",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מנורה מבטחים_hishtalmut_general",
+                        "company": "מנורה מבטחים",
+                        "name": "מנורה מבטחים השתלמות כללי",
+                        "track_type": "general",
+                        "YTD": "4.70",
+                        "Year1": "9.70",
+                        "Year3": "19.00",
+                        "Year5": "35.40",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אנליסט_hishtalmut_general",
+                        "company": "אנליסט",
+                        "name": "אנליסט השתלמות כללי",
+                        "track_type": "general",
+                        "YTD": "4.20",
+                        "Year1": "8.70",
+                        "Year3": "17.50",
+                        "Year5": "32.90",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מור_hishtalmut_general",
+                        "company": "מור",
+                        "name": "מור השתלמות כללי",
+                        "track_type": "general",
+                        "YTD": "4.60",
+                        "Year1": "9.50",
+                        "Year3": "18.70",
+                        "Year5": "34.90",
                         "last_updated": "05/2026"
                     }
                 ]
-            }
-        },
-        "solid": {
-            "title": "מסלולי אג\"ח וסולידיים",
-            "description": "התמקדות באיגרות חוב ממשלתיות וקונצרניות, ללא חשיפה מנייתית ישירה, לשמירה על ההון.",
-            "products": {
-                "שתלמות": [
+            },
+            {
+                "title": "מסלול אג\"ח / שקלי",
+                "funds": [
                     {
+                        "id": "mock_הראל_hishtalmut_solid",
                         "company": "הראל",
                         "name": "הראל השתלמות אג\"ח",
-                        "YTD": "0.00",
-                        "Year1": "20.00",
-                        "Year3": "51.35",
-                        "Year5": "56.65",
-                        "last_updated": "08/2005"
+                        "track_type": "solid",
+                        "YTD": "3.30",
+                        "Year1": "6.90",
+                        "Year3": "12.60",
+                        "Year5": "21.70",
+                        "last_updated": "05/2026"
                     },
                     {
+                        "id": "mock_אלטשולר שחם_hishtalmut_solid",
                         "company": "אלטשולר שחם",
-                        "name": "אלטשולר שחם השתלמות אג\"ח ללא מניות",
-                        "YTD": "0.00",
-                        "Year1": "1.43",
-                        "Year3": "1.43",
-                        "Year5": "1.43",
-                        "last_updated": "01/2025"
-                    }
-                ],
-                "גמל להשקעה": [
-                    {
-                        "company": "הראל",
-                        "name": "הראל גמל להשקעה סולידי",
-                        "YTD": "1.75",
-                        "Year1": "4.00",
-                        "Year3": "8.20",
-                        "Year5": "13.90",
+                        "name": "אלטשולר שחם השתלמות אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.20",
+                        "Year1": "4.70",
+                        "Year3": "9.30",
+                        "Year5": "16.20",
                         "last_updated": "05/2026"
                     },
                     {
+                        "id": "mock_ילין לפידות_hishtalmut_solid",
+                        "company": "ילין לפידות",
+                        "name": "ילין לפידות השתלמות אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.40",
+                        "Year1": "5.10",
+                        "Year3": "9.90",
+                        "Year5": "17.20",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_הפניקס_hishtalmut_solid",
                         "company": "הפניקס",
-                        "name": "הפניקס גמל להשקעה אג\"ח",
-                        "YTD": "1.70",
-                        "Year1": "3.95",
-                        "Year3": "8.10",
-                        "Year5": "13.60",
+                        "name": "הפניקס השתלמות אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.70",
+                        "Year1": "5.70",
+                        "Year3": "10.80",
+                        "Year5": "18.70",
                         "last_updated": "05/2026"
-                    }
-                ],
-                "פנסיה": [
+                    },
                     {
-                        "company": "הראל",
-                        "name": "הראל פנסיה מסלול אג\"ח תנודתיות נמוכה",
-                        "YTD": "1.95",
+                        "id": "mock_מיטב_hishtalmut_solid",
+                        "company": "מיטב",
+                        "name": "מיטב השתלמות אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.00",
                         "Year1": "4.30",
-                        "Year3": "9.10",
-                        "Year5": "15.10",
+                        "Year3": "8.70",
+                        "Year5": "15.20",
                         "last_updated": "05/2026"
-                    }
-                ],
-                "פוליסת חיסכון": [
+                    },
                     {
-                        "company": "הראל",
-                        "name": "הראל פוליסת חיסכון מסלול אג\"ח מורחב",
-                        "YTD": "1.60",
-                        "Year1": "3.70",
-                        "Year3": "7.60",
-                        "Year5": "12.80",
+                        "id": "mock_כלל_hishtalmut_solid",
+                        "company": "כלל",
+                        "name": "כלל השתלמות אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.50",
+                        "Year1": "5.30",
+                        "Year3": "10.20",
+                        "Year5": "17.70",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מגדל_hishtalmut_solid",
+                        "company": "מגדל",
+                        "name": "מגדל השתלמות אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "1.80",
+                        "Year1": "3.90",
+                        "Year3": "8.10",
+                        "Year5": "14.20",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מנורה מבטחים_hishtalmut_solid",
+                        "company": "מנורה מבטחים",
+                        "name": "מנורה מבטחים השתלמות אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.40",
+                        "Year1": "5.10",
+                        "Year3": "9.90",
+                        "Year5": "17.20",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אנליסט_hishtalmut_solid",
+                        "company": "אנליסט",
+                        "name": "אנליסט השתלמות אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "1.90",
+                        "Year1": "4.10",
+                        "Year3": "8.40",
+                        "Year5": "14.70",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מור_hishtalmut_solid",
+                        "company": "מור",
+                        "name": "מור השתלמות אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.30",
+                        "Year1": "4.90",
+                        "Year3": "9.60",
+                        "Year5": "16.70",
                         "last_updated": "05/2026"
                     }
                 ]
             }
-        }
+        ]
+    },
+    {
+        "id": "policy",
+        "title": "פוליסת חיסכון",
+        "tracks": [
+            {
+                "title": "מסלול עוקב S&P 500",
+                "funds": [
+                    {
+                        "id": "mock_הראל_policy_sp500",
+                        "company": "הראל",
+                        "name": "הראל מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "11.90",
+                        "Year1": "24.50",
+                        "Year3": "48.70",
+                        "Year5": "90.00",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אלטשולר שחם_policy_sp500",
+                        "company": "אלטשולר שחם",
+                        "name": "אלטשולר שחם מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.80",
+                        "Year1": "22.30",
+                        "Year3": "45.40",
+                        "Year5": "84.50",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_ילין לפידות_policy_sp500",
+                        "company": "ילין לפידות",
+                        "name": "ילין לפידות מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "11.00",
+                        "Year1": "22.70",
+                        "Year3": "46.00",
+                        "Year5": "85.50",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_הפניקס_policy_sp500",
+                        "company": "הפניקס",
+                        "name": "הפניקס מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "11.30",
+                        "Year1": "23.30",
+                        "Year3": "46.90",
+                        "Year5": "87.00",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מיטב_policy_sp500",
+                        "company": "מיטב",
+                        "name": "מיטב מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.60",
+                        "Year1": "21.90",
+                        "Year3": "44.80",
+                        "Year5": "83.50",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_כלל_policy_sp500",
+                        "company": "כלל",
+                        "name": "כלל מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "11.10",
+                        "Year1": "22.90",
+                        "Year3": "46.30",
+                        "Year5": "86.00",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מגדל_policy_sp500",
+                        "company": "מגדל",
+                        "name": "מגדל מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.40",
+                        "Year1": "21.50",
+                        "Year3": "44.20",
+                        "Year5": "82.50",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מנורה מבטחים_policy_sp500",
+                        "company": "מנורה מבטחים",
+                        "name": "מנורה מבטחים מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "11.00",
+                        "Year1": "22.70",
+                        "Year3": "46.00",
+                        "Year5": "85.50",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אנליסט_policy_sp500",
+                        "company": "אנליסט",
+                        "name": "אנליסט מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.50",
+                        "Year1": "21.70",
+                        "Year3": "44.50",
+                        "Year5": "83.00",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מור_policy_sp500",
+                        "company": "מור",
+                        "name": "מור מחקה מדד S&P 500",
+                        "track_type": "sp500",
+                        "YTD": "10.90",
+                        "Year1": "22.50",
+                        "Year3": "45.70",
+                        "Year5": "85.00",
+                        "last_updated": "05/2026"
+                    }
+                ]
+            },
+            {
+                "title": "מסלול מנייתי טהור",
+                "funds": [
+                    {
+                        "id": "mock_הראל_policy_equity",
+                        "company": "הראל",
+                        "name": "הראל חיסכון מנייתי",
+                        "track_type": "equity",
+                        "YTD": "8.70",
+                        "Year1": "17.80",
+                        "Year3": "32.90",
+                        "Year5": "63.60",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אלטשולר שחם_policy_equity",
+                        "company": "אלטשולר שחם",
+                        "name": "אלטשולר שחם חיסכון מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.60",
+                        "Year1": "15.60",
+                        "Year3": "29.60",
+                        "Year5": "58.10",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_ילין לפידות_policy_equity",
+                        "company": "ילין לפידות",
+                        "name": "ילין לפידות חיסכון מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.80",
+                        "Year1": "16.00",
+                        "Year3": "30.20",
+                        "Year5": "59.10",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_הפניקס_policy_equity",
+                        "company": "הפניקס",
+                        "name": "הפניקס חיסכון מנייתי",
+                        "track_type": "equity",
+                        "YTD": "8.10",
+                        "Year1": "16.60",
+                        "Year3": "31.10",
+                        "Year5": "60.60",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מיטב_policy_equity",
+                        "company": "מיטב",
+                        "name": "מיטב חיסכון מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.40",
+                        "Year1": "15.20",
+                        "Year3": "29.00",
+                        "Year5": "57.10",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_כלל_policy_equity",
+                        "company": "כלל",
+                        "name": "כלל חיסכון מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.90",
+                        "Year1": "16.20",
+                        "Year3": "30.50",
+                        "Year5": "59.60",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מגדל_policy_equity",
+                        "company": "מגדל",
+                        "name": "מגדל חיסכון מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.20",
+                        "Year1": "14.80",
+                        "Year3": "28.40",
+                        "Year5": "56.10",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מנורה מבטחים_policy_equity",
+                        "company": "מנורה מבטחים",
+                        "name": "מנורה מבטחים חיסכון מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.80",
+                        "Year1": "16.00",
+                        "Year3": "30.20",
+                        "Year5": "59.10",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אנליסט_policy_equity",
+                        "company": "אנליסט",
+                        "name": "אנליסט חיסכון מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.30",
+                        "Year1": "15.00",
+                        "Year3": "28.70",
+                        "Year5": "56.60",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מור_policy_equity",
+                        "company": "מור",
+                        "name": "מור חיסכון מנייתי",
+                        "track_type": "equity",
+                        "YTD": "7.70",
+                        "Year1": "15.80",
+                        "Year3": "29.90",
+                        "Year5": "58.60",
+                        "last_updated": "05/2026"
+                    }
+                ]
+            },
+            {
+                "title": "מסלול כללי / תלוי גיל",
+                "funds": [
+                    {
+                        "id": "mock_הראל_policy_general",
+                        "company": "הראל",
+                        "name": "הראל חיסכון כללי",
+                        "track_type": "general",
+                        "YTD": "5.60",
+                        "Year1": "11.50",
+                        "Year3": "21.70",
+                        "Year5": "39.90",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אלטשולר שחם_policy_general",
+                        "company": "אלטשולר שחם",
+                        "name": "אלטשולר שחם חיסכון כללי",
+                        "track_type": "general",
+                        "YTD": "4.50",
+                        "Year1": "9.30",
+                        "Year3": "18.40",
+                        "Year5": "34.40",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_ילין לפידות_policy_general",
+                        "company": "ילין לפידות",
+                        "name": "ילין לפידות חיסכון כללי",
+                        "track_type": "general",
+                        "YTD": "4.70",
+                        "Year1": "9.70",
+                        "Year3": "19.00",
+                        "Year5": "35.40",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_הפניקס_policy_general",
+                        "company": "הפניקס",
+                        "name": "הפניקס חיסכון כללי",
+                        "track_type": "general",
+                        "YTD": "5.00",
+                        "Year1": "10.30",
+                        "Year3": "19.90",
+                        "Year5": "36.90",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מיטב_policy_general",
+                        "company": "מיטב",
+                        "name": "מיטב חיסכון כללי",
+                        "track_type": "general",
+                        "YTD": "4.30",
+                        "Year1": "8.90",
+                        "Year3": "17.80",
+                        "Year5": "33.40",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_כלל_policy_general",
+                        "company": "כלל",
+                        "name": "כלל חיסכון כללי",
+                        "track_type": "general",
+                        "YTD": "4.80",
+                        "Year1": "9.90",
+                        "Year3": "19.30",
+                        "Year5": "35.90",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מגדל_policy_general",
+                        "company": "מגדל",
+                        "name": "מגדל חיסכון כללי",
+                        "track_type": "general",
+                        "YTD": "4.10",
+                        "Year1": "8.50",
+                        "Year3": "17.20",
+                        "Year5": "32.40",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מנורה מבטחים_policy_general",
+                        "company": "מנורה מבטחים",
+                        "name": "מנורה מבטחים חיסכון כללי",
+                        "track_type": "general",
+                        "YTD": "4.70",
+                        "Year1": "9.70",
+                        "Year3": "19.00",
+                        "Year5": "35.40",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אנליסט_policy_general",
+                        "company": "אנליסט",
+                        "name": "אנליסט חיסכון כללי",
+                        "track_type": "general",
+                        "YTD": "4.20",
+                        "Year1": "8.70",
+                        "Year3": "17.50",
+                        "Year5": "32.90",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מור_policy_general",
+                        "company": "מור",
+                        "name": "מור חיסכון כללי",
+                        "track_type": "general",
+                        "YTD": "4.60",
+                        "Year1": "9.50",
+                        "Year3": "18.70",
+                        "Year5": "34.90",
+                        "last_updated": "05/2026"
+                    }
+                ]
+            },
+            {
+                "title": "מסלול אג\"ח / שקלי",
+                "funds": [
+                    {
+                        "id": "mock_הראל_policy_solid",
+                        "company": "הראל",
+                        "name": "הראל חיסכון אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "3.30",
+                        "Year1": "6.90",
+                        "Year3": "12.60",
+                        "Year5": "21.70",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אלטשולר שחם_policy_solid",
+                        "company": "אלטשולר שחם",
+                        "name": "אלטשולר שחם חיסכון אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.20",
+                        "Year1": "4.70",
+                        "Year3": "9.30",
+                        "Year5": "16.20",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_ילין לפידות_policy_solid",
+                        "company": "ילין לפידות",
+                        "name": "ילין לפידות חיסכון אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.40",
+                        "Year1": "5.10",
+                        "Year3": "9.90",
+                        "Year5": "17.20",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_הפניקס_policy_solid",
+                        "company": "הפניקס",
+                        "name": "הפניקס חיסכון אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.70",
+                        "Year1": "5.70",
+                        "Year3": "10.80",
+                        "Year5": "18.70",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מיטב_policy_solid",
+                        "company": "מיטב",
+                        "name": "מיטב חיסכון אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.00",
+                        "Year1": "4.30",
+                        "Year3": "8.70",
+                        "Year5": "15.20",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_כלל_policy_solid",
+                        "company": "כלל",
+                        "name": "כלל חיסכון אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.50",
+                        "Year1": "5.30",
+                        "Year3": "10.20",
+                        "Year5": "17.70",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מגדל_policy_solid",
+                        "company": "מגדל",
+                        "name": "מגדל חיסכון אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "1.80",
+                        "Year1": "3.90",
+                        "Year3": "8.10",
+                        "Year5": "14.20",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מנורה מבטחים_policy_solid",
+                        "company": "מנורה מבטחים",
+                        "name": "מנורה מבטחים חיסכון אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.40",
+                        "Year1": "5.10",
+                        "Year3": "9.90",
+                        "Year5": "17.20",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_אנליסט_policy_solid",
+                        "company": "אנליסט",
+                        "name": "אנליסט חיסכון אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "1.90",
+                        "Year1": "4.10",
+                        "Year3": "8.40",
+                        "Year5": "14.70",
+                        "last_updated": "05/2026"
+                    },
+                    {
+                        "id": "mock_מור_policy_solid",
+                        "company": "מור",
+                        "name": "מור חיסכון אג\"ח",
+                        "track_type": "solid",
+                        "YTD": "2.30",
+                        "Year1": "4.90",
+                        "Year3": "9.60",
+                        "Year5": "16.70",
+                        "last_updated": "05/2026"
+                    }
+                ]
+            }
+        ]
     }
-}
+]
