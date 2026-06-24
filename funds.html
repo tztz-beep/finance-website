@@ -5,119 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>קופות גמל והשתלמות | השקעות שעושות שכל</title>
     <link rel="stylesheet" href="style.css?v=16.0">
+    
     <style>
         body { background-color: #f8f9fa; }
-        .page-header { background: var(--primary-color); color: white; padding: 50px 0; text-align: center; margin-bottom: 40px; }
+        .page-header { background: var(--primary-color, #111e2d); color: white; padding: 50px 0; text-align: center; margin-bottom: 40px; }
         .page-header h1 { margin: 0 0 10px 0; font-size: 34px; font-weight: 800; }
         .page-header p { margin: 0; font-size: 18px; opacity: 0.9; max-width: 600px; margin: 0 auto; }
         
-        .content-container { max-width: 900px; margin: 0 auto 60px auto; background: var(--bg-white, #ffffff); padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(17,30,45,0.05); border: 1px solid var(--border-color); }
-        .section-title { color: var(--primary-color); font-size: 24px; font-weight: 800; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-bottom: 24px; }
+        .content-container { max-width: 900px; margin: 0 auto 60px auto; background: var(--bg-white, #ffffff); padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(17,30,45,0.05); border: 1px solid var(--border-color, #e2e8f0); }
+        .section-title { color: var(--primary-color, #111e2d); font-size: 24px; font-weight: 800; border-bottom: 2px solid var(--border-color, #e2e8f0); padding-bottom: 10px; margin-bottom: 24px; }
         
+        /* עיצוב ייעודי ומלוטש לטבלת התשואות האנליטית */
+        .funds-table-container { overflow-x: auto; margin-top: 25px; margin-bottom: 35px; box-shadow: 0 4px 6px rgba(0,0,0,0.03); border-radius: 8px; border: 1px solid var(--border-color, #e2e8f0); }
+        .financial-table { width: 100%; border-collapse: collapse; background: #ffffff; text-align: center; }
+        .financial-table th { background-color: var(--primary-color, #111e2d); color: #ffffff; padding: 16px; font-weight: 700; font-size: 15px; border-left: 1px solid rgba(255,255,255,0.1); }
+        .financial-table td { padding: 16px; border-bottom: 1px solid var(--border-color, #e2e8f0); font-size: 15px; color: var(--text-main, #2c3e50); border-left: 1px solid var(--border-color, #e2e8f0); }
+        .financial-table tr:hover { background-color: #f8fafc; }
+        .fund-name-col { text-align: right !important; font-weight: 700; color: var(--primary-color, #111e2d) !important; padding-right: 20px !important; }
+        .yield-positive { color: #27ae60; font-weight: 700; direction: ltr; display: inline-block; }
+        .yield-negative { color: #c0392b; font-weight: 700; direction: ltr; display: inline-block; }
+
         .dynamic-content-area { display: grid; grid-template-columns: 1fr; gap: 20px; }
-        .injected-article { background: #fdfdfd; padding: 24px; border-radius: 8px; border: 1px solid var(--border-color); transition: box-shadow 0.2s; }
-        .injected-article:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .injected-article h5 { color: var(--primary-color); font-size: 18px; font-weight: 800; margin: 0 0 8px 0; }
-        .injected-article p { color: var(--text-main); font-size: 15px; margin: 0 0 16px 0; line-height: 1.6; }
-        .injected-article a { display: inline-block; background: var(--primary-color); color: white; padding: 8px 16px; border-radius: 4px; font-weight: 600; font-size: 14px; text-decoration: none; transition: background 0.2s; }
-        .injected-article a:hover { background: var(--accent-color); }
     </style>
-    <style>
-    .funds-table-container { overflow-x: auto; margin-top: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 8px; border: 1px solid var(--border-color, #e2e8f0); }
-    .financial-table { width: 100%; border-collapse: collapse; background: #ffffff; text-align: center; }
-    .financial-table th { background-color: var(--primary-color, #111e2d); color: #ffffff; padding: 16px; font-weight: 700; font-size: 15px; border-left: 1px solid rgba(255,255,255,0.1); }
-    .financial-table td { padding: 16px; border-bottom: 1px solid var(--border-color, #e2e8f0); font-size: 15px; color: var(--text-main, #2c3e50); border-left: 1px solid var(--border-color, #e2e8f0); }
-    .financial-table tr:hover { background-color: #f8fafc; }
-    .fund-name-col { text-align: right !important; font-weight: 700; color: var(--primary-color, #111e2d) !important; }
-    .yield-positive { color: #27ae60; font-weight: 700; direction: ltr; display: inline-block; }
-    .yield-negative { color: #c0392b; font-weight: 700; direction: ltr; display: inline-block; }
-</style>
 
-<div class="funds-table-container">
-    <table class="financial-table" id="yieldsTable">
-        <thead>
-            <tr>
-                <th style="text-align: right;">מסלול השקעה</th>
-                <th>מתחילת שנה (YTD)</th>
-                <th>12 חודשים</th>
-                <th>3 שנים מצטבר</th>
-                <th>5 שנים מצטבר</th>
-                <th>נכון לתאריך</th>
-            </tr>
-        </thead>
-        <tbody id="yieldsBody">
-            <tr><td colspan="6" style="padding: 30px;">טוען נתונים אנליטיים...</td></tr>
-        </tbody>
-    </table>
-</div>
+    <script>
+        async function loadFundsData() {
+            try {
+                // המערכת ניגשת לקובץ הנתונים הסטטי שחושב מראש בענן
+                const response = await fetch('funds_data.json');
+                if (!response.ok) throw new Error('Data file not found');
+                const data = await response.json();
+                
+                const tbody = document.getElementById('yieldsBody');
+                tbody.innerHTML = ''; 
+                
+                data.forEach(fund => {
+                    // פונקציית עזר פנימית לעיצוב והצבעה של המגמה הפיננסית (ירוק/אדום)
+                    const formatYield = (val) => {
+                        const num = parseFloat(val);
+                        const cssClass = num >= 0 ? 'yield-positive' : 'yield-negative';
+                        const sign = num > 0 ? '+' : '';
+                        return `<span class="${cssClass}">${sign}${val}%</span>`;
+                    };
 
-<script>
-    async function loadFundsData() {
-        try {
-            // הלקוח פשוט מוריד קובץ סטטי שכבר חושב - אפס מאמץ עיבוד
-            const response = await fetch('funds_data.json');
-            if (!response.ok) throw new Error('Data file not found');
-            const data = await response.json();
-            
-            const tbody = document.getElementById('yieldsBody');
-            tbody.innerHTML = ''; 
-            
-            data.forEach(fund => {
-                // מנגנון צביעת תשואות (ירוק/אדום)
-                const formatYield = (val) => {
-                    const num = parseFloat(val);
-                    const cssClass = num >= 0 ? 'yield-positive' : 'yield-negative';
-                    const sign = num > 0 ? '+' : '';
-                    return `<span class="${cssClass}">${sign}${val}%</span>`;
-                };
-
-                const row = `<tr>
-                    <td class="fund-name-col">${fund.name}</td>
-                    <td>${formatYield(fund.YTD)}</td>
-                    <td>${formatYield(fund.Year1)}</td>
-                    <td>${formatYield(fund.Year3)}</td>
-                    <td>${formatYield(fund.Year5)}</td>
-                    <td style="color: #64748b; font-size: 13px;">${fund.last_updated}</td>
-                </tr>`;
-                tbody.innerHTML += row;
-            });
-        } catch (error) {
-            console.error('Error:', error);
-            document.getElementById('yieldsBody').innerHTML = 
-                '<tr><td colspan="6" style="color: #c0392b; padding: 20px;">הנתונים נמצאים כעת בסנכרון מול מערכות משרד האוצר. אנא חזרו מאוחר יותר.</td></tr>';
+                    const row = `<tr>
+                        <td class="fund-name-col">${fund.name}</td>
+                        <td>${formatYield(fund.YTD)}</td>
+                        <td>${formatYield(fund.Year1)}</td>
+                        <td>${formatYield(fund.Year3)}</td>
+                        <td>${formatYield(fund.Year5)}</td>
+                        <td style="color: #64748b; font-size: 13px;">${fund.last_updated}</td>
+                    </tr>`;
+                    tbody.innerHTML += row;
+                });
+            } catch (error) {
+                console.error('Error fetching institutional data:', error);
+                document.getElementById('yieldsBody').innerHTML = 
+                    '<tr><td colspan="6" style="color: #c0392b; padding: 25px; font-weight: 600;">הנתונים נמצאים כעת בסנכרון תקופתי מול מערכות משרד האוצר. אנא חזרו מאוחר יותר.</td></tr>';
+            }
         }
-    }
-    
-    document.addEventListener('DOMContentLoaded', loadFundsData);
-</script>
+        
+        document.addEventListener('DOMContentLoaded', loadFundsData);
+    </script>
 </head>
 <body>
 
-    <header class="main-header" style="background: white; border-bottom: 1px solid var(--border-color);">
-        <div class="header-container">
-            <a href="index.html" class="logo-wrapper">
-                <img src="logo.jpg" alt="השקעות שעושות שכל" class="site-logo">
-                <span class="logo-text">השקעות שעושות שכל</span>
+    <header class="main-header" style="background: white; border-bottom: 1px solid #e2e8f0;">
+        <div class="header-container" style="max-width: 1140px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" class="logo-wrapper" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                <img src="logo.jpg" alt="השקעות שעושות שכל" class="site-logo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                <span class="logo-text" style="font-size: 19px; font-weight: 800; color: #111e2d;">השקעות שעושות שכל</span>
             </a>
-            <a href="index.html" style="font-weight: 600; text-decoration: none; color: var(--text-muted);">← חזרה לעמוד הבית</a>
+            <a href="index.html" style="font-weight: 600; text-decoration: none; color: #64748b; font-size: 14px;">← חזרה לעמוד הבית</a>
         </div>
     </header>
 
     <div class="page-header">
         <div class="container">
             <h1>קופות גמל והשתלמות</h1>
-            <p>ניהול ובחינה שוטפת של מכשירי החיסכון לטווח הבינוני ואיתור חלופות מניבות תשואה תוך שמירה על נזילות.</p>
+            <p>ניהול ובחינה שוטפת של מכשירי החיסכון לטווח הבינוני ואיתור חלופות מניבות תשואה תוך שמירה על נזילות ואופטימיזציה של מיסוי.</p>
         </div>
     </div>
 
     <div class="content-container">
-        <h2 class="section-title">סקירות מוצרים פיננסיים</h2>
+        <h2 class="section-title">טבלת תשואות וביצועים בזמן אמת</h2>
+        
+        <div class="funds-table-container">
+            <table class="financial-table" id="yieldsTable">
+                <thead>
+                    <tr>
+                        <th style="text-align: right; padding-right: 20px;">מסלול השקעה</th>
+                        <th>מתחילת שנה (YTD)</th>
+                        <th>12 חודשים</th>
+                        <th>3 שנים מצטבר</th>
+                        <th>5 שנים מצטבר</th>
+                        <th>עדכון אחרון</th>
+                    </tr>
+                </thead>
+                <tbody id="yieldsBody">
+                    <tr><td colspan="6" style="padding: 30px; color: #64748b;">טוען נתונים אנליטיים בזמן אמת...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 40px;">סקירות מוצרים פיננסיים</h2>
         <div id="funds-content-area" class="dynamic-content-area">
-            <p style="color: var(--text-muted); text-align: center; padding: 20px;">הסקירות נמצאות בשלבי כתיבה ויעודכנו בקרוב.</p>
+            <p style="color: #64748b; text-align: center; padding: 10px; margin: 0;">הסקירות נמצאות בשלבי כתיבה אנליטית ויעודכנו בקרוב משלטת הניהול.</p>
         </div>
     </div>
 
-    <footer class="main-footer">
+    <footer class="main-footer" style="padding: 30px 0; text-align: center; color: #64748b; font-size: 14px;">
         <div class="container">
             <p>&copy; 2026 השקעות שעושות שכל. כל הזכויות שמורות לפיתוח עצמאי מוגן.</p>
         </div>
