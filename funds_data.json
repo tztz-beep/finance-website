@@ -1,1292 +1,1722 @@
 [
-    {
-        "id": "gemel_inv",
-        "title": "קופת גמל להשקעה",
-        "tracks": [
-            {
-                "id": "sp500",
-                "title": "מסלול עוקב S&P 500",
-                "funds": [
-                    {
-                        "id": "9421",
-                        "company": "הראל",
-                        "name": "הראל גמל להשקעה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "05/2026"
-                    },
-                    {
-                        "id": "9432",
-                        "company": "אלטשולר שחם",
-                        "name": "אלטשולר שחם גמל להשקעה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "ממתין לנתון"
-                    },
-                    {
-                        "id": null,
-                        "company": "ילין לפידות",
-                        "name": "ילין לפידות גמל להשקעה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "הפניקס",
-                        "name": "הפניקס גמל להשקעה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": "9440",
-                        "company": "מיטב",
-                        "name": "מיטב גמל להשקעה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "ממתין לנתון"
-                    },
-                    {
-                        "id": null,
-                        "company": "כלל",
-                        "name": "כלל גמל להשקעה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מגדל",
-                        "name": "מגדל גמל להשקעה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מנורה מבטחים",
-                        "name": "מנורה מבטחים גמל להשקעה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "אנליסט",
-                        "name": "אנליסט גמל להשקעה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מור",
-                        "name": "מור גמל להשקעה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    }
-                ]
-            },
-            {
-                "id": "equity",
-                "title": "מסלול מנייתי טהור",
-                "funds": [
-                    {
-                        "id": "5444",
-                        "company": "הראל",
-                        "name": "הראל גמל להשקעה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "ממתין לנתון"
-                    },
-                    {
-                        "id": "5133",
-                        "company": "אלטשולר שחם",
-                        "name": "אלטשולר שחם גמל להשקעה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "ממתין לנתון"
-                    },
-                    {
-                        "id": "5149",
-                        "company": "ילין לפידות",
-                        "name": "ילין לפידות גמל להשקעה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "ממתין לנתון"
-                    },
-                    {
-                        "id": "9842",
-                        "company": "הפניקס",
-                        "name": "הפניקס גמל להשקעה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "ממתין לנתון"
-                    },
-                    {
-                        "id": null,
-                        "company": "מיטב",
-                        "name": "מיטב גמל להשקעה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "כלל",
-                        "name": "כלל גמל להשקעה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מגדל",
-                        "name": "מגדל גמל להשקעה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מנורה מבטחים",
-                        "name": "מנורה מבטחים גמל להשקעה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "אנליסט",
-                        "name": "אנליסט גמל להשקעה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מור",
-                        "name": "מור גמל להשקעה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    }
-                ]
-            },
-            {
-                "id": "general",
-                "title": "מסלול כללי / תלוי גיל",
-                "funds": [
-                    {
-                        "id": "5321",
-                        "company": "הראל",
-                        "name": "הראל גמל להשקעה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "ממתין לנתון"
-                    },
-                    {
-                        "id": "5132",
-                        "company": "אלטשולר שחם",
-                        "name": "אלטשולר שחם גמל להשקעה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "ממתין לנתון"
-                    },
-                    {
-                        "id": null,
-                        "company": "ילין לפידות",
-                        "name": "ילין לפידות גמל להשקעה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "הפניקס",
-                        "name": "הפניקס גמל להשקעה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": "5344",
-                        "company": "מיטב",
-                        "name": "מיטב גמל להשקעה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "ממתין לנתון"
-                    },
-                    {
-                        "id": null,
-                        "company": "כלל",
-                        "name": "כלל גמל להשקעה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מגדל",
-                        "name": "מגדל גמל להשקעה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מנורה מבטחים",
-                        "name": "מנורה מבטחים גמל להשקעה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "אנליסט",
-                        "name": "אנליסט גמל להשקעה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מור",
-                        "name": "מור גמל להשקעה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    }
-                ]
-            },
-            {
-                "id": "solid",
-                "title": "מסלול אג\"ח / שקלי",
-                "funds": [
-                    {
-                        "id": null,
-                        "company": "הראל",
-                        "name": "הראל גמל להשקעה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "אלטשולר שחם",
-                        "name": "אלטשולר שחם גמל להשקעה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "ילין לפידות",
-                        "name": "ילין לפידות גמל להשקעה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "הפניקס",
-                        "name": "הפניקס גמל להשקעה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מיטב",
-                        "name": "מיטב גמל להשקעה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "כלל",
-                        "name": "כלל גמל להשקעה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מגדל",
-                        "name": "מגדל גמל להשקעה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מנורה מבטחים",
-                        "name": "מנורה מבטחים גמל להשקעה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "אנליסט",
-                        "name": "אנליסט גמל להשקעה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מור",
-                        "name": "מור גמל להשקעה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    }
-                ]
-            }
+  {
+    "id": "hishtalmut",
+    "title": "קרן השתלמות",
+    "tracks": [
+      {
+        "id": "sp500",
+        "title": "מסלול עוקב S&P 500",
+        "funds": [
+          {
+            "id": null,
+            "company": "הראל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אלטשולר שחם",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "ילין לפידות",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "הפניקס",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מיטב",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "כלל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מגדל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מנורה מבטחים",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אנליסט",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מור",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          }
         ]
-    },
-    {
-        "id": "pension",
-        "title": "קרן פנסיה מקיפה",
-        "tracks": [
-            {
-                "id": "sp500",
-                "title": "מסלול עוקב S&P 500",
-                "funds": [
-                    {
-                        "id": null,
-                        "company": "הראל",
-                        "name": "הראל פנסיה מקיפה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "אלטשולר שחם",
-                        "name": "אלטשולר שחם פנסיה מקיפה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "ילין לפידות",
-                        "name": "ילין לפידות פנסיה מקיפה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "הפניקס",
-                        "name": "הפניקס פנסיה מקיפה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מיטב",
-                        "name": "מיטב פנסיה מקיפה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "כלל",
-                        "name": "כלל פנסיה מקיפה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מגדל",
-                        "name": "מגדל פנסיה מקיפה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מנורה מבטחים",
-                        "name": "מנורה מבטחים פנסיה מקיפה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "אנליסט",
-                        "name": "אנליסט פנסיה מקיפה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מור",
-                        "name": "מור פנסיה מקיפה מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    }
-                ]
-            },
-            {
-                "id": "equity",
-                "title": "מסלול מנייתי טהור",
-                "funds": [
-                    {
-                        "id": null,
-                        "company": "הראל",
-                        "name": "הראל פנסיה מקיפה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "אלטשולר שחם",
-                        "name": "אלטשולר שחם פנסיה מקיפה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "ילין לפידות",
-                        "name": "ילין לפידות פנסיה מקיפה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "הפניקס",
-                        "name": "הפניקס פנסיה מקיפה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מיטב",
-                        "name": "מיטב פנסיה מקיפה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "כלל",
-                        "name": "כלל פנסיה מקיפה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מגדל",
-                        "name": "מגדל פנסיה מקיפה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מנורה מבטחים",
-                        "name": "מנורה מבטחים פנסיה מקיפה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "אנליסט",
-                        "name": "אנליסט פנסיה מקיפה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מור",
-                        "name": "מור פנסיה מקיפה מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    }
-                ]
-            },
-            {
-                "id": "general",
-                "title": "מסלול כללי / תלוי גיל",
-                "funds": [
-                    {
-                        "id": null,
-                        "company": "הראל",
-                        "name": "הראל פנסיה מקיפה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "אלטשולר שחם",
-                        "name": "אלטשולר שחם פנסיה מקיפה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "ילין לפידות",
-                        "name": "ילין לפידות פנסיה מקיפה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "הפניקס",
-                        "name": "הפניקס פנסיה מקיפה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מיטב",
-                        "name": "מיטב פנסיה מקיפה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "כלל",
-                        "name": "כלל פנסיה מקיפה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מגדל",
-                        "name": "מגדל פנסיה מקיפה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מנורה מבטחים",
-                        "name": "מנורה מבטחים פנסיה מקיפה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "אנליסט",
-                        "name": "אנליסט פנסיה מקיפה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מור",
-                        "name": "מור פנסיה מקיפה כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    }
-                ]
-            },
-            {
-                "id": "solid",
-                "title": "מסלול אג\"ח / שקלי",
-                "funds": [
-                    {
-                        "id": null,
-                        "company": "הראל",
-                        "name": "הראל פנסיה מקיפה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "אלטשולר שחם",
-                        "name": "אלטשולר שחם פנסיה מקיפה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "ילין לפידות",
-                        "name": "ילין לפידות פנסיה מקיפה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "הפניקס",
-                        "name": "הפניקס פנסיה מקיפה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מיטב",
-                        "name": "מיטב פנסיה מקיפה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "כלל",
-                        "name": "כלל פנסיה מקיפה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מגדל",
-                        "name": "מגדל פנסיה מקיפה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מנורה מבטחים",
-                        "name": "מנורה מבטחים פנסיה מקיפה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "אנליסט",
-                        "name": "אנליסט פנסיה מקיפה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מור",
-                        "name": "מור פנסיה מקיפה אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    }
-                ]
-            }
+      },
+      {
+        "id": "equity",
+        "title": "מסלול מנייתי טהור",
+        "funds": [
+          {
+            "id": null,
+            "company": "הראל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אלטשולר שחם",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "ילין לפידות",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "הפניקס",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מיטב",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "כלל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מגדל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מנורה מבטחים",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אנליסט",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מור",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          }
         ]
-    },
-    {
-        "id": "hishtalmut",
-        "title": "קרן השתלמות",
-        "tracks": [
-            {
-                "id": "sp500",
-                "title": "מסלול עוקב S&P 500",
-                "funds": [
-                    {
-                        "id": "1421",
-                        "company": "הראל",
-                        "name": "הראל השתלמות מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "ממתין לנתון"
-                    },
-                    {
-                        "id": null,
-                        "company": "אלטשולר שחם",
-                        "name": "אלטשולר שחם השתלמות מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": "1430",
-                        "company": "ילין לפידות",
-                        "name": "ילין לפידות השתלמות מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "05/2026"
-                    },
-                    {
-                        "id": null,
-                        "company": "הפניקס",
-                        "name": "הפניקס השתלמות מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": "1390",
-                        "company": "מיטב",
-                        "name": "מיטב השתלמות מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "ממתין לנתון"
-                    },
-                    {
-                        "id": null,
-                        "company": "כלל",
-                        "name": "כלל השתלמות מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מגדל",
-                        "name": "מגדל השתלמות מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מנורה מבטחים",
-                        "name": "מנורה מבטחים השתלמות מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "אנליסט",
-                        "name": "אנליסט השתלמות מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מור",
-                        "name": "מור השתלמות מחקה מדד S&P 500",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    }
-                ]
-            },
-            {
-                "id": "equity",
-                "title": "מסלול מנייתי טהור",
-                "funds": [
-                    {
-                        "id": "5122",
-                        "company": "הראל",
-                        "name": "הראל השתלמות מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "ממתין לנתון"
-                    },
-                    {
-                        "id": "1375",
-                        "company": "אלטשולר שחם",
-                        "name": "אלטשולר שחם השתלמות מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "05/2026"
-                    },
-                    {
-                        "id": "539",
-                        "company": "ילין לפידות",
-                        "name": "ילין לפידות השתלמות מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "05/2026"
-                    },
-                    {
-                        "id": "1414",
-                        "company": "הפניקס",
-                        "name": "הפניקס השתלמות מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "ממתין לנתון"
-                    },
-                    {
-                        "id": null,
-                        "company": "מיטב",
-                        "name": "מיטב השתלמות מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "כלל",
-                        "name": "כלל השתלמות מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מגדל",
-                        "name": "מגדל השתלמות מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מנורה מבטחים",
-                        "name": "מנורה מבטחים השתלמות מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "אנליסט",
-                        "name": "אנליסט השתלמות מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מור",
-                        "name": "מור השתלמות מנייתי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    }
-                ]
-            },
-            {
-                "id": "general",
-                "title": "מסלול כללי / תלוי גיל",
-                "funds": [
-                    {
-                        "id": "312",
-                        "company": "הראל",
-                        "name": "הראל השתלמות כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "ממתין לנתון"
-                    },
-                    {
-                        "id": "114",
-                        "company": "אלטשולר שחם",
-                        "name": "אלטשולר שחם השתלמות כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "ממתין לנתון"
-                    },
-                    {
-                        "id": "538",
-                        "company": "ילין לפידות",
-                        "name": "ילין לפידות השתלמות כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "ממתין לנתון"
-                    },
-                    {
-                        "id": null,
-                        "company": "הפניקס",
-                        "name": "הפניקס השתלמות כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": "151",
-                        "company": "מיטב",
-                        "name": "מיטב השתלמות כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "02/2025"
-                    },
-                    {
-                        "id": null,
-                        "company": "כלל",
-                        "name": "כלל השתלמות כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מגדל",
-                        "name": "מגדל השתלמות כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מנורה מבטחים",
-                        "name": "מנורה מבטחים השתלמות כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "אנליסט",
-                        "name": "אנליסט השתלמות כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מור",
-                        "name": "מור השתלמות כללי",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    }
-                ]
-            },
-            {
-                "id": "solid",
-                "title": "מסלול אג\"ח / שקלי",
-                "funds": [
-                    {
-                        "id": null,
-                        "company": "הראל",
-                        "name": "הראל השתלמות אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "אלטשולר שחם",
-                        "name": "אלטשולר שחם השתלמות אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "ילין לפידות",
-                        "name": "ילין לפידות השתלמות אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "הפניקס",
-                        "name": "הפניקס השתלמות אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מיטב",
-                        "name": "מיטב השתלמות אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "כלל",
-                        "name": "כלל השתלמות אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מגדל",
-                        "name": "מגדל השתלמות אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מנורה מבטחים",
-                        "name": "מנורה מבטחים השתלמות אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "אנליסט",
-                        "name": "אנליסט השתלמות אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    },
-                    {
-                        "id": null,
-                        "company": "מור",
-                        "name": "מור השתלמות אג\"ח",
-                        "YTD": "N/A",
-                        "Year1": "N/A",
-                        "Year3": "N/A",
-                        "Year5": "N/A",
-                        "last_updated": "טרם הוגדר מזהה"
-                    }
-                ]
-            }
+      },
+      {
+        "id": "general",
+        "title": "מסלול כללי / תלוי גיל",
+        "funds": [
+          {
+            "id": null,
+            "company": "הראל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אלטשולר שחם",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "ילין לפידות",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "הפניקס",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מיטב",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "כלל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מגדל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מנורה מבטחים",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אנליסט",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מור",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          }
         ]
-    }
+      },
+      {
+        "id": "solid",
+        "title": "מסלול אג\"ח / שקלי",
+        "funds": [
+          {
+            "id": null,
+            "company": "הראל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אלטשולר שחם",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "ילין לפידות",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "הפניקס",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מיטב",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "כלל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מגדל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מנורה מבטחים",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אנליסט",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מור",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gemel_inv",
+    "title": "קופת גמל להשקעה",
+    "tracks": [
+      {
+        "id": "sp500",
+        "title": "מסלול עוקב S&P 500",
+        "funds": [
+          {
+            "id": null,
+            "company": "הראל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אלטשולר שחם",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "ילין לפידות",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "הפניקס",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מיטב",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "כלל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מגדל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מנורה מבטחים",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אנליסט",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מור",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          }
+        ]
+      },
+      {
+        "id": "equity",
+        "title": "מסלול מנייתי טהור",
+        "funds": [
+          {
+            "id": null,
+            "company": "הראל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אלטשולר שחם",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "ילין לפידות",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "הפניקס",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מיטב",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "כלל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מגדל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מנורה מבטחים",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אנליסט",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מור",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          }
+        ]
+      },
+      {
+        "id": "general",
+        "title": "מסלול כללי / תלוי גיל",
+        "funds": [
+          {
+            "id": null,
+            "company": "הראל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אלטשולר שחם",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "ילין לפידות",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "הפניקס",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מיטב",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "כלל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מגדל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מנורה מבטחים",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אנליסט",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מור",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          }
+        ]
+      },
+      {
+        "id": "solid",
+        "title": "מסלול אג\"ח / שקלי",
+        "funds": [
+          {
+            "id": null,
+            "company": "הראל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אלטשולר שחם",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "ילין לפידות",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "הפניקס",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מיטב",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "כלל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מגדל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מנורה מבטחים",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אנליסט",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מור",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pension",
+    "title": "קרן פנסיה מקיפה",
+    "tracks": [
+      {
+        "id": "sp500",
+        "title": "מסלול עוקב S&P 500",
+        "funds": [
+          {
+            "id": null,
+            "company": "הראל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אלטשולר שחם",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "ילין לפידות",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "הפניקס",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מיטב",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "כלל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מגדל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מנורה מבטחים",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אנליסט",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מור",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          }
+        ]
+      },
+      {
+        "id": "equity",
+        "title": "מסלול מנייתי טהור",
+        "funds": [
+          {
+            "id": null,
+            "company": "הראל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אלטשולר שחם",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "ילין לפידות",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "הפניקס",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מיטב",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "כלל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מגדל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מנורה מבטחים",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אנליסט",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מור",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          }
+        ]
+      },
+      {
+        "id": "general",
+        "title": "מסלול כללי / תלוי גיל",
+        "funds": [
+          {
+            "id": null,
+            "company": "הראל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אלטשולר שחם",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "ילין לפידות",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "הפניקס",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מיטב",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "כלל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מגדל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מנורה מבטחים",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אנליסט",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מור",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          }
+        ]
+      },
+      {
+        "id": "solid",
+        "title": "מסלול אג\"ח / שקלי",
+        "funds": [
+          {
+            "id": null,
+            "company": "הראל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אלטשולר שחם",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "ילין לפידות",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "הפניקס",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מיטב",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "כלל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מגדל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מנורה מבטחים",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אנליסט",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מור",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "policy",
+    "title": "פוליסת חיסכון",
+    "tracks": [
+      {
+        "id": "sp500",
+        "title": "מסלול עוקב S&P 500",
+        "funds": [
+          {
+            "id": null,
+            "company": "הראל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אלטשולר שחם",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "ילין לפידות",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "הפניקס",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מיטב",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "כלל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מגדל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מנורה מבטחים",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אנליסט",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מור",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          }
+        ]
+      },
+      {
+        "id": "equity",
+        "title": "מסלול מנייתי טהור",
+        "funds": [
+          {
+            "id": null,
+            "company": "הראל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אלטשולר שחם",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "ילין לפידות",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "הפניקס",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מיטב",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "כלל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מגדל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מנורה מבטחים",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אנליסט",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מור",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          }
+        ]
+      },
+      {
+        "id": "general",
+        "title": "מסלול כללי / תלוי גיל",
+        "funds": [
+          {
+            "id": null,
+            "company": "הראל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אלטשולר שחם",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "ילין לפידות",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "הפניקס",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מיטב",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "כלל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מגדל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מנורה מבטחים",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אנליסט",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מור",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          }
+        ]
+      },
+      {
+        "id": "solid",
+        "title": "מסלול אג\"ח / שקלי",
+        "funds": [
+          {
+            "id": null,
+            "company": "הראל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אלטשולר שחם",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "ילין לפידות",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "הפניקס",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מיטב",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "כלל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מגדל",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מנורה מבטחים",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "אנליסט",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          },
+          {
+            "id": null,
+            "company": "מור",
+            "name": "לא נמצא מסלול פעיל",
+            "YTD": "N/A",
+            "Year1": "N/A",
+            "Year3": "N/A",
+            "Year5": "N/A",
+            "last_updated": "N/A"
+          }
+        ]
+      }
+    ]
+  }
 ]
