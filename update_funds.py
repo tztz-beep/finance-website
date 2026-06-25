@@ -1,7 +1,6 @@
 import requests
 import json
 from datetime import datetime
-import pandas as pd
 
 COMPANIES = ["הראל", "אלטשולר שחם", "ילין לפידות", "הפניקס", "מיטב", "כלל", "מגדל", "מנורה מבטחים", "אנליסט", "מור"]
 
@@ -18,36 +17,31 @@ TRACKS = {
     "solid": {"title": "מסלול אג\"ח / שקלי"}
 }
 
-# מספרי קופות (תוכל להשלים כאן את מספרי האוצר של קרנות הפנסיה כשיהיו לך אותם)
 KNOWN_IDS = {
-    # --- קרנות השתלמות ---
     "הראל_hishtalmut_equity": "5122", "אלטשולר שחם_hishtalmut_equity": "1375", "ילין לפידות_hishtalmut_equity": "539", "הפניקס_hishtalmut_equity": "1414",
     "הראל_hishtalmut_sp500": "1421", "ילין לפידות_hishtalmut_sp500": "1430", "מיטב_hishtalmut_sp500": "1390",
     "הראל_hishtalmut_general": "312", "אלטשולר שחם_hishtalmut_general": "114", "ילין לפידות_hishtalmut_general": "538", "מיטב_hishtalmut_general": "151",
-    
-    # --- קופות גמל להשקעה ---
     "הראל_gemel_inv_equity": "5444", "אלטשולר שחם_gemel_inv_equity": "5133", "הפניקס_gemel_inv_equity": "9842", "ילין לפידות_gemel_inv_equity": "5149",
     "הראל_gemel_inv_sp500": "9421", "אלטשולר שחם_gemel_inv_sp500": "9432", "מיטב_gemel_inv_sp500": "9440",
-    "הראל_gemel_inv_general": "5321", "אלטשולר שחם_gemel_inv_general": "5132", "מיטב_gemel_inv_general": "5344",
-    
-    # --- קרנות פנסיה (דוגמאות להשלמה עתידית) ---
-    "מנורה מבטחים_pension_general": "",
-    "הראל_pension_general": ""
+    "הראל_gemel_inv_general": "5321", "אלטשולר שחם_gemel_inv_general": "5132", "מיטב_gemel_inv_general": "5344"
 }
 
-# הפיצול הארכיטקטוני למאגרי מידע בהתאם למוצר (כפי שחשפת)
+# מספיק לנו לפנות רק למאגרים העדכניים של 2024 - הם מכילים את העמודות המצטברות לאחור!
 DATABASES = {
-    "gemel": [
-        "a30dcbea-a1d2-482c-ae29-8f781f5025fb", # גמל 2024-היום
-        "2016d770-f094-4a2e-983e-797c26479720", # גמל 2023
-        "91c849ed-ddc4-472b-bd09-0f5486cea35c"  # גמל 1999-2022
-    ],
-    "pension": [
-        "6d47d6b5-cb08-488b-b333-f1e717b1e1bd", # פנסיה 2024-היום
-        "4694d5a7-5284-4f3d-a2cb-5887f43fb55e", # פנסיה 2023
-        "a66926f3-e396-4984-a4db-75486751c2f7"  # פנסיה 1999-2022
-    ]
+    "gemel": "a30dcbea-a1d2-482c-ae29-8f781f5025fb",
+    "pension": "6d47d6b5-cb08-488b-b333-f1e717b1e1bd"
 }
+
+def extract_official_yield(record, field_names):
+    """שולף את הנתון הרשמי ישירות מעמודות משרד האוצר ללא חישובים"""
+    for field in field_names:
+        val = record.get(field)
+        if val is not None and str(val).strip() != "":
+            try:
+                return f"{float(val):.2f}"
+            except:
+                pass
+    return "N/A"
 
 def build_market_matrix():
     dashboard_data = []
@@ -62,11 +56,9 @@ def build_market_matrix():
                 fund_name = f"{company} {prod_info['title'].replace('קרן ', '').replace('קופת ', '')} {suffix}"
                 
                 track_node["funds"].append({
-                    "id": uid,
-                    "company": company,
-                    "name": fund_name,
+                    "id": uid, "company": company, "name": fund_name,
                     "YTD": "N/A", "Year1": "N/A", "Year3": "N/A", "Year5": "N/A",
-                    "last_updated": "טרם הוזן מזהה אוצר"
+                    "last_updated": "טרם הוגדר מזהה" if not uid else "ממתין לנתון"
                 })
             product_node["tracks"].append(track_node)
         dashboard_data.append(product_node)
@@ -74,57 +66,39 @@ def build_market_matrix():
 
 def fetch_live_data():
     market_data = build_market_matrix()
-    current_year = datetime.now().year
     
     for product in market_data:
-        # ניתוב השאילתות למאגרים הנכונים לפי סוג המוצר
-        target_db_list = DATABASES["pension"] if product["id"] == "pension" else DATABASES["gemel"]
+        resource_id = DATABASES["pension"] if product["id"] == "pension" else DATABASES["gemel"]
         
         for track in product["tracks"]:
             for fund in track["funds"]:
                 fid = fund["id"]
-                if not fid: 
-                    continue # חוסך קריאות רשת מיותרות על קופות שטרם מיפינו
+                if not fid: continue
                 
-                all_records = []
-                for rid in target_db_list:
-                    url = f"https://data.gov.il/api/3/action/datastore_search?resource_id={rid}&q={fid}&limit=70"
-                    try:
-                        resp = requests.get(url, timeout=10)
-                        if resp.status_code == 200:
-                            records = resp.json().get('result', {}).get('records', [])
-                            all_records.extend(records)
-                    except Exception as e:
-                        print(f"Error fetching {fid} from resource {rid}: {e}")
-                
-                if all_records:
-                    try:
-                        df = pd.DataFrame(all_records)
-                        yield_col = 'TSUA_NOMINALIT_BTOCH_TKOOFA' 
-                        
-                        if yield_col in df.columns and 'REPORT_PERIOD' in df.columns:
-                            df[yield_col] = pd.to_numeric(df[yield_col], errors='coerce').fillna(0)
-                            df['REPORT_PERIOD'] = pd.to_datetime(df['REPORT_PERIOD'].astype(str), format='%Y%m', errors='coerce')
-                            df = df.dropna(subset=['REPORT_PERIOD']).drop_duplicates(subset=['REPORT_PERIOD'])
-                            df = df.sort_values(by='REPORT_PERIOD', ascending=False)
+                # משיכת השורה האחרונה בלבד!
+                url = f"https://data.gov.il/api/3/action/datastore_search?resource_id={resource_id}&q={fid}&sort=REPORT_PERIOD desc&limit=1"
+                try:
+                    resp = requests.get(url, timeout=10)
+                    if resp.status_code == 200:
+                        records = resp.json().get('result', {}).get('records', [])
+                        if records:
+                            latest_record = records[0]
                             
-                            if not df.empty:
-                                ytd_df = df[df['REPORT_PERIOD'].dt.year == current_year]
-                                calc_cum = lambda d, m: f"{((1 + d.head(m)[yield_col] / 100).prod() - 1) * 100:.2f}"
-                                
-                                fund["YTD"] = calc_cum(ytd_df, len(ytd_df))
-                                fund["Year1"] = calc_cum(df, 12)
-                                fund["Year3"] = calc_cum(df, 36)
-                                fund["Year5"] = calc_cum(df, 60)
-                                
-                                raw_date = df['REPORT_PERIOD'].dt.strftime('%m/%Y').iloc[0]
-                                fund["last_updated"] = f"אומת ב-{raw_date}"
-                    except Exception as e:
-                        print(f"Error processing math for fund {fid}: {e}")
+                            # שאיבת נתוני האמת הרשמיים
+                            fund["YTD"] = extract_official_yield(latest_record, ['TSUA_MITCHILAT_SHANA', 'TSUA_NOMINALIT_MITCHILAT_SHANA'])
+                            fund["Year1"] = extract_official_yield(latest_record, ['TSUA_SHANA_ACHARONA', 'TSUA_NOMINALIT_SHANA_ACHARONA'])
+                            fund["Year3"] = extract_official_yield(latest_record, ['TSUA_3_SHANIM', 'TSUA_NOMINALIT_3_SHANIM'])
+                            fund["Year5"] = extract_official_yield(latest_record, ['TSUA_5_SHANIM', 'TSUA_NOMINALIT_5_SHANIM'])
+                            
+                            raw_date = str(latest_record.get('REPORT_PERIOD', ''))
+                            if len(raw_date) == 6:
+                                fund["last_updated"] = f"{raw_date[4:6]}/{raw_date[0:4]}"
+                except Exception as e:
+                    print(f"Error fetching exact data for {fund['company']} - {fid}: {e}")
 
     with open('funds_data.json', 'w', encoding='utf-8') as f:
         json.dump(market_data, f, ensure_ascii=False, indent=4)
-    print("Dual-Database (Gemel & Pension) synchronization completed.")
+    print("Official pre-calculated synchronization completed.")
 
 if __name__ == "__main__":
     fetch_live_data()
