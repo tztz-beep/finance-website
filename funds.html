@@ -217,8 +217,11 @@
 
         // מחזירה את החץ המתאים למצב ההיפוך
         function getSortIcon(tableId, field) {
-            const sortInfo = window.currentSortState[tableId] || { field: 'Year5', direction: 'desc' };
-            
+           const formatVal = (v) => {
+                        if (v === "N/A" || !v) return `<span style="color:#94a3b8; font-weight:600;">N/A</span>`;
+                        const n = parseFloat(v);
+                        return `<span class="${n >= 0 ? 'yield-up' : 'yield-down'}">${n > 0 ? '+' : ''}${v}%</span>`;
+                    };
             if (sortInfo.field === field) {
                 return `<span class="sort-icon" style="color:#d4af37;">${sortInfo.direction === 'desc' ? '▼' : '▲'}</span>`;
             }
