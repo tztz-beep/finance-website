@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>מרכז תשואות מוסדיות | השקעות שעושות שכל</title>
-    <link rel="stylesheet" href="style.css?v=21.0">
+    <link class="site-version-style" rel="stylesheet" href="style.css?v=22.0">
     
     <style>
         body { background-color: #f4f6f9; }
@@ -29,7 +29,6 @@
         .dashboard-table { width: 100%; border-collapse: collapse; text-align: center; background: #ffffff; }
         .dashboard-table th { background-color: #111e2d; color: #ffffff; padding: 16px; font-weight: 700; font-size: 15px; }
         
-        /* עיצוב כותרות לחיצות למיון */
         .sortable-header { cursor: pointer; user-select: none; transition: background-color 0.2s; }
         .sortable-header:hover { background-color: #1e2d3d; color: #d4af37; }
         .sort-icon { font-size: 12px; margin-right: 4px; opacity: 0.8; display: inline-block; }
@@ -101,8 +100,18 @@
                 renderTabs();
                 renderPanels();
             } catch (err) {
-                console.error(err);
-                document.getElementById('productPanels').innerHTML = `<div class="loading-state" style="color:#c0392b;">שגיאה בתקשורת הנתונים הממסדית.</div>`;
+                console.error("Critical System Error:", err);
+                document.getElementById('productPanels').innerHTML = `
+                    <div class="loading-state" style="color:#c0392b; border: 2px solid #fca5a5; background: #fff5f5; text-align: right; padding: 30px;">
+                        <h3 style="margin-top:0; color:#991b1b;">⚠️ שגיאת מערכת חמורה</h3>
+                        <p style="margin-bottom:10px;">מנוע הפענוח קורס בגלל קובץ נתונים פגום או חסר.</p>
+                        <code style="background:#fee2e2; padding:8px 12px; border-radius:6px; color:#7f1d1d; font-weight:bold; font-family:monospace; display:block; text-align:left; direction:ltr;">
+                            ${err.name}: ${err.message}
+                        </code>
+                        <p style="margin-top:20px; font-size:15px; color:#475569;">
+                            אנא וดא שה-Action ב-GitHub אכן יצר קובץ funds_data.json תקין ולא ריק.
+                        </p>
+                    </div>`;
             }
         }
 
@@ -135,14 +144,16 @@
             
             product.tracks.forEach(track => {
                 const tableId = `${product.id}_${track.id}`;
-                
-                // שליפת מצב המיון (שדה וכיוון). ברירת מחדל: 5 שנים, יורד
                 const sortInfo = window.currentSortState[tableId] || { field: 'Year5', direction: 'desc' };
                 
-                // מנוע המיון הדו-כיווני
+                // מיון מוגן מפני ערכי N/A כדי לשמור על רציפות הדירוג
                 track.funds.sort((a, b) => {
-                    const valA = parseFloat(a[sortInfo.field]) || 0;
-                    const valB = parseFloat(b[sortInfo.field]) || 0;
+                    let valA = parseFloat(a[sortInfo.field]);
+                    let valB = parseFloat(b[sortInfo.field]);
+                    
+                    if (isNaN(valA)) valA = sortInfo.direction === 'desc' ? -9999 : 9999;
+                    if (isNaN(valB)) valB = sortInfo.direction === 'desc' ? -9999 : 9999;
+                    
                     return sortInfo.direction === 'desc' ? valB - valA : valA - valB;
                 });
                 
@@ -167,6 +178,7 @@
                 
                 track.funds.forEach(fund => {
                     const formatVal = (v) => {
+                        if (v === "N/A" || !v) return `<span style="color:#94a3b8; font-weight:600;">N/A</span>`;
                         const n = parseFloat(v);
                         return `<span class="${n >= 0 ? 'yield-up' : 'yield-down'}">${n > 0 ? '+' : ''}${v}%</span>`;
                     };
@@ -196,7 +208,6 @@
             panelsContainer.appendChild(panel);
         }
 
-        // פונקציה חכמה למעבר בין מצבי מיון: עולה ויורד
         function sortTrackTable(trackId, field) {
             const tableId = `${window.activeProductId}_${trackId}`;
             
@@ -205,7 +216,6 @@
             }
             
             if (window.currentSortState[tableId].field === field) {
-                // לחיצה כפולה על אותה עמודה הופכת את כיוון החץ
                 window.currentSortState[tableId].direction = window.currentSortState[tableId].direction === 'desc' ? 'asc' : 'desc';
             } else {
                 window.currentSortState[tableId].field = field;
@@ -215,13 +225,9 @@
             renderPanels();
         }
 
-        // מחזירה את החץ המתאים למצב ההיפוך
         function getSortIcon(tableId, field) {
-           const formatVal = (v) => {
-                        if (v === "N/A" || !v) return `<span style="color:#94a3b8; font-weight:600;">N/A</span>`;
-                        const n = parseFloat(v);
-                        return `<span class="${n >= 0 ? 'yield-up' : 'yield-down'}">${n > 0 ? '+' : ''}${v}%</span>`;
-                    };
+            const sortInfo = window.currentSortState[tableId] || { field: 'Year5', direction: 'desc' };
+            
             if (sortInfo.field === field) {
                 return `<span class="sort-icon" style="color:#d4af37;">${sortInfo.direction === 'desc' ? '▼' : '▲'}</span>`;
             }
