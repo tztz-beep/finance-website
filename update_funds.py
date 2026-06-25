@@ -7,18 +7,21 @@ log = logging.getLogger(__name__)
 
 BASE_URL = "https://data.gov.il/api/3/action/datastore_search"
 
-# מזהי המאגרים העדכניים 
+# איחוד מלא של כל המשאבים הרשמיים מהמחקר שלך
 RESOURCES = {
-    "gemel": "a30dcbea-a1d2-482c-ae29-8f781f5025fb",
-    "pension": "6d47d6b5-cb08-488b-b333-f1e717b1e1bd"
+    "gemel":    "a30dcbea-a1d2-482c-ae29-8f781f5025fb",  # גמל והשתלמות
+    "pension":  "6d47d6b5-cb08-488b-b333-f1e717b1e1bd",  # קרנות פנסיה
+    "policies": "d0b61e50-1e38-4d52-8067-de8b1ee37419"   # פוליסות חיסכון (ביטוח נט)
 }
 
 COMPANIES = ["הראל", "אלטשולר שחם", "ילין לפידות", "הפניקס", "מיטב", "כלל", "מגדל", "מנורה מבטחים", "אנליסט", "מור"]
 
+# מיפוי מוצרים מורחב הכולל פוליסות חיסכון ומילות מפתח ייעודיות לסינון
 PRODUCTS = {
     "hishtalmut": {"title": "קרן השתלמות", "res": "gemel", "key": "השתלמות"},
     "gemel_inv":  {"title": "קופת גמל להשקעה", "res": "gemel", "key": "להשקעה"},
-    "pension":    {"title": "קרן פנסיה מקיפה", "res": "pension", "key": "פנסיה"}
+    "pension":    {"title": "קרן פנסיה מקיפה", "res": "pension", "key": "פנסיה"},
+    "policy":     {"title": "פוליסת חיסכון", "res": "policies", "key": "חיסכון"}
 }
 
 TRACKS = {
@@ -29,7 +32,7 @@ TRACKS = {
 }
 
 def classify(name, classification):
-    """מנוע סיווג טקסטואלי שמנתב כל קופה למסלול התחרותי הנכון"""
+    """מנוע סיווג סמנטי המנתב קופות למסלולים תחרותיים על בסיס מילות מפתח"""
     t = (str(name) + " " + str(classification)).lower()
     if any(x in t for x in ["s&p", "500", "אס אנד פי"]): return "sp500"
     if any(x in t for x in ["מניות", "מנייתי", "equity"]): return "equity"
@@ -37,35 +40,34 @@ def classify(name, classification):
     return "general"
 
 def safe_yield(record, fields):
-    """חילוץ תשואה בטוח שסורק מגוון שמות עמודות אפשריים"""
+    """חילוץ תשואה מתקדם המבוסס על מנגנון הניקוי המחמיר שלך"""
     for f in fields:
         v = record.get(f)
-        if v is not None and str(v).strip() not in ("", "None"):
+        if v is not None and str(v).strip() not in ("", "None", "null"):
             try: return f"{float(v):.2f}"
             except: pass
     return "N/A"
 
 def fetch_entire_market():
-    """מוריד את כל השוק לזיכרון ב-2 בקשות בלבד!"""
+    """הורדה מרוכזת ב-3 שאילתות בלבד למניעת חסימות רשת (Rate Limits)"""
     market_data = {}
     for res_key, res_id in RESOURCES.items():
-        log.info(f"שואב נתונים בצובר ממאגר: {res_key}")
+        log.info(f"מוריד בצובר נתוני רשות שוק ההון עבור משאב: {res_key}")
         params = {
             "resource_id": res_id,
-            "limit": 25000,  # שואב מספיק כדי לכסות את כל מסלולי השוק והחברות
+            "limit": 25000,
             "sort": "REPORT_PERIOD desc"
         }
         try:
-            resp = requests.get(BASE_URL, params=params, timeout=20)
+            resp = requests.get(BASE_URL, params=params, timeout=25)
             if resp.status_code == 200:
                 records = resp.json().get("result", {}).get("records", [])
                 for rec in records:
                     fid = str(rec.get("FUND_ID", ""))
-                    # הקופה הראשונה שנפגוש היא העדכנית ביותר
                     if fid and fid not in market_data:
                         market_data[fid] = rec  
         except Exception as e:
-            log.error(f"שגיאת שאיבה מ-{res_key}: {e}")
+            log.error(f"תקלת תקשורת פטלית מול משאב {res_key}: {e}")
     return market_data
 
 def build():
@@ -76,10 +78,10 @@ def build():
         p_node = {"id": p_key, "title": p_info["title"], "tracks": []}
         track_map = {t_key: {c: None for c in COMPANIES} for t_key in TRACKS}
         
-        # סיווג כל הקופות
         for fid, rec in market_data.items():
-            # התיקון הקריטי: חיפוש החברה בכל שמות העמודות האפשריים שהאוצר משתמש בהם!
-            comp_name_raw = " ".join(str(rec.get(k, "")) for k in ["MANAGING_CORPORATION", "PARENT_COMPANY_NAME", "COMPANY_NAME", "CONTROLLING_CORPORATION"])
+            # זיהוי תאגידי רב-ערוצי הפותר את בעיית שמות העמודות השונים בין גמל, פנסיה וביטוח
+            comp_fields = ["MANAGING_CORPORATION", "PARENT_COMPANY_NAME", "COMPANY_NAME", "CONTROLLING_CORPORATION"]
+            comp_name_raw = " ".join(str(rec.get(k, "")) for k in comp_fields)
             
             matched_company = next((c for c in COMPANIES if c in comp_name_raw), None)
             if not matched_company: continue
@@ -87,6 +89,7 @@ def build():
             fname = rec.get("FUND_NAME", "")
             fclass = rec.get("FUND_CLASSIFICATION", "")
             
+            # וידוא שיוך המוצר (הפרדת גמל להשקעה מהשתלמות, ופוליסות חיסכון מפנסיה)
             if p_info["key"] not in fname and p_info["key"] not in fclass:
                 continue
                 
@@ -95,19 +98,19 @@ def build():
             if track_map[t_key][matched_company] is None:
                 track_map[t_key][matched_company] = rec
 
+        # בניית המבנה ההיררכי התחרותי עבור ממשק המשתמש
         for t_key, t_info in TRACKS.items():
             t_node = {"id": t_key, "title": t_info["title"], "funds": []}
             for comp in COMPANIES:
                 rec = track_map[t_key][comp]
                 if rec:
-                    # שימוש גם בשמות באנגלית (לפנסיה-נט) וגם בפינגליש (לגמל-נט)
                     ytd = safe_yield(rec, ["TSUA_MITCHILAT_SHANA", "TSUA_NOMINALIT_MITCHILAT_SHANA", "YEAR_TO_DATE_YIELD"])
                     y1 = safe_yield(rec, ["TSUA_SHANA_ACHARONA", "TSUA_NOMINALIT_SHANA_ACHARONA", "YIELD_TRAILING_1_YR"])
                     y3 = safe_yield(rec, ["TSUA_3_SHANIM", "TSUA_NOMINALIT_3_SHANIM", "YIELD_TRAILING_3_YRS"])
                     y5 = safe_yield(rec, ["TSUA_5_SHANIM", "TSUA_NOMINALIT_5_SHANIM", "YIELD_TRAILING_5_YRS"])
                     
                     raw_date = str(rec.get('REPORT_PERIOD', ''))
-                    date_str = f"{raw_date[4:6]}/{raw_date[0:4]}" if len(raw_date)==6 else "מעודכן"
+                    date_str = f"{raw_date[4:6]}/{raw_date[0:4]}" if len(raw_date) == 6 else "מעודכן"
                     
                     t_node["funds"].append({
                         "id": rec["FUND_ID"], "company": comp, "name": rec.get("FUND_NAME", ""),
@@ -125,15 +128,15 @@ def build():
     return matrix
 
 if __name__ == "__main__":
-    log.info("מתחיל בסינכרון הנתונים החכם (לאחר ניתוח סכימת ה-API)...")
+    log.info("מפעיל אינטגרציה מלאה: הגדרות מקוריות + סכימת מאגרים מעודכנת")
     data = build()
     
-    # בדיקת אל-כשל
+    # בקרת הגנה משולשת למניעת דריסת קבצים במקרה של שגיאת API רגעית
     empty_tracks = sum(len(track["funds"]) for p in data for track in p["tracks"])
     if not data or empty_tracks == 0:
-        log.error("שגיאה: לא נוצרו נתונים! עוצר כדי לא לדרוס את האתר.")
+        log.error("קריטי: תהליך הסינכרון החזיר מטריצה ריקה. הפעולה נעצרה להגנת הדאשבורד.")
         exit(1)
         
     with open("funds_data.json", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
-    log.info("קובץ הנתונים נוצר בהצלחה עם נתוני אמת!")
+    log.info("המטריצה הפיננסית המאוחדת נבנתה ונשמרה בהצלחה!")
