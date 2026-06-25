@@ -8,104 +8,104 @@
         "title": "מסלול עוקב S&P 500",
         "funds": [
           {
-            "id": null,
+            "id": 13502,
             "company": "הראל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הראל השתלמות - עוקב מדד s&p 500",
+            "YTD": "-2.17",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "41.43",
+            "Year5": "65.34",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 14862,
             "company": "אלטשולר שחם",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אלטשולר שחם השתלמות עוקב S&P 500",
+            "YTD": "-2.36",
             "Year1": "N/A",
             "Year3": "N/A",
             "Year5": "N/A",
-            "last_updated": "N/A"
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 14849,
             "company": "ילין לפידות",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "ילין לפידות קרן השתלמות מסלול עוקב מדד s&p 500",
+            "YTD": "-2.32",
             "Year1": "N/A",
             "Year3": "N/A",
             "Year5": "N/A",
-            "last_updated": "N/A"
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13264,
             "company": "הפניקס",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הפניקס השתלמות עוקב מדד s&p500",
+            "YTD": "-2.14",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "41.79",
+            "Year5": "66.24",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13245,
             "company": "מיטב",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מיטב השתלמות עוקב מדד S&P500",
+            "YTD": "-2.12",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "42.30",
+            "Year5": "65.18",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13342,
             "company": "כלל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "כלל השתלמות עוקב מדד s&p 500",
+            "YTD": "-2.32",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "41.13",
+            "Year5": "63.53",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 14668,
             "company": "מגדל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מגדל השתלמות עוקב מדד S&P 500",
+            "YTD": "-2.34",
             "Year1": "N/A",
             "Year3": "N/A",
             "Year5": "N/A",
-            "last_updated": "N/A"
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13873,
             "company": "מנורה מבטחים",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מנורה מבטחים השתלמות עוקב מדד S&P500",
+            "YTD": "-2.03",
             "Year1": "N/A",
-            "Year3": "N/A",
+            "Year3": "40.78",
             "Year5": "N/A",
-            "last_updated": "N/A"
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13853,
             "company": "אנליסט",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אנליסט קרן השתלמות עוקב מדד S&P500",
+            "YTD": "-2.50",
             "Year1": "N/A",
-            "Year3": "N/A",
+            "Year3": "40.57",
             "Year5": "N/A",
-            "last_updated": "N/A"
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 9451,
             "company": "מור",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מור קרן השתלמות לשכירים ולעצמאים - עוקב מדד S&P 500",
+            "YTD": "-2.33",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "41.35",
+            "Year5": "57.97",
+            "last_updated": "05/2026"
           }
         ]
       },
@@ -114,104 +114,104 @@
         "title": "מסלול מנייתי טהור",
         "funds": [
           {
-            "id": null,
+            "id": 763,
             "company": "הראל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הראל השתלמות מסלול מניות",
+            "YTD": "14.86",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "89.60",
+            "Year5": "87.98",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 1377,
             "company": "אלטשולר שחם",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אלטשולר שחם השתלמות מניות",
+            "YTD": "7.74",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "73.27",
+            "Year5": "54.88",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 8563,
             "company": "ילין לפידות",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "ילין לפידות קרן השתלמות מסלול מניות",
+            "YTD": "10.58",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "82.73",
+            "Year5": "88.23",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 1100,
             "company": "הפניקס",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הפניקס השתלמות אשראי ואג\"ח עם מניות (עד 25% מניות)",
+            "YTD": "1.65",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "23.35",
+            "Year5": "21.98",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 883,
             "company": "מיטב",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מיטב השתלמות מניות",
+            "YTD": "11.99",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "91.04",
+            "Year5": "86.01",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 1350,
             "company": "כלל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "כלל השתלמות מניות",
+            "YTD": "15.51",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "92.54",
+            "Year5": "80.10",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 869,
             "company": "מגדל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מגדל השתלמות מסלול מניות",
+            "YTD": "13.09",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "91.52",
+            "Year5": "86.99",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 1409,
             "company": "מנורה מבטחים",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מנורה מבטחים השתלמות מסלול מניות סחיר",
+            "YTD": "3.50",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "51.09",
+            "Year5": "53.96",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 963,
             "company": "אנליסט",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אנליסט השתלמות מניות",
+            "YTD": "12.46",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "87.75",
+            "Year5": "90.31",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 12536,
             "company": "מור",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מור קרן השתלמות לשכירים ולעצמאים - מניות",
+            "YTD": "13.16",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "89.59",
+            "Year5": "85.60",
+            "last_updated": "05/2026"
           }
         ]
       },
@@ -220,104 +220,104 @@
         "title": "מסלול כללי / תלוי גיל",
         "funds": [
           {
-            "id": null,
+            "id": 154,
             "company": "הראל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הראל השתלמות כללי",
+            "YTD": "7.60",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "42.64",
+            "Year5": "46.57",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 1290,
             "company": "אלטשולר שחם",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אלטשולר שחם השתלמות כללי ב'",
+            "YTD": "5.64",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "46.46",
+            "Year5": "36.80",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 1162,
             "company": "ילין לפידות",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "ילין לפידות קרן השתלמות מסלול כללי",
+            "YTD": "5.07",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "43.41",
+            "Year5": "47.36",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 9528,
             "company": "הפניקס",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הפניקס השתלמות הלכה",
+            "YTD": "6.45",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "46.24",
+            "Year5": "44.53",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 289,
             "company": "מיטב",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "קרן השתלמות לעובדי בנק ישראל",
+            "YTD": "5.95",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "47.22",
+            "Year5": "48.14",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 292,
             "company": "כלל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "קרן השתלמות למשפטנים בע\"מ",
+            "YTD": "8.58",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "56.36",
+            "Year5": "62.76",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 2048,
             "company": "מגדל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מגדל השתלמות מסלול הלכה",
+            "YTD": "6.16",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "43.91",
+            "Year5": "41.07",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 11408,
             "company": "מנורה מבטחים",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מנורה מבטחים השתלמות עוקב מדדים גמיש",
+            "YTD": "4.02",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "41.06",
+            "Year5": "37.38",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 962,
             "company": "אנליסט",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אנליסט השתלמות כללי",
+            "YTD": "7.07",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "51.42",
+            "Year5": "54.72",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 482,
             "company": "מור",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "עגור קרן השתלמות למורים בבתי הספר העי\"ס במכללות ובסמינרים בבתי הספר היסודיים ולגננות מסלול כללי",
+            "YTD": "5.96",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "47.71",
+            "Year5": "53.49",
+            "last_updated": "05/2026"
           }
         ]
       },
@@ -326,104 +326,104 @@
         "title": "מסלול אג\"ח / שקלי",
         "funds": [
           {
-            "id": null,
+            "id": 1410,
             "company": "הראל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "קרן החיסכון לצבא הקבע אשראי ואג\"ח",
+            "YTD": "1.68",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "11.97",
+            "Year5": "9.12",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 1399,
             "company": "אלטשולר שחם",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אלטשולר שחם השתלמות אג\"ח ממשלות",
+            "YTD": "2.71",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "16.25",
+            "Year5": "17.31",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 1319,
             "company": "ילין לפידות",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "ילין לפידות קרן השתלמות מסלול אשראי ואג\"ח",
+            "YTD": "2.15",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "17.53",
+            "Year5": "19.77",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 716,
             "company": "הפניקס",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הפניקס השתלמות אשראי ואג\"ח",
+            "YTD": "1.51",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "16.72",
+            "Year5": "15.38",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 1387,
             "company": "מיטב",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מיטב השתלמות אג\"ח ממשלות",
+            "YTD": "1.70",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "15.72",
+            "Year5": "16.53",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 1348,
             "company": "כלל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "כלל השתלמות אשראי ואג\"ח",
+            "YTD": "2.69",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "19.34",
+            "Year5": "19.07",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 864,
             "company": "מגדל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מגדל השתלמות מסלול כספי (שקלי)",
+            "YTD": "1.68",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "14.08",
+            "Year5": "15.17",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 1445,
             "company": "מנורה מבטחים",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אומגה קרן השתלמות מסלול אשראי ואג\"ח",
+            "YTD": "2.96",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "18.18",
+            "Year5": "13.09",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 973,
             "company": "אנליסט",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אנליסט השתלמות אג\"ח ממשלות",
+            "YTD": "2.62",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "15.33",
+            "Year5": "11.24",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 2040,
             "company": "מור",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "קרן השתלמות למורים וגננות מסלול מקוצר - מסלול אשראי ואג\"ח",
+            "YTD": "2.00",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "15.32",
+            "Year5": "12.40",
+            "last_updated": "05/2026"
           }
         ]
       }
@@ -438,104 +438,104 @@
         "title": "מסלול עוקב S&P 500",
         "funds": [
           {
-            "id": null,
+            "id": 13414,
             "company": "הראל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הראל גמל להשקעה עוקב מדד s&p 500",
+            "YTD": "-2.19",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "41.42",
+            "Year5": "66.02",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 14865,
             "company": "אלטשולר שחם",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אלטשולר שחם חיסכון פלוס עוקב מדד S&P 500",
+            "YTD": "-2.38",
             "Year1": "N/A",
             "Year3": "N/A",
             "Year5": "N/A",
-            "last_updated": "N/A"
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 15420,
             "company": "ילין לפידות",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "ילין לפידות קופת גמל להשקעה מסלול עוקב מדד s&p 500",
+            "YTD": "-2.35",
             "Year1": "N/A",
             "Year3": "N/A",
             "Year5": "N/A",
-            "last_updated": "N/A"
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13250,
             "company": "הפניקס",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הפניקס גמל להשקעה עוקב מדד S&P500",
+            "YTD": "-2.17",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "41.78",
+            "Year5": "66.39",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13259,
             "company": "מיטב",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מיטב גמל להשקעה עוקב מדד S&P 500",
+            "YTD": "-2.12",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "42.34",
+            "Year5": "65.18",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13344,
             "company": "כלל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "כלל גמל לעתיד עוקב מדד s&p 500",
+            "YTD": "-2.32",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "41.22",
+            "Year5": "63.74",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13563,
             "company": "מגדל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מגדל גמל להשקעה עוקב מדד s&p500",
+            "YTD": "-2.33",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "42.02",
+            "Year5": "63.39",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13874,
             "company": "מנורה מבטחים",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מנורה מבטחים גמל להשקעה עוקב מדד S&P500",
+            "YTD": "-2.02",
             "Year1": "N/A",
-            "Year3": "N/A",
+            "Year3": "40.67",
             "Year5": "N/A",
-            "last_updated": "N/A"
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13854,
             "company": "אנליסט",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אנליסט מסלולית - קופת גמל להשקעה עוקב מדד S&P500",
+            "YTD": "-2.49",
             "Year1": "N/A",
-            "Year3": "N/A",
+            "Year3": "40.57",
             "Year5": "N/A",
-            "last_updated": "N/A"
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 7958,
             "company": "מור",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מור גמל להשקעה - עוקב מדד S&P500",
+            "YTD": "-2.29",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "41.76",
+            "Year5": "60.39",
+            "last_updated": "05/2026"
           }
         ]
       },
@@ -544,104 +544,104 @@
         "title": "מסלול מנייתי טהור",
         "funds": [
           {
-            "id": null,
+            "id": 8521,
             "company": "הראל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הראל גמל להשקעה אשראי ואג\"ח עם מניות (עד 25% מניות)",
+            "YTD": "3.12",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "30.44",
+            "Year5": "27.75",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 7799,
             "company": "אלטשולר שחם",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אלטשולר שחם חיסכון פלוס מניות",
+            "YTD": "7.90",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "73.62",
+            "Year5": "55.30",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 11394,
             "company": "ילין לפידות",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "ילין לפידות קופת גמל להשקעה מסלול מניות",
+            "YTD": "10.53",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "82.94",
+            "Year5": "88.01",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 7906,
             "company": "הפניקס",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הפניקס גמל להשקעה אשראי ואג\"ח עם מניות (עד 25% מניות)",
+            "YTD": "3.17",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "27.92",
+            "Year5": "25.19",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 7980,
             "company": "מיטב",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מיטב גמל להשקעה אשראי ואג\"ח עם מניות (עד 25% במניות)",
+            "YTD": "3.74",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "31.10",
+            "Year5": "32.39",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 7991,
             "company": "כלל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "כלל גמל לעתיד מניות",
+            "YTD": "15.80",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "93.00",
+            "Year5": "79.28",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 7934,
             "company": "מגדל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מגדל גמל להשקעה מניות",
+            "YTD": "13.15",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "93.35",
+            "Year5": "88.34",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13353,
             "company": "מנורה מבטחים",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מנורה מבטחים גמל להשקעה מסלול מניות סחיר",
+            "YTD": "9.84",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "58.86",
+            "Year5": "62.94",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 7986,
             "company": "אנליסט",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אנליסט מסלולית - קופת גמל להשקעה אשראי ואג\"ח עד 25% מניות",
+            "YTD": "4.53",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "30.53",
+            "Year5": "28.30",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 12537,
             "company": "מור",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מור גמל להשקעה - מניות",
+            "YTD": "13.04",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "90.55",
+            "Year5": "81.56",
+            "last_updated": "05/2026"
           }
         ]
       },
@@ -650,104 +650,104 @@
         "title": "מסלול כללי / תלוי גיל",
         "funds": [
           {
-            "id": null,
+            "id": 11377,
             "company": "הראל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הראל חיסכון לילד - חוסכים המעדיפים סיכון מוגבר",
+            "YTD": "15.09",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "89.77",
+            "Year5": "86.34",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 7798,
             "company": "אלטשולר שחם",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אלטשולר שחם חיסכון פלוס כללי",
+            "YTD": "5.05",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "42.16",
+            "Year5": "34.17",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 11390,
             "company": "ילין לפידות",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "ילין לפידות קופת גמל להשקעה מסלול כללי",
+            "YTD": "4.96",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "44.01",
+            "Year5": "46.78",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 11312,
             "company": "הפניקס",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הפניקס חיסכון לילד - חוסכים המעדיפים סיכון בינוני",
+            "YTD": "5.98",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "48.39",
+            "Year5": "44.16",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 11385,
             "company": "מיטב",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מיטב קופת גמל להשקעה לחיסכון ארוך טווח לילד אחר חיסכון לכל ילד - חוסכים המעדיפים סיכון מועט",
+            "YTD": "4.42",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "35.25",
+            "Year5": "35.21",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 7988,
             "company": "כלל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "כלל גמל לעתיד כללי",
+            "YTD": "8.12",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "49.46",
+            "Year5": "47.59",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 7936,
             "company": "מגדל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מגדל גמל להשקעה כללי",
+            "YTD": "7.25",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "49.17",
+            "Year5": "49.66",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 11323,
             "company": "מנורה מבטחים",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מנורה מבטחים חסכון לכל ילד - מסלול חוסכים המעדיפים סיכון מוגבר",
+            "YTD": "12.03",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "90.37",
+            "Year5": "83.48",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 7834,
             "company": "אנליסט",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אנליסט מסלולית - קופת גמל להשקעה כללי",
+            "YTD": "7.39",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "49.24",
+            "Year5": "52.49",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 9113,
             "company": "מור",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מור חיסכון לילד - הלכה",
+            "YTD": "12.29",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "75.58",
+            "Year5": "76.58",
+            "last_updated": "05/2026"
           }
         ]
       },
@@ -756,104 +756,104 @@
         "title": "מסלול אג\"ח / שקלי",
         "funds": [
           {
-            "id": null,
+            "id": 13254,
             "company": "הראל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הראל גמל להשקעה כספי (שקלי)",
+            "YTD": "1.64",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "13.57",
+            "Year5": "14.70",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 7801,
             "company": "אלטשולר שחם",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אלטשולר שחם חיסכון פלוס אשראי ואג\"ח",
+            "YTD": "2.13",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "15.54",
+            "Year5": "15.11",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 11393,
             "company": "ילין לפידות",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "ילין לפידות קופת גמל להשקעה מסלול אג\"ח ממשלות",
+            "YTD": "2.36",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "12.05",
+            "Year5": "9.07",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13209,
             "company": "הפניקס",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הפניקס גמל להשקעה כספי (שקלי)",
+            "YTD": "1.68",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "13.95",
+            "Year5": "15.88",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 7861,
             "company": "מיטב",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מיטב גמל להשקעה כספי (שקלי)",
+            "YTD": "1.70",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "14.12",
+            "Year5": "15.65",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 7989,
             "company": "כלל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "כלל גמל לעתיד אשראי ואג\"ח",
+            "YTD": "2.71",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "18.63",
+            "Year5": "15.84",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 7931,
             "company": "מגדל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מגדל גמל להשקעה כספי (שקלי)",
+            "YTD": "1.70",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "14.14",
+            "Year5": "15.25",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13354,
             "company": "מנורה מבטחים",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מנורה מבטחים גמל להשקעה מסלול אשראי ואג\"ח",
+            "YTD": "3.00",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "26.51",
+            "Year5": "30.63",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 7837,
             "company": "אנליסט",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אנליסט מסלולית - קופת גמל להשקעה אשראי ואג\"ח",
+            "YTD": "2.62",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "17.60",
+            "Year5": "14.46",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 7963,
             "company": "מור",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מור גמל להשקעה -  כספי (שקלי)",
+            "YTD": "1.61",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "13.75",
+            "Year5": "16.59",
+            "last_updated": "05/2026"
           }
         ]
       }
@@ -868,24 +868,24 @@
         "title": "מסלול עוקב S&P 500",
         "funds": [
           {
-            "id": null,
+            "id": 13424,
             "company": "הראל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הראל פנסיה כללית עוקב מדד s1;p",
+            "YTD": "-2.19",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "41.29",
+            "Year5": "65.18",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 14850,
             "company": "אלטשולר שחם",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אלטשולר שחם פנסיה מקיפה עוקב מדד S1;P500",
+            "YTD": "-0.77",
             "Year1": "N/A",
             "Year3": "N/A",
             "Year5": "N/A",
-            "last_updated": "N/A"
+            "last_updated": "05/2026"
           },
           {
             "id": null,
@@ -898,54 +898,54 @@
             "last_updated": "N/A"
           },
           {
-            "id": null,
+            "id": 13335,
             "company": "הפניקס",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הפניקס פנסיה מקיפה עוקב מדד S1;P500",
+            "YTD": "-0.63",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "37.01",
+            "Year5": "62.33",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13285,
             "company": "מיטב",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מיטב פנסיה כללית עוקב מדד S1;P500",
+            "YTD": "-2.11",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "42.25",
+            "Year5": "64.70",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13347,
             "company": "כלל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "כלל פנסיה עוקב מדד s1;p 500",
+            "YTD": "-0.72",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "37.30",
+            "Year5": "60.16",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13627,
             "company": "מגדל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מגדל מקפת משלימה עוקב מדד S1;P500",
+            "YTD": "-2.33",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "41.86",
+            "Year5": "64.83",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13887,
             "company": "מנורה מבטחים",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מנורה מבטחים פנסיה עוקב מדד S1;P500",
+            "YTD": "-0.58",
             "Year1": "N/A",
-            "Year3": "N/A",
+            "Year3": "36.99",
             "Year5": "N/A",
-            "last_updated": "N/A"
+            "last_updated": "05/2026"
           },
           {
             "id": null,
@@ -958,14 +958,14 @@
             "last_updated": "N/A"
           },
           {
-            "id": null,
+            "id": 15266,
             "company": "מור",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מור פנסיה מקיפה  עוקבי מדדים עוקב מדד s1;p 500",
+            "YTD": "-0.50",
             "Year1": "N/A",
             "Year3": "N/A",
             "Year5": "N/A",
-            "last_updated": "N/A"
+            "last_updated": "05/2026"
           }
         ]
       },
@@ -974,24 +974,24 @@
         "title": "מסלול מנייתי טהור",
         "funds": [
           {
-            "id": null,
+            "id": 2175,
             "company": "הראל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הראל פנסיה - מניות",
+            "YTD": "10.79",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "66.43",
+            "Year5": "76.03",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 12419,
             "company": "אלטשולר שחם",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אלטשולר שחם פנסיה מקיפה מניות",
+            "YTD": "6.94",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "61.13",
+            "Year5": "54.50",
+            "last_updated": "05/2026"
           },
           {
             "id": null,
@@ -1004,54 +1004,54 @@
             "last_updated": "N/A"
           },
           {
-            "id": null,
+            "id": 8318,
             "company": "הפניקס",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הפניקס פנסיה משלימה - מניות",
+            "YTD": "11.21",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "89.44",
+            "Year5": "80.85",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 2105,
             "company": "מיטב",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מיטב פנסיה מקיפה מניות",
+            "YTD": "8.82",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "67.21",
+            "Year5": "74.58",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 9647,
             "company": "כלל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "כלל פנסיה מניות",
+            "YTD": "11.51",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "69.34",
+            "Year5": "73.18",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 2146,
             "company": "מגדל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מגדל מקפת משלימה מניות",
+            "YTD": "13.14",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "92.15",
+            "Year5": "86.86",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13350,
             "company": "מנורה מבטחים",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מנורה מבטחים פנסיה עוקב מדדי מניות",
+            "YTD": "3.48",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "38.43",
+            "Year5": "48.73",
+            "last_updated": "05/2026"
           },
           {
             "id": null,
@@ -1064,14 +1064,14 @@
             "last_updated": "N/A"
           },
           {
-            "id": null,
+            "id": 13915,
             "company": "מור",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מור פנסיה מקיפה - עוקב מדדי מניות",
+            "YTD": "2.58",
             "Year1": "N/A",
-            "Year3": "N/A",
+            "Year3": "34.37",
             "Year5": "N/A",
-            "last_updated": "N/A"
+            "last_updated": "05/2026"
           }
         ]
       },
@@ -1080,24 +1080,24 @@
         "title": "מסלול כללי / תלוי גיל",
         "funds": [
           {
-            "id": null,
+            "id": 9827,
             "company": "הראל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הראל פנסיה - גילאי 50 עד 60",
+            "YTD": "8.02",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "45.06",
+            "Year5": "55.19",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 8580,
             "company": "אלטשולר שחם",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "אלטשולר שחם פנסיה כללית למקבלי קצבה קיימים",
+            "YTD": "3.03",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "14.75",
+            "Year5": "9.03",
+            "last_updated": "05/2026"
           },
           {
             "id": null,
@@ -1110,54 +1110,54 @@
             "last_updated": "N/A"
           },
           {
-            "id": null,
+            "id": 7234,
             "company": "הפניקס",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הפניקס פנסיה משלימה - מסלול לבני 50 ומטה",
+            "YTD": "6.78",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "54.20",
+            "Year5": "51.18",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 8645,
             "company": "מיטב",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מיטב פנסיה מקיפה קצבה לזכאים קיימים",
+            "YTD": "2.62",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "19.42",
+            "Year5": "33.81",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 9633,
             "company": "כלל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "כלל פנסיה משלימה לבני 50 ומטה",
+            "YTD": "9.31",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "55.82",
+            "Year5": "53.21",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 8602,
             "company": "מגדל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מגדל מקפת אישית קצבה לזכאים קיימים",
+            "YTD": "3.02",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "21.80",
+            "Year5": "38.12",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 12155,
             "company": "מנורה מבטחים",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מנורה מבטחים פנסיה בסיסי למקבלי קצבה",
+            "YTD": "4.30",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "32.59",
+            "Year5": "49.73",
+            "last_updated": "05/2026"
           },
           {
             "id": null,
@@ -1170,14 +1170,14 @@
             "last_updated": "N/A"
           },
           {
-            "id": null,
+            "id": 13916,
             "company": "מור",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מור פנסיה מקיפה - מסלול בסיסי למקבלי קצבה",
+            "YTD": "6.04",
             "Year1": "N/A",
-            "Year3": "N/A",
+            "Year3": "33.75",
             "Year5": "N/A",
-            "last_updated": "N/A"
+            "last_updated": "05/2026"
           }
         ]
       },
@@ -1186,14 +1186,14 @@
         "title": "מסלול אג\"ח / שקלי",
         "funds": [
           {
-            "id": null,
+            "id": 9097,
             "company": "הראל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הראל פנסיה - כספי (שקלי)",
+            "YTD": "2.18",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "16.99",
+            "Year5": "24.35",
+            "last_updated": "05/2026"
           },
           {
             "id": null,
@@ -1216,54 +1216,54 @@
             "last_updated": "N/A"
           },
           {
-            "id": null,
+            "id": 8320,
             "company": "הפניקס",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "הפניקס פנסיה משלימה - כספי (שקלי)",
+            "YTD": "1.69",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "13.73",
+            "Year5": "15.54",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 2108,
             "company": "מיטב",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מיטב פנסיה כללית אשראי ואג\"ח",
+            "YTD": "1.99",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "20.87",
+            "Year5": "20.86",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 9648,
             "company": "כלל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "כלל פנסיה אשראי ואג\"ח",
+            "YTD": "2.81",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "22.60",
+            "Year5": "27.52",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 2148,
             "company": "מגדל",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מגדל מקפת משלימה אשראי ואג\"ח",
+            "YTD": "2.12",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "17.92",
+            "Year5": "14.40",
+            "last_updated": "05/2026"
           },
           {
-            "id": null,
+            "id": 13349,
             "company": "מנורה מבטחים",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מנורה מבטחים פנסיה אשראי ואג\"ח",
+            "YTD": "2.76",
             "Year1": "N/A",
-            "Year3": "N/A",
-            "Year5": "N/A",
-            "last_updated": "N/A"
+            "Year3": "27.22",
+            "Year5": "36.40",
+            "last_updated": "05/2026"
           },
           {
             "id": null,
@@ -1276,14 +1276,14 @@
             "last_updated": "N/A"
           },
           {
-            "id": null,
+            "id": 13914,
             "company": "מור",
-            "name": "לא נמצא מסלול פעיל",
-            "YTD": "N/A",
+            "name": "מור פנסיה מקיפה - כספי (שקלי)",
+            "YTD": "2.22",
             "Year1": "N/A",
-            "Year3": "N/A",
+            "Year3": "16.83",
             "Year5": "N/A",
-            "last_updated": "N/A"
+            "last_updated": "05/2026"
           }
         ]
       }
