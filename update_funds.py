@@ -1,23 +1,10 @@
 import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
 import json
 import logging
 import time
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
 log = logging.getLogger(__name__)
-
-# --- מנגנון התחמקות מחסימות ממשלתיות (Stealth & Retry Engine) ---
-session = requests.Session()
-# התחזות לדפדפן אנושי קלאסי כדי לעקוף חומות אש (WAF)
-session.headers.update({
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Accept': 'application/json'
-})
-# הגדרת 5 נסיונות חוזרים אוטומטיים במקרה של נפילת שרת באוצר או חסימת עומס
-retries = Retry(total=5, backoff_factor=2, status_forcelist=[403, 429, 500, 502, 503, 504])
-session.mount('https://', HTTPAdapter(max_retries=retries))
 
 BASE_URL = "https://data.gov.il/api/3/action/datastore_search"
 
@@ -48,6 +35,7 @@ TRACKS = {
 }
 
 def classify(name, classification):
+    """מסווג קופות למסלולים בצורה אינטליגנטית תוך התעלמות משיבושי הקלדה של האוצר"""
     t = (str(name) + " " + str(classification)).lower().replace(";", "").replace("-", "").replace(" ", "")
     if any(x in t for x in ["s&p", "500", "אסאנדפי", "p500", "s1p", "sp500"]): return "sp500"
     if any(x in t for x in ["מניות", "מנייתי", "equity"]): return "equity"
@@ -55,6 +43,7 @@ def classify(name, classification):
     return "general"
 
 def safe_yield(record, fields):
+    """חולץ ערכים ומוודא שהם באמת מספרים ולא מחרוזות ריקות"""
     for f in fields:
         v = record.get(f)
         if v is not None and str(v).strip() not in ("", "None", "null", "NaN", "nan"):
@@ -63,51 +52,54 @@ def safe_yield(record, fields):
     return "N/A"
 
 def record_score(rec):
+    """
+    מנוע הניקוד: מחשב 'משקל איכות' לכל רשומה.
+    המטרה: להעדיף רשומות שיש בהן תשואה לשנה ו-3 שנים, כדי למנוע את החורים בטבלאות.
+    """
     score = 0
-    if safe_yield(rec, ["TSUA_5_SHANIM", "TSUA_NOMINALIT_5_SHANIM", "YIELD_TRAILING_5_YRS"]) != "N/A": score += 5
-    if safe_yield(rec, ["TSUA_3_SHANIM", "TSUA_NOMINALIT_3_SHANIM", "YIELD_TRAILING_3_YRS"]) != "N/A": score += 3
-    if safe_yield(rec, ["TSUA_SHANA_ACHARONA", "TSUA_NOMINALIT_SHANA_ACHARONA", "YIELD_TRAILING_12_MONTHS", "YIELD_TRAILING_1_YR"]) != "N/A": score += 1
+    if safe_yield(rec, ["TSUA_5_SHANIM", "TSUA_NOMINALIT_5_SHANIM", "YIELD_TRAILING_5_YRS"]) != "N/A": score += 1000
+    if safe_yield(rec, ["TSUA_3_SHANIM", "TSUA_NOMINALIT_3_SHANIM", "YIELD_TRAILING_3_YRS"]) != "N/A": score += 100
+    # יישום ההערה שלך: התמקדות בשדות 'שנה' מכל סוג אפשרי
+    if safe_yield(rec, ["TSUA_SHANA_ACHARONA", "TSUA_NOMINALIT_SHANA_ACHARONA", "YIELD_TRAILING_1_YR", "YIELD_TRAILING_12_MONTHS", "TSUA_12_HODASHIM"]) != "N/A": score += 10
+    if safe_yield(rec, ["TSUA_MITCHILAT_SHANA", "TSUA_NOMINALIT_MITCHILAT_SHANA", "YEAR_TO_DATE_YIELD", "TSUA_MITHILAT_SHANA"]) != "N/A": score += 1
     return score
 
 def fetch_all_safe():
+    """מוריד מסה קריטית של שורות בפעימה אחת כדי לאסוף את כל חודשי הגיבוי למקרה של חורים"""
     market_data = {}
     for res_key, res_id in RESOURCES.items():
-        log.info(f"Downloading data via secure session for {res_key}...")
-        for offset in [0, 5000, 10000, 15000, 20000]:
-            params = {
-                "resource_id": res_id,
-                "limit": 5000,
-                "offset": offset,
-                "sort": "REPORT_PERIOD desc"
-            }
-            try:
-                # שימוש ב-session המאובטח שיצרנו במקום ב-requests הרגיל
-                resp = session.get(BASE_URL, params=params, timeout=30)
-                if resp.status_code == 200:
-                    records = resp.json().get("result", {}).get("records", [])
-                    for rec in records:
-                        fid = str(rec.get("FUND_ID", ""))
-                        if not fid: continue
-                        y1 = safe_yield(rec, ["TSUA_SHANA_ACHARONA", "TSUA_NOMINALIT_SHANA_ACHARONA", "YIELD_TRAILING_12_MONTHS", "YIELD_TRAILING_1_YR"])
-                        if y1 == "N/A": continue 
-                        
-                        if fid not in market_data:
-                            rec["_res_key"] = res_key
-                            market_data[fid] = rec
+        log.info(f"שואב נתונים בטוחים (Single Request) ממשאב: {res_key}")
+        params = {
+            "resource_id": res_id,
+            "limit": 15000, 
+            "sort": "REPORT_PERIOD desc"
+        }
+        try:
+            resp = requests.get(BASE_URL, params=params, timeout=30)
+            if resp.status_code == 200:
+                records = resp.json().get("result", {}).get("records", [])
+                for rec in records:
+                    fid = str(rec.get("FUND_ID", ""))
+                    if not fid: continue
                     
-                    if len(records) < 5000: break
-                else: 
-                    log.warning(f"Gov API returned unexpected status code: {resp.status_code}")
-                    break
-            except Exception as e:
-                log.error(f"Chunk timeout/error at offset {offset}: {e}")
-                break
-            time.sleep(1) # השהייה מכבדת של שניה שלמה כדי לא לעורר את חומת האש
+                    rec["_res_key"] = res_key
+                    # אם הקופה כבר קיימת בזיכרון - נבדוק מי מלאה יותר (לפי הציון)
+                    if fid not in market_data:
+                        market_data[fid] = rec
+                    else:
+                        if record_score(rec) > record_score(market_data[fid]):
+                            market_data[fid] = rec
+            else:
+                log.error(f"השרת הממשלתי סירב לבקשה במשאב {res_key}. קוד: {resp.status_code}")
+        except Exception as e:
+            log.error(f"שגיאת תקשורת חמורה במשאב {res_key}: {e}")
+        time.sleep(1) # חובת השהייה קלה בין מאגר למאגר
     return market_data
 
 def build():
     market_data = fetch_all_safe()
     matrix = []
+    
     for p_key, p_info in PRODUCTS.items():
         p_node = {"id": p_key, "title": p_info["title"], "tracks": []}
         track_map = {t_key: {full_name: None for full_name in COMPANY_MAP.values()} for t_key in TRACKS}
@@ -129,6 +121,7 @@ def build():
                 
             t_key = classify(fname, fclass)
             
+            # אם מצאנו כמה קופות של אותה חברה באותו מסלול - נבחר את הטובה/וותיקה מביניהן
             current_best = track_map[t_key].get(display_company)
             if current_best is None or record_score(rec) > record_score(current_best):
                 track_map[t_key][display_company] = rec
@@ -138,8 +131,8 @@ def build():
             for display_name in COMPANY_MAP.values():
                 rec = track_map[t_key].get(display_name)
                 if rec:
-                    ytd = safe_yield(rec, ["TSUA_MITCHILAT_SHANA", "TSUA_NOMINALIT_MITCHILAT_SHANA", "YEAR_TO_DATE_YIELD"])
-                    y1 = safe_yield(rec, ["TSUA_SHANA_ACHARONA", "TSUA_NOMINALIT_SHANA_ACHARONA", "YIELD_TRAILING_12_MONTHS", "YIELD_TRAILING_1_YR"])
+                    ytd = safe_yield(rec, ["TSUA_MITCHILAT_SHANA", "TSUA_NOMINALIT_MITCHILAT_SHANA", "YEAR_TO_DATE_YIELD", "TSUA_MITHILAT_SHANA"])
+                    y1 = safe_yield(rec, ["TSUA_SHANA_ACHARONA", "TSUA_NOMINALIT_SHANA_ACHARONA", "YIELD_TRAILING_1_YR", "YIELD_TRAILING_12_MONTHS", "TSUA_12_HODASHIM"])
                     y3 = safe_yield(rec, ["TSUA_3_SHANIM", "TSUA_NOMINALIT_3_SHANIM", "YIELD_TRAILING_3_YRS"])
                     y5 = safe_yield(rec, ["TSUA_5_SHANIM", "TSUA_NOMINALIT_5_SHANIM", "YIELD_TRAILING_5_YRS"])
                     
@@ -162,15 +155,16 @@ def build():
     return matrix
 
 if __name__ == "__main__":
-    log.info("Starting safe extraction protocol with Stealth Mode...")
+    log.info("מתחיל ריצת ייצור (Production Run) חסינה וסופית...")
     data = build()
     
+    # חומת אש הרמטית: אם הטבלה ריקה, אנחנו מבטלים הכל כדי לשמור על האתר שלך בטוח
     valid_funds_count = sum(1 for p in data for t in p["tracks"] for f in t["funds"] if f["id"] is not None)
     
-    if valid_funds_count < 10:
-        log.error(f"FATAL ERROR: Only found {valid_funds_count} valid funds. Govt API blocked request. Aborting to protect JSON.")
+    if valid_funds_count < 15:
+        log.error(f"שגיאה קריטית: השרת הממשלתי החזיר נתונים ריקים (נמצאו רק {valid_funds_count} קופות). מבטל שמירה כדי להגן על האתר.")
         exit(1)
         
     with open("funds_data.json", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
-    log.info(f"Success! Matrix built with {valid_funds_count} active funds.")
+    log.info(f"הצלחה מוחלטת! המטריצה נבנתה ונשמרה עם {valid_funds_count} קופות אמת מלאות.")
