@@ -38,7 +38,6 @@ TRACKS = {
 }
 
 def extract_yield(rec, keywords):
-    """חיפוש חכם של תשואות - עובר על כל עמודות הרשומה ומחפש מילות מפתח"""
     for k, v in rec.items():
         if any(key in str(k).upper() for key in keywords):
             if v is not None and str(v).strip() not in ("", "None", "null", "NaN", "nan", "-"):
@@ -47,17 +46,35 @@ def extract_yield(rec, keywords):
     return "N/A"
 
 def classify(name, classification):
-    """מסנן רעשים קפדני (ילדים, מרכזית) וזיהוי מסלול כולל שיבושים (s1p)"""
-    t = (str(name) + " " + str(classification)).lower().replace(" ", "").replace(";", "")
-    if any(x in t for x in ["ילד", "ילדים", "פיצויים", "מטרה", "בטוחה", "מרכזית", "אישי"]): return None
+    """מנוע סיווג כירורגי שמונע זליגת קופות מעורבות למסלולים טהורים"""
+    t = (str(name) + " " + str(classification)).lower().replace(" ", "").replace(";", "").replace("-", "")
     
-    if any(x in t for x in ["s&p", "500", "p500", "sp500", "אסאנדפי", "s1p"]): return "sp500"
-    if any(x in t for x in ["מניות", "מנייתי", "equity", "אקוויטי"]): return "equity"
-    if any(x in t for x in ["אג\"ח", "אגח", "שקלי", "אגרותחוב", "כספית", "סולידי", "ממשלתי"]): return "solid"
+    # 1. חסימת מילות רעש
+    if any(x in t for x in ["ילד", "פיצויים", "מטרה", "בטוחה", "מרכזית", "אישי", "מבטיחת", "הלכה", "שריעה"]): 
+        return None
+
+    # 2. S&P 500
+    if any(x in t for x in ["s&p", "500", "p500", "sp500", "אסאנדפי", "s1p"]): 
+        return "sp500"
+
+    # 3. מנייתי טהור (חובה: מניות. אסור: אג"ח, אשראי, "עד X%")
+    if any(x in t for x in ["מניות", "מנייתי", "equity", "אקוויטי"]):
+        if any(x in t for x in ["אגח", "אשראי", "עד25", "עד10", "עד15", "עד20", "שקלי"]):
+            pass # נפסל ממנייתי טהור
+        else:
+            return "equity"
+
+    # 4. אג"ח / סולידי טהור (חובה: אג"ח/שקלי. אסור: מניות)
+    if any(x in t for x in ["אגח", "שקלי", "אגרותחוב", "כספית", "סולידי", "ממשלתי"]):
+        if any(x in t for x in ["מניות", "מנייתי", "equity"]):
+            pass # נפסל מסולידי
+        else:
+            return "solid"
+
+    # 5. ברירת מחדל
     return "general"
 
 def fetch_all():
-    """מוריד 15,000 שורות במכה אחת עם זהות בדויה כדי לא לחטוף Timeout מהאוצר"""
     session = requests.Session()
     retry = Retry(total=5, backoff_factor=1, status_forcelist=[403, 429, 500, 502, 503, 504])
     session.mount("https://", HTTPAdapter(max_retries=retry))
@@ -65,7 +82,7 @@ def fetch_all():
     
     market_data = []
     for res_key, res_id in RESOURCES.items():
-        log.info(f"שואב את מאגר {res_key}...")
+        log.info(f"שואב נתונים ממאגר: {res_key}")
         params = {"resource_id": res_id, "limit": 15000, "sort": "REPORT_PERIOD desc"}
         try:
             resp = session.get(BASE_URL, params=params, timeout=30)
@@ -75,12 +92,11 @@ def fetch_all():
                     r["_res_key"] = res_key
                     market_data.append(r)
         except Exception as e:
-            log.error(f"שגיאה בשאיבת {res_key}: {e}")
+            log.error(f"שגיאה במאגר {res_key}: {e}")
         time.sleep(1)
     return market_data
 
 def score(rec):
-    """נותן ציון לקופה: רשומות מלאות ינצחו רשומות חלקיות ("חודשי רפאים")"""
     s = 0
     if extract_yield(rec, ["5_SHANIM", "5_YRS"]) != "N/A": s += 100
     if extract_yield(rec, ["3_SHANIM", "3_YRS"]) != "N/A": s += 10
@@ -98,14 +114,15 @@ def build():
         for rec in market_data:
             if rec.get("_res_key") != p_info["res"]: continue
             
-            # זיהוי חברה אלטימטיבי: סורק את כל הערכים בשורה למציאת השם!
-            row_str = " ".join(str(v) for v in rec.values())
-            matched_root = next((root for root in COMPANY_MAP if root in row_str), None)
+            # התיקון הקריטי: מחפשים את החברה רק בעמודות של שמות התאגיד המנהל!
+            comp_fields = ["MANAGING_CORPORATION", "PARENT_COMPANY_NAME", "COMPANY_NAME"]
+            comp_name_raw = " ".join(str(rec.get(k, "")) for k in comp_fields)
+            matched_root = next((root for root in COMPANY_MAP if root in comp_name_raw), None)
             if not matched_root: continue
             display_company = COMPANY_MAP[matched_root]
             
-            fname = rec.get("FUND_NAME", "")
-            fclass = rec.get("FUND_CLASSIFICATION", "")
+            fname = str(rec.get("FUND_NAME", ""))
+            fclass = str(rec.get("FUND_CLASSIFICATION", ""))
             
             if p_info["key"] and p_info["key"] not in fname and p_info["key"] not in fclass: continue
                 
@@ -143,15 +160,14 @@ def build():
     return matrix
 
 if __name__ == "__main__":
-    log.info("מתחיל ריצת ייצור חסינה...")
+    log.info("מתחיל ריצה עם סינון מתקדם וכירורגי...")
     data = build()
     valid_count = sum(1 for p in data for t in p["tracks"] for f in t["funds"] if f["id"])
     
     if valid_count < 10:
-        log.error("שגיאה: התקבלו פחות מ-10 קופות מהאוצר. עוצר שמירה להגנת האתר.")
+        log.error("שגיאה: התקבלו פחות מ-10 קופות. עוצר שמירה להגנת המערכת.")
         sys.exit(1)
         
-    # התיקון הקריטי! כותב את המידע כמערך [] ולא כאובייקט כדי שהאתר שלך לא יקרוס
     with open("funds_data.json", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
         
