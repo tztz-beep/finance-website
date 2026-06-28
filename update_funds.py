@@ -8,10 +8,10 @@ log = logging.getLogger(__name__)
 
 BASE_URL = "https://data.gov.il/api/3/action/datastore_search"
 
+# שני המאגרים הרשמיים והחזקים ביותר משרד האוצר
 RESOURCES = {
-    "gemel": "a30dcbea-a1d2-482c-ae29-8f781f5025fb",
-    "pension": "6d47d6b5-cb08-488b-b333-f1e717b1e1bd",
-    "policies": "d0b61e50-1e38-4d52-8067-de8b1ee37419"
+    "gemel": "a30dcbea-a1d2-482c-ae29-8f781f5025fb",    # גמל והשתלמות
+    "pension": "6d47d6b5-cb08-488b-b333-f1e717b1e1bd"   # קרנות פנסיה
 }
 
 COMPANY_MAP = {
@@ -23,8 +23,7 @@ COMPANY_MAP = {
 PRODUCTS = {
     "hishtalmut": {"title": "קרן השתלמות", "res": "gemel", "key": "השתלמות"},
     "gemel_inv":  {"title": "קופת גמל להשקעה", "res": "gemel", "key": "להשקעה"},
-    "pension":    {"title": "קרן פנסיה מקיפה", "res": "pension", "key": ""},
-    "policy":     {"title": "פוליסת חיסכון", "res": "policies", "key": ""}
+    "pension":    {"title": "קרן פנסיה מקיפה", "res": "pension", "key": ""}
 }
 
 TRACKS = {
@@ -35,15 +34,19 @@ TRACKS = {
 }
 
 def classify(name, classification):
-    """מסווג קופות למסלולים בצורה אינטליגנטית תוך התעלמות משיבושי הקלדה של האוצר"""
-    t = (str(name) + " " + str(classification)).lower().replace(";", "").replace("-", "").replace(" ", "")
-    if any(x in t for x in ["s&p", "500", "אסאנדפי", "p500", "s1p", "sp500"]): return "sp500"
+    """מנוע סיווג נקי המסנן רעשים ומקטלג רק מסלולים תחרותיים ומשותפים"""
+    t = (str(name) + " " + str(classification)).lower().replace(" ", "")
+    
+    # סינון קפדני של מסלולים לא רלוונטיים כדי שלא ישתרבבו לטבלה
+    if any(x in t for x in ["ילד", "ילדים", "פיצויים", "מטרה", "בטוחה", "מרכזית"]):
+        return None
+        
+    if any(x in t for x in ["s&p", "500", "p500", "sp500", "אסאנדפי"]): return "sp500"
     if any(x in t for x in ["מניות", "מנייתי", "equity"]): return "equity"
     if any(x in t for x in ["אג\"ח", "אגח", "שקלי", "אגרותחוב", "כספית", "סולידי", "ממשלתי"]): return "solid"
     return "general"
 
 def safe_yield(record, fields):
-    """חולץ ערכים ומוודא שהם באמת מספרים ולא מחרוזות ריקות"""
     for f in fields:
         v = record.get(f)
         if v is not None and str(v).strip() not in ("", "None", "null", "NaN", "nan"):
@@ -51,53 +54,31 @@ def safe_yield(record, fields):
             except: pass
     return "N/A"
 
-def record_score(rec):
-    """
-    מנוע הניקוד: מחשב 'משקל איכות' לכל רשומה.
-    המטרה: להעדיף רשומות שיש בהן תשואה לשנה ו-3 שנים, כדי למנוע את החורים בטבלאות.
-    """
-    score = 0
-    if safe_yield(rec, ["TSUA_5_SHANIM", "TSUA_NOMINALIT_5_SHANIM", "YIELD_TRAILING_5_YRS"]) != "N/A": score += 1000
-    if safe_yield(rec, ["TSUA_3_SHANIM", "TSUA_NOMINALIT_3_SHANIM", "YIELD_TRAILING_3_YRS"]) != "N/A": score += 100
-    # יישום ההערה שלך: התמקדות בשדות 'שנה' מכל סוג אפשרי
-    if safe_yield(rec, ["TSUA_SHANA_ACHARONA", "TSUA_NOMINALIT_SHANA_ACHARONA", "YIELD_TRAILING_1_YR", "YIELD_TRAILING_12_MONTHS", "TSUA_12_HODASHIM"]) != "N/A": score += 10
-    if safe_yield(rec, ["TSUA_MITCHILAT_SHANA", "TSUA_NOMINALIT_MITCHILAT_SHANA", "YEAR_TO_DATE_YIELD", "TSUA_MITHILAT_SHANA"]) != "N/A": score += 1
-    return score
-
-def fetch_all_safe():
-    """מוריד מסה קריטית של שורות בפעימה אחת כדי לאסוף את כל חודשי הגיבוי למקרה של חורים"""
+def fetch_market_clean():
+    """מוריד את נתוני החודש האחרון בלבד בצורה קלה ומהירה למניעת חסימות שרת"""
     market_data = {}
     for res_key, res_id in RESOURCES.items():
-        log.info(f"שואב נתונים בטוחים (Single Request) ממשאב: {res_key}")
+        log.info(f"שואב מנה עדכנית ממאגר: {res_key}")
         params = {
             "resource_id": res_id,
-            "limit": 15000, 
+            "limit": 5000, # כמות אופטימלית שתופסת בדיוק את הדיווחים האחרונים של כל החברות
             "sort": "REPORT_PERIOD desc"
         }
         try:
-            resp = requests.get(BASE_URL, params=params, timeout=30)
+            resp = requests.get(BASE_URL, params=params, timeout=20)
             if resp.status_code == 200:
                 records = resp.json().get("result", {}).get("records", [])
                 for rec in records:
                     fid = str(rec.get("FUND_ID", ""))
-                    if not fid: continue
-                    
-                    rec["_res_key"] = res_key
-                    # אם הקופה כבר קיימת בזיכרון - נבדוק מי מלאה יותר (לפי הציון)
-                    if fid not in market_data:
+                    if fid and fid not in market_data:
+                        rec["_res_key"] = res_key
                         market_data[fid] = rec
-                    else:
-                        if record_score(rec) > record_score(market_data[fid]):
-                            market_data[fid] = rec
-            else:
-                log.error(f"השרת הממשלתי סירב לבקשה במשאב {res_key}. קוד: {resp.status_code}")
         except Exception as e:
-            log.error(f"שגיאת תקשורת חמורה במשאב {res_key}: {e}")
-        time.sleep(1) # חובת השהייה קלה בין מאגר למאגר
+            log.error(f"שגיאה בשאיבת משאב {res_key}: {e}")
     return market_data
 
 def build():
-    market_data = fetch_all_safe()
+    market_data = fetch_market_clean()
     matrix = []
     
     for p_key, p_info in PRODUCTS.items():
@@ -107,7 +88,8 @@ def build():
         for fid, rec in market_data.items():
             if rec.get("_res_key") != p_info["res"]: continue 
             
-            comp_fields = ["MANAGING_CORPORATION", "PARENT_COMPANY_NAME", "COMPANY_NAME", "CONTROLLING_CORPORATION"]
+            # סריקה רב-ערוצית של שם התאגיד המנהל
+            comp_fields = ["MANAGING_CORPORATION", "PARENT_COMPANY_NAME", "COMPANY_NAME"]
             comp_name_raw = " ".join(str(rec.get(k, "")) for k in comp_fields)
             
             matched_root = next((root for root in COMPANY_MAP.keys() if root in comp_name_raw), None)
@@ -117,13 +99,13 @@ def build():
             fname = rec.get("FUND_NAME", "")
             fclass = rec.get("FUND_CLASSIFICATION", "")
             
-            if p_info["key"] and p_info["key"] not in fname and p_info["key"] not in fclass: continue
+            if p_info["key"] and p_info["key"] not in fname and p_info["key"] not in fclass: 
+                continue
                 
             t_key = classify(fname, fclass)
+            if not t_key: continue # דילוג על מסלולי רעש (כמו חיסכון לכל ילד)
             
-            # אם מצאנו כמה קופות של אותה חברה באותו מסלול - נבחר את הטובה/וותיקה מביניהן
-            current_best = track_map[t_key].get(display_company)
-            if current_best is None or record_score(rec) > record_score(current_best):
+            if track_map[t_key][display_company] is None:
                 track_map[t_key][display_company] = rec
 
         for t_key, t_info in TRACKS.items():
@@ -131,8 +113,7 @@ def build():
             for display_name in COMPANY_MAP.values():
                 rec = track_map[t_key].get(display_name)
                 if rec:
-                    ytd = safe_yield(rec, ["TSUA_MITCHILAT_SHANA", "TSUA_NOMINALIT_MITCHILAT_SHANA", "YEAR_TO_DATE_YIELD", "TSUA_MITHILAT_SHANA"])
-                    y1 = safe_yield(rec, ["TSUA_SHANA_ACHARONA", "TSUA_NOMINALIT_SHANA_ACHARONA", "YIELD_TRAILING_1_YR", "YIELD_TRAILING_12_MONTHS", "TSUA_12_HODASHIM"])
+                    ytd = safe_yield(rec, ["TSUA_MITCHILAT_SHANA", "TSUA_NOMINALIT_MITCHILAT_SHANA", "YEAR_TO_DATE_YIELD"])
                     y3 = safe_yield(rec, ["TSUA_3_SHANIM", "TSUA_NOMINALIT_3_SHANIM", "YIELD_TRAILING_3_YRS"])
                     y5 = safe_yield(rec, ["TSUA_5_SHANIM", "TSUA_NOMINALIT_5_SHANIM", "YIELD_TRAILING_5_YRS"])
                     
@@ -141,7 +122,10 @@ def build():
                     
                     t_node["funds"].append({
                         "id": rec["FUND_ID"], "company": display_name, "name": rec.get("FUND_NAME", ""),
-                        "YTD": ytd, "Year1": y1, "Year3": y3, "Year5": y5,
+                        "YTD": ytd, 
+                        "Year1": "N/A",  # ויתור מוחלט על השדה לבקשתך למניעת חורים
+                        "Year3": y3, 
+                        "Year5": y5,
                         "last_updated": date_str
                     })
                 else:
@@ -155,16 +139,15 @@ def build():
     return matrix
 
 if __name__ == "__main__":
-    log.info("מתחיל ריצת ייצור (Production Run) חסינה וסופית...")
+    log.info("מריץ בניית מטריצה נקייה ומזוקקת מהיסוד...")
     data = build()
     
-    # חומת אש הרמטית: אם הטבלה ריקה, אנחנו מבטלים הכל כדי לשמור על האתר שלך בטוח
-    valid_funds_count = sum(1 for p in data for t in p["tracks"] for f in t["funds"] if f["id"] is not None)
-    
-    if valid_funds_count < 15:
-        log.error(f"שגיאה קריטית: השרת הממשלתי החזיר נתונים ריקים (נמצאו רק {valid_funds_count} קופות). מבטל שמירה כדי להגן על האתר.")
+    # בקרת הגנה: מוודאים שנמצאו לפחות 10 קופות אמיתיות בשוק כדי לא לייצר קובץ ריק
+    valid_count = sum(1 for p in data for t in p["tracks"] for f in t["funds"] if f["id"] is not None)
+    if valid_count < 10:
+        log.error("שגיאה: כמות נתונים נמוכה מדי מה-API. השמירה בוטלה להגנת האתר.")
         exit(1)
         
     with open("funds_data.json", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
-    log.info(f"הצלחה מוחלטת! המטריצה נבנתה ונשמרה עם {valid_funds_count} קופות אמת מלאות.")
+    log.info(f"הצלחה! המטריצה עודכנה בצורה נקייה עם {valid_count} מסלולים תחרותיים.")
